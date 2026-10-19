@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Danza Zerocento, danza e pattinaggio sul ghiaccio a Rovereto</title>
+<meta name="description" content="Calzature, abbigliamento e accessori per la danza e il pattinaggio sul ghiaccio. Via Santa Maria 78, Rovereto.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231c1420'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23fff' text-anchor='middle'%3EZ%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/pattini-jackson.jpg" fetchpriority="high">
+<style>
+:root{
+  --ink:#1c1420;
+  --ink-2:#3a2f3d;
+  --muted:#5b5160;
+  --rose:#b0125e;
+  --rose-dark:#8c0c4a;
+  --ice:#eef4f7;
+  --line:#dfe6ea;
+  --white:#fff;
+  --display:"Bodoni 72","Didot","Bodoni MT","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --text:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(0.25,1,0.5,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--ink);font:400 1.0625rem/1.6 var(--text)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,6vw,3.25rem);letter-spacing:-.01em}
+h3{font-size:1.6rem}
+p{margin:0 0 1em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+.proto{background:var(--ink);color:#f3edf4;font-size:.8125rem;text-align:center;padding:7px 16px;line-height:1.4}
+
+header.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.brand{font-family:var(--display);font-size:1.45rem;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--rose)}
+.top nav{display:flex;gap:6px}
+.top nav a{font-size:.9375rem;text-decoration:none;padding:10px 10px;border-radius:8px;color:var(--ink-2)}
+.top nav a:hover{background:var(--ice)}
+@media (max-width:640px){.top nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:600 1rem/1 var(--text);text-decoration:none;border:2px solid transparent;transition:background-color .2s var(--ease),transform .12s var(--ease),border-color .2s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-rose{background:var(--rose);color:#fff}
+.btn-rose:hover{background:var(--rose-dark)}
+.btn-light{background:#fff;color:var(--ink);border-color:#fff}
+.btn-light:hover{background:var(--ice);border-color:var(--ice)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+
+.hero{position:relative;color:#fff;background:var(--ink);overflow:hidden}
+.hero .ph{position:absolute;inset:0}
+.hero .ph img{width:100%;height:100%;object-fit:cover;object-position:60% 50%;animation:breathe 24s var(--ease) infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,20,32,.15) 0%,rgba(28,20,32,.55) 45%,rgba(28,20,32,.92) 100%)}
+.hero .wrap{position:relative;z-index:1;min-height:min(88vh,760px);display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:44px;padding-top:120px}
+.hero h1{font-size:clamp(3rem,13vw,6rem);letter-spacing:-.02em;margin-bottom:14px}
+.hero .lead{font-size:clamp(1.125rem,3.6vw,1.375rem);max-width:34ch;margin-bottom:8px;color:#fff}
+.hero .motto{font-family:var(--display);font-style:italic;font-size:1.2rem;color:#f6dbe8;margin-bottom:26px;max-width:34ch}
+@keyframes breathe{from{transform:scale(1)}to{transform:scale(1.08)}}
+
+section{padding:72px 0}
+.ice{background:var(--ice)}
+
+.storia{display:grid;gap:28px;align-items:center}
+.storia .txt p{font-size:1.125rem;max-width:60ch}
+.storia figure{margin:0;justify-self:start}
+.storia figure img{width:200px;height:auto;border-radius:6px}
+.storia figcaption{font-size:.875rem;color:var(--muted);margin-top:8px}
+.anni{display:flex;gap:28px;margin-top:22px;flex-wrap:wrap}
+.anni div{border-top:2px solid var(--rose);padding-top:8px;min-width:140px}
+.anni b{display:block;font-family:var(--display);font-size:2.25rem;font-weight:400;line-height:1}
+.anni span{font-size:.9375rem;color:var(--muted)}
+@media (min-width:820px){.storia{grid-template-columns:1.4fr 1fr}.storia figure{justify-self:end}.storia figure img{width:260px}}
+
+.reparti h2{margin-bottom:10px}
+.reparti .intro{color:var(--muted);max-width:52ch;margin-bottom:40px}
+.rep{display:grid;gap:22px;align-items:center;padding:28px 0;border-top:1px solid var(--line)}
+.rep:last-child{border-bottom:1px solid var(--line)}
+.rep figure{margin:0;border-radius:8px;overflow:hidden;background:var(--ice)}
+.rep figure img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .6s var(--ease)}
+.rep:hover figure img{transform:scale(1.03)}
+.rep .quote{font-family:var(--display);font-style:italic;font-size:1.25rem;color:var(--rose);margin:6px 0 14px}
+.rep ul{margin:0;padding:0;list-style:none}
+.rep li{padding:7px 0 7px 22px;position:relative;border-bottom:1px dashed var(--line)}
+.rep li:last-child{border-bottom:0}
+.rep li::before{content:"";position:absolute;left:2px;top:1.05em;width:9px;height:9px;border-radius:50%;border:2px solid var(--rose)}
+@media (min-width:820px){
+  .rep{grid-template-columns:1fr 1fr;gap:48px;padding:44px 0}
+  .rep:nth-child(even) figure{order:2}
+  .rep.alto figure img{aspect-ratio:3/4;max-height:560px}
+}
+
+.orari{display:grid;gap:36px}
+.tab{background:#fff;border-radius:8px;border:1px solid var(--line);padding:6px 20px}
+.riga{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.riga:last-child{border-bottom:0}
+.riga b{font-weight:600}
+.riga span{text-align:right;color:var(--ink-2);white-space:nowrap}
+.nota{color:var(--muted);font-size:.9375rem;margin-top:14px}
+@media (min-width:820px){.orari{grid-template-columns:1fr 1fr;align-items:start}}
+
+.dove p{font-size:1.125rem}
+.dove .ind{font-family:var(--display);font-size:1.75rem;line-height:1.25;margin:14px 0 22px}
+
+.contatti{background:var(--ink);color:#fff}
+.contatti h2{margin-bottom:14px}
+.contatti p{color:#e9e1eb;max-width:46ch}
+.nap{margin:26px 0 30px;display:grid;gap:6px;font-size:1.0625rem}
+.nap a{color:#fff;text-underline-offset:3px}
+.contatti .btns{margin-top:6px}
+
+footer{background:#140e17;color:#cfc4d2;font-size:.875rem;padding:26px 0 90px}
+footer p{margin:0 0 6px}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line)}
+.barra .btn{flex:1;padding:0 12px}
+@media (min-width:820px){.barra{display:none}footer{padding-bottom:26px}}
+
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="proto">Prototipo gratuito preparato da Stefano Pontalti per Danza Zerocento</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">Danza <span>Zerocento</span></a>
+    <nav aria-label="Sezioni">
+      <a href="#reparti">Cosa trovate</a>
+      <a href="#orari">Orari</a>
+      <a href="#dove">Dove siamo</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding:0">
+  <div class="ph"><img src="assets/pattini-jackson.jpg" alt="Pattini da ghiaccio Jackson bianchi e neri in negozio" width="1600" height="982" fetchpriority="high"></div>
+  <div class="wrap">
+    <h1>Danza Zerocento</h1>
+    <p class="lead">Calzature, abbigliamento e accessori per la danza e il pattinaggio sul ghiaccio, a Rovereto.</p>
+    <p class="motto">Dedicato a tutti quelli che vogliono realizzare il loro sogno.</p>
+    <div class="btns">
+      <a class="btn btn-rose" href="tel:+393385374267"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama</a>
+      <a class="btn btn-light" href="https://wa.me/393385374267"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2m4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3"/></svg>WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap storia">
+    <div class="txt">
+      <h2>Danza e pattinaggio, dal 2007</h2>
+      <p style="margin-top:18px">Dal 2007 Danza Zerocento è un punto di riferimento per la danza, femminile e maschile, in Trentino e in Alto Adige.</p>
+      <p>Dal 2017 lo è anche per il pattinaggio sul ghiaccio, sia per chi pattina per passione sia per chi si avvicina alla carriera professionale. Accanto alle calzature trovate una scelta tecnica di abbigliamento e accessori.</p>
+      <div class="anni">
+        <div><b>2007</b><span>la danza</span></div>
+        <div><b>2017</b><span>il pattinaggio sul ghiaccio</span></div>
+      </div>
+    </div>
+    <figure>
+      <img src="assets/negozio-tutu.jpg" alt="Il negozio con il tutù in vetrina e le scarpette sugli scaffali" width="266" height="250" loading="lazy">
+      <figcaption>Il negozio</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="reparti" id="reparti">
+  <div class="wrap">
+    <h2>Cosa trovate</h2>
+    <p class="intro">Tre reparti, per chi inizia e per chi gareggia. Per la disponibilità degli articoli basta una telefonata in orario di negozio.</p>
+
+    <article class="rep">
+      <figure><img src="assets/pattini-scaffale.jpg" alt="Pattini da ghiaccio bianchi e neri sullo scaffale" width="1600" height="1200" loading="lazy"></figure>
+      <div>
+        <h3>Pattini da ghiaccio</h3>
+        <p class="quote">Il giusto equilibrio tra confort e sicurezza.</p>
+        <ul>
+          <li>Modelli già assemblati, stivale e lama Jackson Ultima</li>
+          <li>Per principianti e amatori, con supporto light</li>
+          <li>Per il livello intermedio e avanzato, supporto moderate in due gradazioni</li>
+          <li>Modelli professionali con supporto forte, su ordinazione</li>
+          <li>Su ordinazione stivali con diversi livelli di supporto e calzate, anche a taglio basso, e lame Matrix e Ultima in tutte le misure</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="rep alto">
+      <figure><img src="assets/abito-gara.jpg" alt="Abito da gara nero con strass sul manichino" width="675" height="1200" loading="lazy"></figure>
+      <div>
+        <h3>Abbigliamento</h3>
+        <p class="quote">Il giusto equilibrio tra tecnico e chic.</p>
+        <ul>
+          <li>Legging, pantaloni e giacche termiche da allenamento</li>
+          <li>Body, sottobody, vestitini, scaldacuore, gonnellini</li>
+          <li>Capi da gara personalizzati, su vostro disegno o su nostra proposta</li>
+          <li>Collant 80 den con piede e sopra pattino, con staffa, e collant termici senza piede</li>
+          <li>Taglie dai 4 anni alla XL donna</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="rep">
+      <figure><img src="assets/borsa-salvalama.jpg" alt="Borsa porta pattini Jackson, salvalama rosa e un pattino" width="1280" height="897" loading="lazy"></figure>
+      <div>
+        <h3>Accessori</h3>
+        <p class="quote">Tutto quello che non pensi di trovare.</p>
+        <ul>
+          <li>Salvalama glitter, trasparenti, in gel, profumati, termocolor</li>
+          <li>Asciugalama in spugna</li>
+          <li>Lacci piattine e tubolari da 240 e 320 cm, bianchi, avorio, neri, colorati, con strass, filo oro e argento</li>
+          <li>Sottopiedi Matrix Footbed e Foam</li>
+          <li>Borse, zaini porta pattini e trolley</li>
+          <li>Accessori per capelli, tutto per lo chignon</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="ice" id="orari">
+  <div class="wrap orari">
+    <div>
+      <h2>Orari</h2>
+      <p style="margin-top:16px">Da settembre a giugno, orario continuato. Per un appuntamento basta telefonare al negozio.</p>
+    </div>
+    <div>
+      <div class="tab">
+        <div class="riga"><b>Martedì, mercoledì, giovedì, venerdì</b><span>11 - 19</span></div>
+        <div class="riga"><b>Lunedì pomeriggio</b><span>su appuntamento</span></div>
+        <div class="riga"><b>Sabato e altri orari</b><span>su appuntamento</span></div>
+        <div class="riga"><b>Luglio e agosto</b><span>su appuntamento</span></div>
+      </div>
+      <p class="nota">Se venite da fuori Rovereto, e nel periodo estivo, è gradita una telefonata prima di passare.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dove" id="dove">
+  <div class="wrap">
+    <h2>Dove siamo</h2>
+    <p class="ind">Via Santa Maria 78<br>38068 Rovereto (TN)</p>
+    <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Danza+Zerocento+Via+Santa+Maria+78+Rovereto" target="_blank" rel="noopener">Apri in Google Maps</a>
+  </div>
+</section>
+
+<section class="contatti" id="contatti">
+  <div class="wrap">
+    <h2>Contatti</h2>
+    <p>Per informazioni sugli articoli, sulle misure o per fissare un appuntamento.</p>
+    <div class="nap">
+      <div>Telefono: <a href="tel:+393385374267">338 53 74 267</a></div>
+      <div>Email: <a href="mailto:danzazerocento.tn@gmail.com">danzazerocento.tn@gmail.com</a></div>
+    </div>
+    <div class="btns">
+      <a class="btn btn-rose" href="tel:+393385374267">Chiama</a>
+      <a class="btn btn-light" href="https://wa.me/393385374267">WhatsApp</a>
+      <a class="btn btn-light" href="mailto:danzazerocento.tn@gmail.com">Scrivi una email</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Danza Zerocento · Via Santa Maria 78, 38068 Rovereto (TN) · P.IVA 04218240283</p>
+    <p>Prototipo gratuito preparato da Stefano Pontalti, non ancora pubblicato come sito.</p>
+  </div>
+</footer>
+
+<div class="barra">
+  <a class="btn btn-rose" href="tel:+393385374267">Chiama</a>
+  <a class="btn btn-line" href="https://wa.me/393385374267">WhatsApp</a>
+</div>
+
+</body>
+</html>
