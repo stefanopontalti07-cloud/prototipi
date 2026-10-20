@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[NOME HOTEL] — Contatti e disponibilità</title>
+<meta name="description" content="Verifica la disponibilità a [NOME HOTEL], [ZONA]: form rapido, WhatsApp o telefono. Rispondiamo in giornata, prenotazione diretta senza commissioni.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,340;0,400;1,340&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<header class="header scuro">
+  <div class="header-in">
+    <a class="brand" href="index.html">[NOME HOTEL]<small>[ZONA] · sul lago</small></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Principale">
+      <a href="camere.html">Camere</a>
+      <a href="esperienze.html">Esperienze</a>
+      <a href="posizione.html">Il lago</a>
+      <a href="contatti.html" aria-current="page">Contatti</a>
+      <a class="btn btn--ottone" href="#richiesta">Verifica disponibilità</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero hero--corto">
+  <div class="hero-media">
+    <!-- FOTO STOCK: sostituire con foto vera (reception, dettaglio, terrazza) -->
+    <img src="https://images.unsplash.com/photo-1519449556851-5720b33024e7?q=80&w=1900&auto=format&fit=crop" alt="[NOME HOTEL] la sera" onerror="this.style.display='none'">
+  </div>
+  <div class="hero-in">
+    <p class="eyebrow" style="color:var(--ottone-chiaro)">Contatti</p>
+    <h1>Due date, due righe: <em>al resto pensiamo noi</em></h1>
+    <p class="sottotitolo">Rispondiamo in giornata con disponibilità e miglior prezzo. Diretto conviene: nessuna commissione di mezzo.</p>
+  </div>
+</section>
+
+<section class="sez" id="richiesta">
+  <div class="wrap">
+    <div class="testata-sez reveal">
+      <p class="eyebrow">Richiesta disponibilità</p>
+      <h2 class="titolo-sez">Compila, scegli come <em>inviare</em></h2>
+      <p class="intro-sez">Il modulo prepara il messaggio: lo mandi tu, da WhatsApp o dalla tua email. Niente registrazioni, niente carta di credito.</p>
+    </div>
+    <div class="richiesta">
+      <form id="form-richiesta" class="reveal" novalidate>
+        <div class="form-campi">
+          <div class="campo campo--pieno">
+            <label for="f-nome">Nome e cognome</label>
+            <input id="f-nome" name="nome" type="text" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="f-arrivo">Arrivo</label>
+            <input id="f-arrivo" name="arrivo" type="date" required>
+          </div>
+          <div class="campo">
+            <label for="f-partenza">Partenza</label>
+            <input id="f-partenza" name="partenza" type="date" required>
+          </div>
+          <div class="campo">
+            <label for="f-ospiti">Ospiti</label>
+            <select id="f-ospiti" name="ospiti" required>
+              <option value="2 adulti" selected>2 adulti</option>
+              <option value="1 adulto">1 adulto</option>
+              <option value="2 adulti + 1 bambino">2 adulti + 1 bambino</option>
+              <option value="2 adulti + 2 bambini">2 adulti + 2 bambini</option>
+              <option value="altro (scrivo nelle note)">Altro</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="f-camera">Camera (se hai già scelto)</label>
+            <select id="f-camera" name="camera">
+              <option value="" selected>Consigliateci voi</option>
+              <option value="Vista Lago">Vista Lago</option>
+              <option value="Giardino">Giardino</option>
+              <option value="Suite Famiglia">Suite Famiglia</option>
+            </select>
+          </div>
+          <div class="campo campo--pieno">
+            <label for="f-note">Note (orari, richieste, animali…)</label>
+            <textarea id="f-note" name="note" rows="3"></textarea>
+          </div>
+          <div class="form-azioni">
+            <button type="submit" class="btn btn--pieno" data-invia="whatsapp" data-numero="[TELEFONO]">Invia su WhatsApp</button>
+            <button type="submit" class="btn" data-invia="email" data-email="[EMAIL]">Invia via email</button>
+          </div>
+          <p class="form-nota">Inviando accetti di essere ricontattato per la tua richiesta. Nessuna newsletter, promesso.</p>
+        </div>
+      </form>
+      <div class="contatti-diretti reveal reveal-lento">
+        <p><span class="registro">Telefono / WhatsApp</span><a href="tel:[TELEFONO]">[TELEFONO]</a></p>
+        <p><span class="registro">Email</span><a href="mailto:[EMAIL]">[EMAIL]</a></p>
+        <p><span class="registro">Indirizzo</span>[INDIRIZZO], [CAP] [ZONA] (TN)<br><a href="https://maps.google.com/?q=[INDIRIZZO]" target="_blank" rel="noopener">Apri in Google Maps ↗</a></p>
+        <p><span class="registro">Reception</span>tutti i giorni [ORARIO RECEPTION]</p>
+        <p style="margin-top:1.6rem;font-size:.93rem;color:var(--grafite)">Se preferite la voce: chiamate. Risponde [NOME REFERENTE], non un centralino.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sez sez--carta">
+  <div class="wrap">
+    <div class="testata-sez reveal" style="margin-bottom:0">
+      <p class="eyebrow">Domande frequenti</p>
+      <h2 class="titolo-sez">Le cose che <em>chiedono tutti</em></h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Conviene davvero prenotare diretto?</summary>
+        <p>Sì: stessa camera, prezzo uguale o migliore di Booking, e la camera che scegliete voi — non «una della categoria». In più check-in flessibile e un occhio di riguardo che le piattaforme non prevedono.</p>
+      </details>
+      <details>
+        <summary>Serve la carta di credito per la richiesta?</summary>
+        <p>No. La richiesta non impegna: vi rispondiamo con disponibilità e prezzo, decidete con calma. La conferma si fa poi con un piccolo acconto.</p>
+      </details>
+      <details>
+        <summary>Posso cancellare?</summary>
+        <p>Cancellazione gratuita fino a [GIORNI] giorni dall'arrivo. Dopo, tratteniamo solo l'acconto. Le condizioni esatte arrivano scritte nella conferma.</p>
+      </details>
+      <details>
+        <summary>Accettate animali?</summary>
+        <p>[POLITICA ANIMALI — es. «Cani di piccola taglia benvenuti in camera Giardino, 10 €/notte»].</p>
+      </details>
+      <details>
+        <summary>A che ora posso arrivare?</summary>
+        <p>Check-in dalle 14:00, ma siamo flessibili: se arrivate prima lasciate i bagagli e andate al lago. Basta un messaggio con l'orario.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-in">
+    <div>
+      <a class="brand" href="index.html">[NOME HOTEL]</a>
+      <p style="margin-top:1rem">[INDIRIZZO]<br>[CAP] [ZONA] (TN)</p>
+    </div>
+    <div>
+      <h4>L'hotel</h4>
+      <ul>
+        <li><a href="camere.html">Camere</a></li>
+        <li><a href="esperienze.html">Esperienze</a></li>
+        <li><a href="posizione.html">Il lago</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="tel:[TELEFONO]">[TELEFONO]</a></li>
+        <li><a href="mailto:[EMAIL]">[EMAIL]</a></li>
+        <li><a href="https://maps.google.com/?q=[INDIRIZZO]" target="_blank" rel="noopener">Google Maps ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-legale">
+    <span>© <span data-anno></span> [NOME HOTEL] · P.IVA [PARTITA IVA] · CIN [CIN]</span>
+    <span>Prenotazione diretta, miglior prezzo garantito</span>
+  </div>
+</footer>
+
+<div class="barra-mobile">
+  <a class="btn btn--ottone" href="#richiesta">Disponibilità</a>
+  <a class="btn btn--velo" href="tel:[TELEFONO]">Chiama</a>
+</div>
+
+<script src="app.js?v=2"></script>
+</body>
+</html>

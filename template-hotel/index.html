@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[NOME HOTEL] — Hotel sul lago a [ZONA]</title>
+<meta name="description" content="[NOME HOTEL], hotel sul lago a [ZONA]. Camere con vista, colazione al mattino presto, la riva a pochi passi. Prenota diretto: [TELEFONO].">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,340;0,400;1,340&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+
+<header class="header scuro">
+  <div class="header-in">
+    <a class="brand" href="index.html">[NOME HOTEL]<small>[ZONA] · sul lago</small></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu"><span></span><span></span><span></span></button>
+    <nav class="nav" id="nav" aria-label="Principale">
+      <a href="camere.html">Camere</a>
+      <a href="esperienze.html">Esperienze</a>
+      <a href="posizione.html">Il lago</a>
+      <a href="contatti.html">Contatti</a>
+      <a class="btn btn--ottone" href="contatti.html">Verifica disponibilità</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-media">
+    <!-- HERO VIDEO: generare con automazioni/prodotti/video-demo dalle foto vere
+         → assets/hero.mp4 + assets/hero-poster.jpg. Senza video resta il poster.
+         FOTO STOCK sotto: sostituire con foto vera (lago all'ora blu, terrazza, hotel) -->
+    <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?q=80&w=1900&auto=format&fit=crop" alt="Il lago al tramonto davanti a [NOME HOTEL]" onerror="this.style.display='none'">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg" aria-hidden="true">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-in">
+    <p class="eyebrow" style="color:var(--ottone-chiaro)">Hotel · [ZONA]</p>
+    <h1>La sera in cui il lago <em>si ferma</em></h1>
+    <p class="sottotitolo">Camere con vista acqua, colazione quando il paese ancora dorme, la riva a [DISTANZA LAGO] a piedi. Un hotel di famiglia, dal [ANNO APERTURA].</p>
+    <div class="hero-cta">
+      <a class="btn btn--ottone" href="contatti.html">Verifica disponibilità</a>
+      <a class="btn btn--velo" href="camere.html">Le camere</a>
+    </div>
+    <div class="hero-piede">
+      <span class="registro">[N] camere · vista lago · parcheggio interno</span>
+      <span class="registro">Prenotazione diretta: miglior prezzo garantito</span>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="editoriale reveal">
+    <p>Non c'è animazione, non c'è musica in filodiffusione. C'è il lago che cambia colore dieci volte al giorno, il caffè servito quando lo chiedi e una famiglia che fa questo mestiere da [GENERAZIONI] generazioni.</p>
+    <span class="registro">[FAMIGLIA] — [NOME HOTEL], dal [ANNO APERTURA]</span>
+  </div>
+</section>
+
+<div class="divisore" aria-hidden="true"><div class="orizzonte"><span class="sole"></span></div></div>
+
+<section class="sez sez--carta">
+  <div class="wrap">
+    <div class="testata-sez testata-sez--riga reveal">
+      <div>
+        <p class="eyebrow">Le camere</p>
+        <h2 class="titolo-sez">Ogni finestra, <em>un pezzo di lago</em></h2>
+      </div>
+      <a class="btn" href="camere.html">Tutte le camere</a>
+    </div>
+    <div class="camere-griglia">
+      <!-- FOTO STOCK: sostituire con foto vere delle camere -->
+      <a class="camera-card reveal" href="camere.html">
+        <figure><img loading="lazy" src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=900&auto=format&fit=crop" alt="Camera Vista Lago" onerror="this.style.display='none'"></figure>
+        <div class="camera-card-corpo">
+          <h3>Vista Lago</h3>
+          <p class="registro specs">28 m² · balcone · 2 ospiti</p>
+          <p class="prezzo">da <strong>180 €</strong> / notte</p>
+        </div>
+      </a>
+      <a class="camera-card reveal" href="camere.html">
+        <figure><img loading="lazy" src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=900&auto=format&fit=crop" alt="Camera Giardino" onerror="this.style.display='none'"></figure>
+        <div class="camera-card-corpo">
+          <h3>Giardino</h3>
+          <p class="registro specs">24 m² · terrazza sul verde · 2 ospiti</p>
+          <p class="prezzo">da <strong>140 €</strong> / notte</p>
+        </div>
+      </a>
+      <a class="camera-card reveal" href="camere.html">
+        <figure><img loading="lazy" src="https://images.unsplash.com/photo-1591088398332-8a7791972843?q=80&w=900&auto=format&fit=crop" alt="Suite Famiglia" onerror="this.style.display='none'"></figure>
+        <div class="camera-card-corpo">
+          <h3>Suite Famiglia</h3>
+          <p class="registro specs">42 m² · due ambienti · 4 ospiti</p>
+          <p class="prezzo">da <strong>240 €</strong> / notte</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sez sez--scura su-scuro">
+  <div class="wrap">
+    <header class="testata-sez reveal">
+      <p class="eyebrow">La giornata</p>
+      <h2 class="titolo-sez">Dalla colazione <em>all'ora blu</em></h2>
+    </header>
+    <div class="momento reveal">
+      <div class="momento-foto">
+        <!-- FOTO STOCK: sostituire (colazione vera, terrazza) -->
+        <img loading="lazy" src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?q=80&w=800&auto=format&fit=crop" alt="La colazione in terrazza" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <span class="momento-ora">La mattina</span>
+        <h3>Colazione con l'acqua davanti</h3>
+        <p class="testo">Dolce e salato del territorio, torte fatte la sera prima, il pane del forno di [ZONA]. In terrazza da maggio a settembre, dalle [ORARIO COLAZIONE].</p>
+      </div>
+    </div>
+    <div class="momento reveal">
+      <div class="momento-foto">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop" alt="In barca sul lago" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <span class="momento-ora">Il giorno</span>
+        <h3>Il lago, senza pensarci</h3>
+        <p class="testo">Teli e sdraio in prestito, bici in deposito chiuso, i consigli di chi qui ci vive: la spiaggia giusta per l'orario, il giro che non trovi sulle mappe.</p>
+      </div>
+    </div>
+    <div class="momento reveal">
+      <div class="momento-foto">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=800&auto=format&fit=crop" alt="La sera al ristorante" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <span class="momento-ora">La sera</span>
+        <h3>La cena, il silenzio, l'ora blu</h3>
+        <p class="testo">Il [RISTORANTE/BAR] dell'hotel o i tavoli buoni del paese, prenotati da noi. Poi il lago che si spegne piano: lo spettacolo è compreso nel prezzo.</p>
+        <a class="btn btn--velo" style="margin-top:1.6rem" href="esperienze.html">La giornata completa</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="wrap">
+    <div class="testata-sez testata-sez--riga reveal">
+      <div>
+        <p class="eyebrow">Dove siamo</p>
+        <h2 class="titolo-sez">A piedi si arriva <em>quasi ovunque</em></h2>
+      </div>
+      <a class="btn" href="posizione.html">Il lago e i dintorni</a>
+    </div>
+    <ul class="distanze reveal">
+      <li><span>Riva del lago</span><span>[DISTANZA LAGO] a piedi</span></li>
+      <li><span>Centro di [ZONA]</span><span>4 min a piedi</span></li>
+      <li><span>Pista ciclabile</span><span>200 m</span></li>
+      <li><span>Ristoranti e gelaterie</span><span>3 min a piedi</span></li>
+      <li><span>Trento</span><span>[MINUTI] min in auto</span></li>
+      <li><span>Stazione di [STAZIONE]</span><span>[MINUTI STAZIONE] min</span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="divisore" aria-hidden="true"><div class="orizzonte orizzonte--centro"><span class="sole"></span></div></div>
+
+<section class="sez sez--carta">
+  <div class="recensione-grande reveal">
+    <blockquote>«Camera silenziosa, lago a cinque minuti, e una gentilezza che non si compra. La colazione in terrazza vale da sola il viaggio.»</blockquote>
+    <cite class="registro">Recensione Google · [MESE ANNO]</cite>
+  </div>
+</section>
+
+<section class="sez sez--scura su-scuro">
+  <div class="cta-finale reveal">
+    <p class="eyebrow">Prenota diretto</p>
+    <h2>Le date le scegli tu, <em>al resto pensiamo noi</em></h2>
+    <p>Scrivici arrivo e partenza: rispondiamo in giornata con disponibilità e miglior prezzo. Senza commissioni di mezzo.</p>
+    <div class="hero-cta">
+      <a class="btn btn--ottone" href="contatti.html">Verifica disponibilità</a>
+      <a class="btn btn--velo" href="tel:[TELEFONO]">Chiama [TELEFONO]</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-in">
+    <div>
+      <a class="brand" href="index.html">[NOME HOTEL]</a>
+      <p style="margin-top:1rem">[INDIRIZZO]<br>[CAP] [ZONA] (TN)</p>
+    </div>
+    <div>
+      <h4>L'hotel</h4>
+      <ul>
+        <li><a href="camere.html">Camere</a></li>
+        <li><a href="esperienze.html">Esperienze</a></li>
+        <li><a href="posizione.html">Il lago</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contatti</h4>
+      <ul>
+        <li><a href="tel:[TELEFONO]">[TELEFONO]</a></li>
+        <li><a href="mailto:[EMAIL]">[EMAIL]</a></li>
+        <li><a href="https://maps.google.com/?q=[INDIRIZZO]" target="_blank" rel="noopener">Google Maps ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-legale">
+    <span>© <span data-anno></span> [NOME HOTEL] · P.IVA [PARTITA IVA] · CIN [CIN]</span>
+    <span>Prenotazione diretta, miglior prezzo garantito</span>
+  </div>
+</footer>
+
+<div class="barra-mobile">
+  <a class="btn btn--ottone" href="contatti.html">Disponibilità</a>
+  <a class="btn btn--velo" href="tel:[TELEFONO]">Chiama</a>
+</div>
+
+<script src="app.js?v=2"></script>
+</body>
+</html>

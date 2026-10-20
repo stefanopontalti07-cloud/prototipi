@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ristorante di pesce ad Arco, Lago di Garda | Il Ritratto</title>
+<meta name="description" content="Ristorante Il Ritratto di Aldo Tiboni ad Arco, sul Lago di Garda. Cucina di pesce e carne, tradizione trentina e mediterranea. Prenota il tuo tavolo.">
+<link rel="canonical" href="https://stefanopontalti07-cloud.github.io/prototipi/il-ritratto/">
+<meta name="theme-color" content="#4A1518">
+<!-- Open Graph -->
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Ristorante Il Ritratto — Arco, Lago di Garda">
+<meta property="og:description" content="Cucina di pesce, carne e tradizione. Patron Chef Aldo Tiboni. Arco (TN), Lago di Garda.">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/il-ritratto/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/il-ritratto/">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,900;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   Ristorante Il Ritratto — vetrina one-page
+   Palette brand (estratta dalla sala): bordeaux + foglia oro + crema · legno espresso
+   Font: Playfair Display (display) + Jost (corpo)
+   ========================================================================== */
+:root{
+  --bordeaux-900:#4A1518;
+  --bordeaux:#6E1E23;
+  --bordeaux-700:#7B2126;
+  --oro:#B8894B;
+  --oro-soft:#CBA45E;
+  --oro-bright:#D9B871;
+  --crema:#F2E9D9;
+  --crema-2:#E7DAC2;
+  --espresso:#241813;
+  --espresso-900:#1A100C;
+  --ink:#2A211B;
+  --muted:#7A6752;
+  --focus:#D9B871;
+
+  --font-display:"Playfair Display",Georgia,serif;
+  --font-body:"Jost",system-ui,-apple-system,sans-serif;
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font-family:var(--font-body);color:var(--ink);background:var(--crema);line-height:1.65;font-weight:300;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.08;margin:0;font-weight:600}
+p{margin:0 0 1rem}
+a{color:inherit}
+img{max-width:100%;display:block}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.6rem}
+section{padding:5.5rem 0}
+.eyebrow{font-family:var(--font-body);font-weight:500;text-transform:uppercase;letter-spacing:.28em;font-size:.72rem;color:var(--oro);margin:0 0 1.1rem}
+.eyebrow.on-dark{color:var(--oro-bright)}
+.section-head{max-width:60ch;margin:0 auto 3rem;text-align:center}
+.section-head h2{font-size:clamp(2.1rem,5vw,3.2rem)}
+.section-head p{margin-top:1rem;color:var(--muted);font-size:1.08rem}
+
+/* --- Ornamento oro (richiama il motivo "svirgola" della sala) --- */
+.ornament{display:block;width:120px;height:24px;margin:1.1rem auto;color:var(--oro)}
+.ornament svg{width:100%;height:100%;display:block}
+
+/* --- Bottoni --- */
+.btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--font-body);font-weight:500;font-size:.95rem;
+  letter-spacing:.04em;padding:.9rem 1.7rem;border-radius:2px;text-decoration:none;cursor:pointer;
+  border:1px solid transparent;transition:transform .18s ease,background .25s ease,color .25s ease,border-color .25s ease}
+.btn--gold{background:var(--oro);color:var(--espresso-900);border-color:var(--oro)}
+.btn--gold:hover{background:var(--oro-bright);transform:translateY(-2px)}
+.btn--wa{background:#1f7a54;color:#fff;border-color:#1f7a54}
+.btn--wa:hover{background:#238a5f;transform:translateY(-2px)}
+.btn--outline{background:transparent;color:var(--crema);border-color:rgba(217,184,113,.55)}
+.btn--outline:hover{border-color:var(--oro-bright);color:var(--oro-bright)}
+.btn--ink{background:transparent;color:var(--bordeaux);border-color:var(--bordeaux)}
+.btn--ink:hover{background:var(--bordeaux);color:var(--crema)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+
+/* --- Header --- */
+header{position:sticky;top:0;z-index:60;background:rgba(36,24,19,.0);transition:background .3s ease,box-shadow .3s ease}
+header.scrolled{background:rgba(26,16,12,.94);box-shadow:0 1px 0 rgba(217,184,113,.25)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 1.6rem;max-width:1320px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--crema)}
+.brand .mark{height:54px;width:auto;flex:none}
+.brand .bname{font-family:var(--font-display);font-weight:600;font-size:1.25rem;letter-spacing:.02em;line-height:1}
+.brand .bsub{display:block;font-family:var(--font-body);font-weight:400;font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--oro-soft);margin-top:.2rem}
+nav.main{display:flex;align-items:center;gap:1.9rem}
+nav.main a{color:var(--crema);text-decoration:none;font-weight:400;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;position:relative;padding:.3rem 0;opacity:.9}
+nav.main a::after{content:"";position:absolute;left:0;bottom:-1px;width:0;height:1px;background:var(--oro);transition:width .25s}
+nav.main a:hover{opacity:1}
+nav.main a:hover::after{width:100%}
+.nav-tools{display:flex;align-items:center;gap:.9rem}
+.navtoggle{display:none;position:relative;width:44px;height:44px;background:none;border:0;cursor:pointer;padding:0}
+.navtoggle span{position:absolute;left:11px;right:11px;height:1.5px;background:var(--crema);transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .2s}
+.navtoggle span:nth-child(1){top:15px}
+.navtoggle span:nth-child(2){top:21px}
+.navtoggle span:nth-child(3){top:27px}
+.navtoggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.navtoggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.navtoggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* --- Hero --- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;
+  background:radial-gradient(120% 120% at 70% 20%,var(--bordeaux) 0%,var(--bordeaux-900) 55%,var(--espresso-900) 100%)}
+.hero video,.hero .hero-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(26,16,12,.35) 0%,rgba(26,16,12,.15) 38%,rgba(26,16,12,.55) 72%,rgba(26,16,12,.92) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%;max-width:var(--maxw);margin:0 auto;padding:0 1.6rem 5rem;color:var(--crema)}
+.hero .kicker{font-family:var(--font-body);text-transform:uppercase;letter-spacing:.34em;font-size:.72rem;color:var(--oro-bright);margin-bottom:1.3rem}
+.hero h1{font-size:clamp(2.9rem,8vw,6rem);font-weight:600;letter-spacing:-.01em;max-width:14ch}
+.hero h1 em{font-style:italic;color:var(--oro-bright);font-weight:500}
+.hero .lead{font-size:clamp(1.05rem,2.4vw,1.35rem);max-width:44ch;color:#f0e6d5;margin-top:1.3rem;font-weight:300}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.1rem}
+.hero-trust{margin:1.4rem 0 0;font-size:.85rem;letter-spacing:.03em;color:#e6d3c4}
+.hero-trust span{color:var(--oro-bright);letter-spacing:.12em;margin-right:.4rem}
+.scroll-hint{position:absolute;left:50%;bottom:1.4rem;transform:translateX(-50%);z-index:2;color:var(--oro-soft);
+  font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.85}
+.scroll-hint::after{content:"";width:1px;height:34px;background:linear-gradient(var(--oro-soft),transparent);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* --- Storia --- */
+.storia{background:var(--crema)}
+.storia .split{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
+.storia .txt .lead-first::first-letter{font-family:var(--font-display);font-weight:700;font-size:3.6rem;float:left;line-height:.72;padding:.35rem .55rem 0 0;color:var(--bordeaux)}
+.storia figure{margin:0;position:relative}
+.storia figure img,.storia .figph{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;box-shadow:0 24px 60px -24px rgba(74,21,24,.55)}
+.storia figure::before{content:"";position:absolute;inset:14px;border:1px solid rgba(184,137,75,.7);border-radius:2px;pointer-events:none;z-index:2}
+
+/* placeholder immagine (finché non ci sono le foto vere) */
+.figph,.tile.noimg .ph{background:
+  radial-gradient(80% 80% at 50% 30%,rgba(217,184,113,.16),transparent 60%),
+  linear-gradient(160deg,var(--bordeaux) 0%,var(--bordeaux-900) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;color:var(--oro-soft);text-align:center;padding:1.5rem}
+.figph .ph-lbl,.tile.noimg .ph .ph-lbl{font-family:var(--font-body);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase}
+.figph .ph-orn,.tile.noimg .ph .ph-orn{width:80px;color:var(--oro)}
+
+/* --- La Carta (menù) --- */
+.carta{background:var(--espresso-900);color:var(--crema);position:relative}
+.carta .section-head h2{color:var(--crema)}
+.carta .section-head p{color:#cbb79c}
+.carta-note{max-width:60ch;margin:-1.5rem auto 2.8rem;text-align:center;color:var(--oro-soft);font-size:.9rem;letter-spacing:.03em}
+.carta-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.8rem 4rem;max-width:1000px;margin:0 auto}
+.cat{break-inside:avoid}
+.cat h3{font-size:1.7rem;color:var(--oro-bright);font-weight:600;display:flex;align-items:baseline;gap:.7rem;
+  padding-bottom:.7rem;margin-bottom:.4rem;border-bottom:1px solid rgba(184,137,75,.4)}
+.dish{padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.dish:last-child{border-bottom:0}
+.dish-name{font-family:var(--font-display);font-style:italic;font-weight:500;font-size:1.18rem;color:#fff}
+.dish-desc{display:block;font-family:var(--font-body);font-weight:300;font-size:.9rem;color:#c3b39c;margin-top:.2rem}
+.carta-foot{max-width:60ch;margin:3rem auto 0;text-align:center}
+.carta-loading{text-align:center;color:var(--oro-soft);padding:2rem 0;font-size:.9rem;letter-spacing:.05em}
+
+/* --- Chef --- */
+.chef{background:var(--crema-2)}
+.chef .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center}
+.chef figure{margin:0;position:relative}
+.chef figure img,.chef .figph{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:3px;box-shadow:0 24px 60px -24px rgba(74,21,24,.5)}
+.chef blockquote{font-family:var(--font-display);font-style:italic;font-size:clamp(1.4rem,3.2vw,2rem);font-weight:500;
+  color:var(--bordeaux);line-height:1.3;margin:0 0 1.4rem;position:relative}
+.chef .sig{font-family:var(--font-display);font-size:1.15rem;color:var(--espresso);margin-top:1.2rem}
+.chef .sig span{display:block;font-family:var(--font-body);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--oro);margin-top:.2rem}
+
+/* --- Galleria --- */
+.galleria{background:var(--crema)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:1rem;max-width:1240px;margin:0 auto}
+.tile{position:relative;overflow:hidden;border-radius:3px;background:var(--bordeaux-900)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.tile .ph{position:absolute;inset:0}
+.tile:hover img{transform:scale(1.06)}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.1rem .9rem .8rem;color:#fff;font-family:var(--font-display);font-style:italic;font-size:1rem;
+  background:linear-gradient(transparent,rgba(26,16,12,.82));opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.tile:hover figcaption{opacity:1;transform:none}
+.tile.big{grid-column:span 2;grid-row:span 2}
+.tile.tall{grid-row:span 2}
+.tile.wide{grid-column:span 2}
+
+/* --- Recensioni --- */
+.recensioni{background:var(--bordeaux);color:var(--crema);text-align:center}
+.recensioni .eyebrow{color:var(--oro-bright)}
+.stars{font-size:1.5rem;letter-spacing:.2em;color:var(--oro-bright);margin:.3rem 0 .2rem}
+.rev-score{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,3.6rem);font-weight:600}
+.rev-score small{font-size:1rem;font-family:var(--font-body);font-weight:300;letter-spacing:.1em;color:#e6d3c4;display:block;margin-top:.3rem}
+.rev-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;max-width:1000px;margin:3rem auto 0;text-align:left}
+.rev-card{background:rgba(255,255,255,.06);border:1px solid rgba(217,184,113,.28);border-radius:4px;padding:1.6rem}
+.rev-card .q{font-family:var(--font-display);font-style:italic;font-size:1.12rem;line-height:1.45;margin-bottom:1rem;color:#fff}
+.rev-card .who{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--oro-soft)}
+
+/* --- Contatti --- */
+.contatti{background:var(--espresso-900);color:var(--crema)}
+.contatti .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:start}
+.info-block h3{font-size:1.4rem;color:var(--oro-bright);margin-bottom:1rem;font-weight:600}
+.info-line{display:flex;gap:.8rem;align-items:flex-start;margin-bottom:1.1rem}
+.info-line .ic{width:20px;height:20px;flex:none;color:var(--oro);margin-top:.2rem}
+.info-line a{color:var(--crema);text-decoration:none}
+.info-line a:hover{color:var(--oro-bright)}
+.hours{margin:1.4rem 0;border-top:1px solid rgba(255,255,255,.1)}
+.hours .row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.95rem}
+.hours .row.closed{color:#a58c78}
+.hours .row b{font-weight:500;color:#fff}
+.hours-note{font-size:.85rem;color:var(--oro-soft);margin:.5rem 0 0;letter-spacing:.02em}
+.contatti .cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.map-embed{width:100%;height:100%;min-height:420px;border:0;border-radius:4px;filter:grayscale(.25) sepia(.15) saturate(1.1) brightness(.95)}
+
+/* --- Footer --- */
+footer{background:#140c09;color:var(--crema);padding:3.2rem 0 6rem;text-align:center}
+footer .fbrand{font-family:var(--font-display);font-size:1.5rem;color:var(--oro-bright);font-weight:600}
+footer .fnav{display:flex;gap:1.6rem;justify-content:center;flex-wrap:wrap;margin:1.4rem 0;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em}
+footer .fnav a{color:var(--crema);text-decoration:none;opacity:.8}
+footer .fnav a:hover{color:var(--oro-bright);opacity:1}
+footer .fsoc{display:flex;gap:.7rem;justify-content:center;margin:1.2rem 0}
+footer .fsoc a{width:42px;height:42px;border:1px solid rgba(217,184,113,.35);border-radius:50%;display:grid;place-items:center;color:var(--oro-soft);text-decoration:none;transition:.25s}
+footer .fsoc a:hover{background:var(--oro);color:var(--espresso-900);border-color:var(--oro)}
+footer .fine{font-size:.75rem;opacity:.5;margin-top:1.2rem;line-height:1.7}
+
+/* --- Barra CTA mobile --- */
+.mobilebar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;grid-template-columns:1fr 1fr;gap:0;
+  background:rgba(20,12,9,.97);border-top:1px solid rgba(217,184,113,.3)}
+.mobilebar a{padding:.9rem;text-align:center;color:var(--crema);text-decoration:none;font-size:.85rem;letter-spacing:.06em;
+  text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.mobilebar a+a{border-left:1px solid rgba(217,184,113,.25)}
+.mobilebar a.wa{color:#7fe0b4}
+
+/* --- Reveal --- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* --- Responsive --- */
+@media(max-width:900px){
+  nav.main{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);flex-direction:column;align-items:flex-start;justify-content:center;gap:1.6rem;
+    background:var(--espresso-900);padding:2rem 2.4rem;transform:translateX(100%);transition:transform .4s cubic-bezier(.22,1,.36,1);box-shadow:-20px 0 50px rgba(0,0,0,.5)}
+  nav.main.open{transform:none}
+  nav.main a{font-size:1.05rem}
+  nav.main a::after{display:none}
+  .navtoggle{display:block;z-index:80}
+  header .nav-tools .btn--gold{display:none}
+  header{background:rgba(26,16,12,.94)}
+  .storia .split,.chef .split,.contatti .grid{grid-template-columns:1fr;gap:2.4rem}
+  .carta-grid{grid-template-columns:1fr;gap:2.2rem}
+  .rev-cards{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+  .tile.big{grid-column:span 2;grid-row:span 1}
+  section{padding:4rem 0}
+  .mobilebar{display:grid}
+  footer{padding-bottom:5.5rem}
+  .map-embed{min-height:300px}
+}
+@media(max-width:480px){
+  .gal-grid{grid-template-columns:1fr;grid-auto-rows:220px}
+  .tile.big,.tile.wide{grid-column:span 1}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .scroll-hint::after{animation:none}
+  .hero video{display:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://stefanopontalti07-cloud.github.io/prototipi/il-ritratto/#restaurant",
+  "name": "Ristorante Il Ritratto",
+  "description": "Ristorante di pesce e carne ad Arco, sul Lago di Garda. Patron chef Aldo Tiboni: cucina di pesce, carne e tradizione trentina e mediterranea.",
+  "url": "https://stefanopontalti07-cloud.github.io/prototipi/il-ritratto/",
+  "image": "https://stefanopontalti07-cloud.github.io/prototipi/il-ritratto/assets/og-image.jpg",
+  "servesCuisine": ["Pesce", "Cucina mediterranea", "Cucina trentina"],
+  "priceRange": "€€",
+  "telephone": "+390464512958",
+  "acceptsReservations": "True",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Ferrera 30",
+    "addressLocality": "Arco",
+    "addressRegion": "TN",
+    "postalCode": "38062",
+    "addressCountry": "IT"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.9186,
+    "longitude": 10.8853
+  },
+  "hasMenu": "https://stefanopontalti07-cloud.github.io/prototipi/il-ritratto/#carta",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "17:00",
+      "closes": "22:30"
+    }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/RISTORANTEILRITRATTO/",
+    "https://www.instagram.com/ristorante_il_ritratto/"
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="topbar">
+    <a class="brand" href="#top" aria-label="Il Ritratto — inizio pagina">
+      <img class="mark" src="assets/logo-mark.png" alt="Ristorante Il Ritratto — Arco, Lago di Garda" width="193" height="120">
+    </a>
+    <nav class="main" id="menuNav" aria-label="Navigazione principale">
+      <a href="#storia">Storia</a>
+      <a href="#carta">La Carta</a>
+      <a href="#chef">Chef</a>
+      <a href="#galleria">Galleria</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <div class="nav-tools">
+      <a class="btn btn--gold" href="https://wa.me/393355382700?text=Buongiorno%2C%20vorrei%20prenotare%20un%20tavolo%20al%20Ristorante%20Il%20Ritratto." target="_blank" rel="noopener">Prenota</a>
+      <button class="navtoggle" id="navToggle" aria-label="Apri menù" aria-expanded="false" aria-controls="menuNav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <!-- Immagine di fondo (poster). Quando Stefano rende hero.mp4 (prodotto video-demo)
+       e lo mette in assets/, il video copre l'immagine. -->
+  <img class="hero-poster" src="assets/hero-poster.jpg" alt="" aria-hidden="true">
+  <video autoplay muted loop playsinline aria-hidden="true">
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-inner">
+    <p class="kicker">Patron Chef Aldo Tiboni</p>
+    <h1>Il gusto diventa <em>ritratto</em><span class="vh"> — Ristorante di pesce ad Arco, sul Lago di Garda</span></h1>
+    <p class="lead">Cucina di pesce e carne, tra tradizione trentina e sapori del mare. Nel cuore di Arco, a due passi dal Lago di Garda.</p>
+    <div class="hero-cta">
+      <a class="btn btn--gold" href="#carta">Scopri la carta</a>
+      <a class="btn btn--outline" href="https://wa.me/393355382700?text=Buongiorno%2C%20vorrei%20prenotare%20un%20tavolo%20al%20Ristorante%20Il%20Ritratto." target="_blank" rel="noopener">Prenota su WhatsApp</a>
+    </div>
+    <p class="hero-trust"><span aria-hidden="true">★★★★★</span> 4,5/5 · oltre 240 recensioni tra le migliori tavole di Arco</p>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Scopri</div>
+</section>
+
+<!-- ============ STORIA ============ -->
+<section class="storia" id="storia">
+  <div class="wrap split">
+    <div class="txt reveal">
+      <p class="eyebrow">La nostra storia</p>
+      <h2>Una cucina che si racconta<br>piatto dopo piatto</h2>
+      <span class="ornament" aria-hidden="true"><svg viewBox="0 0 120 24"><path d="M2 12h40c8 0 10-8 18-8s10 8 18 8h40" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="60" cy="12" r="3" fill="currentColor"/></svg></span>
+      <p class="lead-first">Il Ritratto nasce dalla passione di Aldo Tiboni per una cucina schietta e curata, dove il pesce fresco e le carni selezionate incontrano la tradizione del territorio. Ogni piatto è pensato come un piccolo quadro: materie prime di stagione, tecnica misurata, presentazione che invita ad accomodarsi.</p>
+      <p>Una sala intima e calda — volte affrescate, legno di montagna, tavoli raccolti — dove l'accoglienza trentina incontra la cucina di mare. Ad Arco, sul Lago di Garda.</p>
+    </div>
+    <figure class="reveal">
+      <!-- Sostituire con foto vera della sala -->
+      <img src="assets/interno.jpg" alt="La sala del Ristorante Il Ritratto ad Arco — volte affrescate e legno" onerror="this.outerHTML='<div class=&quot;figph&quot;><span class=&quot;ph-orn&quot;><svg viewBox=\'0 0 120 24\'><path d=\'M2 12h40c8 0 10-8 18-8s10 8 18 8h40\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.4\'/></svg></span><span class=&quot;ph-lbl&quot;>Foto sala &middot; da inserire</span></div>'">
+    </figure>
+  </div>
+</section>
+
+<!-- ============ LA CARTA (menù live da Google Sheet) ============ -->
+<section class="carta" id="carta">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">La Carta</p>
+      <h2>Il menù di Aldo</h2>
+      <p>Pesce, carne e tradizione. La carta cambia con le stagioni e con il pescato del giorno.</p>
+    </div>
+    <p class="carta-note">La carta cambia con le stagioni e con il pescato del giorno. Per i menù degustazione, chiedi in sala.</p>
+    <div class="carta-grid" id="cartaGrid">
+      <p class="carta-loading">Carico il menù…</p>
+    </div>
+    <div class="carta-foot section-head" style="margin-top:3rem;margin-bottom:0">
+      <span class="ornament" aria-hidden="true"><svg viewBox="0 0 120 24"><path d="M2 12h40c8 0 10-8 18-8s10 8 18 8h40" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="60" cy="12" r="3" fill="currentColor"/></svg></span>
+      <a class="btn btn--gold" href="https://wa.me/393355382700?text=Buongiorno%2C%20vorrei%20prenotare%20un%20tavolo%20al%20Ristorante%20Il%20Ritratto." target="_blank" rel="noopener">Prenota un tavolo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHEF ============ -->
+<section class="chef" id="chef">
+  <div class="wrap split">
+    <figure class="reveal">
+      <!-- Sostituire con foto vera dello chef -->
+      <img src="assets/aldo2.jpg" alt="Aldo Tiboni, patron chef del Ristorante Il Ritratto" onerror="this.outerHTML='<div class=&quot;figph&quot;><span class=&quot;ph-orn&quot;><svg viewBox=\'0 0 120 24\'><path d=\'M2 12h40c8 0 10-8 18-8s10 8 18 8h40\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.4\'/></svg></span><span class=&quot;ph-lbl&quot;>Foto chef &middot; da inserire</span></div>'">
+    </figure>
+    <div class="txt reveal">
+      <p class="eyebrow">Il Patron Chef</p>
+      <blockquote>«Cucino come dipingerei un ritratto: pochi tratti, quelli giusti, per far emergere la materia prima.»</blockquote>
+      <p>Aldo Tiboni guida la cucina del Ritratto con l'ossessione per la qualità e il rispetto delle stagioni. Dal pesce lavorato con delicatezza — tartare, crudi, cotture precise — alle carni scelte accompagnate da salse e contorni del territorio.</p>
+      <p class="sig">Aldo Tiboni<span>Patron Chef</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERIA ============ -->
+<section class="galleria" id="galleria">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Galleria</p>
+      <h2>I nostri piatti</h2>
+      <p>Un assaggio, in immagini — dai crudi di mare ai piatti di pesce dello chef.</p>
+    </div>
+    <div class="gal-grid" id="galGrid"></div>
+  </div>
+</section>
+
+<!-- ============ RECENSIONI ============ -->
+<section class="recensioni" id="recensioni">
+  <div class="wrap">
+    <p class="eyebrow">Dicono di noi</p>
+    <div class="stars" aria-hidden="true">★★★★★</div>
+    <div class="rev-score">4,5 / 5<small>Oltre 240 recensioni · 96% positive</small></div>
+    <div class="rev-cards">
+      <figure class="rev-card reveal"><p class="q">«Cucina creativa e piatti presentati magnificamente. Un'esperienza di alto livello.»</p><figcaption class="who">Recensione · TripAdvisor</figcaption></figure>
+      <figure class="rev-card reveal"><p class="q">«Pesce freschissimo e menù degustazione da provare assolutamente. Servizio impeccabile.»</p><figcaption class="who">Recensione · Google</figcaption></figure>
+      <figure class="rev-card reveal"><p class="q">«Atmosfera intima e accogliente, si mangia benissimo. Torneremo di sicuro.»</p><figcaption class="who">Recensione · Facebook</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATTI ============ -->
+<section class="contatti" id="contatti">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Contatti</p>
+      <h2>Vieni a trovarci</h2>
+    </div>
+    <div class="grid">
+      <div class="info-side">
+        <div class="info-block">
+          <h3>Ristorante Il Ritratto</h3>
+          <div class="info-line"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span>Via Ferrera 30, 38062 Arco (TN)<br>Lago di Garda · Trentino</span></div>
+          <div class="info-line"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span><a href="tel:+390464512958">0464 512958</a> · <a href="tel:+393355382700">335 538 2700</a></span></div>
+          <div class="info-line"><svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:ristoranteilritratto@gmail.com">ristoranteilritratto@gmail.com</a></div>
+        </div>
+        <div class="hours">
+          <div class="row"><span>Lunedì – Sabato</span><b>17:00 – 22:30</b></div>
+          <div class="row closed"><span>Domenica</span><b>Chiuso · riposo settimanale</b></div>
+        </div>
+        <p class="hours-note">Solo cena · È gradita la prenotazione. Disponibilità per cene di gruppo.</p>
+        <div class="cta-row">
+          <a class="btn btn--wa" href="https://wa.me/393355382700?text=Buongiorno%2C%20vorrei%20prenotare%20un%20tavolo%20al%20Ristorante%20Il%20Ritratto." target="_blank" rel="noopener">Prenota su WhatsApp</a>
+          <a class="btn btn--outline" href="tel:+390464512958">Chiama</a>
+        </div>
+      </div>
+      <div class="map-side">
+        <iframe class="map-embed" loading="lazy" title="Mappa — Ristorante Il Ritratto, Via Ferrera 30, Arco" src="https://www.google.com/maps?q=Via%20Ferrera%2030,%2038062%20Arco%20TN&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="fbrand">Il Ritratto</div>
+    <p style="opacity:.7;font-size:.85rem;margin:.4rem 0 0">di Aldo Tiboni · Arco, Lago di Garda</p>
+    <nav class="fnav">
+      <a href="#storia">Storia</a><a href="#carta">La Carta</a><a href="#chef">Chef</a><a href="#galleria">Galleria</a><a href="#contatti">Contatti</a>
+    </nav>
+    <div class="fsoc">
+      <a href="https://www.facebook.com/RISTORANTEILRITRATTO/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-3H13V9.2c0-.9.3-1.5 1.6-1.5H17V5.1C16.6 5 15.6 5 14.5 5 12.1 5 10.5 6.4 10.5 9v2H8v3h2.5v8H13z"/></svg></a>
+      <a href="https://www.instagram.com/ristorante_il_ritratto/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    </div>
+    <p class="fine">© 2026 Ristorante Il Ritratto · Via Ferrera 30, 38062 Arco (TN) · Tel <a href="tel:+390464512958" style="color:inherit;text-decoration:none">0464 512958</a> · P.IVA [DA INSERIRE]<br>Menù aggiornabile dal ristorante · dominio in completamento.</p>
+  </div>
+</footer>
+
+<!-- ============ BARRA CTA MOBILE ============ -->
+<div class="mobilebar">
+  <a href="tel:+390464512958"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Chiama</a>
+  <a class="wa" href="https://wa.me/393355382700?text=Buongiorno%2C%20vorrei%20prenotare%20un%20tavolo%20al%20Ristorante%20Il%20Ritratto." target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.9.9-2.8-.2-.3A8 8 0 1 1 12 20zm4.6-6c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.2.2-.3.2-.6.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.2.3-.9.9-.9 2.1s.9 2.5 1 2.6c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.2.7 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2 0-.1-.2-.2-.5-.3z"/></svg>WhatsApp</a>
+</div>
+
+<script>
+/* ---------- Nav mobile ---------- */
+(function(){
+  var toggle=document.getElementById('navToggle'), nav=document.getElementById('menuNav');
+  if(toggle&&nav){
+    toggle.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',open);
+      toggle.setAttribute('aria-label',open?'Chiudi menù':'Apri menù');
+    });
+    nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
+      nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');
+    });});
+    addEventListener('keydown',function(e){if(e.key==='Escape'){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
+  }
+})();
+
+/* ---------- Header background on scroll ---------- */
+(function(){
+  var h=document.getElementById('siteHeader');
+  var on=function(){h.classList.toggle('scrolled',scrollY>40);};
+  on();addEventListener('scroll',on,{passive:true});
+})();
+
+/* ---------- Scroll reveal ---------- */
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+
+/* ==========================================================================
+   MENÙ — sorgente Google Sheet (prezzi nascosti su richiesta)
+   Come collegarlo: vedi MENU-ISTRUZIONI.md. Incolla qui l'URL CSV pubblicato:
+   colonne attese -> Sezione | Piatto | Descrizione
+   Se MENU_CSV_URL resta '', il sito usa il menù di esempio qui sotto.
+   ========================================================================== */
+var MENU_CSV_URL = ''; // <-- Stefano: incolla qui il link CSV del Google Sheet
+
+var MENU_FALLBACK = [
+  {sezione:'Antipasti', piatto:'Tartare di tonno al wasabi leggero', descrizione:''},
+  {sezione:'Antipasti', piatto:'Code di gambero al vapore in vellutina di zucca', descrizione:''},
+  {sezione:'Antipasti', piatto:'Bianco di spigola all\'aceto e cipolla rossa', descrizione:''},
+  {sezione:'Antipasti', piatto:'Tartare di Garronese con mele e senape', descrizione:''},
+  {sezione:'Primi', piatto:'Tagliatelle gamberi, pomodorini e spinacetti', descrizione:''},
+  {sezione:'Primi', piatto:'Spaghetti con pescato del giorno', descrizione:''},
+  {sezione:'Primi', piatto:'Risotto mantecato con porcini e porri', descrizione:''},
+  {sezione:'Primi', piatto:'Spaghetti alla carbonara classica', descrizione:''},
+  {sezione:'Primi', piatto:'Tortelloni provola affumicata e speck al Trentingrana', descrizione:''},
+  {sezione:'Secondi', piatto:'Pescato del giorno', descrizione:''},
+  {sezione:'Secondi', piatto:'Tagliata di tonno al timo ed olio extravergine', descrizione:''},
+  {sezione:'Secondi', piatto:'Petto d\'anatra all\'arancia e pistacchio', descrizione:''},
+  {sezione:'Secondi', piatto:'Controfiletto di Garronese tagliato alla senape', descrizione:''},
+  {sezione:'Dolci', piatto:'Crème brûlé', descrizione:''},
+  {sezione:'Dolci', piatto:'Tortino al cioccolato con cuore morbido', descrizione:''},
+  {sezione:'Dolci', piatto:'Mousse al cioccolato bianco', descrizione:''},
+  {sezione:'Dolci', piatto:'Semifreddo al pistacchio', descrizione:''}
+];
+
+// ordine di visualizzazione delle sezioni (le altre vanno in coda, nell'ordine trovato)
+var ORDINE_SEZIONI = ['Antipasti','Primi','Secondi','Dolci','Menù Degustazione'];
+
+function parseCSV(text){
+  var rows=[],row=[],cur='',q=false;
+  for(var i=0;i<text.length;i++){
+    var c=text[i];
+    if(q){
+      if(c==='"'){ if(text[i+1]==='"'){cur+='"';i++;} else q=false; }
+      else cur+=c;
+    } else {
+      if(c==='"')q=true;
+      else if(c===','){row.push(cur);cur='';}
+      else if(c==='\n'){row.push(cur);rows.push(row);row=[];cur='';}
+      else if(c==='\r'){}
+      else cur+=c;
+    }
+  }
+  if(cur.length||row.length){row.push(cur);rows.push(row);}
+  return rows;
+}
+
+function rowsToDishes(rows){
+  if(!rows.length)return [];
+  var head=rows[0].map(function(h){return h.trim().toLowerCase();});
+  var iS=head.indexOf('sezione'), iP=head.indexOf('piatto'), iD=head.indexOf('descrizione');
+  if(iS<0||iP<0)return [];
+  var out=[];
+  for(var r=1;r<rows.length;r++){
+    var row=rows[r];
+    var piatto=(row[iP]||'').trim();
+    if(!piatto)continue;
+    out.push({sezione:(row[iS]||'').trim()||'Altro', piatto:piatto, descrizione:iD>=0?(row[iD]||'').trim():''});
+  }
+  return out;
+}
+
+function renderMenu(dishes){
+  var grid=document.getElementById('cartaGrid');
+  if(!dishes.length){grid.innerHTML='<p class="carta-loading">Menù in aggiornamento.</p>';return;}
+  var groups={}, order=[];
+  dishes.forEach(function(d){
+    if(!groups[d.sezione]){groups[d.sezione]=[];order.push(d.sezione);}
+    groups[d.sezione].push(d);
+  });
+  order.sort(function(a,b){
+    var ia=ORDINE_SEZIONI.indexOf(a), ib=ORDINE_SEZIONI.indexOf(b);
+    if(ia<0)ia=99; if(ib<0)ib=99;
+    return ia-ib;
+  });
+  var esc=function(s){return (s||'').replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});};
+  var html='';
+  order.forEach(function(sez){
+    html+='<div class="cat reveal"><h3>'+esc(sez)+'</h3>';
+    groups[sez].forEach(function(d){
+      html+='<div class="dish"><div class="dish-name">'+esc(d.piatto)+'</div>'+
+            (d.descrizione?'<span class="dish-desc">'+esc(d.descrizione)+'</span>':'')+'</div>';
+    });
+    html+='</div>';
+  });
+  grid.innerHTML=html;
+  grid.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+}
+
+function loadMenu(){
+  if(!MENU_CSV_URL){renderMenu(MENU_FALLBACK);return;}
+  fetch(MENU_CSV_URL).then(function(r){return r.text();}).then(function(t){
+    var dishes=rowsToDishes(parseCSV(t));
+    renderMenu(dishes.length?dishes:MENU_FALLBACK);
+  }).catch(function(){renderMenu(MENU_FALLBACK);});
+}
+loadMenu();
+
+/* ==========================================================================
+   GALLERIA — foto piatti. Quando Stefano mette le foto in assets/galleria/,
+   basta che i nomi combacino; se una manca, resta un riquadro decorato.
+   ========================================================================== */
+var GALLERIA=[
+  {src:'assets/pesce.jpeg',  cap:'Grigliata mista di pesce', cls:'big'},
+  {src:'assets/pesce2.jpeg', cap:'Capesante scottate', cls:'tall'},
+  {src:'assets/uovo.webp',   cap:'Tartare di tonno a nido', cls:'tall'},
+  {src:'assets/primo.jpg',   cap:'Vellutina con crostini', cls:'wide'},
+  {src:'assets/pesce4.jpg',  cap:'Code di gambero e polenta', cls:''},
+  {src:'assets/dolce.jpg',   cap:'Il dolce dello chef', cls:''}
+];
+(function(){
+  var g=document.getElementById('galGrid'), esc=function(s){return (s||'').replace(/[&<>"]/g,'');};
+  var ph='<div class="ph"><span class="ph-orn"><svg viewBox="0 0 120 24"><path d="M2 12h40c8 0 10-8 18-8s10 8 18 8h40" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="ph-lbl">Foto da inserire</span></div>';
+  g.innerHTML=GALLERIA.map(function(it){
+    return '<figure class="tile '+it.cls+'"><img loading="lazy" src="'+esc(it.src)+'" alt="'+esc(it.cap)+' — Ristorante Il Ritratto" '+
+      'onerror="this.remove();this.closest(\'.tile\').classList.add(\'noimg\');this.closest(\'.tile\').insertAdjacentHTML(\'afterbegin\',document.getElementById(\'phTpl\').innerHTML);">'+
+      '<figcaption>'+esc(it.cap)+'</figcaption></figure>';
+  }).join('');
+})();
+</script>
+<template id="phTpl"><div class="ph"><span class="ph-orn"><svg viewBox="0 0 120 24"><path d="M2 12h40c8 0 10-8 18-8s10 8 18 8h40" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="ph-lbl">Foto da inserire</span></div></template>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[NOME ATTIVITÀ] — Ristorante a [ZONA]</title>
+<meta name="description" content="[NOME ATTIVITÀ], ristorante a [ZONA]. Cucina di stagione, prodotti del territorio. Prenota un tavolo: [TELEFONO].">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Template RISTORANTE MODERNO — elegante, mediterraneo, conviviale
+   Palette: oliva profondo + avorio + zafferano (unico accento)
+   Vedi blueprint.md — foto stock da SOSTITUIRE con foto vere
+   ============================================================ */
+:root{
+  --oliva-950:#222819;
+  --oliva-900:#2C3320;
+  --oliva-700:#49523A;
+  --avorio:#F7F3E8;
+  --avorio-2:#EFE9D8;
+  --zafferano:#C08A1D;      /* accento testo su avorio (contrasto) */
+  --zafferano-vivo:#DFA32E; /* accento su fondi scuri */
+  --inchiostro:#23241E;
+  --grigio:#6E6D61;
+  --linea:#D8D1BC;
+  --font-display:"Cormorant Garamond",Georgia,serif;
+  --font-body:"Figtree",system-ui,sans-serif;
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font-body);font-size:1.0625rem;color:var(--inchiostro);background:var(--avorio);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.08;margin:0}
+p{margin:0 0 1rem}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--zafferano);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.5rem}
+.eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.24em;font-size:.7rem;color:var(--zafferano);margin:0 0 1.1rem}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--zafferano-vivo);vertical-align:middle}
+
+/* --- Header --- */
+.header{position:sticky;top:0;z-index:50;background:rgba(247,243,232,.92);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .3s}
+.header.scrolled{border-bottom-color:var(--linea)}
+.header-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1.5rem;max-width:var(--maxw);margin:0 auto}
+.brand{font-family:var(--font-display);font-size:1.45rem;font-weight:700;text-decoration:none;letter-spacing:.01em}
+.nav{display:flex;gap:1.7rem;align-items:center}
+.nav a{text-decoration:none;font-size:.92rem;font-weight:600}
+.nav a:hover{color:var(--oliva-700)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--font-body);font-weight:700;font-size:.95rem;padding:.75rem 1.4rem;border-radius:3px;text-decoration:none;border:1.5px solid var(--oliva-950);transition:background .2s,color .2s,transform .15s}
+.btn:active{transform:translateY(1px)}
+.btn--pieno{background:var(--oliva-950);color:var(--avorio)}
+.btn--pieno:hover{background:var(--oliva-700);border-color:var(--oliva-700)}
+.btn--vuoto{background:transparent;color:var(--avorio);border-color:rgba(247,243,232,.7)}
+.btn--vuoto:hover{background:rgba(247,243,232,.14)}
+.btn--chiaro{background:var(--avorio);color:var(--oliva-950);border-color:var(--avorio)}
+.btn--chiaro:hover{background:var(--avorio-2)}
+@media (max-width:720px){.nav .solo-desktop{display:none}.nav .btn{padding:.6rem 1rem;font-size:.88rem}}
+
+/* --- Hero --- */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:var(--avorio);background:var(--oliva-950)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,40,25,.15) 30%,rgba(34,40,25,.82) 100%)}
+.hero-in{position:relative;z-index:2;padding:0 1.5rem 4.5rem;max-width:var(--maxw);margin:0 auto;width:100%}
+.hero h1{font-size:clamp(2.7rem,7vw,4.6rem);max-width:13ch}
+.hero h1 em{font-style:italic;font-weight:500}
+.hero p{max-width:44ch;font-size:1.1rem;margin:1.2rem 0 1.8rem;color:rgba(247,243,232,.88)}
+.hero-cta{display:flex;gap:.9rem;flex-wrap:wrap}
+
+/* --- Sezioni --- */
+.sez{padding:5.5rem 0}
+.sez--stretta{max-width:640px;margin:0 auto;text-align:center;padding-left:1.5rem;padding-right:1.5rem}
+.sez--stretta p{font-size:1.22rem;font-family:var(--font-display);font-weight:500;line-height:1.5}
+.sez--scura{background:var(--oliva-900);color:var(--avorio)}
+
+/* --- La carta (firma del template) --- */
+.carta{background:var(--avorio-2);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.carta-card{max-width:680px;margin:0 auto;background:var(--avorio);border:1px solid var(--linea);padding:3rem clamp(1.4rem,5vw,3.5rem);position:relative}
+.carta-card::before{content:"";position:absolute;top:14px;left:14px;right:14px;bottom:14px;border:1px solid var(--linea);pointer-events:none}
+.carta-titolo{text-align:center;font-size:2.1rem;margin-bottom:.4rem}
+.carta-sotto{text-align:center;color:var(--grigio);font-size:.9rem;margin-bottom:2.4rem}
+.carta h3{font-size:.78rem;font-family:var(--font-body);font-weight:700;text-transform:uppercase;letter-spacing:.24em;color:var(--zafferano);margin:2.2rem 0 1rem;text-align:center}
+.piatto{display:flex;align-items:baseline;gap:.6rem;margin-bottom:1.05rem}
+.piatto-nome{font-family:var(--font-display);font-style:italic;font-size:1.28rem;font-weight:600}
+.piatto-punti{flex:1;border-bottom:1.5px dotted var(--linea);transform:translateY(-4px)}
+.piatto-prezzo{font-weight:700;font-size:.98rem;white-space:nowrap}
+.piatto-desc{color:var(--grigio);font-size:.9rem;margin:-.75rem 0 1.05rem;max-width:48ch}
+.carta-nota{text-align:center;color:var(--grigio);font-size:.88rem;margin-top:2.4rem}
+
+/* --- La sala: griglia asimmetrica --- */
+.galleria{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:auto auto;gap:1.1rem;margin-top:2.6rem}
+.galleria figure{margin:0;overflow:hidden;background:var(--oliva-700)}
+.galleria img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.galleria figure:hover img{transform:scale(1.04)}
+.g1{grid-row:span 2;min-height:520px}
+.g2{min-height:250px}
+.g3{min-height:250px}
+@media (max-width:720px){.galleria{grid-template-columns:1fr}.g1{min-height:320px}}
+
+/* --- Recensioni --- */
+.recensioni{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2.5rem;margin-top:2.6rem}
+.recensione blockquote{margin:0;font-family:var(--font-display);font-size:1.25rem;font-weight:500;line-height:1.45}
+.recensione cite{display:block;margin-top:1rem;font-style:normal;font-size:.85rem;color:rgba(247,243,232,.66)}
+.stelle{color:var(--zafferano-vivo);letter-spacing:.15em;font-size:.9rem;margin-bottom:.8rem}
+.sez--scura .eyebrow,.hero .eyebrow{color:var(--zafferano-vivo)}
+
+/* --- Contatti --- */
+.contatti{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2.6rem}
+.orari{width:100%;border-collapse:collapse}
+.orari td{padding:.55rem 0;border-bottom:1px solid var(--linea);font-size:.97rem}
+.orari td:last-child{text-align:right;font-weight:600}
+.contatti-info p{margin-bottom:.6rem}
+.contatti-info strong{font-weight:700}
+.contatti-cta{margin-top:1.6rem;display:flex;gap:.8rem;flex-wrap:wrap}
+.mappa-link{display:block;margin-top:1.4rem;font-size:.92rem;font-weight:600;color:var(--oliva-700)}
+@media (max-width:720px){.contatti{grid-template-columns:1fr}}
+
+/* --- Footer --- */
+.footer{background:var(--oliva-950);color:rgba(247,243,232,.75);padding:2.6rem 0;font-size:.88rem}
+.footer-in{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;max-width:var(--maxw);margin:0 auto;padding:0 1.5rem}
+.footer a{color:var(--avorio)}
+
+/* --- Barra mobile fissa --- */
+.barra-mobile{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--oliva-950);padding:.7rem .9rem calc(.7rem + env(safe-area-inset-bottom))}
+.barra-mobile a{flex:1;justify-content:center}
+@media (max-width:720px){.barra-mobile{display:flex;gap:.7rem}body{padding-bottom:70px}}
+
+/* --- Reveal on scroll --- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visibile{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .galleria img{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-in">
+    <a class="brand" href="#">[NOME ATTIVITÀ]</a>
+    <nav class="nav" aria-label="Principale">
+      <a class="solo-desktop" href="#carta">La carta</a>
+      <a class="solo-desktop" href="#sala">La sala</a>
+      <a class="solo-desktop" href="#contatti">Contatti</a>
+      <a class="btn btn--pieno" href="tel:[TELEFONO]">Prenota</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <!-- FOTO STOCK: sostituire con foto vera del locale/piatto forte -->
+  <img class="hero-img" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1800&auto=format&fit=crop" alt="La sala di [NOME ATTIVITÀ] a [ZONA]" onerror="this.style.display='none'">
+  <div class="hero-in">
+    <p class="eyebrow">Ristorante · [ZONA]</p>
+    <h1>La tavola è <em>casa</em>.</h1>
+    <p>Cucina di stagione, prodotti del territorio e una sala dove il tempo rallenta. Dal [ANNO], a [ZONA].</p>
+    <div class="hero-cta">
+      <a class="btn btn--chiaro" href="tel:[TELEFONO]">Prenota un tavolo</a>
+      <a class="btn btn--vuoto" href="#carta">Guarda la carta</a>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="sez--stretta reveal">
+    <span class="dot" aria-hidden="true"></span>
+    <p style="margin-top:1.4rem">Pochi piatti, fatti bene. La carta cambia con le stagioni e con quello che il mercato offre di meglio: quello che non cambia è il modo in cui vi accogliamo.</p>
+  </div>
+</section>
+
+<section class="sez carta" id="carta">
+  <div class="wrap">
+    <div class="carta-card reveal">
+      <h2 class="carta-titolo">La carta</h2>
+      <p class="carta-sotto">estratto — la carta completa cambia ogni stagione</p>
+
+      <h3>Antipasti</h3>
+      <div class="piatto"><span class="piatto-nome">Carne salada e misticanza</span><span class="piatto-punti"></span><span class="piatto-prezzo">12 €</span></div>
+      <p class="piatto-desc">Battuta al coltello, olio del Garda, scaglie di Trentingrana</p>
+      <div class="piatto"><span class="piatto-nome">Sfoglia di verdure dell'orto</span><span class="piatto-punti"></span><span class="piatto-prezzo">10 €</span></div>
+
+      <h3>Primi</h3>
+      <div class="piatto"><span class="piatto-nome">Tortelli di patate di montagna</span><span class="piatto-punti"></span><span class="piatto-prezzo">14 €</span></div>
+      <p class="piatto-desc">Burro di malga, erbe fini, fondo bruno leggero</p>
+      <div class="piatto"><span class="piatto-nome">Risotto al vino della casa</span><span class="piatto-punti"></span><span class="piatto-prezzo">15 €</span></div>
+
+      <h3>Secondi</h3>
+      <div class="piatto"><span class="piatto-nome">Trota del lago in crosta</span><span class="piatto-punti"></span><span class="piatto-prezzo">19 €</span></div>
+      <div class="piatto"><span class="piatto-nome">Guancetta brasata, polenta di Storo</span><span class="piatto-punti"></span><span class="piatto-prezzo">21 €</span></div>
+
+      <h3>Dolci</h3>
+      <div class="piatto"><span class="piatto-nome">Strudel tiepido e gelato alla vaniglia</span><span class="piatto-punti"></span><span class="piatto-prezzo">7 €</span></div>
+
+      <p class="carta-nota"><span class="dot" aria-hidden="true"></span>&nbsp; Segnalateci allergie e intolleranze: la cucina sa come muoversi.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sez" id="sala">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">La sala</p>
+      <h2 style="font-size:2.3rem;max-width:18ch">Il posto giusto per restare un'ora in più</h2>
+    </div>
+    <div class="galleria reveal">
+      <!-- FOTO STOCK: sostituire con foto vere di sala, piatti, dettagli -->
+      <figure class="g1"><img loading="lazy" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1000&auto=format&fit=crop" alt="Tavolo apparecchiato da [NOME ATTIVITÀ]" onerror="this.style.display='none'"></figure>
+      <figure class="g2"><img loading="lazy" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=900&auto=format&fit=crop" alt="Piatto di stagione" onerror="this.style.display='none'"></figure>
+      <figure class="g3"><img loading="lazy" src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=900&auto=format&fit=crop" alt="La sala interna" onerror="this.style.display='none'"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sez sez--scura">
+  <div class="wrap">
+    <p class="eyebrow reveal">Dicono di noi</p>
+    <div class="recensioni">
+      <div class="recensione reveal">
+        <div class="stelle" aria-label="5 stelle su 5">★★★★★</div>
+        <blockquote>«Si mangia bene e si sta meglio. I tortelli valgono da soli il viaggio.»</blockquote>
+        <cite>— Recensione Google</cite>
+      </div>
+      <div class="recensione reveal">
+        <div class="stelle" aria-label="5 stelle su 5">★★★★★</div>
+        <blockquote>«Accoglienza vera, di quelle che non si imparano sui manuali.»</blockquote>
+        <cite>— Recensione Google</cite>
+      </div>
+      <div class="recensione reveal">
+        <div class="stelle" aria-label="5 stelle su 5">★★★★★</div>
+        <blockquote>«La carta è corta e cambia spesso: il segnale che in cucina si lavora sul serio.»</blockquote>
+        <cite>— Recensione TripAdvisor</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sez" id="contatti">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Contatti</p>
+      <h2 style="font-size:2.3rem">Prenota un tavolo</h2>
+    </div>
+    <div class="contatti">
+      <div class="reveal">
+        <table class="orari">
+          <tr><td>Lunedì</td><td>chiuso</td></tr>
+          <tr><td>Martedì – Venerdì</td><td>12:00–14:00 · 19:00–22:00</td></tr>
+          <tr><td>Sabato</td><td>19:00–22:30</td></tr>
+          <tr><td>Domenica</td><td>12:00–14:30</td></tr>
+        </table>
+        <a class="mappa-link" href="https://maps.google.com/?q=[INDIRIZZO]" target="_blank" rel="noopener">Apri in Google Maps ↗</a>
+      </div>
+      <div class="contatti-info reveal">
+        <p><strong>[NOME ATTIVITÀ]</strong><br>[INDIRIZZO]<br>[ZONA]</p>
+        <p>Telefono: <strong>[TELEFONO]</strong><br>Email: [EMAIL]</p>
+        <div class="contatti-cta">
+          <a class="btn btn--pieno" href="tel:[TELEFONO]">Chiama ora</a>
+          <a class="btn btn--pieno" href="https://wa.me/[TELEFONO]">Scrivici su WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-in">
+    <span>© <span id="anno"></span> [NOME ATTIVITÀ] — [INDIRIZZO], [ZONA] · P.IVA [PARTITA IVA]</span>
+    <span><a href="tel:[TELEFONO]">[TELEFONO]</a></span>
+  </div>
+</footer>
+
+<div class="barra-mobile">
+  <a class="btn btn--chiaro" href="tel:[TELEFONO]">Chiama</a>
+  <a class="btn btn--vuoto" style="border-color:rgba(247,243,232,.5)" href="https://wa.me/[TELEFONO]">WhatsApp</a>
+</div>
+
+<script>
+document.getElementById('anno').textContent = new Date().getFullYear();
+
+// ombra header su scroll
+const header = document.getElementById('header');
+addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 10), {passive:true});
+
+// reveal on scroll (fallback: tutto visibile se IO non disponibile)
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visibile'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visibile'));
+}
+</script>
+</body>
+</html>

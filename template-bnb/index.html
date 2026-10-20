@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[NOME ATTIVITÀ] — B&amp;B sul lago a [ZONA]</title>
+<meta name="description" content="[NOME ATTIVITÀ], bed &amp; breakfast a [ZONA], a due passi dal lago. Camere luminose, colazione fatta in casa. Scrivici: [TELEFONO].">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Template B&B LAGO — arioso, azzurro, vacanza
+   Palette: conchiglia + petrolio + acqua + sabbia
+   Firma: motivo onda SVG (divisori/sottolineature)
+   Vedi blueprint.md — foto stock da SOSTITUIRE con foto vere
+   ============================================================ */
+:root{
+  --conchiglia:#FBFAF6;
+  --petrolio:#14424E;
+  --petrolio-scuro:#0D2E37;
+  --acqua:#357B8D;      /* accento testo (contrasto su chiaro) */
+  --acqua-viva:#4695A8; /* accento decorativo (onde, stelle) */
+  --sabbia:#EAE0C9;
+  --grigio:#67716F;
+  --linea:#DFD9CB;
+  --font-display:"Prata",Georgia,serif;
+  --font-body:"Work Sans",system-ui,sans-serif;
+  --maxw:1080px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font-body);font-size:1.03rem;color:var(--petrolio-scuro);background:var(--conchiglia);line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.15;margin:0}
+p{margin:0 0 1rem}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--acqua);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.5rem}
+.eyebrow{font-weight:600;text-transform:uppercase;letter-spacing:.24em;font-size:.7rem;color:var(--acqua);margin:0 0 1rem}
+
+/* --- Motivo onda (firma) --- */
+.onda{display:block;width:130px;height:12px;margin-top:.9rem;color:var(--acqua-viva);overflow:visible}
+.onda--centro{margin-left:auto;margin-right:auto}
+.onda path{stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round}
+@media (prefers-reduced-motion:no-preference){
+  .onda path{stroke-dasharray:240;stroke-dashoffset:240;animation:disegna 2.2s ease forwards}
+  @keyframes disegna{to{stroke-dashoffset:0}}
+}
+
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:600;font-size:.95rem;padding:.8rem 1.5rem;border-radius:2px;text-decoration:none;border:1.5px solid var(--petrolio);transition:background .2s,color .2s,transform .15s}
+.btn:active{transform:translateY(1px)}
+.btn--pieno{background:var(--petrolio);color:var(--conchiglia)}
+.btn--pieno:hover{background:var(--acqua);border-color:var(--acqua)}
+.btn--chiaro{background:var(--conchiglia);color:var(--petrolio);border-color:var(--conchiglia)}
+.btn--chiaro:hover{background:var(--sabbia)}
+.btn--vuoto{background:transparent;color:var(--conchiglia);border-color:rgba(251,250,246,.7)}
+.btn--vuoto:hover{background:rgba(251,250,246,.15)}
+
+/* --- Header --- */
+.header{position:sticky;top:0;z-index:50;background:rgba(251,250,246,.93);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .3s}
+.header.scrolled{border-bottom-color:var(--linea)}
+.header-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.9rem 1.5rem;max-width:var(--maxw);margin:0 auto}
+.brand{font-family:var(--font-display);font-size:1.3rem;text-decoration:none}
+.nav{display:flex;gap:1.6rem;align-items:center}
+.nav a{text-decoration:none;font-size:.9rem;font-weight:500}
+.nav a:hover{color:var(--acqua)}
+@media (max-width:720px){.nav .solo-desktop{display:none}}
+
+/* --- Hero --- */
+.hero{position:relative;min-height:86vh;display:flex;align-items:flex-end;color:var(--conchiglia);background:var(--petrolio)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,46,55,.05) 35%,rgba(13,46,55,.78) 100%)}
+.hero-in{position:relative;z-index:2;padding:0 1.5rem 4.2rem;max-width:var(--maxw);margin:0 auto;width:100%}
+.hero h1{font-size:clamp(2.5rem,6.5vw,4.2rem);max-width:16ch;text-shadow:0 1px 22px rgba(13,46,55,.4)}
+.hero p{max-width:46ch;font-size:1.1rem;margin:1.1rem 0 1.8rem;color:rgba(251,250,246,.92)}
+.hero-cta{display:flex;gap:.9rem;flex-wrap:wrap}
+
+/* --- Sezioni --- */
+.sez{padding:5.5rem 0}
+.sez--sabbia{background:var(--sabbia)}
+.sez--scura{background:var(--petrolio);color:var(--conchiglia)}
+.sez--stretta{max-width:620px;margin:0 auto;text-align:center;padding-left:1.5rem;padding-right:1.5rem}
+.sez--stretta p{font-size:1.25rem;font-family:var(--font-display);line-height:1.6}
+.titolo-sez{font-size:clamp(1.9rem,4vw,2.4rem);max-width:22ch}
+
+/* --- Camere --- */
+.camere{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.6rem;margin-top:2.6rem}
+.camera{background:var(--conchiglia);border:1px solid var(--linea)}
+.camera-foto{aspect-ratio:4/3;overflow:hidden;background:var(--sabbia)}
+.camera-foto img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.camera:hover .camera-foto img{transform:scale(1.045)}
+.camera-corpo{padding:1.4rem 1.4rem 1.6rem}
+.camera h3{font-size:1.35rem;margin-bottom:.4rem}
+.camera p{font-size:.93rem;color:var(--grigio);margin-bottom:.9rem}
+.camera-prezzo{font-weight:600;font-size:.95rem}
+.camera-prezzo strong{font-family:var(--font-display);font-size:1.35rem;font-weight:400}
+
+/* --- Servizi --- */
+.servizi{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem 3rem;margin-top:2.4rem}
+.servizio h3{font-size:1.2rem;margin-bottom:.5rem}
+.servizio p{font-size:.94rem;color:var(--grigio);margin:0}
+.sez--sabbia .servizio p{color:#5C6355}
+
+/* --- Il lago / posizione --- */
+.posizione{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;margin-top:2.6rem}
+.posizione-foto{aspect-ratio:4/3;overflow:hidden}
+.posizione-foto img{width:100%;height:100%;object-fit:cover}
+.distanze{list-style:none;margin:1.4rem 0 0;padding:0}
+.distanze li{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid rgba(251,250,246,.18);font-size:.96rem}
+.distanze li span:last-child{font-weight:600;white-space:nowrap}
+@media (max-width:760px){.posizione{grid-template-columns:1fr}}
+
+/* --- Recensioni --- */
+.recensioni{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2.4rem;margin-top:2.6rem}
+.recensione blockquote{margin:0;font-family:var(--font-display);font-size:1.18rem;line-height:1.5}
+.recensione cite{display:block;margin-top:1rem;font-style:normal;font-size:.84rem;color:var(--grigio)}
+.stelle{color:var(--acqua-viva);letter-spacing:.15em;font-size:.9rem;margin-bottom:.8rem}
+
+/* --- Contatti --- */
+.contatti{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2.6rem;align-items:start}
+.contatti-info p{margin-bottom:.6rem}
+.contatti-cta{margin-top:1.5rem;display:flex;gap:.8rem;flex-wrap:wrap}
+.mappa-link{display:block;margin-top:1.3rem;font-size:.92rem;font-weight:600;color:var(--petrolio);text-decoration:underline wavy var(--acqua-viva);text-underline-offset:5px}
+.come-arrivare li{margin-bottom:.5rem;font-size:.96rem}
+@media (max-width:720px){.contatti{grid-template-columns:1fr}}
+
+/* --- Footer --- */
+.footer{background:var(--petrolio-scuro);color:rgba(251,250,246,.75);padding:2.6rem 0;font-size:.88rem}
+.footer-in{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;max-width:var(--maxw);margin:0 auto;padding:0 1.5rem}
+.footer a{color:var(--conchiglia)}
+
+/* --- Barra mobile fissa --- */
+.barra-mobile{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--petrolio);padding:.7rem .9rem calc(.7rem + env(safe-area-inset-bottom))}
+.barra-mobile a{flex:1;justify-content:center}
+@media (max-width:720px){.barra-mobile{display:flex;gap:.7rem}body{padding-bottom:70px}}
+
+/* --- Reveal --- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visibile{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .camera-foto img{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-in">
+    <a class="brand" href="#">[NOME ATTIVITÀ]</a>
+    <nav class="nav" aria-label="Principale">
+      <a class="solo-desktop" href="#camere">Camere</a>
+      <a class="solo-desktop" href="#lago">Il lago</a>
+      <a class="solo-desktop" href="#contatti">Contatti</a>
+      <a class="btn btn--pieno" href="https://wa.me/[TELEFONO]">Verifica disponibilità</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <!-- FOTO STOCK: sostituire con foto vera (lago, casa, vista dalla camera) -->
+  <img class="hero-img" src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=1800&auto=format&fit=crop" alt="Il lago a due passi da [NOME ATTIVITÀ]" onerror="this.style.display='none'">
+  <div class="hero-in">
+    <p class="eyebrow" style="color:rgba(251,250,246,.85)">Bed &amp; Breakfast · [ZONA]</p>
+    <h1>Il lago fuori dalla finestra</h1>
+    <p>Camere luminose, colazione fatta in casa e la riva a [DISTANZA LAGO] a piedi. Il posto giusto per rallentare.</p>
+    <div class="hero-cta">
+      <a class="btn btn--chiaro" href="https://wa.me/[TELEFONO]">Scrivici su WhatsApp</a>
+      <a class="btn btn--vuoto" href="#camere">Guarda le camere</a>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="sez--stretta reveal">
+    <p>Siamo [FAMIGLIA/NOMI], e questa è casa nostra prima che un B&amp;B. Tre camere, un giardino, la colazione con le torte del mattino: il resto lo fa il lago.</p>
+    <svg class="onda onda--centro" viewBox="0 0 130 12" aria-hidden="true"><path d="M2 6 Q 18 0 34 6 T 66 6 T 98 6 T 128 6"/></svg>
+  </div>
+</section>
+
+<section class="sez sez--sabbia" id="camere">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Le camere</p>
+      <h2 class="titolo-sez">Tre camere, una casa</h2>
+    </div>
+    <div class="camere">
+      <!-- FOTO STOCK: sostituire con foto vere delle camere -->
+      <article class="camera reveal">
+        <div class="camera-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=900&auto=format&fit=crop" alt="Camera Lago con letto matrimoniale" onerror="this.style.display='none'"></div>
+        <div class="camera-corpo">
+          <h3>Camera Lago</h3>
+          <p>Matrimoniale con balcone e vista acqua. Bagno privato, aria condizionata.</p>
+          <span class="camera-prezzo">da <strong>85 €</strong> / notte</span>
+        </div>
+      </article>
+      <article class="camera reveal">
+        <div class="camera-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=900&auto=format&fit=crop" alt="Camera Giardino" onerror="this.style.display='none'"></div>
+        <div class="camera-corpo">
+          <h3>Camera Giardino</h3>
+          <p>Silenziosa, affaccio sul verde, ingresso indipendente. Perfetta in due.</p>
+          <span class="camera-prezzo">da <strong>75 €</strong> / notte</span>
+        </div>
+      </article>
+      <article class="camera reveal">
+        <div class="camera-foto"><img loading="lazy" src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=900&auto=format&fit=crop" alt="Camera Famiglia con letti aggiuntivi" onerror="this.style.display='none'"></div>
+        <div class="camera-corpo">
+          <h3>Camera Famiglia</h3>
+          <p>Matrimoniale + due letti singoli, spazio per i passeggini. Fino a 4 ospiti.</p>
+          <span class="camera-prezzo">da <strong>110 €</strong> / notte</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">La mattina</p>
+      <h2 class="titolo-sez">Colazione e piccole attenzioni</h2>
+      <svg class="onda" viewBox="0 0 130 12" aria-hidden="true"><path d="M2 6 Q 18 0 34 6 T 66 6 T 98 6 T 128 6"/></svg>
+    </div>
+    <div class="servizi">
+      <div class="servizio reveal"><h3>Colazione fatta in casa</h3><p>Torte del mattino, pane del forno del paese, yogurt e frutta. In giardino quando il tempo lo permette.</p></div>
+      <div class="servizio reveal"><h3>Bici e lago</h3><p>Deposito bici chiuso, teli da lago in prestito, consigli veri su spiagge e giri.</p></div>
+      <div class="servizio reveal"><h3>Parcheggio e Wi-Fi</h3><p>Posto auto interno gratuito e Wi-Fi in tutta la casa. Check-in flessibile: basta avvisare.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sez sez--scura" id="lago">
+  <div class="wrap">
+    <div class="posizione">
+      <div class="posizione-foto reveal">
+        <!-- FOTO STOCK: sostituire con foto vera del lago/della zona -->
+        <img loading="lazy" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1000&auto=format&fit=crop" alt="In canoa sul lago vicino a [NOME ATTIVITÀ]" onerror="this.style.display='none'">
+      </div>
+      <div class="reveal">
+        <p class="eyebrow" style="color:#8FC4D1">La posizione</p>
+        <h2 class="titolo-sez">Tutto a due passi</h2>
+        <ul class="distanze">
+          <li><span>Spiaggia / riva del lago</span><span>[DISTANZA LAGO] a piedi</span></li>
+          <li><span>Centro di [ZONA]</span><span>5 min a piedi</span></li>
+          <li><span>Pista ciclabile</span><span>200 m</span></li>
+          <li><span>Ristoranti e gelaterie</span><span>3 min a piedi</span></li>
+          <li><span>Trento</span><span>[MINUTI] min in auto</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sez">
+  <div class="wrap">
+    <p class="eyebrow reveal">Dicono di noi</p>
+    <div class="recensioni">
+      <div class="recensione reveal">
+        <div class="stelle" aria-label="5 stelle su 5">★★★★★</div>
+        <blockquote>«La colazione in giardino vale da sola la vacanza. Torte diverse ogni giorno.»</blockquote>
+        <cite>— Recensione Booking</cite>
+      </div>
+      <div class="recensione reveal">
+        <div class="stelle" aria-label="5 stelle su 5">★★★★★</div>
+        <blockquote>«Ci hanno consigliato una spiaggia che non avremmo mai trovato da soli. Ospitalità vera.»</blockquote>
+        <cite>— Recensione Google</cite>
+      </div>
+      <div class="recensione reveal">
+        <div class="stelle" aria-label="5 stelle su 5">★★★★★</div>
+        <blockquote>«Camera impeccabile, silenzio assoluto, lago a cinque minuti. Torneremo.»</blockquote>
+        <cite>— Recensione Booking</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sez sez--sabbia" id="contatti">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Contatti</p>
+      <h2 class="titolo-sez">Verifica la disponibilità</h2>
+      <svg class="onda" viewBox="0 0 130 12" aria-hidden="true"><path d="M2 6 Q 18 0 34 6 T 66 6 T 98 6 T 128 6"/></svg>
+    </div>
+    <div class="contatti">
+      <div class="contatti-info reveal">
+        <p><strong>[NOME ATTIVITÀ]</strong><br>[INDIRIZZO], [ZONA]</p>
+        <p>Telefono / WhatsApp: <strong>[TELEFONO]</strong><br>Email: [EMAIL]</p>
+        <p style="font-size:.94rem;color:#5C6355">Scrivici le date e in quanti siete: rispondiamo in giornata con disponibilità e prezzo esatto.</p>
+        <div class="contatti-cta">
+          <a class="btn btn--pieno" href="https://wa.me/[TELEFONO]">WhatsApp</a>
+          <a class="btn btn--pieno" href="tel:[TELEFONO]">Chiama</a>
+          <a class="btn btn--pieno" href="mailto:[EMAIL]">Email</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 style="font-size:1.25rem;margin-bottom:.8rem">Come arrivare</h3>
+        <ul class="come-arrivare" style="list-style:none;padding:0;margin:0">
+          <li><strong>In auto</strong> — uscita [USCITA], poi 10 min direzione lago. Parcheggio interno.</li>
+          <li><strong>In treno</strong> — stazione di [STAZIONE], poi bus o 15 min a piedi.</li>
+          <li><strong>In bici</strong> — la ciclabile della valle passa a 200 m.</li>
+        </ul>
+        <a class="mappa-link" href="https://maps.google.com/?q=[INDIRIZZO]" target="_blank" rel="noopener">Apri in Google Maps ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-in">
+    <span>© <span id="anno"></span> [NOME ATTIVITÀ] — [INDIRIZZO], [ZONA] · P.IVA [PARTITA IVA] · CIN [CIN]</span>
+    <span><a href="tel:[TELEFONO]">[TELEFONO]</a></span>
+  </div>
+</footer>
+
+<div class="barra-mobile">
+  <a class="btn btn--chiaro" href="https://wa.me/[TELEFONO]">WhatsApp</a>
+  <a class="btn btn--vuoto" href="tel:[TELEFONO]">Chiama</a>
+</div>
+
+<script>
+document.getElementById('anno').textContent = new Date().getFullYear();
+
+const header = document.getElementById('header');
+addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 10), {passive:true});
+
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visibile'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visibile'));
+}
+</script>
+</body>
+</html>

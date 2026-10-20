@@ -1,0 +1,665 @@
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizzeria a Malonno | Strapizzami Lab</title>
+<meta name="description" content="Pizzeria Strapizzami Lab a Malonno: pizza napoletana a lunga lievitazione, da asporto e al tavolo. Menù, orari e contatti. Chiama 0364 635285.">
+<meta name="theme-color" content="#1C1A1B">
+<link rel="canonical" href="https://stefanopontalti07-cloud.github.io/prototipi/strapizzami/">
+<!-- Open Graph -->
+<meta property="og:type" content="restaurant">
+<meta property="og:site_name" content="Pizzeria Strapizzami Lab">
+<meta property="og:title" content="Pizzeria Strapizzami Lab — Malonno">
+<meta property="og:description" content="Pizza napoletana a lunga lievitazione, da asporto e al tavolo. A Malonno.">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/strapizzami/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pizza appena sfornata della Pizzeria Strapizzami Lab">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/strapizzami/">
+<meta property="og:locale" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   Pizzeria Strapizzami Lab — vetrina one-page
+   Palette brand (menù + logo): carbone · taupe · greige · crema · terracotta
+   Font: Jost (geometrico sottile) + Space Mono (dettagli/ingredienti "lab")
+   Personalità: minimale · geometrico · caldo
+   ========================================================================== */
+:root{
+  --carbone:#1C1A1B;
+  --carbone-2:#131111;
+  --taupe:#6C5F63;
+  --taupe-d:#574C50;
+  --greige:#D9D0C4;
+  --greige-2:#E6DFD4;
+  --crema:#F2ECE3;
+  --crema-2:#EAE2D6;
+  --terra:#8A5A3C;
+  --terra-soft:#A67A54;
+  --ink:#26211F;
+  --muted:#8A7F79;
+  --line:#CFC5B7;
+  --focus:#A67A54;
+
+  --f-display:"Jost",system-ui,-apple-system,sans-serif;
+  --f-mono:"Space Mono",ui-monospace,"Courier New",monospace;
+  --maxw:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:var(--f-display);color:var(--ink);background:var(--crema);
+  line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--f-display);line-height:1.1;margin:0;font-weight:400}
+p{margin:0 0 1rem}
+a{color:inherit}
+img{max-width:100%;display:block}
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.6rem}
+section{padding:6rem 0}
+.eyebrow{font-family:var(--f-mono);font-weight:400;text-transform:uppercase;letter-spacing:.34em;
+  font-size:.68rem;color:var(--terra);margin:0 0 1.2rem}
+.section-head{max-width:56ch;margin:0 auto 3.4rem;text-align:center}
+.section-head h2{font-size:clamp(2rem,5vw,3rem);font-weight:300;letter-spacing:.04em;text-transform:uppercase}
+.section-head p{margin-top:1.1rem;color:var(--muted);font-size:1.05rem}
+
+/* --- spicchio (mark) --- */
+.slice{display:inline-block;width:34px;height:34px;color:var(--terra)}
+.slice svg{width:100%;height:100%;display:block}
+.orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.2rem auto;color:var(--terra)}
+.orn::before,.orn::after{content:"";height:1px;width:56px;background:currentColor;opacity:.5}
+
+/* --- Bottoni --- */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--f-display);font-weight:400;
+  font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;padding:1rem 1.9rem;border-radius:0;
+  text-decoration:none;cursor:pointer;border:1px solid transparent;
+  transition:transform .2s ease,background .25s ease,color .25s ease,border-color .25s ease}
+.btn--solid{background:var(--terra);color:var(--crema);border-color:var(--terra)}
+.btn--solid:hover{background:var(--terra-soft);border-color:var(--terra-soft);transform:translateY(-2px)}
+.btn--line{background:transparent;color:var(--crema);border-color:rgba(242,236,227,.5)}
+.btn--line:hover{border-color:var(--crema);transform:translateY(-2px)}
+.btn--ink{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn--ink:hover{background:var(--carbone);color:var(--crema);border-color:var(--carbone)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+
+/* --- Header --- */
+header{position:sticky;top:0;z-index:60;background:rgba(28,26,27,0);transition:background .35s ease,box-shadow .35s ease}
+header.scrolled{background:rgba(19,17,17,.95);box-shadow:0 1px 0 rgba(242,236,227,.12)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 1.6rem;max-width:1320px;margin:0 auto}
+.brand{display:flex;align-items:center;text-decoration:none}
+.brand img{height:52px;width:auto}
+nav.main{display:flex;align-items:center;gap:2rem}
+nav.main a{color:var(--crema);text-decoration:none;font-weight:300;font-size:.82rem;letter-spacing:.18em;
+  text-transform:uppercase;position:relative;padding:.3rem 0;opacity:.88}
+nav.main a::after{content:"";position:absolute;left:0;bottom:-1px;width:0;height:1px;background:var(--terra-soft);transition:width .3s}
+nav.main a:hover{opacity:1}
+nav.main a:hover::after{width:100%}
+.nav-tools{display:flex;align-items:center;gap:1rem}
+.nav-tel{display:inline-flex;align-items:center;gap:.5rem;color:var(--crema);text-decoration:none;
+  font-family:var(--f-mono);font-size:.82rem;letter-spacing:.06em;border:1px solid rgba(242,236,227,.4);padding:.55rem 1rem}
+.nav-tel:hover{border-color:var(--terra-soft);color:#fff}
+.nav-tel svg{width:15px;height:15px}
+.navtoggle{display:none;position:relative;width:44px;height:44px;background:none;border:0;cursor:pointer;padding:0}
+.navtoggle span{position:absolute;left:11px;right:11px;height:1.5px;background:var(--crema);transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .2s}
+.navtoggle span:nth-child(1){top:15px}
+.navtoggle span:nth-child(2){top:21px}
+.navtoggle span:nth-child(3){top:27px}
+.navtoggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.navtoggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.navtoggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* --- Hero --- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;background:var(--carbone)}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(19,17,17,.62) 0%,rgba(19,17,17,.42) 42%,rgba(19,17,17,.78) 100%)}
+.hero-inner{position:relative;z-index:2;padding:6rem 1.6rem;color:var(--crema);max-width:900px}
+.hero-logo{width:min(78vw,420px);margin:0 auto 1.8rem;filter:drop-shadow(0 8px 30px rgba(0,0,0,.5))}
+.hero .kicker{font-family:var(--f-mono);text-transform:uppercase;letter-spacing:.32em;
+  font-size:.72rem;color:var(--terra-soft);margin-bottom:1.6rem}
+.hero h1{font-size:clamp(1.5rem,3.6vw,2.3rem);font-weight:300;letter-spacing:.03em;line-height:1.35;
+  max-width:24ch;margin:0 auto;color:#f6f1ea}
+.hero-cta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2.4rem}
+.hero-trust{margin:2rem 0 0;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.08em;color:#e3d8ca}
+.hero-trust b{color:var(--terra-soft);font-weight:400}
+.scroll-hint{position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);z-index:2;color:var(--crema);
+  font-family:var(--f-mono);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;opacity:.7;
+  display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.scroll-hint::after{content:"";width:1px;height:32px;background:linear-gradient(var(--crema),transparent);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+
+/* --- Concept --- */
+.concept{background:var(--crema)}
+.concept .split{display:grid;grid-template-columns:1.05fr .95fr;gap:4.5rem;align-items:center}
+.concept .txt .lead{font-size:1.15rem;color:var(--ink)}
+.concept .txt p{color:#4a423e}
+.concept figure{margin:0;position:relative}
+.concept figure img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.concept figure::after{content:"";position:absolute;inset:14px;border:1px solid rgba(242,236,227,.6);pointer-events:none}
+.facts{display:flex;gap:2.4rem;margin-top:2.2rem;flex-wrap:wrap}
+.fact{display:flex;flex-direction:column}
+.fact b{font-family:var(--f-display);font-size:1.9rem;font-weight:300;color:var(--terra);line-height:1}
+.fact span{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+
+/* --- Menù --- */
+.menu{background:var(--greige)}
+.menu .section-head h2{color:var(--ink)}
+.menu-note{max-width:60ch;margin:-2rem auto 3rem;text-align:center;font-family:var(--f-mono);
+  font-size:.8rem;letter-spacing:.04em;color:var(--taupe-d)}
+.menu-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:.55rem;max-width:720px;margin:0 auto 2.8rem}
+.menu-tabs button{background:var(--crema);border:1px solid var(--line);cursor:pointer;
+  font-family:var(--f-display);font-weight:400;letter-spacing:.02em;font-size:.92rem;color:var(--ink);
+  padding:.55rem 1.15rem;border-radius:999px;line-height:1;transition:background .2s,color .2s,border-color .2s}
+.menu-tabs button:hover{border-color:var(--terra-soft);color:var(--terra)}
+.menu-tabs button[aria-selected="true"]{background:var(--terra);color:var(--crema);border-color:var(--terra)}
+.menu-panel{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0 3.5rem}
+.menu-panel[hidden]{display:none}
+.menu-panel .row:nth-child(1),.menu-panel .row:nth-child(2){border-top:1px solid var(--line)}
+.row{display:flex;align-items:baseline;gap:.6rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.row .n{font-family:var(--f-display);font-weight:400;text-transform:uppercase;letter-spacing:.08em;
+  font-size:1.02rem;color:var(--ink);white-space:nowrap}
+.row .lead-dots{flex:1;border-bottom:1px dotted var(--muted);transform:translateY(-3px);opacity:.55;min-width:14px}
+.row .p{font-family:var(--f-display);font-weight:400;color:var(--terra);font-size:1.02rem;white-space:nowrap}
+.row .ing{flex-basis:100%;font-family:var(--f-mono);font-size:.76rem;color:var(--taupe-d);
+  letter-spacing:.01em;margin-top:.25rem;order:5}
+.menu-extra{max-width:1000px;margin:0 auto;display:flex;flex-wrap:wrap;gap:1rem 2.4rem;
+  padding-top:1.4rem;border-top:1px solid var(--line);font-family:var(--f-mono);font-size:.76rem;
+  letter-spacing:.03em;color:var(--taupe)}
+.menu-extra span b{color:var(--terra);font-weight:400}
+.menu-loading{text-align:center;font-family:var(--f-mono);color:var(--taupe);padding:2rem 0}
+
+/* --- Galleria --- */
+.galleria{background:var(--crema)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:.9rem;max-width:1240px;margin:0 auto}
+.tile{position:relative;overflow:hidden;background:var(--taupe)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.tile:hover img{transform:scale(1.06)}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.2rem .9rem .8rem;color:#fff;
+  font-family:var(--f-mono);font-size:.74rem;letter-spacing:.04em;
+  background:linear-gradient(transparent,rgba(19,17,17,.82));opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s}
+.tile:hover figcaption{opacity:1;transform:none}
+.tile.big{grid-column:span 2;grid-row:span 2}
+.tile.wide{grid-column:span 2}
+
+/* --- Recensioni --- */
+.recensioni{background:var(--taupe);color:var(--crema);text-align:center}
+.recensioni .eyebrow{color:var(--terra-soft)}
+.recensioni .section-head h2{color:var(--crema)}
+.stars{font-size:1.4rem;letter-spacing:.24em;color:var(--terra-soft);margin:.2rem 0}
+.rev-score{font-family:var(--f-display);font-size:clamp(2.4rem,6vw,3.4rem);font-weight:300}
+.rev-score small{display:block;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.06em;color:#e3d8ca;margin-top:.5rem}
+.rev-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:1.6rem;max-width:880px;margin:3rem auto 0;text-align:left}
+.rev-card{background:rgba(242,236,227,.07);border:1px solid rgba(242,236,227,.16);padding:1.8rem}
+.rev-card .q{font-size:1.1rem;line-height:1.55;margin-bottom:1.1rem;color:#f6f1ea;font-weight:300}
+.rev-card .who{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--terra-soft)}
+.rev-cta{margin-top:3rem}
+
+/* --- Contatti --- */
+.contatti{background:var(--carbone);color:var(--crema)}
+.contatti .section-head h2{color:var(--crema)}
+.contatti .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:3.5rem;align-items:stretch}
+.info h3{font-family:var(--f-display);font-weight:300;text-transform:uppercase;letter-spacing:.1em;
+  font-size:1.3rem;color:var(--terra-soft);margin-bottom:1.4rem}
+.info-line{display:flex;gap:.9rem;align-items:flex-start;margin-bottom:1.2rem}
+.info-line svg{width:19px;height:19px;flex:none;color:var(--terra-soft);margin-top:.25rem}
+.info-line a{color:var(--crema);text-decoration:none}
+.info-line a:hover{color:#fff}
+.hours{margin:1.6rem 0;border-top:1px solid rgba(242,236,227,.14)}
+.hours .r{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid rgba(242,236,227,.1);
+  font-family:var(--f-mono);font-size:.84rem}
+.hours .r.off{color:#9a8f89}
+.hours .r b{font-weight:400;color:#fff}
+.hours .r.off b{color:#9a8f89}
+.hours-note{font-family:var(--f-mono);font-size:.74rem;color:var(--terra-soft);letter-spacing:.03em}
+.contatti .cta-row{margin-top:1.8rem}
+.map-embed{width:100%;height:100%;min-height:400px;border:0;filter:grayscale(.4) sepia(.2) saturate(1.1) brightness(.92)}
+
+/* --- Footer --- */
+footer{background:var(--carbone-2);color:var(--crema);padding:3.4rem 0 6rem;text-align:center}
+footer .flogo{width:230px;margin:0 auto 1.4rem;opacity:.95}
+footer .fnav{display:flex;gap:1.8rem;justify-content:center;flex-wrap:wrap;margin:1.4rem 0;
+  font-family:var(--f-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.1em}
+footer .fnav a{color:var(--crema);text-decoration:none;opacity:.8}
+footer .fnav a:hover{color:var(--terra-soft);opacity:1}
+footer .fsoc{display:flex;gap:.7rem;justify-content:center;margin:1.2rem 0}
+footer .fsoc a{width:42px;height:42px;border:1px solid rgba(242,236,227,.28);border-radius:50%;
+  display:grid;place-items:center;color:var(--crema);text-decoration:none;transition:.25s}
+footer .fsoc a:hover{background:var(--terra);border-color:var(--terra)}
+footer .fine{font-family:var(--f-mono);font-size:.7rem;opacity:.55;margin-top:1.2rem;line-height:1.9}
+
+/* --- Barra mobile --- */
+.mobilebar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  background:rgba(19,17,17,.97);border-top:1px solid rgba(242,236,227,.18)}
+.mobilebar a{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem;
+  color:var(--crema);text-decoration:none;font-family:var(--f-mono);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
+.mobilebar a svg{width:17px;height:17px;color:var(--terra-soft)}
+
+/* --- Reveal --- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* --- Responsive --- */
+@media(max-width:900px){
+  nav.main{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);flex-direction:column;align-items:flex-start;
+    justify-content:center;gap:1.8rem;background:var(--carbone);padding:2rem 2.4rem;transform:translateX(100%);
+    transition:transform .4s cubic-bezier(.22,1,.36,1);box-shadow:-20px 0 50px rgba(0,0,0,.5)}
+  nav.main.open{transform:none}
+  nav.main a{font-size:1rem}
+  nav.main a::after{display:none}
+  .navtoggle{display:block;z-index:80}
+  .nav-tel{display:none}
+  header{background:rgba(19,17,17,.95)}
+  .concept .split,.contatti .grid{grid-template-columns:1fr;gap:2.6rem}
+  .rev-cards{grid-template-columns:1fr}
+  .menu-panel{grid-template-columns:1fr;gap:0}
+  .menu-panel .row:nth-child(2){border-top:0}
+  .menu-tabs{gap:.45rem}
+  .menu-tabs button{font-size:.84rem;padding:.5rem .95rem}
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+  .tile.big{grid-column:span 2;grid-row:span 1}
+  section{padding:4.2rem 0}
+  .mobilebar{display:block}
+  footer{padding-bottom:5.5rem}
+  .map-embed{min-height:300px}
+}
+@media(max-width:560px){
+  .gal-grid{grid-template-columns:1fr;grid-auto-rows:240px}
+  .tile.big,.tile.wide{grid-column:span 1}
+  .row .n{white-space:normal}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .scroll-hint::after{animation:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Restaurant",
+  "@id":"https://stefanopontalti07-cloud.github.io/prototipi/strapizzami/#restaurant",
+  "name":"Pizzeria Strapizzami Lab",
+  "description":"Pizzeria a Malonno: pizza napoletana a lunga lievitazione, da asporto e al tavolo.",
+  "url":"https://stefanopontalti07-cloud.github.io/prototipi/strapizzami/",
+  "image":"https://stefanopontalti07-cloud.github.io/prototipi/strapizzami/hero.webp",
+  "servesCuisine":["Pizza","Pizza napoletana","Italiana"],
+  "priceRange":"€",
+  "telephone":"+390364635285",
+  "acceptsReservations":"True",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Via Adamello 9",
+    "addressLocality":"Malonno",
+    "addressRegion":"BS",
+    "postalCode":"25040",
+    "addressCountry":"IT"
+  },
+  "hasMenu":"https://stefanopontalti07-cloud.github.io/prototipi/strapizzami/#menu",
+  "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.1","reviewCount":"92"},
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday"],"opens":"17:00","closes":"21:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Friday"],"opens":"17:00","closes":"22:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"17:00","closes":"22:30"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday"],"opens":"17:00","closes":"22:00"}
+  ],
+  "sameAs":["https://www.facebook.com/p/StraPIZZAmi-100063561039347/"]
+}
+</script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader">
+  <div class="topbar">
+    <a class="brand" href="#top" aria-label="Strapizzami Lab — inizio pagina">
+      <img src="logo-white.png" alt="Pizzeria Strapizzami Lab" width="180" height="52">
+    </a>
+    <nav class="main" id="menuNav" aria-label="Navigazione principale">
+      <a href="#concept">Il Lab</a>
+      <a href="#menu">Menù</a>
+      <a href="#galleria">Le pizze</a>
+      <a href="#recensioni">Recensioni</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <div class="nav-tools">
+      <a class="nav-tel" href="tel:+390364635285">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        0364 635285
+      </a>
+      <button class="navtoggle" id="navToggle" aria-label="Apri menù" aria-expanded="false" aria-controls="menuNav"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <img class="bg" src="hero.webp" alt="Pizza con burrata, acciughe e basilico della Pizzeria Strapizzami Lab" width="900" height="676" fetchpriority="high">
+  <div class="hero-inner">
+    <img class="hero-logo" src="logo-white.png" alt="Pizzeria Strapizzami Lab, Malonno">
+    <p class="kicker">Pizzeria · Malonno</p>
+    <h1>Pizza napoletana a lunga lievitazione, cornicione alto e cuore sottile. Da asporto o al tavolo.<span class="vh"> Pizzeria a Malonno.</span></h1>
+    <div class="hero-cta">
+      <a class="btn btn--solid" href="tel:+390364635285">Chiama e ordina</a>
+      <a class="btn btn--line" href="#menu">Vedi il menù</a>
+    </div>
+    <p class="hero-trust"><b>★ 4,1</b> · 92 recensioni Google · Via Adamello 9</p>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Scorri</div>
+</section>
+
+<!-- ============ CONCEPT ============ -->
+<section class="concept" id="concept">
+  <div class="wrap split">
+    <div class="txt reveal">
+      <p class="eyebrow">Il Lab</p>
+      <h2 style="font-size:clamp(1.9rem,4.5vw,2.7rem);font-weight:300;text-transform:uppercase;letter-spacing:.04em;margin-bottom:1.4rem">Un laboratorio<br>della pizza</h2>
+      <p class="lead">Da Strapizzami la pizza è un lavoro di impasto e di tempo: lunga lievitazione, ingredienti scelti e un forno che spinge il cornicione. Napoletana nell'anima — alta sui bordi, leggera nel cuore.</p>
+      <p>Dalla Margherita alle nostre speciali, fino alle bianche e ai calzoni: tante ricette per ogni gusto, da mangiare qui in sala o da portare a casa ancora calda. Una pizzeria di quartiere a Malonno.</p>
+      <div class="facts">
+        <div class="fact"><b>60+</b><span>Pizze in carta</span></div>
+        <div class="fact"><b>4,1★</b><span>92 recensioni</span></div>
+        <div class="fact"><b>Asporto</b><span>e servizio al tavolo</span></div>
+      </div>
+    </div>
+    <figure class="reveal">
+      <img src="interno.webp" alt="La sala della Pizzeria Strapizzami Lab, tavoli in legno apparecchiati" width="1040" height="1300" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<!-- ============ MENÙ ============ -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">La carta</p>
+      <h2>Il nostro menù</h2>
+      <div class="orn" aria-hidden="true"><span class="slice"><svg viewBox="0 0 40 40"><path d="M20 4 L34 32 Q20 38 6 32 Z" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M11 30 Q20 33 29 30" fill="none" stroke="currentColor" stroke-width="1.1"/><circle cx="20" cy="16" r="1.4" fill="currentColor"/><circle cx="16" cy="23" r="1.2" fill="currentColor"/><circle cx="24" cy="24" r="1.2" fill="currentColor"/></svg></span></div>
+    </div>
+    <p class="menu-note">I prezzi si riferiscono alla pizza intera. Pizza Baby −0,50 · Mozzarella senza lattosio +1,50 · Base gluten free +3,00</p>
+    <div id="menuRoot"><p class="menu-loading">Carico il menù…</p></div>
+    <div class="menu-extra">
+      <span><b>Baby</b> · per i più piccoli, −0,50 sulla scelta</span>
+      <span><b>Senza lattosio</b> · mozzarella +1,50</span>
+      <span><b>Gluten free</b> · base +3,00</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERIA ============ -->
+<section class="galleria" id="galleria">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Le pizze</p>
+      <h2>Direttamente dal forno</h2>
+    </div>
+    <div class="gal-grid">
+      <figure class="tile big"><img loading="lazy" src="pizza-margherita.webp" alt="Pizza Margherita con pomodorini e basilico"><figcaption>Margherita coi pomodorini</figcaption></figure>
+      <figure class="tile"><img loading="lazy" src="pizza-burrata.webp" alt="Pizza con burrata e acciughe del Cantabrico"><figcaption>Burrata e acciughe</figcaption></figure>
+      <figure class="tile"><img loading="lazy" src="pizza-rucola.webp" alt="Pizza con rucola e scaglie di grana"><figcaption>Rucola e grana</figcaption></figure>
+      <figure class="tile"><img loading="lazy" src="pizza-salsiccia.webp" alt="Pizza con salsiccia e mozzarella"><figcaption>Salsiccia e fiordilatte</figcaption></figure>
+      <figure class="tile"><img loading="lazy" src="pizza-tavola.webp" alt="Pizza servita al tavolo con birra alla spina"><figcaption>Al tavolo, come piace a noi</figcaption></figure>
+      <figure class="tile"><img loading="lazy" src="pizza-cuore.webp" alt="Pizza a forma di cuore con würstel"><figcaption>La pizza a cuore</figcaption></figure>
+      <figure class="tile wide"><img loading="lazy" src="tiramisu.webp" alt="Tiramisù da asporto Strapizzami Lab"><figcaption>Il tiramisù, anche da portare via</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECENSIONI ============ -->
+<section class="recensioni" id="recensioni">
+  <div class="wrap">
+    <p class="eyebrow">Dicono di noi</p>
+    <div class="stars" aria-hidden="true">★★★★☆</div>
+    <div class="rev-score">4,1 / 5<small>92 recensioni su Google</small></div>
+    <div class="rev-cards">
+      <figure class="rev-card reveal"><p class="q">«Siamo fortunati ad avere una pizzeria così a Malonno: io e mio marito ci andiamo regolarmente per prendere la pizza, e a volte mangiamo anche direttamente lì.»</p><figcaption class="who">Recensione · Google</figcaption></figure>
+      <figure class="rev-card reveal"><p class="q">«Pizza buonissima, sottile e piena di roba. Pizzaioli sempre sorridenti e proprietaria carinissima. Prezzi buoni: consiglio a tutti.»</p><figcaption class="who">Recensione · Google</figcaption></figure>
+    </div>
+    <div class="rev-cta">
+      <a class="btn btn--line" href="tel:+390364635285">Prova anche tu · 0364 635285</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTATTI ============ -->
+<section class="contatti" id="contatti">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Dove siamo</p>
+      <h2>Vieni a trovarci</h2>
+    </div>
+    <div class="grid">
+      <div class="info">
+        <h3>Pizzeria Strapizzami Lab</h3>
+        <div class="info-line"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg><span>Via Adamello 9<br>Malonno, Italia</span></div>
+        <div class="info-line"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><span><a href="tel:+390364635285">0364 635285</a></span></div>
+        <div class="hours">
+          <div class="r"><span>Lunedì</span><b>17:30 – 22:00</b></div>
+          <div class="r off"><span>Martedì</span><b>Chiuso</b></div>
+          <div class="r"><span>Mercoledì</span><b>17:30 – 22:00</b></div>
+          <div class="r"><span>Giovedì</span><b>17:30 – 22:00</b></div>
+          <div class="r"><span>Venerdì</span><b>17:30 – 22:00</b></div>
+          <div class="r"><span>Sabato</span><b>17:30 – 22:00</b></div>
+          <div class="r"><span>Domenica</span><b>17:30 – 22:00</b></div>
+        </div>
+        <p class="hours-note">Solo cena · pizza da asporto e al tavolo. Consigliato chiamare per l'asporto.</p>
+        <div class="cta-row">
+          <a class="btn btn--solid" href="tel:+390364635285">Chiama e ordina</a>
+        </div>
+      </div>
+      <div class="map">
+        <iframe class="map-embed" loading="lazy" title="Mappa — Strapizzami Lab, Via Adamello 9, Malonno" src="https://www.google.com/maps?q=Via%20Adamello%209,%20Malonno,%20Italy&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <img class="flogo" src="logo-white.png" alt="Pizzeria Strapizzami Lab">
+    <nav class="fnav">
+      <a href="#concept">Il Lab</a><a href="#menu">Menù</a><a href="#galleria">Le pizze</a><a href="#contatti">Contatti</a>
+    </nav>
+    <div class="fsoc">
+      <a href="https://www.facebook.com/p/StraPIZZAmi-100063561039347/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-3H13V9.2c0-.9.3-1.5 1.6-1.5H17V5.1C16.6 5 15.6 5 14.5 5 12.1 5 10.5 6.4 10.5 9v2H8v3h2.5v8H13z"/></svg></a>
+    </div>
+    <p class="fine">© 2026 Pizzeria Strapizzami Lab · Via Adamello 9, Malonno · Tel <a href="tel:+390364635285" style="color:inherit;text-decoration:none">0364 635285</a><br>P.IVA [DA INSERIRE] · sito realizzato da Stefano Pontalti</p>
+  </div>
+</footer>
+
+<!-- ============ BARRA MOBILE ============ -->
+<div class="mobilebar">
+  <a href="tel:+390364635285"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Chiama e ordina · 0364 635285</a>
+</div>
+
+<script>
+/* ---------- Nav mobile ---------- */
+(function(){
+  var toggle=document.getElementById('navToggle'), nav=document.getElementById('menuNav');
+  if(toggle&&nav){
+    toggle.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded',open);
+      toggle.setAttribute('aria-label',open?'Chiudi menù':'Apri menù');
+    });
+    nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){
+      nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');
+    });});
+    addEventListener('keydown',function(e){if(e.key==='Escape'){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');}});
+  }
+})();
+
+/* ---------- Header scroll ---------- */
+(function(){
+  var h=document.getElementById('siteHeader');
+  var on=function(){h.classList.toggle('scrolled',scrollY>40);};
+  on();addEventListener('scroll',on,{passive:true});
+})();
+
+/* ---------- Reveal ---------- */
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+
+/* ==========================================================================
+   MENÙ — dati (fedeli al menù del locale). Per aggiornarli in futuro basta
+   incollare l'URL CSV di un Google Sheet in MENU_CSV_URL:
+   colonne attese -> Sezione | Piatto | Ingredienti | Prezzo
+   ========================================================================== */
+var MENU_CSV_URL = ''; // <-- Stefano: link CSV Google Sheet (opzionale)
+
+var MENU = [
+  {sezione:'Le Classiche', nome:'Marinara', ing:'Pomodoro, aglio', p:'5,50'},
+  {sezione:'Le Classiche', nome:'Margherita', ing:'Pomodoro, mozzarella', p:'6,00'},
+  {sezione:'Le Classiche', nome:'Diavola', ing:'Pomodoro, mozzarella, salame piccante', p:'7,00'},
+  {sezione:'Le Classiche', nome:'Funghi', ing:'Pomodoro, mozzarella, funghi', p:'7,00'},
+  {sezione:'Le Classiche', nome:'Prosciutto', ing:'Pomodoro, mozzarella, prosciutto', p:'7,00'},
+  {sezione:'Le Classiche', nome:'Napoli', ing:'Pomodoro, mozzarella, acciughe', p:'7,00'},
+  {sezione:'Le Classiche', nome:'Olive', ing:'Pomodoro, mozzarella, olive miste', p:'7,00'},
+  {sezione:'Le Classiche', nome:'Pugliese', ing:'Pomodoro, mozzarella, cipolla', p:'7,00'},
+  {sezione:'Le Classiche', nome:'Rucola', ing:'Pomodoro, mozzarella, rucola', p:'7,00'},
+  {sezione:'Le Classiche', nome:'Würstel', ing:'Pomodoro, mozzarella, würstel', p:'7,00'},
+  {sezione:'Le Classiche', nome:'Asparagi', ing:'Pomodoro, mozzarella, asparagi', p:'7,00'},
+  {sezione:'Le Classiche', nome:'Tonno', ing:'Pomodoro, mozzarella, tonno', p:'7,50'},
+  {sezione:'Le Classiche', nome:'Crudo', ing:'Pomodoro, mozzarella, prosciutto crudo', p:'8,00'},
+  {sezione:'Le Classiche', nome:'Prosciutto e Funghi', ing:'Pomodoro, mozzarella, prosciutto, funghi', p:'8,00'},
+  {sezione:'Le Classiche', nome:'Prosciutto e Würstel', ing:'Pomodoro, mozzarella, prosciutto, würstel', p:'8,00'},
+  {sezione:'Le Classiche', nome:'Prosciutto e Carciofi', ing:'Pomodoro, mozzarella, prosciutto, carciofi', p:'8,00'},
+  {sezione:'Le Classiche', nome:'Prosciutto e Brie', ing:'Pomodoro, mozzarella, prosciutto, brie', p:'8,00'},
+  {sezione:'Le Classiche', nome:'Prosciutto e Panna', ing:'Pomodoro, mozzarella, prosciutto, panna', p:'8,00'},
+  {sezione:'Le Classiche', nome:'Speck', ing:'Pomodoro, mozzarella, speck', p:'8,00'},
+  {sezione:'Le Classiche', nome:'Salmone', ing:'Pomodoro, mozzarella, salmone', p:'8,00'},
+  {sezione:'Le Classiche', nome:'Porcini', ing:'Pomodoro, mozzarella, porcini', p:'8,00'},
+  {sezione:'Le Classiche', nome:'Ortolana', ing:'Pomodoro, mozzarella, verdure grigliate', p:'8,00'},
+  {sezione:'Le Classiche', nome:'Romana', ing:'Pomodoro, mozzarella, acciughe, capperi, olive nere', p:'8,00'},
+  {sezione:'Le Classiche', nome:'4 Formaggi', ing:'Pomodoro, mozzarella, zola, scamorza, Casera', p:'8,00'},
+  {sezione:'Le Classiche', nome:'Farcita', ing:'Pomodoro, mozzarella, prosciutto, funghi, carciofi', p:'8,50'},
+  {sezione:'Le Classiche', nome:'Gamberi', ing:'Pomodoro, mozzarella, gamberi', p:'8,50'},
+  {sezione:'Le Classiche', nome:'4 Stagioni', ing:'Pomodoro, mozzarella, prosciutto, funghi, carciofi, peperoni', p:'8,50'},
+  {sezione:'Le Classiche', nome:'Capricciosa', ing:'Pomodoro, mozzarella, prosciutto, funghi, carciofi, acciughe', p:'9,00'},
+  {sezione:'Le Classiche', nome:'Frutti di Mare', ing:'Pomodoro, mozzarella, frutti di mare', p:'9,00'},
+
+  {sezione:'Le Specialità', nome:'Italia', ing:'Pomodoro, mozzarella, pomodorini, rucola', p:'7,50'},
+  {sezione:'Le Specialità', nome:'Patatosa', ing:'Pomodoro, mozzarella, patatine', p:'7,50'},
+  {sezione:'Le Specialità', nome:'Braccio di Ferro', ing:'Pomodoro, mozzarella, spinaci, ricotta', p:'8,00'},
+  {sezione:'Le Specialità', nome:'MK Fly', ing:'Pomodoro, mozzarella, strinù, grana', p:'8,00'},
+  {sezione:'Le Specialità', nome:'Bufalina', ing:'Pomodoro, mozzarella, bufala, pomodorini', p:'8,50'},
+  {sezione:'Le Specialità', nome:'Americana', ing:'Pomodoro, mozzarella, salame piccante, würstel, patatine', p:'9,00'},
+  {sezione:'Le Specialità', nome:'Calabrese', ing:'Pomodoro, mozzarella, scamorza, salame piccante, rucola', p:'9,00'},
+  {sezione:'Le Specialità', nome:'Papper', ing:'Pomodoro, mozzarella, prosciutto, zucchine, grana', p:'9,00'},
+  {sezione:'Le Specialità', nome:'Speck e Scamorza', ing:'Pomodoro, mozzarella, speck, scamorza', p:'9,00'},
+  {sezione:'Le Specialità', nome:'Tirolo', ing:'Pomodoro, mozzarella, speck, zola', p:'9,00'},
+  {sezione:'Le Specialità', nome:'Valtellina', ing:'Pomodoro, mozzarella, bresaola, grana', p:'9,00'},
+  {sezione:'Le Specialità', nome:'Verde Rosa', ing:'Pomodoro, mozzarella, zucchine, gamberi', p:'9,00'},
+  {sezione:'Le Specialità', nome:'Finferla', ing:'Pomodoro, mozzarella, grana, strinù, finferli', p:'10,00'},
+  {sezione:'Le Specialità', nome:'Marescià', ing:'Pomodoro, mozzarella, bufala, carciofi, salmone', p:'10,00'},
+  {sezione:'Le Specialità', nome:'Mari Monti', ing:'Pomodoro, mozzarella, porcini, frutti di mare', p:'10,00'},
+  {sezione:'Le Specialità', nome:'Primavera', ing:'Pomodoro, bufala, grana, olive nere, pomodorini', p:'10,00'},
+  {sezione:'Le Specialità', nome:'Varenne', ing:'Pomodoro, mozzarella, bufala, tonno, olio piccante, rucola', p:'10,00'},
+  {sezione:'Le Specialità', nome:'Semi Dry', ing:'Pomodoro, burrata, pomodorini semi-dry, olio', p:'11,00'},
+  {sezione:'Le Specialità', nome:'Giovanna', ing:'Pomodoro, mozzarella, bufala, pomodorini, acciughe del Mar Cantabrico, pancetta al miele', p:'11,00'},
+  {sezione:'Le Specialità', nome:'Piz Bon', ing:'Pomodoro, mozzarella, prosciutto, porcini, salame piccante, scamorza, peperoni, würstel', p:'11,00'},
+
+  {sezione:'Le Bianche', nome:'Lardosa', ing:'Mozzarella, strinù, lardo', p:'9,00'},
+  {sezione:'Le Bianche', nome:'Fila e Fondi', ing:'Mozzarella, tonno, pomodorini, Philadelphia', p:'9,00'},
+  {sezione:'Le Bianche', nome:'Mediterranea', ing:'Mozzarella, pomodorini, olive nere, tonno', p:'9,00'},
+  {sezione:'Le Bianche', nome:'Nuvola', ing:'Mozzarella, ricotta, bresaola, noci', p:'9,50'},
+  {sezione:'Le Bianche', nome:'Strapizzami', ing:'Mozzarella, salmone, ricotta, rucola', p:'10,00'},
+  {sezione:'Le Bianche', nome:'Summer', ing:'Bufala, pesto, pomodorini, gamberetti, zucchine', p:'10,00'},
+  {sezione:'Le Bianche', nome:'Bronte', ing:'Mozzarella, burrata, mortadella, granella di pistacchio', p:'12,00'},
+  {sezione:'Le Bianche', nome:'Tartufata', ing:'Mozzarella, uovo, finferli, tartufo, pancetta in cottura', p:'12,00'},
+
+  {sezione:'Calzoni', nome:'Calzone Liscio', ing:'Pomodoro, mozzarella, prosciutto', p:'7,50'},
+  {sezione:'Calzoni', nome:'Calzone Farcito', ing:'Pomodoro, mozzarella, prosciutto, funghi, carciofi', p:'8,50'},
+  {sezione:'Calzoni', nome:'Calzone Miky', ing:'Mozzarella, funghi, strinù, panna', p:'9,00'},
+  {sezione:'Calzoni', nome:'Calzone Imperiale', ing:'Pomodoro, mozzarella, prosciutto, funghi, carciofi, panna', p:'9,50'},
+  {sezione:'Calzoni', nome:'Calzone Bomba', ing:'Pomodoro, mozzarella, gamberi, prosciutto, panna', p:'10,00'},
+  {sezione:'Calzoni', nome:'Fornarina', ing:'Olio, rosmarino', p:'5,00'},
+  {sezione:'Calzoni', nome:'Pizza Nutella', ing:'Nutella', p:'6,00'},
+
+  {sezione:'Stuzzichini', nome:'Patatine Fritte', ing:'', p:'3,50'},
+  {sezione:'Stuzzichini', nome:'Patate con Buccia', ing:'', p:'3,50'},
+  {sezione:'Stuzzichini', nome:'Crocchette di Patate', ing:'', p:'3,50'},
+  {sezione:'Stuzzichini', nome:'Olive Ascolane', ing:'', p:'3,50'},
+  {sezione:'Stuzzichini', nome:'Alette di Pollo', ing:'', p:'3,50'},
+  {sezione:'Stuzzichini', nome:'Speedy Pollo', ing:'', p:'3,50'},
+  {sezione:'Stuzzichini', nome:'Speedy Bandidos', ing:'', p:'3,50'},
+  {sezione:'Stuzzichini', nome:'Mozzarelline Panate', ing:'', p:'3,50'}
+];
+
+var ORDINE = ['Le Classiche','Le Specialità','Le Bianche','Calzoni','Stuzzichini'];
+
+function esc(s){return (s||'').replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+
+function slug(s){return (s||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');}
+
+function render(items){
+  var root=document.getElementById('menuRoot');
+  if(!items.length){root.innerHTML='<p class="menu-loading">Menù in aggiornamento.</p>';return;}
+  var groups={},order=[];
+  items.forEach(function(d){ if(!groups[d.sezione]){groups[d.sezione]=[];order.push(d.sezione);} groups[d.sezione].push(d); });
+  order.sort(function(a,b){var ia=ORDINE.indexOf(a),ib=ORDINE.indexOf(b);if(ia<0)ia=99;if(ib<0)ib=99;return ia-ib;});
+
+  var tabs='<div class="menu-tabs" role="tablist" aria-label="Categorie del menù">';
+  var panels='';
+  order.forEach(function(sez,idx){
+    var id=slug(sez), sel=idx===0?'true':'false';
+    tabs+='<button role="tab" id="tab-'+id+'" aria-controls="panel-'+id+'" aria-selected="'+sel+'"'+
+          (idx>0?' tabindex="-1"':'')+' data-panel="panel-'+id+'">'+esc(sez)+'</button>';
+    panels+='<div class="menu-panel" role="tabpanel" id="panel-'+id+'" aria-labelledby="tab-'+id+'"'+(idx>0?' hidden':'')+'>';
+    groups[sez].forEach(function(d){
+      panels+='<div class="row"><span class="n">'+esc(d.nome)+'</span><span class="lead-dots"></span><span class="p">€ '+esc(d.p)+'</span>'+
+              (d.ing?'<span class="ing">'+esc(d.ing)+'</span>':'')+'</div>';
+    });
+    panels+='</div>';
+  });
+  tabs+='</div>';
+  root.innerHTML=tabs+panels;
+
+  var btns=root.querySelectorAll('.menu-tabs button');
+  function select(btn){
+    btns.forEach(function(b){
+      var on=b===btn;
+      b.setAttribute('aria-selected',on?'true':'false');
+      b.tabIndex=on?0:-1;
+      document.getElementById(b.getAttribute('data-panel')).hidden=!on;
+    });
+  }
+  btns.forEach(function(b,i){
+    b.addEventListener('click',function(){select(b);});
+    b.addEventListener('keydown',function(e){
+      var n=null;
+      if(e.key==='ArrowRight'||e.key==='ArrowDown')n=btns[(i+1)%btns.length];
+      else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=btns[(i-1+btns.length)%btns.length];
+      if(n){e.preventDefault();select(n);n.focus();}
+    });
+  });
+}
+
+/* CSV opzionale (stesse colonne) */
+function parseCSV(t){var rows=[],row=[],cur='',q=false;for(var i=0;i<t.length;i++){var c=t[i];
+  if(q){if(c==='"'){if(t[i+1]==='"'){cur+='"';i++;}else q=false;}else cur+=c;}
+  else{if(c==='"')q=true;else if(c===','){row.push(cur);cur='';}
+  else if(c==='\n'){row.push(cur);rows.push(row);row=[];cur='';}else if(c==='\r'){}else cur+=c;}}
+  if(cur.length||row.length){row.push(cur);rows.push(row);}return rows;}
+function fromRows(rows){if(!rows.length)return[];var h=rows[0].map(function(x){return x.trim().toLowerCase();});
+  var iS=h.indexOf('sezione'),iN=h.indexOf('piatto'),iI=h.indexOf('ingredienti'),iP=h.indexOf('prezzo');
+  if(iS<0||iN<0)return[];var out=[];for(var r=1;r<rows.length;r++){var x=rows[r];var nome=(x[iN]||'').trim();if(!nome)continue;
+  out.push({sezione:(x[iS]||'').trim()||'Altro',nome:nome,ing:iI>=0?(x[iI]||'').trim():'',p:iP>=0?(x[iP]||'').trim():''});}return out;}
+
+(function(){
+  if(!MENU_CSV_URL){render(MENU);return;}
+  fetch(MENU_CSV_URL).then(function(r){return r.text();}).then(function(t){var d=fromRows(parseCSV(t));render(d.length?d:MENU);}).catch(function(){render(MENU);});
+})();
+</script>
+</body>
+</html>

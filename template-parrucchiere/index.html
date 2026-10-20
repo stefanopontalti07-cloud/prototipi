@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[NOME ATTIVITÀ] — Parrucchiere a [ZONA]</title>
+<meta name="description" content="[NOME ATTIVITÀ], salone di parrucchiere a [ZONA]. Taglio, colore, piega. Prenota il tuo appuntamento: [TELEFONO].">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,700;1,6..96,400&family=Albert+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Template PARRUCCHIERE — luminoso, curato, personale
+   Palette: seta + grafite + rosso lacca (unico accento)
+   Vedi blueprint.md — foto stock da SOSTITUIRE con foto vere
+   ============================================================ */
+:root{
+  --seta:#F6F5F2;
+  --grafite:#1C1B1A;
+  --lacca:#A62639;
+  --cipria:#EDE0DA;
+  --linea:#DDD9D2;
+  --grigio:#75726C;
+  --font-display:"Bodoni Moda",Didot,"Times New Roman",serif;
+  --font-body:"Albert Sans",system-ui,sans-serif;
+  --maxw:1060px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--font-body);font-size:1.03rem;color:var(--grafite);background:var(--seta);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--font-display);font-weight:600;line-height:1.05;margin:0}
+p{margin:0 0 1rem}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--lacca);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.5rem}
+.eyebrow{font-weight:700;text-transform:uppercase;letter-spacing:.26em;font-size:.68rem;color:var(--lacca);margin:0 0 1.1rem}
+
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.92rem;padding:.78rem 1.5rem;border-radius:0;text-decoration:none;border:1.5px solid var(--grafite);transition:background .2s,color .2s,transform .15s;letter-spacing:.04em;text-transform:uppercase}
+.btn:active{transform:translateY(1px)}
+.btn--pieno{background:var(--grafite);color:var(--seta)}
+.btn--pieno:hover{background:var(--lacca);border-color:var(--lacca)}
+.btn--vuoto{background:transparent;color:var(--grafite)}
+.btn--vuoto:hover{background:var(--grafite);color:var(--seta)}
+
+/* --- Header --- */
+.header{position:sticky;top:0;z-index:50;background:rgba(246,245,242,.93);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .3s}
+.header.scrolled{border-bottom-color:var(--linea)}
+.header-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.85rem 1.5rem;max-width:var(--maxw);margin:0 auto}
+.brand{font-family:var(--font-display);font-size:1.3rem;font-weight:700;text-decoration:none}
+.nav{display:flex;gap:1.6rem;align-items:center}
+.nav a{text-decoration:none;font-size:.88rem;font-weight:500}
+.nav a:hover{color:var(--lacca)}
+@media (max-width:720px){.nav .solo-desktop{display:none}}
+
+/* --- Hero copertina (firma del template) --- */
+.copertina{border-bottom:1px solid var(--linea)}
+.copertina-in{max-width:var(--maxw);margin:0 auto;padding:3.2rem 1.5rem 0;text-align:center}
+.testata{font-size:clamp(3.2rem,12vw,7.5rem);letter-spacing:.01em;line-height:.95}
+.testata .punto{color:var(--lacca)}
+.sommario{display:flex;justify-content:center;gap:2.2rem;flex-wrap:wrap;margin:1.6rem 0 2.4rem;font-size:.78rem;text-transform:uppercase;letter-spacing:.2em;color:var(--grigio)}
+.sommario strong{color:var(--grafite);font-weight:700}
+.copertina-foto{position:relative;max-width:820px;margin:0 auto;aspect-ratio:16/10;overflow:hidden;background:var(--cipria)}
+.copertina-foto img{width:100%;height:100%;object-fit:cover}
+.copertina-strillo{position:absolute;left:1.4rem;bottom:1.4rem;background:var(--seta);padding:1rem 1.4rem;max-width:24ch}
+.copertina-strillo p{margin:0;font-family:var(--font-display);font-style:italic;font-size:1.15rem;line-height:1.3}
+@media (max-width:560px){.copertina-strillo{position:static;max-width:none;padding:.9rem .2rem 0;background:transparent;text-align:left}}
+.copertina-cta{padding:2rem 0 3rem;display:flex;justify-content:center;gap:.9rem;flex-wrap:wrap}
+
+/* --- Sezioni --- */
+.sez{padding:5.2rem 0}
+.sez--cipria{background:var(--cipria)}
+.sez--scura{background:var(--grafite);color:var(--seta)}
+.titolo-sez{font-size:clamp(1.9rem,4vw,2.5rem);max-width:20ch}
+
+/* --- Listino (tipografia, non tabella) --- */
+.listino{margin-top:2.4rem;border-top:1px solid var(--linea)}
+.voce{display:flex;align-items:baseline;justify-content:space-between;gap:1.4rem;padding:1.15rem 0;border-bottom:1px solid var(--linea)}
+.voce-nome{font-weight:500;font-size:1.05rem}
+.voce-nome small{display:block;color:var(--grigio);font-size:.85rem;font-weight:400;margin-top:.15rem}
+.voce-prezzo{font-family:var(--font-display);font-size:1.7rem;font-weight:600;white-space:nowrap}
+.voce-prezzo small{font-size:.95rem;font-weight:400;color:var(--grigio)}
+.listino-nota{color:var(--grigio);font-size:.88rem;margin-top:1.2rem}
+
+/* --- Chi c'è dietro --- */
+.persona{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:center}
+.persona-foto{aspect-ratio:4/5;overflow:hidden;background:var(--seta)}
+.persona-foto img{width:100%;height:100%;object-fit:cover}
+.persona h2{font-size:2.1rem;margin-bottom:1.2rem}
+.persona .firma{font-family:var(--font-display);font-style:italic;font-size:1.3rem;margin-top:1.4rem}
+@media (max-width:720px){.persona{grid-template-columns:1fr}}
+
+/* --- Lavori: griglia asimmetrica --- */
+.lavori{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.4rem}
+.lavori figure{margin:0;overflow:hidden;background:var(--cipria)}
+.lavori img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.lavori figure:hover img{transform:translateY(-6px) scale(1.03)}
+.l1{grid-row:span 2;min-height:460px}
+.l2,.l3{min-height:222px}
+.l4{grid-column:span 2;min-height:222px}
+@media (max-width:720px){.lavori{grid-template-columns:1fr 1fr}.l1{min-height:300px}.l4{grid-column:span 2}}
+
+/* --- Recensioni --- */
+.recensioni{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2.4rem;margin-top:2.4rem}
+.recensione blockquote{margin:0;font-family:var(--font-display);font-style:italic;font-size:1.22rem;line-height:1.4}
+.recensione cite{display:block;margin-top:1rem;font-style:normal;font-size:.83rem;color:rgba(246,245,242,.6)}
+.stelle{color:var(--lacca);letter-spacing:.15em;font-size:.9rem;margin-bottom:.8rem}
+.sez--scura .stelle{color:#E4A0AC}
+
+/* --- Prenota --- */
+.prenota{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2.4rem;align-items:start}
+.orari{width:100%;border-collapse:collapse}
+.orari td{padding:.55rem 0;border-bottom:1px solid var(--linea);font-size:.95rem}
+.orari td:last-child{text-align:right;font-weight:700}
+.prenota-info p{margin-bottom:.6rem}
+.prenota-cta{margin-top:1.5rem;display:flex;gap:.8rem;flex-wrap:wrap}
+.mappa-link{display:block;margin-top:1.3rem;font-size:.9rem;font-weight:700;color:var(--lacca)}
+@media (max-width:720px){.prenota{grid-template-columns:1fr}}
+
+/* --- Footer --- */
+.footer{background:var(--grafite);color:rgba(246,245,242,.7);padding:2.4rem 0;font-size:.86rem}
+.footer-in{display:flex;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;max-width:var(--maxw);margin:0 auto;padding:0 1.5rem}
+.footer a{color:var(--seta)}
+
+/* --- Barra mobile fissa --- */
+.barra-mobile{display:none;position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--grafite);padding:.7rem .9rem calc(.7rem + env(safe-area-inset-bottom))}
+.barra-mobile a{flex:1;justify-content:center}
+.barra-mobile .btn--pieno{background:var(--seta);color:var(--grafite);border-color:var(--seta)}
+.barra-mobile .btn--vuoto{color:var(--seta);border-color:rgba(246,245,242,.55)}
+@media (max-width:720px){.barra-mobile{display:flex;gap:.7rem}body{padding-bottom:70px}}
+
+/* --- Reveal --- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visibile{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .lavori img{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="header-in">
+    <a class="brand" href="#">[NOME ATTIVITÀ]<span style="color:var(--lacca)">.</span></a>
+    <nav class="nav" aria-label="Principale">
+      <a class="solo-desktop" href="#listino">Servizi</a>
+      <a class="solo-desktop" href="#lavori">Lavori</a>
+      <a class="solo-desktop" href="#prenota">Contatti</a>
+      <a class="btn btn--pieno" href="tel:[TELEFONO]">Prenota</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO stile copertina di rivista -->
+<section class="copertina">
+  <div class="copertina-in">
+    <h1 class="testata">[NOME ATTIVITÀ]<span class="punto">.</span></h1>
+    <div class="sommario" aria-label="In breve">
+      <span><strong>[ZONA]</strong> · [INDIRIZZO]</span>
+      <span>mar–sab · <strong>su appuntamento</strong></span>
+      <span>taglio · colore · piega</span>
+    </div>
+    <div class="copertina-foto">
+      <!-- FOTO STOCK: sostituire con foto vera del salone o di un lavoro -->
+      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1600&auto=format&fit=crop" alt="Il salone [NOME ATTIVITÀ] a [ZONA]" onerror="this.style.display='none'">
+      <div class="copertina-strillo">
+        <p>«Non un taglio qualunque: il tuo.»</p>
+      </div>
+    </div>
+    <div class="copertina-cta">
+      <a class="btn btn--pieno" href="tel:[TELEFONO]">Prenota ora · [TELEFONO]</a>
+      <a class="btn btn--vuoto" href="#listino">Servizi e prezzi</a>
+    </div>
+  </div>
+</section>
+
+<section class="sez" id="listino">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Servizi e prezzi</p>
+      <h2 class="titolo-sez">Chiaro prima, bello dopo</h2>
+    </div>
+    <div class="listino reveal">
+      <div class="voce"><span class="voce-nome">Taglio donna<small>consulenza, taglio, styling</small></span><span class="voce-prezzo">32<small> €</small></span></div>
+      <div class="voce"><span class="voce-nome">Taglio uomo</span><span class="voce-prezzo">20<small> €</small></span></div>
+      <div class="voce"><span class="voce-nome">Piega<small>corta / media / lunga</small></span><span class="voce-prezzo">da 18<small> €</small></span></div>
+      <div class="voce"><span class="voce-nome">Colore<small>ritocco radice o colore pieno</small></span><span class="voce-prezzo">da 40<small> €</small></span></div>
+      <div class="voce"><span class="voce-nome">Balayage / schiariture<small>con trattamento ricostruttivo incluso</small></span><span class="voce-prezzo">da 85<small> €</small></span></div>
+      <div class="voce"><span class="voce-nome">Trattamento cute e capelli</span><span class="voce-prezzo">da 25<small> €</small></span></div>
+    </div>
+    <p class="listino-nota">I prezzi definitivi si confermano in consulenza, prima di iniziare: niente sorprese alla cassa.</p>
+  </div>
+</section>
+
+<section class="sez sez--cipria">
+  <div class="wrap persona">
+    <div class="persona-foto reveal">
+      <!-- FOTO STOCK: sostituire con foto vera del/della titolare -->
+      <img loading="lazy" src="https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=900&auto=format&fit=crop" alt="[TITOLARE] al lavoro nel salone" onerror="this.style.display='none'">
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">Chi c'è dietro</p>
+      <h2>Le forbici sono di [TITOLARE]</h2>
+      <p>Dopo [ANNI] anni tra saloni e formazione, [TITOLARE] ha aperto [NOME ATTIVITÀ] con un'idea semplice: ascoltare prima di tagliare. Ogni testa è diversa, ogni consulenza parte da zero.</p>
+      <p>Qui non si esce tutti con lo stesso taglio "di stagione": si esce con quello che sta bene a te, e che sai rifare anche a casa.</p>
+      <p class="firma">— [TITOLARE]</p>
+    </div>
+  </div>
+</section>
+
+<section class="sez" id="lavori">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Lavori</p>
+      <h2 class="titolo-sez">Fatti, non promessi</h2>
+    </div>
+    <div class="lavori reveal">
+      <!-- FOTO STOCK: sostituire con foto vere dei lavori (prima/dopo, dettagli colore) -->
+      <figure class="l1"><img loading="lazy" src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop" alt="Piega e styling" onerror="this.style.display='none'"></figure>
+      <figure class="l2"><img loading="lazy" src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=700&auto=format&fit=crop" alt="Dettaglio colore" onerror="this.style.display='none'"></figure>
+      <figure class="l3"><img loading="lazy" src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?q=80&w=700&auto=format&fit=crop" alt="Taglio in salone" onerror="this.style.display='none'"></figure>
+      <figure class="l4"><img loading="lazy" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200&auto=format&fit=crop" alt="Postazioni del salone" onerror="this.style.display='none'"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sez sez--scura">
+  <div class="wrap">
+    <p class="eyebrow reveal" style="color:#E4A0AC">Dicono di noi</p>
+    <div class="recensioni">
+      <div class="recensione reveal">
+        <div class="stelle" aria-label="5 stelle su 5">★★★★★</div>
+        <blockquote>«Prima volta che esco dal parrucchiere senza voler piangere in macchina. Anzi: felice.»</blockquote>
+        <cite>— Recensione Google</cite>
+      </div>
+      <div class="recensione reveal">
+        <div class="stelle" aria-label="5 stelle su 5">★★★★★</div>
+        <blockquote>«Consulenza vera: mi ha sconsigliato un trattamento che avrei pagato di più. Fiducia guadagnata.»</blockquote>
+        <cite>— Recensione Google</cite>
+      </div>
+      <div class="recensione reveal">
+        <div class="stelle" aria-label="5 stelle su 5">★★★★★</div>
+        <blockquote>«Il balayage più naturale che abbia mai avuto. Prenotate in anticipo, è sempre pieno.»</blockquote>
+        <cite>— Recensione Google</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sez" id="prenota">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Contatti</p>
+      <h2 class="titolo-sez">Prenota il tuo appuntamento</h2>
+    </div>
+    <div class="prenota">
+      <div class="reveal">
+        <table class="orari">
+          <tr><td>Lunedì</td><td>chiuso</td></tr>
+          <tr><td>Martedì – Venerdì</td><td>8:30–12:00 · 14:00–19:00</td></tr>
+          <tr><td>Sabato</td><td>8:00–17:00 continuato</td></tr>
+          <tr><td>Domenica</td><td>chiuso</td></tr>
+        </table>
+        <a class="mappa-link" href="https://maps.google.com/?q=[INDIRIZZO]" target="_blank" rel="noopener">Apri in Google Maps ↗</a>
+      </div>
+      <div class="prenota-info reveal">
+        <p><strong>[NOME ATTIVITÀ]</strong><br>[INDIRIZZO], [ZONA]</p>
+        <p>Telefono: <strong>[TELEFONO]</strong><br>Email: [EMAIL]</p>
+        <p style="color:var(--grigio);font-size:.92rem">Si lavora su appuntamento: un messaggio WhatsApp basta, rispondiamo tra un cliente e l'altro.</p>
+        <div class="prenota-cta">
+          <a class="btn btn--pieno" href="tel:[TELEFONO]">Chiama ora</a>
+          <a class="btn btn--vuoto" href="https://wa.me/[TELEFONO]">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-in">
+    <span>© <span id="anno"></span> [NOME ATTIVITÀ] — [INDIRIZZO], [ZONA] · P.IVA [PARTITA IVA]</span>
+    <span><a href="tel:[TELEFONO]">[TELEFONO]</a></span>
+  </div>
+</footer>
+
+<div class="barra-mobile">
+  <a class="btn btn--pieno" href="tel:[TELEFONO]">Chiama</a>
+  <a class="btn btn--vuoto" href="https://wa.me/[TELEFONO]">WhatsApp</a>
+</div>
+
+<script>
+document.getElementById('anno').textContent = new Date().getFullYear();
+
+const header = document.getElementById('header');
+addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 10), {passive:true});
+
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visibile'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visibile'));
+}
+</script>
+</body>
+</html>
