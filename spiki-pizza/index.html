@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiki Pizza – Pizza al Taglio e d'Asporto | Levico Terme</title>
+<meta name="description" content="Spiki Pizza – La buona pizza da Levico Terme. Pizza al taglio e d'asporto. Viale Lido 5, Levico Terme (TN). Tel. 0461 707707">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  :root {
+    --red:      #C0392B;
+    --red-d:    #962d22;
+    --gold:     #D4943A;
+    --gold-l:   #E8B96A;
+    --cream:    #F7F0E3;
+    --cream-d:  #D6C9AF;
+    --cream-dd: #9A8B75;
+    --brown:    #2C1A0E;
+    --brown-l:  #4A2E18;
+    --dark:     #1A150C;
+    --dark-2:   #221B11;
+    --dark-3:   #2C2418;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--dark);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+  /* ── NAVBAR ── */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.25rem 1.5rem;
+    transition: background 0.35s, padding 0.35s, box-shadow 0.35s;
+  }
+  #navbar.scrolled {
+    background: rgba(26,21,12,0.96);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 rgba(212,148,58,0.18);
+    padding: 0.75rem 1.5rem;
+  }
+  .nav-inner { max-width: 72rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+  .logo-script { font-family: 'Dancing Script', cursive; font-size: 1.9rem; color: var(--gold); line-height: 1; }
+  .logo-word { font-family: 'Playfair Display', serif; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--cream); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-d); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { display: flex; align-items: center; gap: 0.5rem; background: var(--red); color: var(--cream); font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1rem; border-radius: 9999px; text-decoration: none; transition: background 0.2s; cursor: pointer; }
+  .nav-cta:hover { background: var(--red-d); }
+  #hamburger { display: none; background: none; border: none; cursor: pointer; color: var(--cream-d); }
+  #mobileMenu { display: none; flex-direction: column; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(212,148,58,0.15); }
+  #mobileMenu.open { display: flex; }
+  #mobileMenu a { font-family: 'Lato', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-d); text-decoration: none; padding: 0.6rem 0; cursor: pointer; }
+
+  /* ── HERO ── */
+  .hero-wrap {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=80') center/cover no-repeat;
+    transform: scale(1.06);
+    will-change: transform;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      160deg,
+      rgba(26,21,12,0.55) 0%,
+      rgba(26,21,12,0.42) 40%,
+      rgba(26,21,12,0.75) 80%,
+      rgba(26,21,12,1) 100%
+    );
+  }
+  .hero-content { position: relative; z-index: 2; padding: 0 1.5rem; }
+  .hero-label { font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .hero-title { font-family: 'Dancing Script', cursive; font-size: clamp(5rem, 15vw, 9rem); color: var(--cream); line-height: 1; margin-bottom: 0.25rem; text-shadow: 0 4px 32px rgba(0,0,0,0.5); }
+  .hero-sub { font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 3vw, 1.8rem); letter-spacing: 0.35em; text-transform: uppercase; color: var(--cream); margin-bottom: 1.5rem; }
+  .divider-rg { width: 60px; height: 2px; background: linear-gradient(to right, var(--red), var(--gold)); margin: 0 auto 1.5rem; }
+  .divider-gold { width: 70px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); margin: 0 auto; }
+  .hero-desc { font-family: 'Lato', sans-serif; color: var(--cream-d); font-size: 1rem; margin-bottom: 0.4rem; }
+  .hero-time { font-family: 'Lato', sans-serif; color: var(--cream-dd); font-size: 0.85rem; margin-bottom: 2.5rem; }
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+  .btn-primary { background: var(--red); color: var(--cream); font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 9999px; text-decoration: none; transition: background 0.2s; cursor: pointer; }
+  .btn-primary:hover { background: var(--red-d); }
+  .btn-outline { border: 1px solid var(--gold); color: var(--gold); background: transparent; font-family: 'Lato', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 9999px; text-decoration: none; transition: all 0.2s; cursor: pointer; }
+  .btn-outline:hover { background: var(--gold); color: var(--dark); }
+  .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.4rem; opacity: 0.4; }
+  .scroll-hint span { font-family: 'Lato', sans-serif; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--cream-d); }
+  .scroll-hint svg { animation: bounce 1.8s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(5px)} }
+
+  /* ── IMPASTO ── */
+  .impasto-wrap {
+    position: relative;
+    padding: 5rem 1.5rem;
+    overflow: hidden;
+  }
+  .impasto-bg {
+    position: absolute; inset: 0;
+    background: url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=1400&q=80') center/cover no-repeat;
+  }
+  .impasto-overlay {
+    position: absolute; inset: 0;
+    background: rgba(247,240,227,0.88);
+  }
+  .impasto-content { position: relative; z-index: 2; max-width: 60rem; margin: 0 auto; text-align: center; }
+  .section-label { font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--red); margin-bottom: 0.75rem; }
+  .section-title-dark { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--brown); margin-bottom: 1rem; }
+  .section-body-dark { font-family: 'Lato', sans-serif; color: var(--brown-l); font-size: 1rem; line-height: 1.75; max-width: 36rem; margin: 0 auto 3rem; }
+  .ingr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .ingr-card {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(212,148,58,0.3);
+    border-radius: 12px;
+    padding: 1.25rem 1rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: default;
+  }
+  .ingr-card:hover { border-color: var(--gold); background: rgba(255,255,255,0.9); }
+  .ingr-card.span2 { grid-column: span 2; }
+  .ingr-icon { width: 2.5rem; height: 2.5rem; border-radius: 50%; background: rgba(192,57,43,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ingr-icon svg { width: 1.2rem; height: 1.2rem; color: var(--red); }
+  .ingr-name { font-family: 'Lato', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--brown); letter-spacing: 0.05em; }
+  .ingr-detail { font-family: 'Lato', sans-serif; font-size: 0.7rem; color: var(--brown-l); }
+
+  /* ── MENU ── */
+  .menu-section { background: var(--dark-2); padding: 5rem 1.5rem; }
+  .section-title-light { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--cream); margin-bottom: 1rem; }
+  .section-label-gold { font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .menu-note { font-family: 'Lato', sans-serif; font-size: 0.72rem; color: var(--cream-dd); margin-top: 0.75rem; }
+
+  /* Search */
+  .search-wrap { position: relative; display: flex; justify-content: center; margin: 2rem 0; }
+  .search-icon { position: absolute; left: calc(50% - 12rem); top: 50%; transform: translateY(-50%); pointer-events: none; }
+  #pizzaSearch {
+    width: min(100%, 28rem);
+    background: rgba(44,36,24,0.8);
+    border: 1px solid rgba(212,148,58,0.25);
+    color: var(--cream);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.875rem;
+    padding: 0.75rem 1.25rem 0.75rem 2.75rem;
+    border-radius: 9999px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  #pizzaSearch::placeholder { color: rgba(154,139,117,0.5); }
+  #pizzaSearch:focus { border-color: rgba(212,148,58,0.55); }
+
+  /* Accordion */
+  .accordion-list { max-width: 56rem; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .acc-block { border-radius: 16px; overflow: hidden; border: 1px solid rgba(212,148,58,0.12); }
+
+  .acc-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 1.5rem;
+    background: var(--dark-3);
+    cursor: pointer;
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .acc-header:hover { background: rgba(44,36,24,0.9); }
+  .acc-header.open { background: rgba(192,57,43,0.18); border-bottom: 1px solid rgba(192,57,43,0.25); }
+
+  .acc-title-wrap { display: flex; align-items: center; gap: 0.75rem; }
+  .acc-num {
+    width: 2rem; height: 2rem; border-radius: 50%;
+    background: rgba(212,148,58,0.12);
+    border: 1px solid rgba(212,148,58,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 0.8rem; color: var(--gold);
+    flex-shrink: 0;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .acc-header.open .acc-num { background: rgba(192,57,43,0.25); border-color: rgba(192,57,43,0.5); color: var(--cream); }
+  .acc-cat-name { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.15rem; color: var(--cream); }
+  .acc-sub { font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cream-dd); margin-top: 0.15rem; }
+  .acc-count {
+    font-family: 'Lato', sans-serif; font-size: 0.65rem; letter-spacing: 0.1em;
+    background: rgba(212,148,58,0.1);
+    border: 1px solid rgba(212,148,58,0.2);
+    color: var(--gold);
+    padding: 0.2rem 0.6rem; border-radius: 9999px;
+    margin-left: auto; margin-right: 0.75rem;
+  }
+  .acc-chevron { transition: transform 0.3s ease; flex-shrink: 0; }
+  .acc-header.open .acc-chevron { transform: rotate(180deg); }
+
+  .acc-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1);
+    background: rgba(26,21,12,0.6);
+  }
+  .acc-body.open { max-height: 3000px; }
+
+  /* Pizza rows inside accordion */
+  .pizza-row {
+    display: flex; align-items: baseline; gap: 0.75rem;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid rgba(212,148,58,0.06);
+    transition: background 0.15s;
+    cursor: default;
+  }
+  .pizza-row:hover { background: rgba(212,148,58,0.04); }
+  .pizza-row:last-child { border-bottom: none; }
+  .pizza-row.hidden-item { display: none; }
+
+  .piz-left { flex: 1; min-width: 0; }
+  .piz-name {
+    font-family: 'Lato', sans-serif; font-weight: 700;
+    font-size: 0.78rem; letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--cream);
+  }
+  .piz-ingr {
+    font-family: 'Lato', sans-serif; font-size: 0.7rem; color: var(--cream-dd);
+    line-height: 1.35; margin-top: 0.1rem;
+  }
+  .piz-dots { flex: 1; border-bottom: 1px dotted rgba(212,148,58,0.15); margin-bottom: 3px; min-width: 0.5rem; }
+  .piz-price {
+    font-family: 'Lato', sans-serif; font-size: 0.8rem;
+    color: var(--gold); font-weight: 700; white-space: nowrap;
+  }
+  .piz-maxi { font-weight: 400; font-size: 0.7rem; color: var(--cream-dd); }
+  .badge-sig {
+    font-family: 'Lato', sans-serif; font-size: 0.5rem; letter-spacing: 0.1em;
+    text-transform: uppercase; background: var(--red); color: var(--cream);
+    padding: 0.12rem 0.45rem; border-radius: 9999px; vertical-align: middle; margin-left: 0.4rem;
+  }
+  .sym { color: rgba(212,148,58,0.55); }
+
+  #noResults { text-align: center; color: var(--cream-dd); font-family: 'Lato', sans-serif; font-size: 0.875rem; padding: 2rem; display: none; }
+
+  /* ── ORARI ── */
+  .orari-wrap { background: var(--cream); padding: 5rem 1.5rem; }
+  .orari-card { max-width: 28rem; margin: 0 auto; background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 32px rgba(44,26,14,0.12); }
+  .orari-head { background: var(--brown); padding: 1.5rem; text-align: center; }
+  .orari-head-title { font-family: 'Playfair Display', serif; color: var(--cream); font-size: 1.4rem; font-style: italic; }
+  .day-row { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; border-bottom: 1px solid rgba(44,26,14,0.06); }
+  .day-row:last-child { border-bottom: none; }
+  .day-name { font-family: 'Lato', sans-serif; font-size: 0.875rem; color: var(--brown); font-weight: 400; }
+  .day-time { font-family: 'Lato', sans-serif; font-size: 0.875rem; color: var(--brown); font-weight: 700; }
+  .day-closed { color: var(--red); font-style: italic; font-weight: 400; }
+  .orari-note { text-align: center; font-family: 'Lato', sans-serif; font-size: 0.8rem; color: var(--cream-dd); margin-top: 1.5rem; }
+  .orari-note a { color: var(--red); text-decoration: none; }
+  .orari-note a:hover { text-decoration: underline; }
+
+  /* ── CONTATTI ── */
+  .contatti-wrap { background: var(--dark); padding: 5rem 1.5rem; }
+  .contatti-grid { display: grid; gap: 2.5rem; max-width: 60rem; margin: 0 auto; }
+  .contact-card { display: flex; gap: 1rem; align-items: flex-start; }
+  .contact-icon-wrap { width: 2.5rem; height: 2.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-icon-wrap.red { background: rgba(192,57,43,0.18); border: 1px solid rgba(192,57,43,0.3); }
+  .contact-icon-wrap.gold { background: rgba(212,148,58,0.12); border: 1px solid rgba(212,148,58,0.25); }
+  .contact-label { font-family: 'Lato', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--cream-dd); margin-bottom: 0.25rem; }
+  .contact-value { font-family: 'Lato', sans-serif; font-size: 0.95rem; color: var(--cream); }
+  .contact-value a { color: var(--cream); text-decoration: none; transition: color 0.2s; }
+  .contact-value a:hover { color: var(--gold); }
+  .phone-big { font-size: 1.5rem; font-weight: 700; }
+  .map-wrap { border-radius: 16px; overflow: hidden; border: 1px solid rgba(212,148,58,0.12); }
+
+  /* ── FOOTER ── */
+  .footer-wrap { background: var(--dark-2); border-top: 1px solid rgba(212,148,58,0.1); padding: 2.5rem 1.5rem; text-align: center; }
+  .footer-logo { display: inline-flex; align-items: baseline; gap: 0.5rem; margin-bottom: 0.75rem; cursor: pointer; text-decoration: none; }
+  .footer-info { font-family: 'Lato', sans-serif; font-size: 0.75rem; color: var(--cream-dd); margin-bottom: 0.4rem; }
+  .footer-info a { color: var(--gold); text-decoration: none; }
+  .footer-copy { font-family: 'Lato', sans-serif; font-size: 0.65rem; color: rgba(154,139,117,0.35); margin-top: 1.25rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+  .fade-up { animation: fadeUp 0.7s ease both; }
+  .d1 { animation-delay: 0.1s; }
+  .d2 { animation-delay: 0.22s; }
+  .d3 { animation-delay: 0.36s; }
+  .d4 { animation-delay: 0.52s; }
+  .d5 { animation-delay: 0.68s; }
+
+  /* ── RESPONSIVE ── */
+  @media (min-width: 640px) {
+    .ingr-grid { grid-template-columns: repeat(3, 1fr); }
+    .ingr-card.span2 { grid-column: span 1; }
+    .contatti-grid { grid-template-columns: 1fr 1fr; }
+    .search-icon { left: calc(50% - 14rem); }
+  }
+  @media (min-width: 768px) {
+    .ingr-grid { grid-template-columns: repeat(5, 1fr); }
+    .ingr-card.span2 { grid-column: span 1; }
+    #hamburger { display: none !important; }
+    .nav-links { display: flex !important; }
+  }
+  @media (max-width: 767px) {
+    .nav-links { display: none; }
+    #hamburger { display: block; }
+    .pizza-row { padding: 0.75rem 1rem; }
+    .acc-header { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="footer-logo" style="text-decoration:none">
+      <span class="logo-script">Spiki</span>
+      <span class="logo-word">Pizza</span>
+    </a>
+    <div class="nav-links">
+      <a href="#impasto">Impasto</a>
+      <a href="#menu">Menu</a>
+      <a href="#orari">Orari</a>
+      <a href="#contatti">Contatti</a>
+    </div>
+    <a href="tel:0461707707" class="nav-cta">
+      <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+      0461 707707
+    </a>
+    <button id="hamburger" aria-label="Menu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+  <div id="mobileMenu">
+    <a href="#impasto" onclick="closeMobile()">Impasto</a>
+    <a href="#menu" onclick="closeMobile()">Menu</a>
+    <a href="#orari" onclick="closeMobile()">Orari</a>
+    <a href="#contatti" onclick="closeMobile()">Contatti</a>
+    <a href="tel:0461707707" style="color:var(--red);font-weight:700" onclick="closeMobile()">0461 707707</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="top" class="hero-wrap">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-label fade-up">La Buona Pizza da</p>
+    <h1 class="hero-title fade-up d1">Spiki</h1>
+    <p class="hero-sub fade-up d2">Pizza</p>
+    <div class="divider-rg fade-up d3"></div>
+    <p class="hero-desc fade-up d3" style="margin-top:1.25rem">Pizza al taglio &amp; d'asporto · Levico Terme</p>
+    <p class="hero-time fade-up d3">Viale Lido, 5 · Lun – Dom escluso Martedì · 17:45 – 22:00</p>
+    <div class="hero-btns fade-up d4">
+      <a href="#menu" class="btn-primary">Scopri il Menu</a>
+      <a href="tel:0461707707" class="btn-outline">Prenota la tua preferita</a>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scorri</span>
+    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+  </div>
+</section>
+
+<!-- ===== IMPASTO ===== -->
+<section id="impasto" class="impasto-wrap">
+  <div class="impasto-bg"></div>
+  <div class="impasto-overlay"></div>
+  <div class="impasto-content">
+    <p class="section-label">Artigianalità &amp; Qualità</p>
+    <h2 class="section-title-dark">Il Nostro Impasto</h2>
+    <div class="divider-rg" style="margin-bottom:1.5rem"></div>
+    <p class="section-body-dark">
+      Ogni pizza nasce da ingredienti selezionati e da una lievitazione naturale lenta.<br>
+      Il risultato: una pizza leggera, fragrante e facilmente digeribile.
+    </p>
+    <div class="ingr-grid">
+      <div class="ingr-card">
+        <div class="ingr-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 1 7.92 7.247 5.25 5.25 0 0 1-1.333 10.003H6.02a5.25 5.25 0 0 1-1.333-10.003A7.5 7.5 0 0 1 12 3Z"/></svg>
+        </div>
+        <div><div class="ingr-name">Acqua</div></div>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+        </div>
+        <div><div class="ingr-name">Sale</div></div>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3"/></svg>
+        </div>
+        <div><div class="ingr-name">Farina tipo 1</div><div class="ingr-detail">macinata a pietra</div></div>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"/></svg>
+        </div>
+        <div><div class="ingr-name">Olio EVO</div><div class="ingr-detail">extra vergine di oliva</div></div>
+      </div>
+      <div class="ingr-card span2" style="border-color:rgba(192,57,43,0.4);background:rgba(192,57,43,0.06)">
+        <div class="ingr-icon" style="background:rgba(192,57,43,0.15)">
+          <svg fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+        </div>
+        <div><div class="ingr-name">Lievito Madre</div><div class="ingr-detail" style="color:var(--red)">lievitazione minima 36 ore</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section id="menu" class="menu-section">
+  <div style="max-width:56rem;margin:0 auto;text-align:center;margin-bottom:3rem">
+    <p class="section-label-gold">Scegli la tua</p>
+    <h2 class="section-title-light">Il Menu</h2>
+    <div class="divider-rg" style="margin-bottom:1rem"></div>
+    <p class="menu-note">Pizza Classica: 1,00–3,00 € &ensp;·&ensp; Pizza Maxi: 2,00–3,50 € &ensp;·&ensp; Baby: –1,00 €</p>
+    <p class="menu-note"><span class="sym">S</span> surgelato &ensp;<span class="sym">C</span> congelato &ensp;<span class="sym">A</span> abbattuto</p>
+  </div>
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <svg class="search-icon" width="16" height="16" fill="none" stroke="rgba(154,139,117,0.6)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+    <input type="text" id="pizzaSearch" placeholder="Cerca una pizza o ingrediente…" aria-label="Cerca nel menu">
+  </div>
+
+  <p id="noResults">Nessuna pizza trovata.</p>
+
+  <!-- Accordion -->
+  <div class="accordion-list">
+
+    <!-- ── 1. CLASSICHE ── -->
+    <div class="acc-block" id="block-classiche">
+      <div class="acc-header open" onclick="toggleAcc('classiche')">
+        <div class="acc-title-wrap">
+          <div class="acc-num">I</div>
+          <div>
+            <div class="acc-cat-name">Le Pizze Classiche</div>
+            <div class="acc-sub">Classic pizzas · Klassische Pizza</div>
+          </div>
+        </div>
+        <span class="acc-count" id="count-classiche">21 pizze</span>
+        <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="acc-body open" id="body-classiche">
+        <div class="pizza-row" data-cat="classiche" data-name="marinara" data-ingr="pomodoro aglio origano"><div class="piz-left"><span class="piz-name">Marinara</span><div class="piz-ingr">pomodoro, aglio, origano</div></div><div class="piz-dots"></div><span class="piz-price">5,80 · <span class="piz-maxi">Maxi</span> 12,00</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="margherita" data-ingr="pomodoro mozzarella"><div class="piz-left"><span class="piz-name">Margherita</span><div class="piz-ingr">pomodoro, mozzarella</div></div><div class="piz-dots"></div><span class="piz-price">6,40 · <span class="piz-maxi">Maxi</span> 13,00</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="romana" data-ingr="pomodoro mozzarella acciughe capperi"><div class="piz-left"><span class="piz-name">Romana</span><div class="piz-ingr">pomodoro, mozzarella, acciughe, capperi</div></div><div class="piz-dots"></div><span class="piz-price">8,80 · <span class="piz-maxi">Maxi</span> 17,80</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="prosciutto" data-ingr="pomodoro mozzarella prosciutto"><div class="piz-left"><span class="piz-name">Prosciutto</span><div class="piz-ingr">pomodoro, mozzarella, prosciutto</div></div><div class="piz-dots"></div><span class="piz-price">8,30 · <span class="piz-maxi">Maxi</span> 16,80</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="funghi" data-ingr="pomodoro mozzarella funghi"><div class="piz-left"><span class="piz-name">Funghi</span><div class="piz-ingr">pomodoro, mozzarella, funghi</div></div><div class="piz-dots"></div><span class="piz-price">8,30 · <span class="piz-maxi">Maxi</span> 16,80</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="prosciutto e funghi" data-ingr="pomodoro mozzarella prosciutto funghi"><div class="piz-left"><span class="piz-name">Prosciutto e Funghi</span><div class="piz-ingr">pomodoro, mozzarella, prosciutto, funghi</div></div><div class="piz-dots"></div><span class="piz-price">9,10 · <span class="piz-maxi">Maxi</span> 18,50</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="diavola" data-ingr="pomodoro mozzarella salamino piccante"><div class="piz-left"><span class="piz-name">Diavola</span><div class="piz-ingr">pomodoro, mozzarella, salamino piccante</div></div><div class="piz-dots"></div><span class="piz-price">9,30 · <span class="piz-maxi">Maxi</span> 18,70</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="quattro stagioni" data-ingr="pomodoro mozzarella prosciutto funghi carciofi olive"><div class="piz-left"><span class="piz-name">Quattro Stagioni</span><div class="piz-ingr">pomodoro, mozzarella, prosciutto, funghi, carciofi, olive</div></div><div class="piz-dots"></div><span class="piz-price">9,70 · <span class="piz-maxi">Maxi</span> 19,70</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="quattro formaggi" data-ingr="pomodoro mozzarella formaggi"><div class="piz-left"><span class="piz-name">Quattro Formaggi</span><div class="piz-ingr">pomodoro, mozzarella, 4 formaggi</div></div><div class="piz-dots"></div><span class="piz-price">9,70 · <span class="piz-maxi">Maxi</span> 19,70</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="capricciosa" data-ingr="pomodoro mozzarella prosciutto funghi carciofi"><div class="piz-left"><span class="piz-name">Capricciosa</span><div class="piz-ingr">pomodoro, mozzarella, prosciutto, funghi, carciofi</div></div><div class="piz-dots"></div><span class="piz-price">9,50 · <span class="piz-maxi">Maxi</span> 19,00</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="vegetariana" data-ingr="pomodoro mozzarella verdure stagione grana"><div class="piz-left"><span class="piz-name">Vegetariana</span><div class="piz-ingr">pomodoro, mozzarella, verdure di stagione, grana</div></div><div class="piz-dots"></div><span class="piz-price">10,00 · <span class="piz-maxi">Maxi</span> 20,20</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="viennese" data-ingr="pomodoro mozzarella wurstel würstel"><div class="piz-left"><span class="piz-name">Viennese</span><div class="piz-ingr">pomodoro, mozzarella, würstel</div></div><div class="piz-dots"></div><span class="piz-price">8,30 · <span class="piz-maxi">Maxi</span> 16,80</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="ricotta e spinaci" data-ingr="pomodoro mozzarella ricotta spinaci"><div class="piz-left"><span class="piz-name">Ricotta e Spinaci</span><div class="piz-ingr">pomodoro, mozzarella, ricotta, spinaci <span class="sym">S</span></div></div><div class="piz-dots"></div><span class="piz-price">9,30 · <span class="piz-maxi">Maxi</span> 18,80</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="porcini" data-ingr="pomodoro mozzarella porcini"><div class="piz-left"><span class="piz-name">Porcini</span><div class="piz-ingr">pomodoro, mozzarella, porcini</div></div><div class="piz-dots"></div><span class="piz-price">9,50 · <span class="piz-maxi">Maxi</span> 19,50</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="boscaiola" data-ingr="pomodoro mozzarella funghi misti grana"><div class="piz-left"><span class="piz-name">Boscaiola</span><div class="piz-ingr">pomodoro, mozzarella, funghi misti, grana</div></div><div class="piz-dots"></div><span class="piz-price">10,50 · <span class="piz-maxi">Maxi</span> 20,90</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="tonno e cipolle" data-ingr="pomodoro mozzarella tonno cipolle"><div class="piz-left"><span class="piz-name">Tonno e Cipolle</span><div class="piz-ingr">pomodoro, mozzarella, tonno, cipolle</div></div><div class="piz-dots"></div><span class="piz-price">9,90 · <span class="piz-maxi">Maxi</span> 19,80</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="gorgonzola" data-ingr="pomodoro mozzarella gorgonzola"><div class="piz-left"><span class="piz-name">Gorgonzola</span><div class="piz-ingr">pomodoro, mozzarella, gorgonzola</div></div><div class="piz-dots"></div><span class="piz-price">8,80 · <span class="piz-maxi">Maxi</span> 17,80</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="firenze" data-ingr="pomodoro mozzarella funghi prosciutto salamino grana"><div class="piz-left"><span class="piz-name">Firenze</span><div class="piz-ingr">pomodoro, mozzarella, funghi, prosciutto, salamino, grana</div></div><div class="piz-dots"></div><span class="piz-price">10,00 · <span class="piz-maxi">Maxi</span> 20,00</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="trentina" data-ingr="pomodoro mozzarella lucanica funghi grana"><div class="piz-left"><span class="piz-name">Trentina</span><div class="piz-ingr">pomodoro, mozzarella, lucanica, funghi, grana</div></div><div class="piz-dots"></div><span class="piz-price">9,90 · <span class="piz-maxi">Maxi</span> 19,80</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="calabrese" data-ingr="mozzarella aglio peperoncino"><div class="piz-left"><span class="piz-name">Calabrese</span><div class="piz-ingr">mozzarella, aglio, peperoncino</div></div><div class="piz-dots"></div><span class="piz-price">8,00 · <span class="piz-maxi">Maxi</span> 16,50</span></div>
+        <div class="pizza-row" data-cat="classiche" data-name="briosa" data-ingr="pomodoro mozzarella brie speck"><div class="piz-left"><span class="piz-name">Briosa</span><div class="piz-ingr">pomodoro, mozzarella, brie, speck</div></div><div class="piz-dots"></div><span class="piz-price">9,70 · <span class="piz-maxi">Maxi</span> 19,80</span></div>
+      </div>
+    </div>
+
+    <!-- ── 2. SPECIALI ── -->
+    <div class="acc-block" id="block-speciali">
+      <div class="acc-header" onclick="toggleAcc('speciali')">
+        <div class="acc-title-wrap">
+          <div class="acc-num">II</div>
+          <div>
+            <div class="acc-cat-name">Le Pizze Speciali</div>
+            <div class="acc-sub">Special pizzas · Spezielle Pizza</div>
+          </div>
+        </div>
+        <span class="acc-count" id="count-speciali">36 pizze</span>
+        <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="acc-body" id="body-speciali">
+        <div class="pizza-row" data-cat="speciali" data-name="parmigiana" data-ingr="pomodoro mozzarella melanzane grana"><div class="piz-left"><span class="piz-name">Parmigiana</span><div class="piz-ingr">pomodoro, mozzarella, melanzane, grana</div></div><div class="piz-dots"></div><span class="piz-price">9,20 · <span class="piz-maxi">Maxi</span> 18,40</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="rustica" data-ingr="pomodoro mozzarella funghi cipolla salsiccia"><div class="piz-left"><span class="piz-name">Rustica</span><div class="piz-ingr">pomodoro, mozzarella, funghi, cipolla, salsiccia</div></div><div class="piz-dots"></div><span class="piz-price">9,50 · <span class="piz-maxi">Maxi</span> 18,80</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="gamberetti e rucola" data-ingr="pomodoro mozzarella gamberetti rucola"><div class="piz-left"><span class="piz-name">Gamberetti e Rucola</span><div class="piz-ingr">pomodoro, mozzarella, gamberetti <span class="sym">S</span>, rucola</div></div><div class="piz-dots"></div><span class="piz-price">9,90 · <span class="piz-maxi">Maxi</span> 20,40</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="mare e monti" data-ingr="pomodoro mozzarella funghi misti gamberetti"><div class="piz-left"><span class="piz-name">Mare e Monti</span><div class="piz-ingr">pomodoro, mozzarella, funghi misti, gamberetti <span class="sym">S</span></div></div><div class="piz-dots"></div><span class="piz-price">10,50 · <span class="piz-maxi">Maxi</span> 21,00</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="royal" data-ingr="pomodoro mozzarella funghi misti brie speck"><div class="piz-left"><span class="piz-name">Royal</span><div class="piz-ingr">pomodoro, mozzarella, funghi misti, brie, speck</div></div><div class="piz-dots"></div><span class="piz-price">10,50 · <span class="piz-maxi">Maxi</span> 20,90</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="veneta" data-ingr="pomodoro mozzarella salsiccia cipolla"><div class="piz-left"><span class="piz-name">Veneta</span><div class="piz-ingr">pomodoro, mozzarella, salsiccia, cipolla</div></div><div class="piz-dots"></div><span class="piz-price">9,20 · <span class="piz-maxi">Maxi</span> 18,40</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="cip e ciop" data-ingr="pomodoro mozzarella patate fritte wurstel"><div class="piz-left"><span class="piz-name">Cip e Ciop</span><div class="piz-ingr">pomodoro, mozzarella, patate fritte <span class="sym">S</span>, würstel</div></div><div class="piz-dots"></div><span class="piz-price">9,30 · <span class="piz-maxi">Maxi</span> 18,50</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="saporita" data-ingr="pomodoro mozzarella gorgonzola salamino"><div class="piz-left"><span class="piz-name">Saporita</span><div class="piz-ingr">pomodoro, mozzarella, gorgonzola, salamino</div></div><div class="piz-dots"></div><span class="piz-price">9,80 · <span class="piz-maxi">Maxi</span> 19,80</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="raffinata" data-ingr="pomodoro mozzarella brie noci pancetta"><div class="piz-left"><span class="piz-name">Raffinata</span><div class="piz-ingr">pomodoro, mozzarella, brie, noci, pancetta</div></div><div class="piz-dots"></div><span class="piz-price">10,20 · <span class="piz-maxi">Maxi</span> 20,80</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="bassanese" data-ingr="pomodoro mozzarella asparagi uova grana"><div class="piz-left"><span class="piz-name">Bassanese</span><div class="piz-ingr">pomodoro, mozzarella, asparagi, uova, grana</div></div><div class="piz-dots"></div><span class="piz-price">9,30 · <span class="piz-maxi">Maxi</span> 18,80</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="bufala" data-ingr="pomodoro mozzarella bufala"><div class="piz-left"><span class="piz-name">Bufala</span><div class="piz-ingr">pomodoro, mozzarella, mozzarella di bufala</div></div><div class="piz-dots"></div><span class="piz-price">10,00 · <span class="piz-maxi">Maxi</span> 20,30</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="estate" data-ingr="pomodoro mozzarella pomodoro fette rucola grana scaglie"><div class="piz-left"><span class="piz-name">Estate</span><div class="piz-ingr">pomodoro, mozzarella, pomodoro a fette, rucola, grana a scaglie</div></div><div class="piz-dots"></div><span class="piz-price">9,80 · <span class="piz-maxi">Maxi</span> 19,50</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="san daniele" data-ingr="pomodoro mozzarella prosciutto crudo"><div class="piz-left"><span class="piz-name">San Daniele</span><div class="piz-ingr">pomodoro, mozzarella, prosciutto crudo</div></div><div class="piz-dots"></div><span class="piz-price">9,60 · <span class="piz-maxi">Maxi</span> 19,80</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="tirolese" data-ingr="pomodoro mozzarella speck"><div class="piz-left"><span class="piz-name">Tirolese</span><div class="piz-ingr">pomodoro, mozzarella, speck</div></div><div class="piz-dots"></div><span class="piz-price">9,30 · <span class="piz-maxi">Maxi</span> 19,10</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="vecchia london" data-ingr="pomodoro mozzarella cipolle pancetta grana"><div class="piz-left"><span class="piz-name">Vecchia London</span><div class="piz-ingr">pomodoro, mozzarella, cipolle, pancetta, grana</div></div><div class="piz-dots"></div><span class="piz-price">9,50 · <span class="piz-maxi">Maxi</span> 19,20</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="greca" data-ingr="pomodoro mozzarella olive"><div class="piz-left"><span class="piz-name">Greca</span><div class="piz-ingr">pomodoro, mozzarella, olive</div></div><div class="piz-dots"></div><span class="piz-price">8,50 · <span class="piz-maxi">Maxi</span> 16,80</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="carciofa" data-ingr="pomodoro mozzarella carciofi speck"><div class="piz-left"><span class="piz-name">Carciofa</span><div class="piz-ingr">pomodoro, mozzarella, carciofi, speck</div></div><div class="piz-dots"></div><span class="piz-price">9,50 · <span class="piz-maxi">Maxi</span> 19,40</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="alto adige" data-ingr="pomodoro mozzarella speck brie grana"><div class="piz-left"><span class="piz-name">Alto Adige</span><div class="piz-ingr">pomodoro, mozzarella, speck, brie, grana</div></div><div class="piz-dots"></div><span class="piz-price">9,90 · <span class="piz-maxi">Maxi</span> 20,00</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="bruschetta" data-ingr="pomodoro mozzarella pomodoro dadini aglio"><div class="piz-left"><span class="piz-name">Bruschetta</span><div class="piz-ingr">pomodoro, mozzarella, pomodoro a dadini, aglio</div></div><div class="piz-dots"></div><span class="piz-price">8,70 · <span class="piz-maxi">Maxi</span> 17,30</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="trevisana" data-ingr="pomodoro mozzarella radicchio grana pancetta"><div class="piz-left"><span class="piz-name">Trevisana</span><div class="piz-ingr">pomodoro, mozzarella, radicchio, grana, pancetta</div></div><div class="piz-dots"></div><span class="piz-price">9,50 · <span class="piz-maxi">Maxi</span> 19,40</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="americana" data-ingr="pomodoro mozzarella peperoni salamino piccante origano"><div class="piz-left"><span class="piz-name">Americana</span><div class="piz-ingr">pomodoro, mozzarella, peperoni, salamino piccante, origano</div></div><div class="piz-dots"></div><span class="piz-price">9,70 · <span class="piz-maxi">Maxi</span> 19,70</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="zingara" data-ingr="pomodoro mozzarella funghi peperoni olive salamino capperi"><div class="piz-left"><span class="piz-name">Zingara</span><div class="piz-ingr">pomodoro, mozzarella, funghi, peperoni, olive, salamino, capperi</div></div><div class="piz-dots"></div><span class="piz-price">9,90 · <span class="piz-maxi">Maxi</span> 20,00</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="fumè" data-ingr="pomodoro mozzarella finferli scamorza affumicata pancetta"><div class="piz-left"><span class="piz-name">Fumè</span><div class="piz-ingr">pomodoro, mozzarella, finferli, scamorza affumicata, pancetta</div></div><div class="piz-dots"></div><span class="piz-price">10,30 · <span class="piz-maxi">Maxi</span> 20,90</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="valtellina" data-ingr="pomodoro mozzarella bresaola rucola grana scaglie"><div class="piz-left"><span class="piz-name">Valtellina</span><div class="piz-ingr">pomodoro, mozzarella, bresaola, rucola, scaglie di grana</div></div><div class="piz-dots"></div><span class="piz-price">10,10 · <span class="piz-maxi">Maxi</span> 20,20</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="golosa" data-ingr="pomodoro mozzarella wurstel salamino gorgonzola"><div class="piz-left"><span class="piz-name">Golosa</span><div class="piz-ingr">pomodoro, mozzarella, würstel, salamino, gorgonzola</div></div><div class="piz-dots"></div><span class="piz-price">10,00 · <span class="piz-maxi">Maxi</span> 19,90</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="gustosa" data-ingr="pomodoro mozzarella radicchio brie speck"><div class="piz-left"><span class="piz-name">Gustosa</span><div class="piz-ingr">pomodoro, mozzarella, radicchio, brie, speck</div></div><div class="piz-dots"></div><span class="piz-price">9,90 · <span class="piz-maxi">Maxi</span> 19,80</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="frivola" data-ingr="pomodoro mozzarella zucchine gamberetti brie"><div class="piz-left"><span class="piz-name">Frivola</span><div class="piz-ingr">pomodoro, mozzarella, zucchine, gamberetti <span class="sym">S</span>, brie</div></div><div class="piz-dots"></div><span class="piz-price">10,20 · <span class="piz-maxi">Maxi</span> 20,50</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="isolana" data-ingr="pomodoro mozzarella capperi tonno olive nere"><div class="piz-left"><span class="piz-name">Isolana</span><div class="piz-ingr">pomodoro, mozzarella, capperi, tonno, olive nere</div></div><div class="piz-dots"></div><span class="piz-price">9,90 · <span class="piz-maxi">Maxi</span> 19,50</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="varenne" data-ingr="pomodoro mozzarella sfilacci cavallo rucola grana"><div class="piz-left"><span class="piz-name">Varenne</span><div class="piz-ingr">pomodoro, mozzarella, sfilacci di cavallo, rucola, grana</div></div><div class="piz-dots"></div><span class="piz-price">10,20 · <span class="piz-maxi">Maxi</span> 20,70</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="dolomiti" data-ingr="pomodoro mozzarella porcini speck"><div class="piz-left"><span class="piz-name">Dolomiti</span><div class="piz-ingr">pomodoro, mozzarella, porcini, speck</div></div><div class="piz-dots"></div><span class="piz-price">10,00 · <span class="piz-maxi">Maxi</span> 20,20</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="provola" data-ingr="pomodoro mozzarella provola affumicata crudo"><div class="piz-left"><span class="piz-name">Provola</span><div class="piz-ingr">pomodoro, mozzarella, provola affumicata, crudo</div></div><div class="piz-dots"></div><span class="piz-price">9,90 · <span class="piz-maxi">Maxi</span> 20,20</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="campagnola" data-ingr="pomodoro mozzarella pancetta lucanica peperoni"><div class="piz-left"><span class="piz-name">Campagnola</span><div class="piz-ingr">pomodoro, mozzarella, pancetta, lucanica, peperoni</div></div><div class="piz-dots"></div><span class="piz-price">9,90 · <span class="piz-maxi">Maxi</span> 20,00</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="altopiano" data-ingr="pomodoro mozzarella sopressa asiago porcini"><div class="piz-left"><span class="piz-name">Altopiano</span><div class="piz-ingr">pomodoro, mozzarella, sopressa, asiago, porcini</div></div><div class="piz-dots"></div><span class="piz-price">10,30 · <span class="piz-maxi">Maxi</span> 21,90</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="friarielli" data-ingr="pomodoro mozzarella friarielli salsiccia"><div class="piz-left"><span class="piz-name">Friarielli</span><div class="piz-ingr">pomodoro, mozzarella, friarielli, salsiccia</div></div><div class="piz-dots"></div><span class="piz-price">10,20 · <span class="piz-maxi">Maxi</span> 20,50</span></div>
+        <div class="pizza-row" data-cat="speciali" data-name="vezzena" data-ingr="pomodoro mozzarella porcini formaggio vezzena"><div class="piz-left"><span class="piz-name">Vezzena</span><div class="piz-ingr">pomodoro, mozzarella, porcini, formaggio Vezzena</div></div><div class="piz-dots"></div><span class="piz-price">10,20 · <span class="piz-maxi">Maxi</span> 20,70</span></div>
+        <!-- SIGNATURE -->
+        <div class="pizza-row" data-cat="speciali" data-name="spiki" data-ingr="pomodoro mozzarella rucola bufala pomodorini origano" style="background:rgba(192,57,43,0.05)"><div class="piz-left"><span class="piz-name">Spiki <span class="badge-sig">Signature</span></span><div class="piz-ingr">pomodoro, mozzarella, rucola, mozzarella di bufala, pomodorini, origano</div></div><div class="piz-dots"></div><span class="piz-price">10,80 · <span class="piz-maxi">Maxi</span> 22,50</span></div>
+      </div>
+    </div>
+
+    <!-- ── 3. BIANCHE ── -->
+    <div class="acc-block" id="block-bianche">
+      <div class="acc-header" onclick="toggleAcc('bianche')">
+        <div class="acc-title-wrap">
+          <div class="acc-num">III</div>
+          <div>
+            <div class="acc-cat-name">Le Pizze Bianche</div>
+            <div class="acc-sub">White pizzas · Weiße Pizza</div>
+          </div>
+        </div>
+        <span class="acc-count" id="count-bianche">6 pizze</span>
+        <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="acc-body" id="body-bianche">
+        <div class="pizza-row" data-cat="bianche" data-name="inverno" data-ingr="mozzarella gorgonzola radicchio grana"><div class="piz-left"><span class="piz-name">Inverno</span><div class="piz-ingr">mozzarella, gorgonzola, radicchio, grana</div></div><div class="piz-dots"></div><span class="piz-price">9,50 · <span class="piz-maxi">Maxi</span> 18,90</span></div>
+        <div class="pizza-row" data-cat="bianche" data-name="carbonara" data-ingr="mozzarella pancetta uovo grana"><div class="piz-left"><span class="piz-name">Carbonara</span><div class="piz-ingr">mozzarella, pancetta, uovo, grana</div></div><div class="piz-dots"></div><span class="piz-price">9,70 · <span class="piz-maxi">Maxi</span> 19,40</span></div>
+        <div class="pizza-row" data-cat="bianche" data-name="biancaneve" data-ingr="mozzarella patate lesse pancetta grana rosmarino"><div class="piz-left"><span class="piz-name">Biancaneve</span><div class="piz-ingr">mozzarella, patate lesse, pancetta, grana, rosmarino</div></div><div class="piz-dots"></div><span class="piz-price">9,70 · <span class="piz-maxi">Maxi</span> 19,30</span></div>
+        <div class="pizza-row" data-cat="bianche" data-name="bufalina" data-ingr="mozzarella bufala pomodorini basilico"><div class="piz-left"><span class="piz-name">Bufalina</span><div class="piz-ingr">mozzarella di bufala, pomodorini, basilico</div></div><div class="piz-dots"></div><span class="piz-price">9,90 · <span class="piz-maxi">Maxi</span> 20,00</span></div>
+        <div class="pizza-row" data-cat="bianche" data-name="caprese" data-ingr="mozzarella pomodoro fette origano"><div class="piz-left"><span class="piz-name">Caprese</span><div class="piz-ingr">mozzarella, pomodoro a fette, origano</div></div><div class="piz-dots"></div><span class="piz-price">8,90 · <span class="piz-maxi">Maxi</span> 17,70</span></div>
+        <div class="pizza-row" data-cat="bianche" data-name="burratina" data-ingr="mozzarella crudo parma burrata"><div class="piz-left"><span class="piz-name">Burratina</span><div class="piz-ingr">mozzarella, crudo di Parma, burrata</div></div><div class="piz-dots"></div><span class="piz-price">11,00 · <span class="piz-maxi">Maxi</span> 22,70</span></div>
+      </div>
+    </div>
+
+    <!-- ── 4. DESSERT ── -->
+    <div class="acc-block" id="block-dessert">
+      <div class="acc-header" onclick="toggleAcc('dessert')">
+        <div class="acc-title-wrap">
+          <div class="acc-num">IV</div>
+          <div>
+            <div class="acc-cat-name">Pizza Dessert</div>
+            <div class="acc-sub">Per finire in dolcezza</div>
+          </div>
+        </div>
+        <span class="acc-count" id="count-dessert">1 pizza</span>
+        <svg class="acc-chevron" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+      </div>
+      <div class="acc-body" id="body-dessert">
+        <div class="pizza-row" data-cat="dessert" data-name="pizza dessert nutella nocciole" data-ingr="nutella nocciole hazelnut dolce"><div class="piz-left"><span class="piz-name">Pizza Dessert</span><div class="piz-ingr">Nutella e granella di nocciole</div></div><div class="piz-dots"></div><span class="piz-price">7,00</span></div>
+      </div>
+    </div>
+
+  </div><!-- /accordion-list -->
+</section>
+
+<!-- ===== ORARI ===== -->
+<section id="orari" class="orari-wrap">
+  <div style="text-align:center;margin-bottom:2.5rem">
+    <p class="section-label">Quando ci trovi</p>
+    <h2 class="section-title-dark">Orari</h2>
+    <div class="divider-rg" style="margin-bottom:0"></div>
+  </div>
+  <div class="orari-card">
+    <div class="orari-head">
+      <p class="orari-head-title">Apertura settimanale</p>
+    </div>
+    <div class="day-row"><span class="day-name">Lunedì</span><span class="day-time">17:45 – 22:00</span></div>
+    <div class="day-row"><span class="day-name">Martedì</span><span class="day-time day-closed">Chiuso</span></div>
+    <div class="day-row"><span class="day-name">Mercoledì</span><span class="day-time">17:45 – 22:00</span></div>
+    <div class="day-row"><span class="day-name">Giovedì</span><span class="day-time">17:45 – 22:00</span></div>
+    <div class="day-row"><span class="day-name">Venerdì</span><span class="day-time">17:45 – 22:00</span></div>
+    <div class="day-row"><span class="day-name">Sabato</span><span class="day-time">17:45 – 22:00</span></div>
+    <div class="day-row"><span class="day-name">Domenica</span><span class="day-time">17:45 – 22:00</span></div>
+  </div>
+  <p class="orari-note">
+    Prenota la tua pizza preferita chiamando il
+    <a href="tel:0461707707">0461 707707</a>
+  </p>
+</section>
+
+<!-- ===== CONTATTI ===== -->
+<section id="contatti" class="contatti-wrap">
+  <div style="text-align:center;margin-bottom:3rem">
+    <p class="section-label-gold">Dove siamo</p>
+    <h2 class="section-title-light">Contatti</h2>
+    <div class="divider-rg"></div>
+  </div>
+  <div class="contatti-grid">
+    <div style="display:flex;flex-direction:column;gap:1.75rem">
+      <div class="contact-card">
+        <div class="contact-icon-wrap red">
+          <svg width="18" height="18" fill="none" stroke="var(--red)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div>
+          <p class="contact-label">Indirizzo</p>
+          <p class="contact-value">Viale Lido, 5<br>38056 Levico Terme (TN)</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon-wrap gold">
+          <svg width="18" height="18" fill="none" stroke="var(--gold)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        </div>
+        <div>
+          <p class="contact-label">Telefono</p>
+          <p class="contact-value phone-big"><a href="tel:0461707707">0461 707707</a></p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon-wrap gold">
+          <svg width="18" height="18" fill="none" stroke="var(--gold)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <p class="contact-label">Orari</p>
+          <p class="contact-value">Lun, Mer–Dom: 17:45 – 22:00</p>
+          <p class="contact-value" style="color:var(--red);font-size:0.85rem">Chiuso il Martedì</p>
+        </div>
+      </div>
+      <a href="tel:0461707707" class="btn-primary" style="display:inline-flex;align-items:center;gap:0.5rem;width:fit-content;text-decoration:none">
+        <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        Chiama Ora
+      </a>
+    </div>
+    <div class="map-wrap" style="height:320px">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=11.2960%2C46.0100%2C11.3060%2C46.0160&layer=mapnik&marker=46.0130%2C11.3010" width="100%" height="100%" style="border:0;display:block" loading="lazy" title="Mappa Spiki Pizza" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer-wrap">
+  <a href="#top" class="footer-logo">
+    <span class="logo-script">Spiki</span>
+    <span class="logo-word">Pizza</span>
+  </a>
+  <p class="footer-info">Viale Lido, 5 · 38056 Levico Terme (TN) · Tel. <a href="tel:0461707707">0461 707707</a></p>
+  <p class="footer-info">Pizza al taglio e d'asporto · Chiuso il Martedì</p>
+  <div class="divider-gold" style="margin:1.25rem auto"></div>
+  <p class="footer-copy">&copy; 2024 Spiki Pizza. Tutti i diritti riservati.</p>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // Hero parallax
+  const heroBg = document.getElementById('heroBg');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY < window.innerHeight) {
+      heroBg.style.transform = `scale(1.06) translateY(${window.scrollY * 0.22}px)`;
+    }
+  }, { passive: true });
+
+  // Mobile menu
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+  // Accordion
+  function toggleAcc(cat) {
+    const header = document.querySelector(`#block-${cat} .acc-header`);
+    const body   = document.getElementById(`body-${cat}`);
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+
+  // Search across all sections
+  const searchInput = document.getElementById('pizzaSearch');
+  const noResults   = document.getElementById('noResults');
+  const cats = ['classiche', 'speciali', 'bianche', 'dessert'];
+
+  searchInput.addEventListener('input', () => {
+    const term = searchInput.value.toLowerCase().trim();
+    let totalVisible = 0;
+
+    cats.forEach(cat => {
+      const rows = document.querySelectorAll(`#body-${cat} .pizza-row`);
+      let visInCat = 0;
+
+      rows.forEach(row => {
+        const match = !term ||
+          row.dataset.name.includes(term) ||
+          row.dataset.ingr.includes(term);
+        row.classList.toggle('hidden-item', !match);
+        if (match) visInCat++;
+      });
+
+      totalVisible += visInCat;
+
+      // Auto-open accordion if it has search results
+      const header = document.querySelector(`#block-${cat} .acc-header`);
+      const body   = document.getElementById(`body-${cat}`);
+      const countEl = document.getElementById(`count-${cat}`);
+
+      if (term && visInCat > 0) {
+        header.classList.add('open');
+        body.classList.add('open');
+      } else if (term && visInCat === 0) {
+        header.classList.remove('open');
+        body.classList.remove('open');
+      }
+
+      // Update count badge
+      if (term) {
+        countEl.textContent = `${visInCat} risultat${visInCat === 1 ? 'o' : 'i'}`;
+      } else {
+        const orig = { classiche: '21 pizze', speciali: '36 pizze', bianche: '6 pizze', dessert: '1 pizza' };
+        countEl.textContent = orig[cat];
+        // Restore default state: classiche open, others closed
+        if (cat === 'classiche') {
+          header.classList.add('open');
+          body.classList.add('open');
+        } else {
+          header.classList.remove('open');
+          body.classList.remove('open');
+        }
+      }
+    });
+
+    noResults.style.display = totalVisible === 0 && term ? 'block' : 'none';
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('section:not(#top)').forEach(s => {
+    s.style.opacity = '0';
+    s.style.transform = 'translateY(28px)';
+    s.style.transition = 'opacity 0.65s ease, transform 0.65s ease';
+    observer.observe(s);
+  });
+</script>
+</body>
+</html>

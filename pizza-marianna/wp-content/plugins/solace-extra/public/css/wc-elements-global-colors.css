@@ -1,0 +1,251 @@
+/**
+ * Elementor Pro "WooCommerce Pages" widget (wc-elements) — Elementor global
+ * color theming.
+ *
+ * The widget renders full WooCommerce pages (cart / checkout / my account /
+ * product) via shortcode, which ship with WooCommerce's own default colors and
+ * expose NO style controls for their content. This file scopes those pages to
+ * the Elementor kit's global colors and gives the buttons the same padding as
+ * the Solace cart/checkout widget buttons.
+ *
+ * Scoped strictly to the wc-elements widget wrapper:
+ *  - Elementor Pro's own Cart (woocommerce-cart) and Checkout
+ *    (woocommerce-checkout-page) widgets are intentionally NOT themed here —
+ *    they ship with their own style controls, and a stylesheet-level color
+ *    override would block those controls from applying (the reason this file
+ *    avoids `!important` and keeps a single wrapper).
+ *  - real WooCommerce pages elsewhere keep their normal styling.
+ *
+ * Selectors verified against WooCommerce 11 + Elementor Pro 4 markup.
+ */
+.elementor-widget-wc-elements,
+.elementor-widget-woocommerce-cart,
+.elementor-widget-woocommerce-checkout-page {
+	/* Map Elementor global colors (Solace Color Mapper kit on this site). */
+	--wc-el-accent: var(--e-global-color-solcolorbuttoninitial, var(--e-global-color-primary, #d99653));
+	--wc-el-accent-hover: var(--e-global-color-solcolorbuttonhover, var(--e-global-color-secondary, #cf8439));
+	--wc-el-link: var(--e-global-color-solcolorlinkbuttoninitial, var(--e-global-color-accent, #d99653));
+	--wc-el-text: var(--e-global-color-solcolorbasefont, var(--e-global-color-text, #514d55));
+	--wc-el-heading: var(--e-global-color-solcolorheading, var(--e-global-color-secondary, #3e3e3e));
+	--wc-el-border: var(--e-global-color-solcolorborder, var(--e-global-color-secondary, #dfe0df));
+	--wc-el-bg: var(--e-global-color-solcolorbackground, #ffffff);
+}
+
+/* Base text + headings */
+.elementor-widget-wc-elements .woocommerce {
+	color: var(--wc-el-text);
+}
+
+.elementor-widget-wc-elements .woocommerce h1,
+.elementor-widget-wc-elements .woocommerce h2,
+.elementor-widget-wc-elements .woocommerce h3,
+.elementor-widget-wc-elements .woocommerce h4 {
+	color: var(--wc-el-heading);
+}
+
+/* Links (lost password, coupons, notices, nav, tab links) */
+.elementor-widget-wc-elements .woocommerce a,
+.elementor-widget-wc-elements .woocommerce .lost_password a,
+.elementor-widget-wc-elements .woocommerce .woocommerce-info a,
+.elementor-widget-wc-elements .woocommerce a.showcoupon,
+.elementor-widget-wc-elements .woocommerce a.woocommerce-remove-coupon,
+.elementor-widget-wc-elements .woocommerce-MyAccount-navigation ul li a {
+	color: var(--wc-el-link);
+}
+
+.elementor-widget-wc-elements .woocommerce a:hover,
+.elementor-widget-wc-elements .woocommerce .lost_password a:hover,
+.elementor-widget-wc-elements .woocommerce .woocommerce-info a:hover,
+.elementor-widget-wc-elements .woocommerce a.showcoupon:hover,
+.elementor-widget-wc-elements .woocommerce-MyAccount-navigation ul li a:hover {
+	color: var(--wc-el-accent-hover);
+}
+
+/* Buttons — solid accent + white text, hover darkens via the kit's hover
+   color. Padding is explicit (Elementor's default button padding, 12px 24px)
+   so the editor canvas matches the frontend: on the frontend the
+   `elementor-button` class is added by JS and supplies this padding, but in
+   the Elementor preview iframe that class is absent and buttons fall back to
+   the browser default (1px 6px). */
+.elementor-widget-wc-elements .woocommerce button.button,
+.elementor-widget-wc-elements .woocommerce a.button,
+.elementor-widget-wc-elements .woocommerce input.button,
+.elementor-widget-wc-elements .woocommerce button[type="submit"] {
+	background: var(--wc-el-accent);
+	border-color: var(--wc-el-accent);
+	color: #ffffff;
+	padding: 12px 24px;
+}
+
+.elementor-widget-wc-elements .woocommerce button.button:hover,
+.elementor-widget-wc-elements .woocommerce button.button:focus,
+.elementor-widget-wc-elements .woocommerce a.button:hover,
+.elementor-widget-wc-elements .woocommerce a.button:focus,
+.elementor-widget-wc-elements .woocommerce input.button:hover,
+.elementor-widget-wc-elements .woocommerce input.button:focus,
+.elementor-widget-wc-elements .woocommerce button[type="submit"]:hover,
+.elementor-widget-wc-elements .woocommerce button[type="submit"]:focus {
+	background: var(--wc-el-accent-hover);
+	border-color: var(--wc-el-accent-hover);
+	color: #ffffff;
+}
+
+/* Cart totals checkout button: full-width + top margin, like the Solace cart widget */
+.elementor-widget-wc-elements .woocommerce .cart_totals a.checkout-button {
+	margin-top: 16px;
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+
+/* Place order: full-width + 16px vertical padding, like the Solace checkout widget */
+.elementor-widget-wc-elements .woocommerce #place_order {
+	width: 100%;
+	padding: 16px 0;
+	text-align: center;
+}
+
+/* Shop tables */
+.elementor-widget-wc-elements .woocommerce table.shop_table {
+	border-color: var(--wc-el-border);
+}
+
+.elementor-widget-wc-elements .woocommerce table.shop_table th {
+	background: var(--wc-el-bg);
+	border-color: var(--wc-el-border);
+	color: var(--wc-el-heading);
+}
+
+.elementor-widget-wc-elements .woocommerce table.shop_table td {
+	border-color: var(--wc-el-border);
+}
+
+/* Totals / review order / address boxes */
+.elementor-widget-wc-elements .woocommerce .cart_totals,
+.elementor-widget-wc-elements .woocommerce .woocommerce-checkout-review-order,
+.elementor-widget-wc-elements .woocommerce .woocommerce-billing-fields,
+.elementor-widget-wc-elements .woocommerce .woocommerce-shipping-fields,
+.elementor-widget-wc-elements .woocommerce .woocommerce-additional-fields {
+	background: var(--wc-el-bg);
+	border-color: var(--wc-el-border);
+}
+
+/* Form inputs */
+.elementor-widget-wc-elements .woocommerce input.input-text,
+.elementor-widget-wc-elements .woocommerce input[type="text"],
+.elementor-widget-wc-elements .woocommerce input[type="email"],
+.elementor-widget-wc-elements .woocommerce input[type="tel"],
+.elementor-widget-wc-elements .woocommerce input[type="password"],
+.elementor-widget-wc-elements .woocommerce input[type="number"],
+.elementor-widget-wc-elements .woocommerce textarea,
+.elementor-widget-wc-elements .woocommerce select,
+.elementor-widget-wc-elements .woocommerce .select2-container .select2-selection--single {
+	border-color: var(--wc-el-border);
+	color: var(--wc-el-text);
+}
+
+.elementor-widget-wc-elements .woocommerce input.input-text:focus,
+.elementor-widget-wc-elements .woocommerce input[type="text"]:focus,
+.elementor-widget-wc-elements .woocommerce input[type="email"]:focus,
+.elementor-widget-wc-elements .woocommerce input[type="tel"]:focus,
+.elementor-widget-wc-elements .woocommerce input[type="password"]:focus,
+.elementor-widget-wc-elements .woocommerce input[type="number"]:focus,
+.elementor-widget-wc-elements .woocommerce textarea:focus,
+.elementor-widget-wc-elements .woocommerce select:focus,
+.elementor-widget-wc-elements .woocommerce .select2-container .select2-selection--single:focus {
+	border-color: var(--wc-el-accent);
+}
+
+/* Notices — box follows the global border/bg, top edge keeps semantics */
+.elementor-widget-wc-elements .woocommerce .woocommerce-info,
+.elementor-widget-wc-elements .woocommerce .woocommerce-message,
+.elementor-widget-wc-elements .woocommerce .woocommerce-error {
+	background: var(--wc-el-bg);
+	border: 1px solid var(--wc-el-border);
+	color: var(--wc-el-text);
+}
+
+.elementor-widget-wc-elements .woocommerce .woocommerce-info {
+	border-top-color: var(--wc-el-accent);
+}
+
+.elementor-widget-wc-elements .woocommerce .woocommerce-message {
+	border-top-color: #8fae1b;
+}
+
+.elementor-widget-wc-elements .woocommerce .woocommerce-error {
+	border-top-color: #b81c23;
+}
+
+/* ============================================================
+   Elementor Pro Cart (woocommerce-cart) & Checkout
+   (woocommerce-checkout-page) — follow Elementor site-global
+   colors by DEFAULT.
+
+   EP consumes CSS custom properties set on the widget wrapper
+   (--sections-title-color, --links-normal-color, ...). Setting
+   those here to the kit globals means an UNSET control follows
+   the site design; a control the user sets in the editor still
+   wins (EP writes the same variable on {{WRAPPER}}, later in the
+   cascade). No `!important` here except the normal button
+   background, which EP has no control variable for (its base CSS
+   hardcodes --e-a-bg-default / #5bc0de).
+   ============================================================ */
+.elementor-widget-woocommerce-cart,
+.elementor-widget-woocommerce-checkout-page {
+	--sections-title-color: var(--wc-el-heading);
+	--sections-secondary-title-color: var(--wc-el-heading);
+	--sections-descriptions-color: var(--wc-el-text);
+	--sections-background-color: var(--wc-el-bg);
+	--sections-border-color: var(--wc-el-border);
+	--sections-radio-buttons-color: var(--wc-el-accent);
+	--sections-checkboxes-color: var(--wc-el-accent);
+	--links-normal-color: var(--wc-el-link);
+	--links-hover-color: var(--wc-el-accent-hover);
+	--product-link-normal-color: var(--wc-el-link);
+	--product-link-hover-color: var(--wc-el-accent-hover);
+	--forms-labels-color: var(--wc-el-text);
+	--forms-fields-normal-color: var(--wc-el-text);
+	--forms-fields-focus-color: var(--wc-el-accent);
+	--forms-fields-focus-border-color: var(--wc-el-accent);
+	--forms-buttons-normal-text-color: #ffffff;
+	--forms-buttons-hover-text-color: #ffffff;
+	--forms-buttons-border-color: var(--wc-el-accent);
+	--forms-buttons-hover-border-color: var(--wc-el-accent-hover);
+	--forms-buttons-hover-background-color: var(--wc-el-accent-hover);
+	--order-summary-title-color: var(--wc-el-heading);
+	--order-summary-color: var(--wc-el-text);
+	--order-summary-variations-color: var(--wc-el-text);
+	--order-summary-items-divider-color: var(--wc-el-border);
+	--order-summary-quantity-border-color: var(--wc-el-border);
+	--order-summary-totals-color: var(--wc-el-heading);
+	--order-summary-totals-divider-color: var(--wc-el-border);
+	--totals-color: var(--wc-el-text);
+	--totals-divider-color: var(--wc-el-border);
+	--checkout-button-normal-text-color: #ffffff;
+	--checkout-button-hover-text-color: #ffffff;
+	--checkout-button-hover-border-color: var(--wc-el-accent-hover);
+	--purchase-button-normal-text-color: #ffffff;
+	--purchase-button-hover-text-color: #ffffff;
+	--purchase-button-hover-border-color: var(--wc-el-accent-hover);
+}
+
+/* Normal button background: Elementor Pro's base css hardcodes
+   background-color:#5bc0de for #place_order (no background control
+   variable), so default it to the site accent WITHOUT !important. The
+   widget's own Purchase Button > Background control writes a per-widget
+   rule in the post css that loads later with equal-or-higher specificity,
+   so it wins; when the control is unset the accent default applies.
+   #place_order carries the .button class, so exclude it here - its
+   background is handled by the dedicated #place_order rule below (and by
+   the widget's own control). */
+.elementor-widget-woocommerce-cart .woocommerce .button:not(:where(#place_order)),
+.elementor-widget-woocommerce-checkout-page .woocommerce .button:not(:where(#place_order)) {
+	background-color: var(--wc-el-accent);
+}
+
+/* v1.7.1: accent fallback only - the widget's Purchase Button > Background
+   control (post css, later + higher specificity) wins when set. */
+.elementor-widget-woocommerce-checkout-page .woocommerce #place_order {
+	background-color: var(--wc-el-accent);
+}

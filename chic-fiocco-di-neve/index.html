@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Chic & Fiocco di Neve | Gelateria · Caffetteria a Caldonazzo</title>
+  <!-- Google Fonts: font eleganti e moderni -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free) per icone -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fefaf5;
+      color: #2c2418;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4, .logo-font, .hero-title, .section-title, .card-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* header + navigazione */
+    header {
+      background: #ffffffdd;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 248, 240, 0.96);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #f0e2d4;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+    }
+
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 20px;
+    }
+
+    .logo h1 {
+      font-size: 1.7rem;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
+    }
+    .logo p {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      color: #b97f54;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3e2c1f;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: #c28a5c;
+    }
+    .btn-call {
+      background-color: #c28a5c;
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-call i {
+      font-size: 0.9rem;
+    }
+    .btn-call:hover {
+      background-color: #a56e44;
+      color: white;
+    }
+
+    /* bottone scopri menu (hero) */
+    .btn-primary {
+      background-color: #c28a5c;
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 48px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+    .btn-primary i {
+      font-size: 0.9rem;
+    }
+    .btn-primary:hover {
+      background-color: #a56e44;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #c28a5c;
+      color: #c28a5c;
+      padding: 10px 28px;
+      border-radius: 48px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      background: #c28a5c20;
+    }
+
+    /* hero section */
+    .hero {
+      background: linear-gradient(105deg, #fff6ed 0%, #fdecdd 100%);
+      padding: 70px 0 80px;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 3.2rem;
+      font-weight: 600;
+      max-width: 800px;
+      margin: 0 auto 16px;
+    }
+    .hero-tag {
+      font-size: 1.2rem;
+      color: #7c5d42;
+      max-width: 600px;
+      margin: 0 auto 24px;
+    }
+    .rating-hero {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin: 32px 0 24px;
+      flex-wrap: wrap;
+    }
+    .rating-item {
+      background: white;
+      padding: 12px 20px;
+      border-radius: 60px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .rating-number {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #c28a5c;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* sezioni comuni */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid #f2e4da;
+    }
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 48px;
+      color: #5f4a34;
+    }
+    .grid-3 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+    .card {
+      flex: 1 1 280px;
+      background: white;
+      padding: 32px 24px;
+      border-radius: 32px;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+      transition: 0.25s ease;
+      text-align: center;
+    }
+    .card i {
+      font-size: 2.4rem;
+      color: #c28a5c;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .testimonials {
+      background: #fef5ed;
+    }
+    .testi-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+    }
+    .testi-card {
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      width: 320px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+    }
+    .stars {
+      color: #f4b642;
+      margin: 12px 0;
+    }
+    .menu-category-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .menu-card {
+      background: white;
+      border-radius: 28px;
+      padding: 20px 28px;
+      width: 240px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .pill {
+      background: #fff0e6;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.9rem;
+    }
+    .pill.active, .pill:hover {
+      background: #c28a5c;
+      color: white;
+    }
+
+    /* mappa / info */
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .info-col {
+      flex: 1;
+    }
+    .hours-table {
+      background: white;
+      border-radius: 28px;
+      padding: 24px;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #f0e0d2;
+    }
+
+    /* footer (uguale in tutte le pagine) */
+    footer {
+      background: #2c2418;
+      color: #e9dfd3;
+      padding: 48px 0 24px;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .footer-logo h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .footer-links a {
+      color: #ddd0c2;
+      text-decoration: none;
+      margin-right: 20px;
+      font-size: 0.9rem;
+    }
+    .copyright {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      border-top: 1px solid #3e3327;
+      padding-top: 24px;
+    }
+
+    @media (max-width: 780px) {
+      .navbar {
+        flex-direction: column;
+      }
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      .container {
+        padding: 0 24px;
+      }
+    }
+    .map-placeholder {
+      background: #e9ddd0;
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+    }
+    a[href^="tel"], a[href^="https://maps"] {
+      text-decoration: none;
+    }
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      border-radius: 40px;
+      padding: 10px 20px;
+    }
+    .btn-order {
+      background-color: #c28a5c;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <h1>CHIC & Fiocco di neve</h1>
+        <p>GELATERIA · CAFFETTERIA</p>
+      </div>
+      <div class="nav-links">
+        <a href="#home">HOME</a>
+        <a href="#menu-section">MENU</a>
+        <a href="#chi-siamo">CHI SIAMO</a>
+        <!-- CONTATTI rimossa come richiesto, ma integriamo numero e coordinate nei tasti -->
+        <a href="tel:+393283681097" class="btn-call"><i class="fas fa-phone-alt"></i> CHIAMA</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HOME SECTION (Hero) -->
+  <section id="home" style="padding-top: 20px;">
+    <div class="hero">
+      <div class="container">
+        <div class="rating-hero">
+          <div class="rating-item"><span class="rating-number">4.7/5</span> <i class="fas fa-star" style="color:#f4b642;"></i> 378 recensioni</div>
+          <div class="rating-item"><span class="rating-number">100%</span> ARTIGIANALE</div>
+        </div>
+        <h2>L'Arte del Freddo,<br>il Calore di Casa.</h2>
+        <p class="hero-tag">Dall'alba del caffè all'incanto del gelato artigianale.<br>Un'esperienza sensoriale nel cuore di Caldonazzo.</p>
+        <div class="hero-buttons">
+          <a href="#menu-full-page" class="btn-primary" id="scopriMenuBtn"><i class="fas fa-ice-cream"></i> SCOPRI IL MENÙ</a>
+          <a href="https://wa.me/393283681097?text=Salve%2C%20vorrei%20ordinare%20da%20Chic%20%26%20Fiocco%20di%20neve" target="_blank" class="btn-outline"><i class="fab fa-whatsapp"></i> ORDINA ORA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERCHÉ SCEGLIERCI / Dalla Materia al Gusto -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Dalla Materia al Gusto</h2>
+      <p class="section-sub">Tre pilastri che rendono ogni nostra creazione un'esperienza indimenticabile.</p>
+      <div class="grid-3">
+        <div class="card"><i class="fas fa-ice-cream"></i><h3>Gelato Artigianale</h3><p>Ogni gusto è una creazione unica, preparata ogni giorno con ingredienti freschi e di prima qualità.</p></div>
+        <div class="card"><i class="fas fa-mug-hot"></i><h3>Caffetteria d'Eccellenza</h3><p>Miscele pregiate, tostate in Italia, servite con cura e passione dalla prima tazza del mattino.</p></div>
+        <div class="card"><i class="fas fa-home"></i><h3>Atmosfera Unica</h3><p>Ambiente elegante e accogliente dove ogni momento diventa speciale. Il tuo angolo di dolcezza a Caldonazzo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Un'Atmosfera che Racconta (spazio) -->
+  <section style="background: #fbf5ef;">
+    <div class="container">
+      <div class="info-row">
+        <div class="info-col">
+          <h2 class="section-title" style="text-align: left;">Un'Atmosfera che Racconta</h2>
+          <p style="font-size: 1.1rem; margin-bottom: 24px;">Chic & Fiocco di Neve non è solo una gelateria: è un luogo dove il design incontra la tradizione, dove ogni dettaglio è pensato per farti sentire a casa. Arredi moderni, luci calde e il profumo del caffè appena macinato ti accolgono ogni mattina.</p>
+          <p>Che tu stia cercando un momento di pace con un cappuccino o una merenda con la famiglia, troverai sempre l'atmosfera giusta.</p>
+        </div>
+        <div class="info-col">
+          <div class="map-placeholder">
+            <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: #c28a5c; margin-bottom: 12px; display: block;"></i>
+            <p><strong>Viale Stazione 12/a, 38052 Caldonazzo (TN)</strong></p>
+            <a href="https://maps.google.com/?q=Viale+Stazione+12/a+Caldonazzo+TN" target="_blank" class="btn-outline" style="margin-top: 12px;"><i class="fas fa-directions"></i> COME RAGGIUNGERCI →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODOTTI IN EVIDENZA (Gelateria, Caffetteria, Colazioni) -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Le Nostre Proposte</h2>
+      <p class="section-sub">Un Viaggio di Sapori · Dalla colazione all'aperitivo, ogni momento ha il suo gusto perfetto.</p>
+      <div class="grid-3">
+        <div class="card"><i class="fas fa-gem"></i><h3>Gelateria</h3><p>Gusti classici e creazioni stagionali, preparati ogni giorno con latte alpino fresco.</p></div>
+        <div class="card"><i class="fas fa-coffee"></i><h3>Caffetteria</h3><p>Espresso, cappuccini e specialità, con miscele tostate artigianalmente in Italia.</p></div>
+        <div class="card"><i class="fas fa-bread-slice"></i><h3>Colazioni</h3><p>Croissant fragranti, torte fatte in casa e dolci prelibatezze per iniziare bene la giornata.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU COMPLETO (PAGINA MENU) - ID menu-full-page -->
+  <section id="menu-full-page" style="scroll-margin-top: 100px;">
+    <div class="container">
+      <h2 class="section-title">I Nostri Sapori</h2>
+      <p class="section-sub">Ogni prodotto è preparato con ingredienti selezionati e la passione che ci contraddistingue.</p>
+      <!-- pillole categorie interattive (semplice JS per mostrare/nascondere) -->
+      <div class="pill-group" id="menuPills">
+        <div class="pill active" data-cat="gelati">Gelateria</div>
+        <div class="pill" data-cat="coppe">Coppe & Specialità</div>
+        <div class="pill" data-cat="caffe">Caffetteria</div>
+        <div class="pill" data-cat="colazioni">Colazioni</div>
+        <div class="pill" data-cat="bevande">Bevande</div>
+        <div class="pill" data-cat="stagionali">Prodotti Stagionali</div>
+      </div>
+
+      <!-- CATEGORIE MENU -->
+      <div id="menu-gelati" class="menu-cat" style="display: block;">
+        <div class="menu-category-grid">
+          <div class="menu-card"><h3>Panna cotta</h3><p>Delicata, crema alpina</p></div>
+          <div class="menu-card"><h3>Fiori di latte</h3><p>Latte di malga, puro</p></div>
+          <div class="menu-card"><h3>Nocciola Piemonte</h3><p>IGP, tostatura artigianale</p></div>
+          <div class="menu-card"><h3>Cioccolato fondente</h3><p>Ecuador 70%</p></div>
+          <div class="menu-card"><h3>Frutti di bosco</h3><p>Mirtilli, lamponi selvatici</p></div>
+          <div class="menu-card"><h3>Stracciatella</h3><p>Scaglie di cioccolato</p></div>
+        </div>
+      </div>
+      <div id="menu-coppe" class="menu-cat" style="display: none;">
+        <div class="menu-category-grid">
+          <div class="menu-card"><h3>Coppa Chic</h3><p>Gelato alla nocciola, panna e salsa caramel</p></div>
+          <div class="menu-card"><h3>Fiocco di Neve</h3><p>Fiordilatte, fragole, panna montata e meringa</p></div>
+          <div class="menu-card"><h3>Dolce Trentino</h3><p>Crema al torrone, cioccolato caldo e granella</p></div>
+        </div>
+      </div>
+      <div id="menu-caffe" class="menu-cat" style="display: none;">
+        <div class="menu-category-grid">
+          <div class="menu-card"><h3>Espresso</h3><p>Miscela artigianale italiana</p></div>
+          <div class="menu-card"><h3>Cappuccino</h3><p>Vellutato, latte fresco</p></div>
+          <div class="menu-card"><h3>Latte macchiato</h3><p>Crema di montagna</p></div>
+          <div class="menu-card"><h3>Marocchino</h3><p>Cioccolato e caffè</p></div>
+        </div>
+      </div>
+      <div id="menu-colazioni" class="menu-cat" style="display: none;">
+        <div class="menu-category-grid">
+          <div class="menu-card"><h3>Croissant vuoto</h3><p>Fragrante, pasta madre</p></div>
+          <div class="menu-card"><h3>Croissant ripieno</h3><p>Crema pistacchio o cioccolato</p></div>
+          <div class="menu-card"><h3>Torta della nonna</h3><p>Fatta in casa</p></div>
+          <div class="menu-card"><h3>Yogurt con granola</h3><p>Miele trentino</p></div>
+        </div>
+      </div>
+      <div id="menu-bevande" class="menu-cat" style="display: none;">
+        <div class="menu-category-grid">
+          <div class="menu-card"><h3>Succhi naturali</h3><p>Arancia, pesca</p></div>
+          <div class="menu-card"><h3>Tè freddo artigianale</h3><p>Limone e menta</p></div>
+          <div class="menu-card"><h3>Acqua alle erbe</h3><p>Lavanda o salvia</p></div>
+        </div>
+      </div>
+      <div id="menu-stagionali" class="menu-cat" style="display: none;">
+        <div class="menu-category-grid">
+          <div class="menu-card"><h3>Gelato alla castagna</h3><p>Autunnale, aromi boschivi</p></div>
+          <div class="menu-card"><h3>Granita al limone</h3><p>Estiva, freschissima</p></div>
+          <div class="menu-card"><h3>Zeppole di San Giuseppe</h3><p>Periodo limitato</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENSIONI (Amato da chi ci conosce) -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title">Amato da Chi Ci Conosce</h2>
+      <p class="section-sub">378 recensioni su Google con una media di 4.7 stelle. Ecco cosa dicono di noi.</p>
+      <div class="testi-grid">
+        <div class="testi-card"><i class="fas fa-user-circle" style="font-size: 32px; color:#c28a5c;"></i><p><strong>Maria G.</strong></p><div class="stars">★★★★★</div><p>"Il gelato più buono di tutta la Valsugana! Gusti sempre freschi e ingredienti di qualità. Ambiente bellissimo, ci torneremo sicuramente."</p></div>
+        <div class="testi-card"><i class="fas fa-user-circle" style="font-size: 32px; color:#c28a5c;"></i><p><strong>Luca T.</strong></p><div class="stars">★★★★★</div><p>"Cappuccino perfetto e cornetti fragranti. L'atmosfera è elegante ma familiare. Il posto ideale per una colazione con calma."</p></div>
+        <div class="testi-card"><i class="fas fa-user-circle" style="font-size: 32px; color:#c28a5c;"></i><p><strong>Eleonora R.</strong></p><div class="stars">★★★★★</div><p>"Siamo tornati per la terza volta durante la vacanza al lago. Le coppe gelato sono una poesia. Personale gentilissimo e prezzi onesti."</p></div>
+        <div class="testi-card"><i class="fas fa-user-circle" style="font-size: 32px; color:#c28a5c;"></i><p><strong>Federico M.</strong></p><div class="stars">★★★★★</div><p>"Finalmente una gelateria che usa ingredienti veri. Si sente la differenza. La nocciola è eccezionale. Consigliatissimo!"</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHI SIAMO (La Nostra Storia + qualità) -->
+  <section id="chi-siamo" style="scroll-margin-top: 90px;">
+    <div class="container">
+      <h2 class="section-title">La Nostra Storia</h2>
+      <div class="info-row">
+        <div class="info-col">
+          <p style="margin-bottom: 16px;">Un sogno nato dalla passione per le cose buone e la voglia di creare un angolo speciale a Caldonazzo. Chic & Fiocco di Neve nasce da un amore profondo per l'artigianilità e la bellezza delle cose semplici. Nel cuore di Caldonazzo, affacciati sulle montagne del Trentino, abbiamo creato uno spazio dove il tempo si ferma e i sapori parlano.</p>
+          <p>Ogni mattina iniziamo con la selezione degli ingredienti migliori, dalla frutta fresca al latte delle malghe alpine, per offrirvi prodotti autentici che raccontano il territorio. Il nome "Fiocco di Neve" evoca purezza, delicatezza e la magia che mettiamo in ogni creazione.</p>
+        </div>
+        <div class="info-col">
+          <div style="background: #f2e7de; border-radius: 24px; padding: 28px;">
+            <h3 style="font-family: 'Playfair Display';">La Qualità è una Promessa</h3>
+            <p>Non usiamo coloranti artificiali, conservanti o semilavorati industriali. Ogni gusto è creato da zero, con ingredienti che conosciamo e di cui ci fidiamo.</p>
+            <div style="display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap;">
+              <span style="background: white; border-radius: 40px; padding: 4px 14px;">❌ Senza conservanti</span>
+              <span style="background: white; border-radius: 40px; padding: 4px 14px;">✅ Ingredienti freschi</span>
+              <span style="background: white; border-radius: 40px; padding: 4px 14px;">🍦 Fatto a mano</span>
+              <span style="background: white; border-radius: 40px; padding: 4px 14px;">📅 Produzione giornaliera</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORARI E INDIRIZZO / Vieni a trovarci (coordinate integrate) -->
+  <section style="background: #fefaf5;">
+    <div class="container">
+      <div class="info-row">
+        <div class="info-col">
+          <h2 class="section-title" style="text-align: left;">Vieni a Trovarci</h2>
+          <div class="hours-table">
+            <div class="hours-row"><span><i class="far fa-calendar-alt"></i> Lunedì</span><span>07:30 – 19:00</span></div>
+            <div class="hours-row"><span>Martedì</span><span>07:30 – 19:00</span></div>
+            <div class="hours-row"><span style="color:#b97f54;">Mercoledì</span><span style="color:#b97f54;">Chiuso</span></div>
+            <div class="hours-row"><span>Giovedì</span><span>07:30 – 19:00</span></div>
+            <div class="hours-row"><span>Venerdì</span><span>07:30 – 19:00</span></div>
+            <div class="hours-row"><span>Sabato</span><span>07:30 – 19:00</span></div>
+            <div class="hours-row"><span>Domenica</span><span>07:30 – 19:00</span></div>
+          </div>
+          <div style="margin-top: 24px;">
+            <p><i class="fas fa-map-pin"></i> <strong>Viale Stazione 12/a, 38052 Caldonazzo (TN)</strong><br>
+            <i class="fas fa-phone"></i> <a href="tel:+393283681097" style="color: #c28a5c; text-decoration: none;">328 368 1097</a></p>
+            <a href="https://wa.me/393283681097" target="_blank" class="whatsapp-btn" style="display: inline-block; margin-top: 12px; background: #25D366; color: white; padding: 8px 20px; border-radius: 30px;"><i class="fab fa-whatsapp"></i> SCRIVICI SU WHATSAPP</a>
+          </div>
+        </div>
+        <div class="info-col">
+          <div class="map-placeholder" style="background: #e2d4c8;">
+            <i class="fas fa-location-dot" style="font-size: 2rem;"></i>
+            <p style="margin: 8px 0">📍 Negoziato centrale a Caldonazzo, a pochi passi dal lago.</p>
+            <a href="https://maps.google.com/?q=Viale+Stazione+12/a+Caldonazzo+TN" class="btn-primary" style="background:#7c5d42; padding: 8px 16px;">APRI MAPPA →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER (uguale per ogni pagina) -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <h3 style="font-family: 'Playfair Display';">CHIC & Fiocco di neve</h3>
+        <p>Gelateria Artigianale e Caffetteria · Caldonazzo</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#menu-full-page">Menu</a>
+        <a href="#chi-siamo">Chi siamo</a>
+        <a href="tel:+393283681097"><i class="fas fa-phone-alt"></i> Chiama</a>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2026 Chic & Fiocco di Neve — Gelateria Artigianale e Caffetteria. Tutti i diritti riservati.<br>
+      Viale Stazione 12/a, Caldonazzo (TN) · Aperto tutti i giorni escluso mercoledì 07:30–19:00
+    </div>
+  </div>
+</footer>
+
+<script>
+  // menu interattivo pillole
+  const pills = document.querySelectorAll('#menuPills .pill');
+  const categories = {
+    gelati: 'menu-gelati',
+    coppe: 'menu-coppe',
+    caffe: 'menu-caffe',
+    colazioni: 'menu-colazioni',
+    bevande: 'menu-bevande',
+    stagionali: 'menu-stagionali'
+  };
+  
+  function showCategory(catId) {
+    for (let key in categories) {
+      const el = document.getElementById(categories[key]);
+      if (el) el.style.display = 'none';
+    }
+    const activeDiv = document.getElementById(catId);
+    if (activeDiv) activeDiv.style.display = 'block';
+  }
+  
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const catValue = pill.getAttribute('data-cat');
+      if (categories[catValue]) {
+        showCategory(categories[catValue]);
+      } else {
+        showCategory('menu-gelati');
+      }
+    });
+  });
+  // inizializza
+  showCategory('menu-gelati');
+
+  // Scopri il menu -> scroll alla sezione menu + attiva pillola giusta
+  const scopriBtn = document.getElementById('scopriMenuBtn');
+  if(scopriBtn) {
+    scopriBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('menu-full-page').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+  // bottone menu anche da nav?
+  const menuNavLink = document.querySelector('a[href="#menu-section"]');
+  if(menuNavLink) menuNavLink.addEventListener('click', (e) => { e.preventDefault(); document.getElementById('menu-full-page').scrollIntoView({ behavior: 'smooth' }); });
+  
+  // fix per "ORDINA ORA" e link generici numeri
+</script>
+</body>
+</html>

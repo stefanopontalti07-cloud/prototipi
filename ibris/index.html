@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IBRIS Pizzeria e Drink — Trento</title>
+<meta name="description" content="IBRIS Pizzeria e Drink a Trento. TOP 50 Pizze al Taglio d'Italia. Pasta madre, lievitazione 24h, farina a pietra, olio del Garda. Via Camillo Cavour 32.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0705;--bg2:#120e08;--br:#3a1c08;
+  --go:#c8872a;--go2:#e8a94a;
+  --cr:#f0e6d3;--mu:#8a7864;--wh:#fff9f4
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--cr);font-family:'Raleway',sans-serif;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1rem 4rem;
+  background:transparent;
+  transition:background .4s ease, padding .4s ease;
+}
+nav.scrolled{background:rgba(10,7,5,.97);padding:.75rem 4rem;border-bottom:1px solid rgba(200,135,42,.12)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;color:var(--go);letter-spacing:4px;text-decoration:none;display:block}
+.nav-logo-sub{font-family:'Raleway',sans-serif;font-size:.44rem;letter-spacing:5px;color:var(--mu);text-transform:uppercase;display:block;margin-top:-2px}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--mu);text-decoration:none;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;transition:color .25s}
+.nav-links a:hover{color:var(--go)}
+.nav-right{display:flex;align-items:center;gap:1rem}
+.lang-btn{background:transparent;border:1px solid var(--go);color:var(--go);padding:.22rem .7rem;font-family:'Raleway',sans-serif;font-size:.6rem;letter-spacing:2px;cursor:pointer;transition:all .25s}
+.lang-btn:hover{background:var(--go);color:var(--bg)}
+.nav-phone{color:var(--mu);font-size:.7rem;text-decoration:none;transition:color .25s}.nav-phone:hover{color:var(--cr)}
+
+/* ── HERO ── */
+#hero{
+  height:100vh;min-height:600px;position:relative;
+  display:flex;align-items:flex-end;padding-bottom:6rem;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0}
+.hero-img{
+  position:absolute;inset:0;
+  /* SOSTITUISCI CON LA TUA FOTO: background:url('foto-hero.jpg') 50% 72%/cover no-repeat; */
+  background:url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=1600&q=85') 50% 72%/cover no-repeat;
+  will-change:transform;transition:transform .1s linear;
+}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,7,5,1) 0%,rgba(10,7,5,.55) 40%,rgba(10,7,5,.18) 100%)}
+.hero-content{position:relative;z-index:2;padding-left:8rem;max-width:900px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  border:1px solid rgba(200,135,42,.6);color:var(--go);
+  font-size:.58rem;letter-spacing:3px;text-transform:uppercase;
+  padding:.32rem .9rem;margin-bottom:1.8rem;
+  opacity:0;transform:translateY(16px);
+}
+.hero-word-wrap{display:block;overflow:hidden}
+.hero-word{display:block;opacity:0;transform:translateY(60px)}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.5rem,6vw,5.5rem);font-weight:900;
+  line-height:1.0;color:var(--wh);letter-spacing:-.02em;text-wrap:balance;
+}
+.hero-title .gold{color:var(--go);font-style:italic}
+.hero-sub{margin-top:1.1rem;color:var(--mu);font-size:.8rem;letter-spacing:1.5px;max-width:460px;opacity:0;transform:translateY(16px)}
+.hero-cta{margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;opacity:0;transform:translateY(16px)}
+.btn-gold{
+  background:var(--go);color:var(--bg);border:none;
+  padding:.8rem 2rem;font-family:'Raleway',sans-serif;
+  font-size:.7rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;transition:background .25s,transform .2s;display:inline-block;
+}
+.btn-gold:hover{background:var(--go2);transform:translateY(-2px)}
+.btn-outline{
+  background:transparent;color:var(--cr);border:1px solid rgba(240,230,211,.28);
+  padding:.8rem 2rem;font-family:'Raleway',sans-serif;
+  font-size:.7rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;cursor:pointer;transition:border-color .25s,color .25s,transform .2s;display:inline-block;
+}
+.btn-outline:hover{border-color:var(--go);color:var(--go);transform:translateY(-2px)}
+
+/* ── QUALITY STRIP ── */
+.strip{background:var(--br);padding:2.2rem 0}
+.strip-grid{
+  max-width:1100px;margin:0 auto;padding:0 4rem;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-left:1px solid rgba(200,135,42,.18);
+}
+.strip-item{padding:.9rem 1.3rem;border-right:1px solid rgba(200,135,42,.18);text-align:center;transition:background .3s}
+.strip-item:last-child{border-right:none}
+.strip-item:hover{background:rgba(200,135,42,.08)}
+.strip-icon{font-size:1.3rem;margin-bottom:.3rem;display:inline-block;transition:transform .3s ease}
+.strip-item:hover .strip-icon{transform:scale(1.2) rotate(-5deg)}
+.strip-title{font-family:'Playfair Display',serif;font-size:.78rem;font-weight:700;color:var(--go);text-transform:uppercase;letter-spacing:2px}
+.strip-desc{font-size:.62rem;color:var(--mu);margin-top:.12rem}
+
+/* ── SECTIONS ── */
+section{padding:6rem 0}
+.container{max-width:1100px;margin:0 auto;padding:0 4rem}
+.sec-label{font-size:.58rem;letter-spacing:4px;text-transform:uppercase;color:var(--go);margin-bottom:.9rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,3rem);font-weight:700;color:var(--wh);line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
+.sec-title em{font-style:italic;color:var(--go)}
+.divider{width:48px;height:2px;background:var(--go);margin:1.3rem 0}
+
+/* ── REVEAL ── */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.visible{opacity:1;transform:none}
+.rv2{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.16,1,.3,1) .15s,transform .6s cubic-bezier(.16,1,.3,1) .15s}
+.rv2.visible{opacity:1;transform:none}
+
+/* ── CHI SIAMO ── */
+#about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-text p{color:var(--mu);margin-bottom:1rem;font-size:.86rem;line-height:1.9;max-width:54ch}
+.about-photos{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.about-photo{aspect-ratio:2/3;overflow:hidden;background:var(--br)}
+.about-photo:first-child{margin-top:2rem}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .4s}
+.about-photo:hover img{transform:scale(1.04);opacity:.95}
+.badge-top50{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--go);color:var(--bg);padding:.45rem .9rem;margin-top:1.3rem;
+  font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+}
+
+/* ── MENU ── */
+#menu{background:var(--bg)}
+.menu-header{text-align:center;margin-bottom:3rem}
+.menu-header .divider{margin:1.3rem auto}
+.menu-tabs{display:flex;justify-content:center;border-bottom:1px solid rgba(200,135,42,.12);margin-bottom:2.2rem}
+.menu-tab{
+  background:none;border:none;color:var(--mu);
+  font-family:'Raleway',sans-serif;font-size:.64rem;letter-spacing:3px;text-transform:uppercase;
+  padding:.65rem 1.8rem;cursor:pointer;transition:color .25s;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+}
+.menu-tab.active{color:var(--go);border-bottom-color:var(--go)}
+.menu-tab:hover{color:var(--cr)}
+.menu-panel{display:none}.menu-panel.active{display:block}
+.pizza-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(200,135,42,.07)}
+.pizza-item{
+  background:var(--bg2);padding:1.4rem 1.8rem;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;
+  transition:background .25s,transform .2s;
+}
+.pizza-item:hover{background:rgba(58,28,8,.55);transform:translateX(3px)}
+.pizza-name{font-family:'Playfair Display',serif;font-size:.92rem;font-weight:700;color:var(--wh);text-transform:uppercase;letter-spacing:.5px}
+.pizza-desc{font-size:.7rem;color:var(--mu);margin-top:.25rem;line-height:1.5}
+.pizza-price{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--go);white-space:nowrap;font-weight:700;margin-top:.1rem;transition:transform .2s}
+.pizza-item:hover .pizza-price{transform:scale(1.08)}
+
+/* ── ORDER ── */
+#order{background:var(--br);padding:5rem 0}
+.order-inner{text-align:center;max-width:620px;margin:0 auto}
+.order-inner p{color:var(--mu);font-size:.84rem;line-height:1.8}
+.order-btns{display:flex;justify-content:center;gap:1.2rem;margin-top:2.2rem;flex-wrap:wrap}
+.order-note{margin-top:1.3rem;font-size:.68rem;color:var(--mu);letter-spacing:1px}
+
+/* ── REVIEWS ── */
+#reviews{background:var(--bg2)}
+.reviews-header{text-align:center;margin-bottom:2.5rem}
+.reviews-header .divider{margin:1.3rem auto}
+.google-score{display:inline-flex;align-items:center;gap:1rem;margin-top:1rem}
+.score-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--go);line-height:1}
+.score-stars{color:var(--go);font-size:1rem}
+.score-count{font-size:.65rem;color:var(--mu);letter-spacing:1px;margin-top:.15rem}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.review-card{background:var(--bg);padding:1.8rem;border-top:2px solid var(--go);transition:transform .3s cubic-bezier(.16,1,.3,1),background .25s}
+.review-card:hover{transform:translateY(-6px);background:rgba(58,28,8,.35)}
+.review-stars{color:var(--go);font-size:.82rem;margin-bottom:.75rem}
+.review-text{font-size:.8rem;color:var(--cr);line-height:1.75;font-style:italic}
+.review-author{margin-top:1.2rem;font-size:.66rem;color:var(--go);font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.review-date{font-size:.62rem;color:var(--mu);margin-top:.15rem}
+
+/* ── INFO ── */
+#info{background:var(--bg)}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.hours-table{width:100%;border-collapse:collapse;margin-top:1.4rem}
+.hours-table tr{border-bottom:1px solid rgba(200,135,42,.09)}
+.hours-table td{padding:.65rem 0;font-size:.8rem}
+.hours-table td:first-child{color:var(--cr);font-weight:500;text-transform:capitalize}
+.hours-table td:last-child{text-align:right;color:var(--go)}
+.contact-item{display:flex;align-items:center;gap:.9rem;padding:.72rem 0;border-bottom:1px solid rgba(200,135,42,.09)}
+.contact-icon{width:34px;height:34px;background:var(--br);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.contact-label{font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--go)}
+.contact-value{font-size:.78rem;color:var(--cr)}
+.contact-value a{color:var(--cr);text-decoration:none;transition:color .25s}.contact-value a:hover{color:var(--go)}
+.map-wrap{height:320px;margin-top:1.4rem;overflow:hidden;background:var(--br)}
+.map-wrap iframe{width:100%;height:100%;border:none}
+.services-box{margin-top:1.2rem;padding:1.2rem 1.4rem;background:var(--bg2);border-left:3px solid var(--go)}
+.services-box .srv-label{font-size:.58rem;color:var(--go);letter-spacing:2px;text-transform:uppercase;margin-bottom:.55rem}
+.services-box .srv-list{font-size:.75rem;color:var(--mu);line-height:1.9}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);padding:3.5rem 0 1.5rem;border-top:1px solid rgba(200,135,42,.09)}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;color:var(--go);letter-spacing:4px}
+.footer-tagline{font-size:.5rem;letter-spacing:4px;color:var(--mu);text-transform:uppercase;margin-top:.18rem}
+.footer-desc{font-size:.75rem;color:var(--mu);margin-top:1rem;line-height:1.75}
+.footer-heading{font-size:.58rem;letter-spacing:3px;text-transform:uppercase;color:var(--go);margin-bottom:1rem}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:.5rem}
+.footer-links a{font-size:.75rem;color:var(--mu);text-decoration:none;transition:color .25s}
+.footer-links a:hover{color:var(--cr)}
+.social-links{display:flex;gap:.65rem;margin-top:1rem}
+.social-link{width:36px;height:36px;border:1px solid rgba(200,135,42,.28);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.72rem;font-weight:600;color:var(--mu);transition:all .25s}
+.social-link:hover{border-color:var(--go);color:var(--go);transform:translateY(-2px)}
+.footer-bottom{text-align:center;padding-top:1.5rem;border-top:1px solid rgba(200,135,42,.09);font-size:.64rem;color:var(--mu);letter-spacing:.5px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:.9rem 1.5rem}
+  nav.scrolled{padding:.75rem 1.5rem}
+  .nav-links{display:none}
+  .hero-content{padding-left:2rem}
+  .container{padding:0 1.5rem}
+  .strip-grid{grid-template-columns:repeat(2,1fr);padding:0 1.5rem}
+  .about-grid,.info-grid,.footer-grid{grid-template-columns:1fr;gap:2.5rem}
+  .pizza-grid{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .hero-cta{flex-direction:column;align-items:flex-start}
+}
+
+/* ── REDUCED MOTION ── */
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .rv,.rv2{opacity:1!important;transform:none!important}
+  .hero-badge,.hero-word,.hero-sub,.hero-cta{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div>
+    <a href="#hero" class="nav-logo">IBRIS</a>
+    <span class="nav-logo-sub">pizzeria e drink</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about" class="t" data-it="Chi Siamo" data-en="About">Chi Siamo</a></li>
+    <li><a href="#menu" class="t" data-it="Menu" data-en="Menu">Menu</a></li>
+    <li><a href="#order" class="t" data-it="Ordina" data-en="Order">Ordina</a></li>
+    <li><a href="#reviews" class="t" data-it="Recensioni" data-en="Reviews">Recensioni</a></li>
+    <li><a href="#info" class="t" data-it="Contatti" data-en="Contact">Contatti</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()">EN</button>
+    <a href="tel:3809053186" class="nav-phone">380 905 3186</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-img" id="parallax-bg"></div>
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge" id="h-badge">
+      <span class="t" data-it="🏆 TOP 50 Pizze al Taglio — Italia" data-en="🏆 TOP 50 Pizzas by the Slice — Italy">🏆 TOP 50 Pizze al Taglio — Italia</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="hero-word-wrap"><span class="hero-word t" id="hw1" data-it="Dove il gusto" data-en="Where taste">Dove il gusto</span></span>
+      <span class="hero-word-wrap"><span class="hero-word gold t" id="hw2" data-it="incontra" data-en="meets">incontra</span></span>
+      <span class="hero-word-wrap"><span class="hero-word t" id="hw3" data-it="l'autenticità" data-en="authenticity">l'autenticità</span></span>
+    </h1>
+    <p class="hero-sub t" id="h-sub" data-it="Pasta madre · Lievitazione 24h · Farina a pietra · Olio del Garda" data-en="Sourdough · 24h rise · Stone-milled flour · Garda olive oil">
+      Pasta madre · Lievitazione 24h · Farina a pietra · Olio del Garda
+    </p>
+    <div class="hero-cta" id="h-cta">
+      <a href="#menu" class="btn-gold t" data-it="Scopri il Menu" data-en="Explore Menu">Scopri il Menu</a>
+      <a href="#order" class="btn-outline t" data-it="Ordina Ora" data-en="Order Now">Ordina Ora</a>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY STRIP -->
+<div class="strip">
+  <div class="strip-grid">
+    <div class="strip-item rv">
+      <div class="strip-icon">🌾</div>
+      <div class="strip-title t" data-it="Pasta Madre" data-en="Sourdough">Pasta Madre</div>
+      <div class="strip-desc t" data-it="Lievito naturale vivo" data-en="Natural living yeast">Lievito naturale vivo</div>
+    </div>
+    <div class="strip-item rv" style="transition-delay:.08s">
+      <div class="strip-icon">⏱</div>
+      <div class="strip-title t" data-it="Lievitazione 24H" data-en="24H Rising">Lievitazione 24H</div>
+      <div class="strip-desc t" data-it="Massima digeribilità" data-en="Maximum digestibility">Massima digeribilità</div>
+    </div>
+    <div class="strip-item rv" style="transition-delay:.16s">
+      <div class="strip-icon">🪨</div>
+      <div class="strip-title t" data-it="Farina a Pietra" data-en="Stone-Milled">Farina a Pietra</div>
+      <div class="strip-desc t" data-it="Sapore autentico" data-en="Authentic flavor">Sapore autentico</div>
+    </div>
+    <div class="strip-item rv" style="transition-delay:.24s">
+      <div class="strip-icon">🫒</div>
+      <div class="strip-title t" data-it="Olio del Garda" data-en="Garda Olive Oil">Olio del Garda</div>
+      <div class="strip-desc t" data-it="Extravergine DOP" data-en="Extra virgin DOP">Extravergine DOP</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHI SIAMO -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="rv">
+        <p class="sec-label t" data-it="La Nostra Storia" data-en="Our Story">La Nostra Storia</p>
+        <h2 class="sec-title" id="about-title">Una pizzeria <em>diversa</em> dal solito</h2>
+        <div class="divider"></div>
+        <div class="about-text">
+          <p class="t" data-it="Nata il 1° agosto 2018, IBRIS è molto più di una pizzeria: è un luogo dove culture si incontrano. Il profumo del pane appena sfornato si mescola con i sapori del Senegal. Qui si mangia con le mani, ci si sente a casa." data-en="Born on August 1st, 2018, IBRIS is much more than a pizzeria — a place where cultures meet. The scent of freshly baked bread mingles with the flavors of Senegal. Here you eat with your hands, you feel at home.">
+            Nata il 1° agosto 2018, IBRIS è molto più di una pizzeria: è un luogo dove culture si incontrano. Il profumo del pane appena sfornato si mescola con i sapori del Senegal. Qui si mangia con le mani, ci si sente a casa.
+          </p>
+          <p class="t" data-it="Ogni pizza è un piccolo capolavoro: impasto con pasta madre, 24 ore di lievitazione, farina macinata a pietra e olio extravergine del Garda. Formato 30×30cm — perché qui non si fa le cose a metà." data-en="Every pizza is a small masterpiece: sourdough, 24-hour rise, stone-milled flour, and Garda extra virgin olive oil. Size 30×30cm — because here we never do things halfway.">
+            Ogni pizza è un piccolo capolavoro: impasto con pasta madre, 24 ore di lievitazione, farina macinata a pietra e olio extravergine del Garda. Formato 30×30cm — perché qui non si fa le cose a metà.
+          </p>
+          <p class="t" data-it="Con ogni ordine ti aspetta un piccolo aperitivo con un drink analcolico proveniente dal Senegal — un benvenuto caldo e autentico." data-en="With every order, a small appetizer awaits with a non-alcoholic drink from Senegal — a warm and authentic welcome.">
+            Con ogni ordine ti aspetta un piccolo aperitivo con un drink analcolico proveniente dal Senegal — un benvenuto caldo e autentico.
+          </p>
+        </div>
+        <div class="badge-top50 t" data-it="🏆 TOP 50 Pizze al Taglio d'Italia" data-en="🏆 TOP 50 Pizzas by the Slice in Italy">🏆 TOP 50 Pizze al Taglio d'Italia</div>
+      </div>
+      <div class="about-photos rv2">
+        <!-- SOSTITUISCI CON LE TUE FOTO -->
+        <!-- Foto 1: esterno pizzeria (quella con i tavolini all'aperto) -->
+        <div class="about-photo">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=500&q=80" alt="Esterno IBRIS Trento" loading="lazy">
+        </div>
+        <!-- Foto 2: pizza con salamino e peperoni (l'ultima pizza che hai mandato) -->
+        <div class="about-photo">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80" alt="Pizza IBRIS" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="container">
+    <div class="menu-header rv">
+      <p class="sec-label t" data-it="La Nostra Selezione" data-en="Our Selection">La Nostra Selezione</p>
+      <h2 class="sec-title">Le Nostre <em>Pizze</em></h2>
+      <div class="divider"></div>
+      <p style="color:var(--mu);font-size:.78rem" class="t" data-it="Formato 30×30cm · Pasta Madre · Lievitazione 24h" data-en="Size 30×30cm · Sourdough · 24h Rise">Formato 30×30cm · Pasta Madre · Lievitazione 24h</p>
+    </div>
+    <div class="menu-tabs">
+      <button class="menu-tab active" onclick="switchTab('pizze', this)">
+        <span class="t" data-it="Le Pizze" data-en="Pizzas">Le Pizze</span>
+      </button>
+      <button class="menu-tab" onclick="switchTab('bev', this)">
+        <span class="t" data-it="Bevande" data-en="Drinks">Bevande</span>
+      </button>
+    </div>
+
+    <div id="panel-pizze" class="menu-panel active">
+      <div class="pizza-grid">
+        <div class="pizza-item rv"><div><div class="pizza-name">Margherita</div><div class="pizza-desc">Pomodoro Mutti, mozzarella fior di latte e origano</div></div><div class="pizza-price">€ 9.00</div></div>
+        <div class="pizza-item rv" style="transition-delay:.05s"><div><div class="pizza-name">Tricolore</div><div class="pizza-desc">Mozzarella fior di latte, pomodorini datterino, ricotta nostrana, pesto fresco alla genovese, origano</div></div><div class="pizza-price">€ 13.50</div></div>
+        <div class="pizza-item rv" style="transition-delay:.10s"><div><div class="pizza-name">Ibris</div><div class="pizza-desc">Prosciutto crudo, pesto fresco alla genovese, ricotta nostrana</div></div><div class="pizza-price">€ 13.50</div></div>
+        <div class="pizza-item rv" style="transition-delay:.15s"><div><div class="pizza-name">Prosciutto</div><div class="pizza-desc">Pomodoro Mutti, prosciutto, mozzarella fior di latte e origano</div></div><div class="pizza-price">€ 13.50</div></div>
+        <div class="pizza-item rv" style="transition-delay:.20s"><div><div class="pizza-name">Prosciutto e Funghi</div><div class="pizza-desc">Prosciutto cotto, mozzarella fior di latte, funghi e origano</div></div><div class="pizza-price">€ 13.50</div></div>
+        <div class="pizza-item rv" style="transition-delay:.25s"><div><div class="pizza-name">Trentina</div><div class="pizza-desc">Pomodoro Mutti, mozzarella fior di latte, lucanica, gorgonzola e origano</div></div><div class="pizza-price">€ 13.50</div></div>
+        <div class="pizza-item rv" style="transition-delay:.30s"><div><div class="pizza-name">Inferno 🌶</div><div class="pizza-desc">Mozzarella fior di latte, pomodoro Mutti, salamino piccante, olio piccante e origano</div></div><div class="pizza-price">€ 13.50</div></div>
+        <div class="pizza-item rv" style="transition-delay:.35s"><div><div class="pizza-name">Verdure</div><div class="pizza-desc">Verdure grigliate, pomodoro Mutti, mozzarella fior di latte, Trentingrana grattugiato e origano</div></div><div class="pizza-price">€ 13.50</div></div>
+        <div class="pizza-item rv" style="transition-delay:.40s"><div><div class="pizza-name">Estate</div><div class="pizza-desc">Mozzarella fior di latte, pomodori secchi, rucola, Trentingrana grattugiato e olio del Garda</div></div><div class="pizza-price">€ 13.50</div></div>
+        <div class="pizza-item rv" style="transition-delay:.45s"><div><div class="pizza-name">Valtellina</div><div class="pizza-desc">Mozzarella fior di latte, valeriana, bresaola, Trentingrana grattugiato, olio del Garda</div></div><div class="pizza-price">€ 13.50</div></div>
+      </div>
+    </div>
+
+    <div id="panel-bev" class="menu-panel">
+      <div class="pizza-grid" style="grid-template-columns:1fr">
+        <div class="pizza-item"><div><div class="pizza-name t" data-it="Bibite in Lattina" data-en="Canned Drinks">Bibite in Lattina</div><div class="pizza-desc">0.33 cl</div></div><div class="pizza-price">€ 2.50</div></div>
+        <div class="pizza-item"><div><div class="pizza-name t" data-it="Acqua" data-en="Water">Acqua</div><div class="pizza-desc">0.50 L</div></div><div class="pizza-price">€ 1.00</div></div>
+        <div class="pizza-item"><div><div class="pizza-name t" data-it="Drink Senegalese" data-en="Senegalese Drink">Drink Senegalese</div><div class="pizza-desc t" data-it="Analcolico — in omaggio con ogni ordine 🎁" data-en="Non-alcoholic — complimentary with every order 🎁">Analcolico — in omaggio con ogni ordine 🎁</div></div><div class="pizza-price" style="color:var(--go2);font-size:.82rem">OMAGGIO</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDINA ONLINE -->
+<section id="order">
+  <div class="container">
+    <div class="order-inner rv">
+      <p class="sec-label t" data-it="Comodità a Casa Tua" data-en="At Your Convenience">Comodità a Casa Tua</p>
+      <h2 class="sec-title">Ordina <em>Online</em></h2>
+      <div class="divider" style="margin:1.3rem auto"></div>
+      <p class="t" data-it="Asporto con IBRIS DRIVE o consegna a domicilio. Siamo aperti tutti i giorni." data-en="Takeaway with IBRIS DRIVE or home delivery. Open every day.">
+        Asporto con IBRIS DRIVE o consegna a domicilio. Siamo aperti tutti i giorni.
+      </p>
+      <div class="order-btns">
+        <a href="https://ibrispizzeria.com" target="_blank" class="btn-gold t" data-it="🚗 IBRIS Drive — Asporto" data-en="🚗 IBRIS Drive — Takeaway">🚗 IBRIS Drive — Asporto</a>
+        <a href="tel:3809053186" class="btn-outline t" data-it="📞 Chiama per Domicilio" data-en="📞 Call for Delivery">📞 Chiama per Domicilio</a>
+      </div>
+      <p class="order-note t" data-it="📍 Via Camillo Cavour 32, Trento · Tutti i giorni 12–15 e 18–23" data-en="📍 Via Camillo Cavour 32, Trento · Every day 12–15 & 18–23">
+        📍 Via Camillo Cavour 32, Trento · Tutti i giorni 12–15 e 18–23
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- RECENSIONI -->
+<section id="reviews">
+  <div class="container">
+    <div class="reviews-header rv">
+      <p class="sec-label t" data-it="Le Voci dei Clienti" data-en="What Customers Say">Le Voci dei Clienti</p>
+      <h2 class="sec-title"><em>Recensioni</em></h2>
+      <div class="divider"></div>
+      <div class="google-score">
+        <div class="score-num" id="score-num">0</div>
+        <div>
+          <div class="score-stars">★★★★★</div>
+          <div class="score-count t" data-it="194 recensioni su Google" data-en="194 reviews on Google">194 recensioni su Google</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card rv">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The staff is extremely polite and overall very pleasant people that radiate good mood. Truly a special place in Trento."</p>
+        <div class="review-author">Filippo Adami</div>
+        <div class="review-date t" data-it="1 settimana fa · Google" data-en="1 week ago · Google">1 settimana fa · Google</div>
+      </div>
+      <div class="review-card rv" style="transition-delay:.1s">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text t" data-it='"Davvero una bellissima pizzeria, pizza buonissima, servizio eccellente. Ti danno un aperitivo con un drink analcolico dal Senegal. Tutto perfetto!"' data-en='"Truly a beautiful pizzeria, delicious pizza, excellent service. They give you an appetizer with a non-alcoholic drink from Senegal. Everything perfect!"'>
+          "Davvero una bellissima pizzeria, pizza buonissima, servizio eccellente. Ti danno un aperitivo con un drink analcolico dal Senegal. Tutto perfetto!"
+        </p>
+        <div class="review-author">Florencia Avendaño</div>
+        <div class="review-date t" data-it="1 settimana fa · Google" data-en="1 week ago · Google">1 settimana fa · Google</div>
+      </div>
+      <div class="review-card rv" style="transition-delay:.2s">
+        <div class="review-stars">★★★☆☆</div>
+        <p class="review-text t" data-it='"Un bel progetto che fa sempre piacere supportare, con un buon servizio e personale molto gentile. Il personale è di una gentilezza rara."' data-en='"A great project that is always a pleasure to support, with great service and very kind staff. The team is rare in their kindness."'>
+          "Un bel progetto che fa sempre piacere supportare, con un buon servizio e personale molto gentile. Il personale è di una gentilezza rara."
+        </p>
+        <div class="review-author">Marta</div>
+        <div class="review-date t" data-it="3 settimane fa · Google" data-en="3 weeks ago · Google">3 settimane fa · Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORARI & CONTATTI -->
+<section id="info">
+  <div class="container">
+    <div class="info-grid">
+      <div class="rv">
+        <p class="sec-label t" data-it="Dove Trovarci" data-en="Find Us">Dove Trovarci</p>
+        <h2 class="sec-title">Orari & <em>Contatti</em></h2>
+        <div class="divider"></div>
+        <table class="hours-table">
+          <tr><td class="t" data-it="Lunedì" data-en="Monday">Lunedì</td><td>12:00–15:00 · 18:00–23:00</td></tr>
+          <tr><td class="t" data-it="Martedì" data-en="Tuesday">Martedì</td><td>12:00–15:00 · 18:00–23:00</td></tr>
+          <tr><td class="t" data-it="Mercoledì" data-en="Wednesday">Mercoledì</td><td>12:00–15:00 · 18:00–23:00</td></tr>
+          <tr><td class="t" data-it="Giovedì" data-en="Thursday">Giovedì</td><td>12:00–15:00 · 18:00–23:00</td></tr>
+          <tr><td class="t" data-it="Venerdì" data-en="Friday">Venerdì</td><td>12:00–15:00 · 18:00–23:00</td></tr>
+          <tr><td class="t" data-it="Sabato" data-en="Saturday">Sabato</td><td>12:00–15:00 · 18:00–23:00</td></tr>
+          <tr><td class="t" data-it="Domenica" data-en="Sunday">Domenica</td><td>12:00–15:00 · 18:00–23:00</td></tr>
+        </table>
+        <div style="margin-top:1.4rem">
+          <div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-label t" data-it="Indirizzo" data-en="Address">Indirizzo</div><div class="contact-value">Via Camillo Cavour, 32, 38122 Trento TN</div></div></div>
+          <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-label t" data-it="Telefono" data-en="Phone">Telefono</div><div class="contact-value"><a href="tel:3809053186">380 905 3186</a></div></div></div>
+          <div class="contact-item"><div class="contact-icon">🌐</div><div><div class="contact-label">Website</div><div class="contact-value"><a href="https://ibrispizzeria.com" target="_blank">ibrispizzeria.com</a></div></div></div>
+          <div class="contact-item"><div class="contact-icon">💶</div><div><div class="contact-label t" data-it="Prezzo" data-en="Price">Prezzo</div><div class="contact-value t" data-it="€10 – €20 a persona" data-en="€10 – €20 per person">€10 – €20 a persona</div></div></div>
+        </div>
+      </div>
+      <div class="rv2">
+        <div class="map-wrap">
+          <iframe src="https://maps.google.com/maps?q=Via+Camillo+Cavour+32+38122+Trento+Italy&output=embed&z=16" loading="lazy" title="IBRIS Pizzeria — mappa Trento"></iframe>
+        </div>
+        <div class="services-box">
+          <div class="srv-label t" data-it="Servizi disponibili" data-en="Available services">Servizi disponibili</div>
+          <div class="srv-list t" data-it="✓ Piatti vegetariani &nbsp;·&nbsp; ✓ Wi-Fi gratuito &nbsp;·&nbsp; ✓ Seggioloni bambini &nbsp;·&nbsp; ✓ Asporto &nbsp;·&nbsp; ✓ Consegna a domicilio" data-en="✓ Vegetarian dishes &nbsp;·&nbsp; ✓ Free Wi-Fi &nbsp;·&nbsp; ✓ High chairs &nbsp;·&nbsp; ✓ Takeaway &nbsp;·&nbsp; ✓ Home delivery">
+            ✓ Piatti vegetariani &nbsp;·&nbsp; ✓ Wi-Fi gratuito &nbsp;·&nbsp; ✓ Seggioloni bambini &nbsp;·&nbsp; ✓ Asporto &nbsp;·&nbsp; ✓ Consegna a domicilio
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">IBRIS</div>
+        <div class="footer-tagline">pizzeria e drink · trento</div>
+        <p class="footer-desc t" data-it="Qui si mangia con le mani. Dal 2018 a Trento, con amore." data-en="Here you eat with your hands. Since 2018 in Trento, with love.">
+          Qui si mangia con le mani. Dal 2018 a Trento, con amore.
+        </p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/ibris.tn/" target="_blank" class="social-link" aria-label="Facebook">FB</a>
+          <a href="https://www.instagram.com/ibris.official/" target="_blank" class="social-link" aria-label="Instagram">IG</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading t" data-it="Navigazione" data-en="Navigation">Navigazione</div>
+        <ul class="footer-links">
+          <li><a href="#about" class="t" data-it="Chi Siamo" data-en="About Us">Chi Siamo</a></li>
+          <li><a href="#menu" class="t" data-it="Il Menu" data-en="Menu">Il Menu</a></li>
+          <li><a href="#order" class="t" data-it="Ordina Online" data-en="Order Online">Ordina Online</a></li>
+          <li><a href="#reviews" class="t" data-it="Recensioni" data-en="Reviews">Recensioni</a></li>
+          <li><a href="#info" class="t" data-it="Contatti" data-en="Contact">Contatti</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading t" data-it="Info Rapide" data-en="Quick Info">Info Rapide</div>
+        <ul class="footer-links">
+          <li><a href="tel:3809053186">📞 380 905 3186</a></li>
+          <li><a href="https://maps.google.com/?q=Via+Camillo+Cavour+32+Trento" target="_blank">📍 Via Cavour 32, Trento</a></li>
+          <li><a href="#">🕐 12–15 · 18–23 ogni giorno</a></li>
+          <li><a href="https://ibrispizzeria.com" target="_blank">🌐 ibrispizzeria.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom t" data-it="© 2024 IBRIS Pizzeria e Drink — Trento · P.IVA su richiesta" data-en="© 2024 IBRIS Pizzeria e Drink — Trento">
+      © 2024 IBRIS Pizzeria e Drink — Trento · P.IVA su richiesta
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── HERO ENTRANCE ── */
+function heroEntrance(){
+  anime({targets:'#h-badge',opacity:[0,1],translateY:[16,0],duration:700,easing:'easeOutQuart',delay:200});
+  anime({targets:['#hw1','#hw2','#hw3'],opacity:[0,1],translateY:[60,0],duration:900,easing:'easeOutQuart',delay:anime.stagger(130,{start:420})});
+  anime({targets:'#h-sub',opacity:[0,1],translateY:[16,0],duration:700,easing:'easeOutQuart',delay:850});
+  anime({targets:'#h-cta',opacity:[0,1],translateY:[16,0],duration:700,easing:'easeOutQuart',delay:1020});
+}
+setTimeout(heroEntrance, 100);
+
+/* ── PARALLAX ── */
+window.addEventListener('scroll', function(){
+  const bg = document.getElementById('parallax-bg');
+  if(bg) bg.style.transform = 'translateY('+(window.scrollY * 0.3)+'px)';
+}, {passive:true});
+
+/* ── NAV SCROLL ── */
+window.addEventListener('scroll', function(){
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+}, {passive:true});
+
+/* ── SCROLL REVEAL ── */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+},{threshold:0.12});
+document.querySelectorAll('.rv,.rv2').forEach(el=>io.observe(el));
+
+/* ── SCORE COUNTER ── */
+const scoreEl = document.getElementById('score-num');
+let scored = false;
+const scoreObs = new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting && !scored){
+    scored = true;
+    anime({targets:{v:0},v:47,round:1,duration:1500,easing:'easeOutQuart',
+      update:a=>scoreEl.textContent=(a.animations[0].currentValue/10).toFixed(1)});
+    scoreObs.disconnect();
+  }
+},{threshold:0.3});
+scoreObs.observe(scoreEl);
+
+/* ── LANG TOGGLE ── */
+let lang = 'it';
+function toggleLang(){
+  lang = lang==='it' ? 'en' : 'it';
+  document.getElementById('lang-btn').textContent = lang==='it' ? 'EN' : 'IT';
+  document.querySelectorAll('.t[data-it]').forEach(el=>{
+    el.innerHTML = lang==='it' ? el.dataset.it : el.dataset.en;
+  });
+  const at = document.getElementById('about-title');
+  if(at) at.innerHTML = lang==='it' ? 'Una pizzeria <em>diversa</em> dal solito' : 'A <em>different</em> kind of pizzeria';
+}
+
+/* ── MENU TABS ── */
+function switchTab(id, btn){
+  document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.menu-tab').forEach(t=>t.classList.remove('active'));
+  const panel = document.getElementById('panel-'+id);
+  panel.classList.add('active');
+  btn.classList.add('active');
+  anime({
+    targets: panel.querySelectorAll('.pizza-item'),
+    opacity:[0,1], translateX:[-10,0],
+    duration:380, delay:anime.stagger(30), easing:'easeOutQuart'
+  });
+}
+</script>
+</body>
+</html>

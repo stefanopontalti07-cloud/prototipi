@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta name="robots" content="noindex, nofollow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ke-Pi · Goloso Vip | Ristoranti & Kebab Trentino</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fefcf7;
+            color: #2c2a24;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
+
+        /* TRICOLORE ITALIANO ben visibile */
+        :root {
+            --verde: #009246;
+            --bianco: #ffffff;
+            --rosso: #ce2b37;
+            --ombra: 0 12px 24px -10px rgba(0,0,0,0.08);
+        }
+
+        .tricolor-strip {
+            height: 5px;
+            background: linear-gradient(90deg, var(--verde) 0%, var(--verde) 33%, var(--bianco) 33%, var(--bianco) 66%, var(--rosso) 66%, var(--rosso) 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1100;
+        }
+
+        /* navigazione */
+        nav {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.7rem 0;
+        }
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0 1.5rem;
+            gap: 0.8rem;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, var(--verde) 30%, var(--rosso) 80%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2e3b2c;
+            transition: 0.2s;
+            font-size: 0.85rem;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--rosso);
+            border-bottom: 2px solid var(--verde);
+            padding-bottom: 4px;
+        }
+
+        /* HERO con immagine non distorta */
+        .hero {
+            position: relative;
+            min-height: 70vh;
+            background-color: #2c3e2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            z-index: 0;
+        }
+        .hero-overlay {
+            position: relative;
+            z-index: 2;
+            max-width: 850px;
+            padding: 2rem 1.5rem;
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(4px);
+            border-radius: 48px;
+            margin: 1rem;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+        .hero .badge-tricolor {
+            background: rgba(0,146,70,0.9);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            border-left: 3px solid var(--rosso);
+        }
+        .hero p {
+            font-size: 1rem;
+            margin-top: 0.6rem;
+        }
+        .btn-group-hero {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--rosso);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.9; transform: scale(1.02);}
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .btn-outline:hover { background: rgba(255,255,255,0.1);}
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.2rem;
+        }
+        section {
+            margin: 3.5rem 0;
+            scroll-margin-top: 90px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2b4827;
+            border-left: 6px solid var(--verde);
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+        }
+
+        /* CHI SIAMO - solo testo a sinistra e foto a destra, niente card */
+        .about-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+        }
+        .about-text {
+            flex: 1.2;
+        }
+        .about-text h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: #2d5728;
+        }
+        .about-text p {
+            color: #3a4035;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        .about-image-side {
+            flex: 0.9;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--ombra);
+            min-height: 280px;
+            background: url('https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=600') center/cover no-repeat;
+        }
+
+        /* MENU TABS */
+        .menu-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e2e0d4;
+            padding-bottom: 0.5rem;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: 0.2s;
+            color: #4a5b44;
+            font-family: 'Inter', sans-serif;
+        }
+        .tab-btn i { margin-right: 6px; }
+        .tab-btn.active {
+            background: var(--verde);
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,146,70,0.25);
+        }
+        .menu-category-grid {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.4rem;
+            margin-top: 1rem;
+        }
+        .menu-category-grid.active-category {
+            display: grid;
+        }
+        .menu-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1rem 1.2rem;
+            box-shadow: var(--ombra);
+            border: 1px solid #f1e7db;
+        }
+        .menu-card h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .menu-price {
+            color: var(--rosso);
+            background: #fff0ec;
+            padding: 2px 10px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+        .menu-desc {
+            font-size: 0.75rem;
+            color: #6b6a5c;
+            margin-top: 6px;
+        }
+
+        /* RECENSIONI */
+        .reviews-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .review-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.2rem;
+            flex: 1;
+            box-shadow: var(--ombra);
+            border-left: 5px solid var(--verde);
+        }
+        .stars { color: #f5b042; letter-spacing: 2px; margin: 6px 0; font-size: 0.8rem;}
+
+        /* MAPPE DOPPIE */
+        .maps-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .map-card {
+            flex: 1;
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: var(--ombra);
+        }
+        .map-card h3 {
+            background: var(--verde);
+            color: white;
+            padding: 0.6rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        .map-frame {
+            width: 100%;
+            height: 220px;
+            border: 0;
+        }
+        .contact-info {
+            padding: 0.8rem;
+            background: #fef8ef;
+            font-size: 0.75rem;
+        }
+        .btn-small {
+            background: var(--rosso);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            display: inline-block;
+            margin-top: 6px;
+        }
+        footer {
+            background: #1f2a1c;
+            color: #e3f0dd;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 32px 32px 0 0;
+            margin-top: 3rem;
+            font-size: 0.75rem;
+        }
+        @media (max-width: 780px) {
+            .hero h1 { font-size: 1.7rem; }
+            .hero-overlay { padding: 1rem; margin: 0.6rem; }
+            .about-text h3 { font-size: 1.3rem; }
+            .nav-container { flex-direction: column; }
+            .tab-btn { padding: 0.4rem 0.9rem; font-size: 0.7rem; }
+            .section-title { font-size: 1.5rem; }
+            .about-image-side { min-height: 300px; }
+        }
+    </style>
+</head>
+<body>
+<div class="tricolor-strip"></div>
+<nav>
+    <div class="nav-container">
+        <div class="logo"><i class="fas fa-utensils"></i> Ke-Pi & Goloso Vip</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#chi-siamo">Chi siamo</a>
+            <a href="#menu">Menu</a>
+            <a href="#recensioni">Recensioni</a>
+            <a href="#posizioni">Dove siamo</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO con immagine non distorta -->
+<section id="home" class="hero">
+    <img class="hero-bg" src="https://images.pexels.com/photos/2092906/pexels-photo-2092906.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Ristorante italiano" loading="eager">
+    <div class="hero-overlay">
+        <div class="badge-tricolor"><i class="fas fa-flag-checkered"></i> DUE RISTORANTI · UN SOLO CUORE</div>
+        <h1>Ke-Pi · Pizza Kebab <br> & Goloso Vip</h1>
+        <p>📍 Levico Terme & Roncegno Terme | Cucina italiana, pizze, kebab di qualità</p>
+        <div class="btn-group-hero">
+            <a href="#menu" class="btn-primary"><i class="fas fa-pizza-slice"></i> Scopri il menu</a>
+            <a href="#posizioni" class="btn-outline"><i class="fas fa-map-pin"></i> Trova i locali</a>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <!-- CHI SIAMO: solo testo descrittivo + foto a destra, senza card aggiuntive -->
+    <section id="chi-siamo">
+        <div class="section-title">Chi siamo</div>
+        <div class="about-wrapper">
+            <div class="about-text">
+                <h3>Passione italiana nel cuore del Trentino</h3>
+                <p>Ke-Pi e Goloso Vip sono due realtà gemelle: pizzerie, kebab d’autore e cucina tradizionale. Uniamo la freschezza del Garda ai sapori delle montagne trentine. Ingredienti selezionati, lievitazione lenta e accoglienza familiare.</p>
+            </div>
+            <div class="about-image-side"></div>
+        </div>
+    </section>
+
+    <!-- MENU INTERATTIVO (nessuna bibita) -->
+    <section id="menu">
+        <div class="section-title">Il nostro Menu</div>
+        <div class="menu-tabs">
+            <button class="tab-btn active" data-category="pizza"><i class="fas fa-pizza-slice"></i> Pizza</button>
+            <button class="tab-btn" data-category="primi"><i class="fas fa-pasta"></i> Primi</button>
+            <button class="tab-btn" data-category="secondi"><i class="fas fa-utensils"></i> Secondi</button>
+            <button class="tab-btn" data-category="kebab"><i class="fas fa-drumstick-bite"></i> Kebab</button>
+            <button class="tab-btn" data-category="dolci"><i class="fas fa-cake-candles"></i> Dolci & Caffè</button>
+        </div>
+
+        <div id="pizza" class="menu-category-grid active-category">
+            <div class="menu-card"><h4>Margherita <span class="menu-price">€8,00</span></h4><div class="menu-desc">Pomodoro San Marzano, mozzarella di bufala, basilico</div></div>
+            <div class="menu-card"><h4>Diavola <span class="menu-price">€10,00</span></h4><div class="menu-desc">Salame piccante, peperoncino calabrese</div></div>
+            <div class="menu-card"><h4>Quattro Formaggi <span class="menu-price">€11,00</span></h4><div class="menu-desc">Gorgonzola, fontina, parmigiano, mozzarella</div></div>
+            <div class="menu-card"><h4>Marinara <span class="menu-price">€7,00</span></h4><div class="menu-desc">Pomodoro, aglio, origano, olio EVO</div></div>
+            <div class="menu-card"><h4>Capricciosa <span class="menu-price">€12,00</span></h4><div class="menu-desc">Prosciutto cotto, funghi, carciofi, olive</div></div>
+            <div class="menu-card"><h4>Bufalina <span class="menu-price">€9,00</span></h4><div class="menu-desc">Mozzarella di bufala, pomodorini, basilico</div></div>
+        </div>
+        <div id="primi" class="menu-category-grid">
+            <div class="menu-card"><h4>Carbonara <span class="menu-price">€12,00</span></h4><div class="menu-desc">Guanciale, pecorino, uovo, pepe</div></div>
+            <div class="menu-card"><h4>Lasagne Bolognese <span class="menu-price">€9,00</span></h4><div class="menu-desc">Ragù, besciamella, parmigiano</div></div>
+            <div class="menu-card"><h4>Tagliatelle della Casa <span class="menu-price">€10,00</span></h4><div class="menu-desc">Funghi porcini, panna, sugo d'arrosto</div></div>
+            <div class="menu-card"><h4>Penne all'Arrabbiata <span class="menu-price">€9,00</span></h4><div class="menu-desc">Pomodoro, aglio, peperoncino</div></div>
+            <div class="menu-card"><h4>Penne pomodoro/bolognese <span class="menu-price">€7,00</span></h4><div class="menu-desc">Classici della tradizione</div></div>
+        </div>
+        <div id="secondi" class="menu-category-grid">
+            <div class="menu-card"><h4>Cotoletta Milanese <span class="menu-price">€12,00</span></h4><div class="menu-desc">Vitello impanato, patate al forno</div></div>
+            <div class="menu-card"><h4>Carpaccio di Carne Salada <span class="menu-price">€12,00</span></h4><div class="menu-desc">Rucola, grana, limone</div></div>
+            <div class="menu-card"><h4>Braciola di maiale <span class="menu-price">€6,50</span></h4><div class="menu-desc">Grigliata con verdure</div></div>
+            <div class="menu-card"><h4>Patatine fritte / Verdure griglia <span class="menu-price">€5,00</span></h4><div class="menu-desc">Contorni freschi</div></div>
+        </div>
+        <div id="kebab" class="menu-category-grid">
+            <div class="menu-card"><h4>Kebab classico <span class="menu-price">€6,50</span></h4><div class="menu-desc">Piadina, insalata, pomodoro, salse</div></div>
+            <div class="menu-card"><h4>Piadina Kebab Maxi <span class="menu-price">€8,00</span></h4><div class="menu-desc">Doppia carne, salsa yogurt</div></div>
+            <div class="menu-card"><h4>Piadina Vegetariana <span class="menu-price">€7,00</span></h4><div class="menu-desc">Verdure grigliate, hummus</div></div>
+            <div class="menu-card"><h4>Panino Hamburger <span class="menu-price">€10,00</span></h4><div class="menu-desc">Cheddar, bacon, salsa barbecue</div></div>
+            <div class="menu-card"><h4>Pizza Kebab <span class="menu-price">€9,00</span></h4><div class="menu-desc">Mozzarella, kebab, cipolla</div></div>
+        </div>
+        <div id="dolci" class="menu-category-grid">
+            <div class="menu-card"><h4>Tiramisù <span class="menu-price">€4,50</span></h4><div class="menu-desc">Dolce al cucchiaio</div></div>
+            <div class="menu-card"><h4>Strudel di mele <span class="menu-price">€4,50</span></h4><div class="menu-desc">Servito caldo</div></div>
+            <div class="menu-card"><h4>Panna cotta <span class="menu-price">€5,00</span></h4><div class="menu-desc">Coulis ai frutti di bosco</div></div>
+            <div class="menu-card"><h4>Espresso / Macchiato <span class="menu-price">€1,20</span></h4><div class="menu-desc"></div></div>
+            <div class="menu-card"><h4>Cappuccino / Latte macchiato <span class="menu-price">€1,80/€2,00</span></h4><div class="menu-desc"></div></div>
+        </div>
+    </section>
+
+    <!-- RECENSIONI -->
+    <section id="recensioni">
+        <div class="section-title">⭐ Cosa dicono di noi</div>
+        <div class="reviews-grid">
+            <div class="review-card"><div class="stars">★★★★★</div><p>“Ke-Pi aperto fino a tardi, kebab fantastico e personale gentilissimo!”</p><div class="review-name">— cotequino</div></div>
+            <div class="review-card"><div class="stars">★★★★★</div><p>“Mohamed ci ha salvato il capodanno. Goloso Vip: pizza e carbonara eccezionali.”</p><div class="review-name">— luana savarese</div></div>
+            <div class="review-card"><div class="stars">★★★★★</div><p>“Primo kebab della vita, favoloso. Piadina super e ingredienti freschi.”</p><div class="review-name">— Pasquale Bruno</div></div>
+        </div>
+    </section>
+
+    <!-- POSIZIONI MAPPE -->
+    <section id="posizioni">
+        <div class="section-title">📍 Dove siamo</div>
+        <div class="maps-container">
+            <div class="map-card">
+                <h3><i class="fas fa-store"></i> Ke-Pi · Pizza Kebab</h3>
+                <iframe class="map-frame" src="https://maps.google.com/maps?q=Via+Xicco+polentone+2+Levico+Terme+TN&output=embed" allowfullscreen loading="lazy"></iframe>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Via Xicco polentone, 2, 38056 Levico Terme TN</p>
+                    <p><i class="fas fa-phone-alt"></i> 320 228 5639</p>
+                    <p><i class="far fa-clock"></i> Mar–Ven 11:30–15 / 18–00 · Sab-Dom orari continuati · Lunedì chiuso</p>
+                    <a href="https://maps.google.com/?q=Via+Xicco+polentone+2+Levico+Terme+TN" target="_blank" class="btn-small"><i class="fas fa-directions"></i> Apri navigazione</a>
+                </div>
+            </div>
+            <div class="map-card">
+                <h3><i class="fas fa-pizza-slice"></i> Goloso Vip</h3>
+                <iframe class="map-frame" src="https://maps.google.com/maps?q=Viale+Trogher+Monsignor+3+Roncegno+Terme+TN&output=embed" allowfullscreen loading="lazy"></iframe>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Viale Trogher Monsignor 3, 38050 Roncegno Terme TN</p>
+                    <p><i class="fas fa-phone-alt"></i> 0461 771011 / 388 993 8012</p>
+                    <p><i class="far fa-clock"></i> Aperto tutti i giorni 11:30–14:30 · 18:00–00:00</p>
+                    <a href="https://maps.google.com/?q=Viale+Trogher+Monsignor+3+Roncegno+Terme" target="_blank" class="btn-small"><i class="fas fa-directions"></i> Apri navigazione</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <i class="fas fa-flag-checkered" style="color: var(--verde);"></i> Ke-Pi e Goloso Vip · Rosso, Bianco, Verde – i colori della nostra cucina <i class="fas fa-heart" style="color: var(--rosso);"></i><br>
+    © 2026 · Tutti i diritti riservati
+</footer>
+
+<script>
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const categories = document.querySelectorAll('.menu-category-grid');
+    function activateCategory(categoryId) {
+        categories.forEach(cat => {
+            cat.classList.remove('active-category');
+            if (cat.id === categoryId) cat.classList.add('active-category');
+        });
+        tabBtns.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-category') === categoryId) btn.classList.add('active');
+        });
+    }
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const cat = btn.getAttribute('data-category');
+            activateCategory(cat);
+        });
+    });
+    activateCategory('pizza');
+    document.querySelectorAll('.nav-links a, .btn-primary, .btn-outline').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const target = document.getElementById(targetId);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
