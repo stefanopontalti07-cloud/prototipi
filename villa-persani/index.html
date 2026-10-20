@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Villa Persani, vini e succhi biologici a Pressano di Lavis</title>
+<meta name="description" content="Azienda agricola Clementi Silvano: vini da varietà resistenti, Nosiola e succhi biologici dalle colline di Pressano, Lavis.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232b3a2e'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' fill='%23fff' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/colline.jpg" fetchpriority="high">
+<style>
+:root{
+  --ink:#1d221e;
+  --ink-2:#38413a;
+  --muted:#58615a;
+  --vine:#2b5a3a;
+  --vine-dark:#1f4329;
+  --wine:#7d2233;
+  --leaf:#eef3ee;
+  --line:#dde5de;
+  --white:#fff;
+  --display:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --text:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(0.25,1,0.5,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--ink);font:400 1.0625rem/1.6 var(--text)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.1;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,6vw,3.1rem);letter-spacing:-.01em}
+h3{font-size:1.45rem}
+p{margin:0 0 1em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+.proto{background:var(--ink);color:#eef1ee;font-size:.8125rem;text-align:center;padding:7px 16px;line-height:1.4}
+
+header.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.brand img{height:34px;width:auto}
+.top nav{display:flex;gap:4px}
+.top nav a{font-size:.9375rem;text-decoration:none;padding:10px;border-radius:8px;color:var(--ink-2)}
+.top nav a:hover{background:var(--leaf)}
+@media (max-width:700px){.top nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:600 1rem/1 var(--text);text-decoration:none;border:2px solid transparent;transition:background-color .2s var(--ease),transform .12s var(--ease),color .2s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-vine{background:var(--vine);color:#fff}
+.btn-vine:hover{background:var(--vine-dark)}
+.btn-light{background:#fff;color:var(--ink);border-color:#fff}
+.btn-light:hover{background:var(--leaf);border-color:var(--leaf)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+
+.hero{position:relative;color:#fff;background:var(--ink);overflow:hidden}
+.hero .ph{position:absolute;inset:0}
+.hero .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;animation:breathe 26s var(--ease) infinite alternate}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,24,20,.1) 0%,rgba(18,24,20,.45) 45%,rgba(18,24,20,.9) 100%)}
+.hero .wrap{position:relative;z-index:1;min-height:min(86vh,720px);display:flex;flex-direction:column;justify-content:flex-end;padding-top:120px;padding-bottom:44px}
+.hero h1{font-size:clamp(3rem,12vw,5.75rem);letter-spacing:-.015em;margin-bottom:14px}
+.hero .lead{font-size:clamp(1.125rem,3.6vw,1.375rem);max-width:36ch;margin-bottom:26px}
+@keyframes breathe{from{transform:scale(1)}to{transform:scale(1.07)}}
+
+section{padding:72px 0}
+.leaf{background:var(--leaf)}
+
+.azienda{display:grid;gap:36px}
+.azienda p{font-size:1.125rem;max-width:62ch}
+.fatti{display:grid;gap:18px;margin-top:8px}
+.fatti div{border-top:2px solid var(--vine);padding-top:10px}
+.fatti b{display:block;font-family:var(--display);font-size:2rem;font-weight:400;line-height:1}
+.fatti span{color:var(--muted);font-size:.9375rem}
+@media (min-width:860px){.azienda{grid-template-columns:1.5fr 1fr;align-items:start}.fatti{margin-top:64px}}
+
+.vista{background:var(--ink);color:#fff}
+.vista .wrap{max-width:820px}
+.vista blockquote{margin:0;font-family:var(--display);font-size:clamp(1.4rem,4.4vw,2.1rem);line-height:1.35}
+.vista p{color:#d9dfda;margin-top:22px;max-width:60ch}
+
+.vini h2{margin-bottom:10px}
+.vini .intro{color:var(--muted);max-width:56ch;margin-bottom:36px}
+.lista{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.lista li{display:grid;grid-template-columns:84px 1fr;gap:18px;align-items:center;padding:20px 0;border-top:1px solid var(--line)}
+.lista li:last-child{border-bottom:1px solid var(--line)}
+.lista img{height:210px;width:auto;margin:0 auto;transition:transform .5s var(--ease)}
+.lista li:hover img{transform:translateY(-4px)}
+.lista h3{margin-bottom:4px}
+.lista .tipo{color:var(--wine);font-weight:600;font-size:.9375rem;margin-bottom:6px}
+.lista p{margin:0;color:var(--ink-2)}
+@media (min-width:860px){.lista{grid-template-columns:1fr 1fr;column-gap:48px}.lista li:nth-last-child(2){border-bottom:1px solid var(--line)}}
+.altri{margin-top:36px;display:grid;gap:18px}
+.altri div{background:var(--leaf);border-radius:8px;padding:18px 20px}
+.altri h3{font-size:1.25rem;margin-bottom:6px}
+.altri p{margin:0;color:var(--ink-2)}
+@media (min-width:860px){.altri{grid-template-columns:1fr 1fr}}
+
+.cantina-foto{height:clamp(180px,32vw,340px);overflow:hidden}
+.cantina-foto img{width:100%;height:100%;object-fit:cover}
+
+.premi ul{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:0}
+.premi li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+.premi li b{font-weight:600}
+.premi li span{color:var(--muted);text-align:right}
+.premi .fonte{color:var(--muted);font-size:.875rem;margin-top:14px}
+
+.dove .ind{font-family:var(--display);font-size:1.75rem;line-height:1.25;margin:14px 0 22px}
+
+.contatti{background:var(--vine-dark);color:#fff}
+.contatti h2{margin-bottom:14px}
+.contatti p{color:#e3ebe5;max-width:48ch}
+.nap{margin:26px 0 30px;display:grid;gap:6px;font-size:1.0625rem}
+.nap a{color:#fff;text-underline-offset:3px}
+
+footer{background:#121612;color:#c9d0ca;font-size:.875rem;padding:26px 0 92px}
+footer p{margin:0 0 6px}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line)}
+.barra .btn{flex:1;padding:0 12px}
+@media (min-width:860px){.barra{display:none}footer{padding-bottom:26px}}
+
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--wine);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="proto">Prototipo gratuito preparato da Stefano Pontalti per Villa Persani</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo.webp" alt="Villa Persani" width="300" height="60"></a>
+    <nav aria-label="Sezioni">
+      <a href="#azienda">L'azienda</a>
+      <a href="#vini">I vini</a>
+      <a href="#premi">Riconoscimenti</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding:0">
+  <div class="ph"><img src="assets/colline.jpg" alt="Le colline di Pressano con i vigneti in autunno" width="1200" height="800" fetchpriority="high"></div>
+  <div class="wrap">
+    <h1>Villa Persani</h1>
+    <p class="lead">Vini e succhi biologici dalle colline di Pressano, a Lavis.</p>
+    <div class="btns">
+      <a class="btn btn-vine" href="tel:+393493605561"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama</a>
+      <a class="btn btn-light" href="https://wa.me/393493605561"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2m4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3"/></svg>WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section id="azienda">
+  <div class="wrap azienda">
+    <div>
+      <h2>L'azienda</h2>
+      <p style="margin-top:18px">Villa Persani è a Pressano, un piccolo paese a nord di Trento, sulle colline dove da secoli si coltiva la vite. È nata nel 2006 dall'idea di Silvano di dare valore all'arte che da generazioni fa parte della famiglia Clementi: sull'esempio del padre Renzo ha recuperato i terreni di famiglia, e dal 2012 trasforma i frutti in vino e succhi.</p>
+      <p>Fin dai primi impianti la scelta è stata un'agricoltura attenta all'ambiente e al territorio. Oggi tutti i vigneti e i frutteti sono certificati biologici ICEA.</p>
+      <p>Nel 2014 l'azienda ha ripristinato una zona a est di Pressano coltivata a vite in passato e abbandonata dagli anni Venti, conservando i vecchi terrazzamenti e i muretti a secco, e lì ha ridato spazio al vitigno di Pressano, la Nosiola.</p>
+    </div>
+    <div class="fatti">
+      <div><b>2006</b><span>nasce Villa Persani</span></div>
+      <div><b>ICEA</b><span>vigneti e frutteti certificati biologici</span></div>
+      <div><b>Nosiola</b><span>sui terrazzamenti ripristinati nel 2014</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="vista">
+  <div class="wrap">
+    <h2 style="margin-bottom:22px">L'altro punto di vista</h2>
+    <blockquote>«Le pratiche chimiche non possono sostenere la fertilità della terra.»</blockquote>
+    <p>È il paradosso da cui parte Silvano: l'industria non può reggere l'agricoltura, come le pratiche chimiche non possono reggere la terra. Da qui l'idea di offrire a chi beve una sensazione nuova e insieme antica, quella della naturalità.</p>
+  </div>
+</section>
+
+<section class="vini" id="vini">
+  <div class="wrap">
+    <h2>I vini</h2>
+    <p class="intro">Bianchi, rossi e bollicine da Nosiola, Schiava, Pinot Grigio e da varietà resistenti, che chiedono pochissimi trattamenti.</p>
+    <ul class="lista">
+      <li>
+        <img src="assets/candido.webp" alt="Bottiglia di Candido" width="147" height="500" loading="lazy">
+        <div><h3>Candido</h3><p class="tipo">Spumante metodo classico, brut nature</p><p>Solo uve souvignier gris, varietà resistente coltivata a zero trattamenti. Trenta mesi sui lieviti. Il nome è quello del nonno Candido.</p></div>
+      </li>
+      <li>
+        <img src="assets/raetica.webp" alt="Bottiglia di Rætica Nosiola" width="118" height="500" loading="lazy">
+        <div><h3>Rætica Nosiola</h3><p class="tipo">Nosiola, IGT Vigneti delle Dolomiti</p><p>La prima Nosiola di Villa Persani, dai vigneti abbandonati e ripristinati sulle colline di Pressano.</p></div>
+      </li>
+      <li>
+        <img src="assets/aromatta.webp" alt="Bottiglia di Aromatta" width="120" height="500" loading="lazy">
+        <div><h3>Aromatta</h3><p class="tipo">Bianco aromatico da varietà resistenti</p><p>Profumi di frutto della passione e agrumi, buona acidità. Da aperitivo, e perfetto con gli asparagi bianchi di Zambana.</p></div>
+      </li>
+      <li>
+        <img src="assets/dorothy.webp" alt="Bottiglia di Schiava Dorothy" width="165" height="500" loading="lazy">
+        <div><h3>Schiava Dorothy</h3><p class="tipo">Schiava in purezza, IGT</p><p>Dalla collina di Pressano, da vigneti piantati negli anni Trenta e negli anni Sessanta. Fresco e fruttato.</p></div>
+      </li>
+      <li>
+        <img src="assets/performance.webp" alt="Bottiglia di Performance" width="120" height="500" loading="lazy">
+        <div><h3>Performance</h3><p class="tipo">Pinot Grigio, IGT Vigneti delle Dolomiti</p><p>Pinot Grigio in purezza, maturato in legno di acacia, con sentori di miele, frutta e fieno. Pochi solfiti.</p></div>
+      </li>
+      <li>
+        <img src="assets/nero-silvo.webp" alt="Bottiglia di Nero Silvo" width="141" height="500" loading="lazy">
+        <div><h3>Nero Silvo</h3><p class="tipo">Rosso, IGT Dolomiti</p><p>Un anno in rovere francese. Frutta rossa matura, mora di gelso e amarena, grande struttura. Con carne rossa e selvaggina.</p></div>
+      </li>
+    </ul>
+
+    <div class="altri">
+      <div><h3>Silvo Magnum, edizione limitata</h3><p>Spumante brut nature da varietà resistenti, in magnum da 1,5 litri, 36 o 60 mesi sui lieviti.</p></div>
+      <div><h3>I succhi</h3><p>Succo di mela fatto solo con le nostre mele, e succo d'uva senza zuccheri né conservanti aggiunti. Tutti e due biologici e vegani.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cantina-foto"><img src="assets/cantina.jpg" alt="La cantina con le botti e le bottiglie" width="1600" height="400" loading="lazy"></div>
+
+<section class="premi" id="premi">
+  <div class="wrap">
+    <h2>Riconoscimenti</h2>
+    <ul>
+      <li><b>Nel Segno di Zierock</b><span>Merano Wine Festival 2023</span></li>
+      <li><b>The WineHunter Award</b><span>Merano Wine Festival 2018, 2021, 2022</span></li>
+      <li><b>PIWI Wine Award</b><span>2018, 2019, 2020, 2021, 2022</span></li>
+      <li><b>Autochtona Award, Rætica Nosiola</b><span>2020</span></li>
+    </ul>
+    <p class="fonte">Dalla pagina dei riconoscimenti del sito di Villa Persani.</p>
+  </div>
+</section>
+
+<section class="leaf dove" id="dove">
+  <div class="wrap">
+    <h2>Dove siamo</h2>
+    <p class="ind">Via Marconi 13<br>38015 Pressano di Lavis (TN)</p>
+    <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Villa+Persani+Via+Marconi+13+Pressano+Lavis" target="_blank" rel="noopener">Apri in Google Maps</a>
+  </div>
+</section>
+
+<section class="contatti" id="contatti">
+  <div class="wrap">
+    <h2>Ordini e visite</h2>
+    <p>Per ordinare vini e succhi, o per venire a trovarci in cantina, basta chiamare o scrivere.</p>
+    <div class="nap">
+      <div>Cellulare: <a href="tel:+393493605561">349 360 5561</a></div>
+      <div>Email: <a href="mailto:info@villapersani.com">info@villapersani.com</a></div>
+      <div>Instagram: <a href="https://www.instagram.com/villapersani/" target="_blank" rel="noopener">@villapersani</a></div>
+    </div>
+    <div class="btns">
+      <a class="btn btn-light" href="tel:+393493605561">Chiama</a>
+      <a class="btn btn-light" href="https://wa.me/393493605561">WhatsApp</a>
+      <a class="btn btn-light" href="mailto:info@villapersani.com">Scrivi una email</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Villa Persani, Azienda Agricola Clementi Silvano · Via Marconi 13, 38015 Pressano di Lavis (TN) · P.IVA 02000150223</p>
+    <p>Prototipo gratuito preparato da Stefano Pontalti, non ancora pubblicato come sito.</p>
+  </div>
+</footer>
+
+<div class="barra">
+  <a class="btn btn-vine" href="tel:+393493605561">Chiama</a>
+  <a class="btn btn-line" href="https://wa.me/393493605561">WhatsApp</a>
+</div>
+
+</body>
+</html>
