@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Manulook, abbigliamento personalizzato a Rovereto</title>
+<meta name="description" content="Abbigliamento sportivo, casual e da lavoro personalizzato con ricamo e stampa. Negozio e laboratorio al Rovercenter, Rovereto.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preload" as="image" href="assets/negozio.jpg" fetchpriority="high">
+<style>
+:root{
+  --ink:#1a1d21;
+  --ink-2:#3b4148;
+  --muted:#5a6168;
+  --green:#4a7322;
+  --green-dark:#385819;
+  --blue:#1d6aa0;
+  --soft:#f1f4ef;
+  --line:#dfe4dc;
+  --white:#fff;
+  --text:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(0.25,1,0.5,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--ink);font:400 1.0625rem/1.6 var(--text)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--text);font-weight:800;line-height:1.08;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.9rem,6vw,3rem)}
+h3{font-size:1.25rem;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+.proto{background:var(--ink);color:#eef0f2;font-size:.8125rem;text-align:center;padding:7px 16px;line-height:1.4}
+
+header.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;font-size:1.2rem;letter-spacing:-.02em}
+.brand img{height:38px;width:auto}
+.top nav{display:flex;gap:4px}
+.top nav a{font-size:.9375rem;text-decoration:none;padding:10px;border-radius:8px;color:var(--ink-2)}
+.top nav a:hover{background:var(--soft)}
+@media (max-width:700px){.top nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:700 1rem/1 var(--text);text-decoration:none;border:2px solid transparent;transition:background-color .2s var(--ease),transform .12s var(--ease),color .2s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-dark)}
+.btn-light{background:#fff;color:var(--ink);border-color:#fff}
+.btn-light:hover{background:var(--soft);border-color:var(--soft)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+
+.hero{display:grid;gap:0;background:var(--ink);color:#fff}
+.hero .ph{min-height:300px;overflow:hidden}
+.hero .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero .txt{padding:36px 20px 40px}
+.hero h1{font-size:clamp(2.3rem,8.5vw,4.4rem);margin-bottom:14px}
+.hero h1 span{color:#a9d46f}
+.hero .lead{font-size:clamp(1.0625rem,3.4vw,1.25rem);color:#e6e9ec;max-width:38ch;margin-bottom:10px}
+.hero .plus{color:#cfd5da;margin-bottom:26px;max-width:40ch}
+@media (min-width:860px){
+  .hero{grid-template-columns:1.1fr 1fr;min-height:560px}
+  .hero .ph{order:2;min-height:100%}
+  .hero .txt{display:flex;flex-direction:column;justify-content:center;padding:56px 48px 56px max(20px,calc((100vw - 1100px)/2 + 20px))}
+}
+
+section{padding:72px 0}
+.soft{background:var(--soft)}
+
+.chi{display:grid;gap:32px;align-items:center}
+.chi p{font-size:1.125rem;max-width:60ch}
+.chi figure{margin:0}
+.chi figure img{border-radius:8px;aspect-ratio:1;object-fit:cover;max-width:min(380px,100%)}
+.chi figcaption{color:var(--muted);font-size:.875rem;margin-top:8px}
+@media (min-width:860px){.chi{grid-template-columns:1.3fr 1fr}.chi figure{justify-self:end}}
+
+.tec h2{margin-bottom:10px}
+.tec .intro{color:var(--muted);max-width:56ch;margin-bottom:34px}
+.tlist{list-style:none;margin:0;padding:0}
+.tlist li{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:22px 0;border-top:1px solid var(--line);align-items:start}
+.tlist li:last-child{border-bottom:1px solid var(--line)}
+.tlist img{width:64px;height:64px}
+.tlist h3{margin-bottom:6px}
+.tlist p{margin:0;color:var(--ink-2)}
+.tec-grid{display:grid;gap:36px}
+.tec-grid figure{margin:0}
+.tec-grid figure img{border-radius:8px;width:100%;max-height:560px;object-fit:cover}
+.tec-grid figcaption{color:var(--muted);font-size:.875rem;margin-top:8px}
+@media (min-width:860px){.tec-grid{grid-template-columns:1.4fr 1fr;align-items:start}.tec-grid figure{position:sticky;top:84px}}
+
+.marchi .cats{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.marchi .cats span{border:1.5px solid var(--green);color:var(--green-dark);font-weight:700;font-size:.9375rem;padding:6px 14px;border-radius:999px}
+.marchi .nomi{columns:2;column-gap:28px;padding:0;margin:0;list-style:none;color:var(--ink-2)}
+.marchi .nomi li{padding:5px 0;break-inside:avoid;border-bottom:1px solid var(--line)}
+@media (min-width:700px){.marchi .nomi{columns:4}}
+
+.dove .ind{font-size:1.5rem;font-weight:700;line-height:1.3;margin:14px 0 22px;letter-spacing:-.01em}
+
+.contatti{background:var(--ink);color:#fff}
+.contatti h2{margin-bottom:14px}
+.contatti p{color:#dfe3e7;max-width:50ch}
+.nap{margin:24px 0 30px;display:grid;gap:6px;font-size:1.0625rem}
+.nap a{color:#fff;text-underline-offset:3px}
+
+footer{background:#111316;color:#c7cdd2;font-size:.875rem;padding:26px 0 92px}
+footer p{margin:0 0 6px}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line)}
+.barra .btn{flex:1;padding:0 12px}
+@media (min-width:860px){.barra{display:none}footer{padding-bottom:26px}}
+
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="proto">Prototipo gratuito preparato da Stefano Pontalti per Manulook</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo.png" alt="Logo Manulook" width="162" height="200">Manulook</a>
+    <nav aria-label="Sezioni">
+      <a href="#azienda">L'azienda</a>
+      <a href="#tecniche">Tecniche</a>
+      <a href="#marchi">Marchi</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding:0">
+  <div class="ph"><img src="assets/negozio.jpg" alt="Il negozio Manulook con le maglie sportive esposte" width="1236" height="977" fetchpriority="high"></div>
+  <div class="txt">
+    <h1>Abbigliamento personalizzato, <span>per dare luce alle tue idee</span></h1>
+    <p class="lead">Capi sportivi, casual e da lavoro con il vostro logo, ricamato o stampato.</p>
+    <p class="plus">Riassortimento veloce e nessun minimo di quantità. Negozio e laboratorio al Rovercenter di Rovereto.</p>
+    <div class="btns">
+      <a class="btn btn-green" href="tel:+393467823890"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama</a>
+      <a class="btn btn-light" href="https://wa.me/393467823890"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2m4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3"/></svg>WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section id="azienda">
+  <div class="wrap chi">
+    <div>
+      <h2>L'azienda</h2>
+      <p style="margin-top:18px">Forniamo abbigliamento sportivo, casual, professionale e accessori, personalizzati con ricamo o stampa. Il nostro punto di forza è il riassortimento veloce, senza quantità minime.</p>
+      <p>Vi consigliamo sempre la soluzione più adatta a quello che vi serve. Diamo peso alla fiducia e al rapporto personale: insieme si costruisce molto.</p>
+      <p>I capi li scegliamo con cura, da marchi italiani e internazionali con esperienza nei loro settori. Voi scegliete il prodotto, noi lo personalizziamo.</p>
+    </div>
+    <figure>
+      <img src="assets/tappetino.jpg" alt="Tappetino per il mouse con il logo Manulook" width="900" height="900" loading="lazy">
+      <figcaption>Non solo capi: anche gli accessori si personalizzano.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="soft tec" id="tecniche">
+  <div class="wrap">
+    <h2>Le tecniche di personalizzazione</h2>
+    <p class="intro">Ogni capo e ogni logo ha la sua tecnica giusta: ve la consigliamo noi.</p>
+    <div class="tec-grid">
+      <ul class="tlist">
+        <li><img src="assets/ico-ricamo.webp" alt="Icona ricamo" width="240" height="240" loading="lazy"><div><h3>Ricamo</h3><p>La tecnica più pregiata, usata in tutti i settori. Con le nostre macchine facciamo fino a 4 ricami insieme, con un massimo di 12 colori.</p></div></li>
+        <li><img src="assets/ico-serigrafia.webp" alt="Icona serigrafia" width="240" height="240" loading="lazy"><div><h3>Serigrafia</h3><p>La personalizzazione più diffusa, e la più conveniente per le grandi tirature. Il logo si incide su un telaio e il colore, a base d'acqua, passa sul capo.</p></div></li>
+        <li><img src="assets/ico-stampa-termotrasferibile.webp" alt="Icona stampa termotrasferibile" width="240" height="240" loading="lazy"><div><h3>Termotrasferibile</h3><p>Il disegno si ritaglia da pellicole colorate e si salda a caldo sul capo. Sovrapponendo più pellicole si ottiene una stampa a più colori.</p></div></li>
+        <li><img src="assets/ico-stampa-taglio.webp" alt="Icona stampa e taglio" width="240" height="240" loading="lazy"><div><h3>Stampa e taglio</h3><p>Il logo si stampa in alta definizione su un supporto termotrasferibile, si ritaglia e si applica a caldo. Ideale per loghi ricchi di dettagli, colori e sfumature.</p></div></li>
+        <li><img src="assets/ico-sublimazione.webp" alt="Icona sublimazione" width="240" height="240" loading="lazy"><div><h3>Sublimazione</h3><p>Per stampare tessuti e oggetti. Funziona sui tessuti con almeno il 40% di poliestere.</p></div></li>
+      </ul>
+      <figure>
+        <img src="assets/ricamo.jpg" alt="La macchina da ricamo al lavoro su capi neri" width="960" height="1280" loading="lazy">
+        <figcaption>Il laboratorio di ricamo.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="marchi" id="marchi">
+  <div class="wrap">
+    <h2>I marchi che trattiamo</h2>
+    <p style="margin-top:14px;max-width:60ch">Partner scelti per la qualità dei prodotti, l'esperienza nel loro settore e la rapidità delle consegne.</p>
+    <div class="cats"><span>Sport</span><span>Workwear</span><span>Promozionale</span><span>Tessile</span></div>
+    <ul class="nomi">
+      <li>Action Wear</li><li>Atlantis</li><li>Barret</li><li>Cama</li><li>Clique</li><li>Colombo Mario</li><li>Erreà</li>
+      <li>General Marketing</li><li>Givova</li><li>GP Italia</li><li>Innova</li><li>Isacco</li><li>James &amp; Nicholson</li><li>JHK</li>
+      <li>James Ross Collection</li><li>Legea</li><li>Mikasa</li><li>Payper</li><li>Phyto Performance</li><li>PP Workwear</li><li>Projob</li>
+      <li>Promobusiness</li><li>Roly</li><li>Sipec</li><li>Socim</li><li>Stedman</li><li>Textile Europe</li><li>Valento</li>
+    </ul>
+  </div>
+</section>
+
+<section class="soft dove" id="dove">
+  <div class="wrap">
+    <h2>Negozio e laboratorio</h2>
+    <p class="ind">Viale del Lavoro 16/A, Rovercenter<br>38068 Rovereto (TN)</p>
+    <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Manulook+Viale+del+Lavoro+16%2FA+Rovereto" target="_blank" rel="noopener">Apri in Google Maps</a>
+  </div>
+</section>
+
+<section class="contatti" id="contatti">
+  <div class="wrap">
+    <h2>Chiedeteci un preventivo</h2>
+    <p>Diteci che capi vi servono, quanti, e mandateci il logo: vi diciamo la tecnica migliore e i tempi.</p>
+    <div class="nap">
+      <div>Cellulare: <a href="tel:+393467823890">346 782 3890</a></div>
+      <div>Email: <a href="mailto:info@manulook.it">info@manulook.it</a></div>
+    </div>
+    <div class="btns">
+      <a class="btn btn-light" href="tel:+393467823890">Chiama</a>
+      <a class="btn btn-light" href="https://wa.me/393467823890">WhatsApp</a>
+      <a class="btn btn-light" href="mailto:info@manulook.it">Scrivi una email</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Manulook di Dossi Maria Emanuela · Viale del Lavoro 16/A, 38068 Rovereto (TN) · P.IVA 00973780224</p>
+    <p>Prototipo gratuito preparato da Stefano Pontalti, non ancora pubblicato come sito.</p>
+  </div>
+</footer>
+
+<div class="barra">
+  <a class="btn btn-green" href="tel:+393467823890">Chiama</a>
+  <a class="btn btn-line" href="https://wa.me/393467823890">WhatsApp</a>
+</div>
+
+</body>
+</html>
