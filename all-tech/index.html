@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>All-Tech, impianti elettrici a Trento</title>
+<meta name="description" content="Impianti elettrici, manutenzione, installazione e impianti di sicurezza per privati e aziende a Trento. Tre generazioni di esperienza.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23e46f12'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' fill='%23fff' text-anchor='middle'%3EAT%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1c1e21;
+  --ink-2:#3d4248;
+  --muted:#5c6269;
+  --orange:#e46f12;
+  --orange-text:#a94e06;
+  --soft:#f4f4f2;
+  --line:#e2e2de;
+  --white:#fff;
+  --text:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(0.25,1,0.5,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--white);color:var(--ink);font:400 1.0625rem/1.6 var(--text)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--text);font-weight:800;line-height:1.06;letter-spacing:-.025em;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.9rem,6vw,3rem)}
+h3{font-size:1.3rem;letter-spacing:-.015em}
+p{margin:0 0 1em}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+.proto{background:var(--ink);color:#eef0f2;font-size:.8125rem;text-align:center;padding:7px 16px;line-height:1.4}
+
+header.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand img{height:44px;width:auto}
+.top nav{display:flex;gap:4px}
+.top nav a{font-size:.9375rem;text-decoration:none;padding:10px;border-radius:8px;color:var(--ink-2)}
+.top nav a:hover{background:var(--soft)}
+@media (max-width:700px){.top nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:700 1rem/1 var(--text);text-decoration:none;border:2px solid transparent;transition:background-color .2s var(--ease),transform .12s var(--ease),color .2s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-orange{background:var(--orange);color:#1c1e21}
+.btn-orange:hover{background:#f08a33}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-light{background:#fff;color:var(--ink);border-color:#fff}
+.btn-light:hover{background:var(--soft);border-color:var(--soft)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+
+.hero{padding:44px 0 56px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-180px;top:-140px;width:520px;height:520px;border-radius:50%;border:18px solid var(--orange);opacity:.14}
+.hero .wrap{position:relative}
+.hero .logo{width:min(360px,80%);margin-bottom:28px}
+.hero h1{font-size:clamp(2.4rem,9vw,4.6rem);max-width:14ch;margin-bottom:18px}
+.hero h1 span{color:var(--orange-text)}
+.hero .lead{font-size:clamp(1.0625rem,3.4vw,1.3rem);color:var(--ink-2);max-width:40ch;margin-bottom:8px}
+.hero .plus{color:var(--muted);max-width:44ch;margin-bottom:28px}
+
+section{padding:72px 0}
+.soft{background:var(--soft)}
+
+.serv h2{margin-bottom:10px}
+.serv .intro{color:var(--muted);max-width:56ch;margin-bottom:34px}
+.slist{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.slist li{padding:24px 0;border-top:1px solid var(--line);display:grid;gap:6px}
+.slist li:last-child{border-bottom:1px solid var(--line)}
+.slist h3{display:flex;align-items:center;gap:12px}
+.slist h3::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--orange);flex:none}
+.slist p{margin:0;color:var(--ink-2);max-width:62ch;padding-left:24px}
+@media (min-width:860px){.slist{grid-template-columns:1fr 1fr;column-gap:48px}.slist li:nth-last-child(2){border-bottom:1px solid var(--line)}}
+.anche{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.anche b{margin-right:6px}
+.anche span{border:1.5px solid var(--ink-2);border-radius:999px;padding:6px 14px;font-weight:600;font-size:.9375rem;color:var(--ink-2)}
+
+.come{display:grid;gap:30px}
+.come .big{font-size:clamp(1.4rem,4.4vw,2rem);font-weight:800;letter-spacing:-.02em;line-height:1.25;max-width:24ch}
+.passi{list-style:none;margin:0;padding:0}
+.passi li{padding:16px 0 16px 0;border-bottom:1px solid var(--line);color:var(--ink-2)}
+.passi li b{color:var(--ink);display:block;font-size:1.0625rem}
+@media (min-width:860px){.come{grid-template-columns:1fr 1.2fr;align-items:start}}
+
+.dove .ind{font-size:1.5rem;font-weight:700;line-height:1.3;margin:14px 0 22px;letter-spacing:-.01em}
+
+.contatti{background:var(--ink);color:#fff}
+.contatti h2{margin-bottom:14px}
+.contatti p{color:#dcdfe2;max-width:50ch}
+.nap{margin:24px 0 30px;display:grid;gap:6px;font-size:1.0625rem}
+.nap a{color:#fff;text-underline-offset:3px}
+
+footer{background:#111214;color:#c5c9cd;font-size:.875rem;padding:26px 0 92px}
+footer p{margin:0 0 6px}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:6;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line)}
+.barra .btn{flex:1;padding:0 12px}
+@media (min-width:860px){.barra{display:none}footer{padding-bottom:26px}}
+
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--orange-text);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="proto">Prototipo gratuito preparato da Stefano Pontalti per All-Tech</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo.jpg" alt="All-Tech" width="900" height="317"></a>
+    <nav aria-label="Sezioni">
+      <a href="#servizi">I servizi</a>
+      <a href="#come">Come lavoriamo</a>
+      <a href="#dove">Dove siamo</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <h1>Impianti elettrici a Trento, <span>per privati e aziende</span></h1>
+    <p class="lead">Manutenzione, impianti elettrici, installazione e impianti di sicurezza.</p>
+    <p class="plus">Tre generazioni e più di quarant'anni di esperienza.</p>
+    <div class="btns">
+      <a class="btn btn-orange" href="tel:+393455252194"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama</a>
+      <a class="btn btn-dark" href="https://wa.me/393455252194"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2m4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3"/></svg>WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="serv" id="servizi">
+  <div class="wrap">
+    <h2>I servizi</h2>
+    <p class="intro">Grazie alle competenze di tanti anni, troviamo la soluzione giusta sia per le case che per le aziende.</p>
+    <ul class="slist">
+      <li><h3>Manutenzione</h3><p>Una manutenzione fatta bene degli impianti elettrici ed elettronici vuol dire più sicurezza e meno consumi.</p></li>
+      <li><h3>Impianti elettrici</h3><p>Con l'elettricità serve il parere di un esperto: le soluzioni più semplici non sono mai le più sicure.</p></li>
+      <li><h3>Installazione</h3><p>Installare bene, con il progetto giusto fin dall'inizio, fa risparmiare tempo e denaro.</p></li>
+      <li><h3>Impianti di sicurezza</h3><p>Un impianto di sicurezza va progettato e installato con cura. La nostra esperienza è al vostro servizio.</p></li>
+    </ul>
+    <div class="anche"><b>E inoltre</b><span>Fotovoltaico</span><span>Antifurto e antintrusione</span><span>Domotica KNX</span><span>Illuminazione</span><span>Riscaldamento</span></div>
+  </div>
+</section>
+
+<section class="soft" id="come">
+  <div class="wrap come">
+    <div>
+      <h2>Come lavoriamo</h2>
+      <p class="big" style="margin-top:18px">Affrontiamo ogni lavoro con il rispetto che merita, e non ci fermiamo finché il cliente non è soddisfatto.</p>
+    </div>
+    <ul class="passi">
+      <li><b>Dal sopralluogo all'assistenza</b>Vi coinvolgiamo in ogni fase dell'installazione, dal primo sopralluogo fino all'assistenza dopo la vendita.</li>
+      <li><b>Tecnici sempre aggiornati</b>I nostri tecnici sono qualificati e seguono corsi di aggiornamento, per lavorare con le tecnologie più nuove.</li>
+      <li><b>Sicurezza e assistenza prima di tutto</b>Sono le nostre priorità, in ogni impianto.</li>
+      <li><b>Preventivo gratuito</b>Diteci di cosa avete bisogno: il preventivo è gratuito.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="dove" id="dove">
+  <div class="wrap">
+    <h2>Dove siamo</h2>
+    <p class="ind">Via Alto Adige<br>38121 Trento</p>
+    <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=All-Tech+Via+Alto+Adige+Trento" target="_blank" rel="noopener">Apri in Google Maps</a>
+  </div>
+</section>
+
+<section class="contatti" id="contatti">
+  <div class="wrap">
+    <h2>Chiedete un preventivo gratuito</h2>
+    <p>Diteci che lavoro vi serve, illuminazione, impianto elettrico, installazione, riscaldamento o altro: vi rispondiamo con il preventivo.</p>
+    <div class="nap">
+      <div>Cellulare: <a href="tel:+393455252194">345 525 2194</a></div>
+      <div>Email: <a href="mailto:info@all-tech.it">info@all-tech.it</a></div>
+    </div>
+    <div class="btns">
+      <a class="btn btn-orange" href="tel:+393455252194">Chiama</a>
+      <a class="btn btn-light" href="https://wa.me/393455252194">WhatsApp</a>
+      <a class="btn btn-light" href="mailto:info@all-tech.it">Scrivi una email</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>All-Tech · Via Alto Adige, 38121 Trento</p>
+    <p>Prototipo gratuito preparato da Stefano Pontalti, non ancora pubblicato come sito.</p>
+  </div>
+</footer>
+
+<div class="barra">
+  <a class="btn btn-orange" href="tel:+393455252194">Chiama</a>
+  <a class="btn btn-line" href="https://wa.me/393455252194">WhatsApp</a>
+</div>
+
+</body>
+</html>
