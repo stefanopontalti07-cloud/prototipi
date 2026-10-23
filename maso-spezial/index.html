@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Agritur Maso Spezial, Pedersano</title>
+<meta name="description" content="Agriturismo con pernottamento e colazione tra i vigneti di Pedersano, in Val Lagarina: sette stanze con il nome di un'erba officinale, corsi di erbe, yoga e naturopatia.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-16 -16 32 32'%3E%3Cg fill='%23fff' stroke='%23999' stroke-width='.8'%3E%3Cellipse cy='-9' rx='3.4' ry='6'/%3E%3Cellipse cy='-9' rx='3.4' ry='6' transform='rotate(60)'/%3E%3Cellipse cy='-9' rx='3.4' ry='6' transform='rotate(120)'/%3E%3Cellipse cy='-9' rx='3.4' ry='6' transform='rotate(180)'/%3E%3Cellipse cy='-9' rx='3.4' ry='6' transform='rotate(240)'/%3E%3Cellipse cy='-9' rx='3.4' ry='6' transform='rotate(300)'/%3E%3C/g%3E%3Ccircle r='4.5' fill='%23f6c700'/%3E%3C/svg%3E">
+<style id="font-locali">
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/raleway-italic-500-latin-ext-bdb25b.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/raleway-italic-500-latin-8882f2.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(assets/fonts/raleway-normal-400-800-latin-ext-acd623.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(assets/fonts/raleway-normal-400-800-latin-1a1333.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+/* Palette di Maso Spezial: il verde della scritta nel logo, il giallo della pratolina,
+   il rosa antico dei muri del maso, le pietre del muretto */
+:root{
+  --ink:#1c241d;
+  --ink-2:#3d4a3f;
+  --muted:#58655a;
+  --green:#0b7a1d;
+  --green-dk:#085a16;
+  --green-lt:#eef5ec;
+  --daisy:#f6c700;
+  --terra:#c8664f;
+  --terra-text:#9f4632;
+  --stone:#f4f2ee;
+  --line:#e1e4de;
+  --white:#fff;
+  --font:"Raleway",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --quart:cubic-bezier(.25,1,.5,1);
+  --quint:cubic-bezier(.22,1,.36,1);
+  --expo:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:66px}
+body{margin:0;background:var(--white);color:var(--ink);font:500 1.0625rem/1.65 var(--font)}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:800;line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+h2{font-size:clamp(1.9rem,6.4vw,3rem);color:var(--green-dk)}
+h3{font-size:1.2rem;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+p{margin:0 0 1em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left))}
+section{padding:80px 0}
+
+.proto{background:var(--green-dk);color:#e5f1e6;font-size:.8125rem;text-align:center;padding:7px 16px;line-height:1.4}
+.proto b{color:#fff}
+
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .25s var(--quart)}
+header.top.scorso{border-bottom-color:var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.brand img{width:150px;height:auto}
+.top nav{display:flex;gap:2px}
+.top nav a{font-weight:700;font-size:.9375rem;text-decoration:none;padding:9px 12px;border-radius:8px;color:var(--ink-2);transition:background-color .2s var(--quart)}
+.top nav a:hover{background:var(--green-lt)}
+@media (max-width:820px){.top nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 24px;border-radius:999px;font:800 1rem/1 var(--font);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background-color .2s var(--quart),color .2s var(--quart),transform .12s var(--quart),border-color .2s var(--quart)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-dk)}
+.btn-terra{background:var(--terra-text);color:#fff}
+.btn-terra:hover{background:#86392a}
+.btn-line{background:#fff;color:var(--green-dk);border-color:var(--green-dk)}
+.btn-line:hover{background:var(--green-dk);color:#fff}
+.btn-white{background:#fff;color:var(--green-dk)}
+.btn-white:hover{background:var(--green-lt)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+
+/* ---------- apertura: la pratolina che sboccia ---------- */
+.hero{padding:26px 0 0;overflow:hidden}
+.hero .testa{display:grid;gap:8px;align-items:center;grid-template-columns:1fr auto}
+.hero h1{font-size:clamp(2.3rem,9.4vw,4.4rem);color:var(--ink);letter-spacing:-.03em;line-height:1.02}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--green)}
+.hero h1 span{display:block;animation:su .8s var(--expo) both}
+.hero h1 span:nth-child(2){animation-delay:.1s}
+@keyframes su{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.pratolina{width:clamp(96px,26vw,190px);height:auto;overflow:visible;align-self:start;margin-top:-6px}
+.pratolina .petalo{transform-box:fill-box;transform-origin:50% 100%;animation:sboccia .6s var(--expo) both;animation-delay:calc(.15s + var(--i) * .045s)}
+@keyframes sboccia{from{transform:scaleY(0) rotate(-20deg);opacity:0}to{transform:none;opacity:1}}
+.pratolina .cuore{transform-box:fill-box;transform-origin:center;animation:cuore .5s var(--expo) .85s both}
+@keyframes cuore{from{transform:scale(0)}to{transform:none}}
+.pratolina .giro{transform-origin:0 0;animation:respira 9s ease-in-out 1.6s infinite}
+@keyframes respira{50%{transform:rotate(8deg)}}
+.hero .lead{max-width:44ch;color:var(--ink-2);font-size:clamp(1.05rem,3.5vw,1.25rem);margin:16px 0 22px;animation:su .7s var(--quint) .3s both}
+.hero .btns{animation:su .7s var(--quint) .4s both}
+@media (max-width:420px){.hero .btn{flex:1 1 auto;padding:0 16px}}
+.vista{position:relative;margin-top:34px}
+.vista img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:26px 26px 0 0;animation:apre 1.1s var(--quart) .35s both}
+@keyframes apre{from{clip-path:inset(18% 10% 0 10% round 26px 26px 0 0)}to{clip-path:inset(0 0 0 0 round 26px 26px 0 0)}}
+@media (min-width:900px){.vista img{aspect-ratio:21/9}}
+.vista .alt{position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.92);border-radius:999px;padding:7px 14px;font-weight:700;font-size:.9375rem;color:var(--green-dk)}
+
+/* ---------- benvenuti ---------- */
+.benv{background:var(--green-lt)}
+.benv .wrap{display:grid;gap:30px}
+@media (min-width:900px){.benv .wrap{grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}}
+.benv .grande{font-size:clamp(1.3rem,4.4vw,1.75rem);font-weight:600;line-height:1.45;color:var(--ink);margin:18px 0 0;max-width:30ch}
+.benv p.poi{color:var(--ink-2);margin-top:16px;max-width:52ch}
+.benv img{border-radius:22px;width:100%}
+.benv figcaption{font-size:.9375rem;color:var(--muted);margin-top:10px}
+.benv figure{margin:0}
+
+/* ---------- le sette stanze ---------- */
+.stanze{transition:background-color .6s var(--quart);background:var(--tinta,#fff)}
+.stanze .intro{color:var(--ink-2);max-width:56ch;margin:14px 0 26px}
+.erbe{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.erbe button{display:inline-flex;align-items:center;gap:9px;font:700 .9375rem/1 var(--font);min-height:44px;padding:0 16px 0 10px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink-2);cursor:pointer;transition:border-color .2s var(--quart),transform .2s var(--quart),box-shadow .2s var(--quart)}
+.erbe button i{width:20px;height:20px;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 2px rgba(0,0,0,.08)}
+.erbe button:hover{transform:translateY(-2px)}
+.erbe button[aria-pressed=true]{border-color:var(--ink);color:var(--ink);box-shadow:0 10px 20px -14px rgba(0,0,0,.5)}
+.scheda{display:grid;gap:22px;background:#fff;border-radius:24px;padding:22px;box-shadow:0 24px 50px -36px rgba(28,36,29,.55)}
+@media (min-width:760px){.scheda{grid-template-columns:240px 1fr;align-items:center;padding:28px}}
+.scheda .ritratto{width:100%;max-width:240px;aspect-ratio:1;border-radius:18px;background:url(assets/stanze.jpg) 0 0/700% 100% no-repeat;box-shadow:0 0 0 6px var(--c,#eee);transition:box-shadow .4s var(--quart),background-position 0s}
+.scheda .tipo{display:inline-block;font-weight:700;font-size:.875rem;color:var(--terra-text);margin-bottom:6px}
+.scheda h3{font-size:clamp(1.5rem,5vw,2rem)}
+.scheda p{margin:10px 0 0;color:var(--ink-2)}
+.scheda.cambia .testo,.scheda.cambia .ritratto{animation:cambia .45s var(--quint) both}
+@keyframes cambia{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.nota-stanze{margin-top:18px;color:var(--muted);font-size:.9375rem}
+
+/* ---------- colazione ---------- */
+.colaz .wrap{display:grid;gap:26px}
+@media (min-width:900px){.colaz .wrap{grid-template-columns:1fr 1fr;gap:50px;align-items:center}}
+.colaz p{color:var(--ink-2);max-width:48ch;margin-top:14px}
+.foto2{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;align-items:end}
+.foto2 img{border-radius:18px;width:100%;aspect-ratio:3/4;object-fit:cover}
+.foto2 img+img{aspect-ratio:1}
+
+/* ---------- didattica ---------- */
+.didat{background:var(--ink);color:#e6ece6}
+.didat h2{color:#fff}
+.didat .intro{color:#c3ccc4;max-width:56ch;margin:14px 0 30px}
+.corsi{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+@media (min-width:860px){.corsi{grid-template-columns:repeat(2,1fr);gap:16px}}
+.corso{border-radius:18px;padding:22px 22px 20px;background:#26302a;display:grid;grid-template-columns:44px 1fr;gap:4px 14px}
+.corso svg{width:44px;height:44px;grid-row:span 2}
+.corso h3{color:#fff}
+.corso p{margin:0;color:#c3ccc4;font-size:.9375rem;line-height:1.5}
+.rivela.attesa{opacity:0;transform:translateY(14px)}
+.rivela.visto{transition:opacity .55s var(--quint) var(--d,0ms),transform .55s var(--quint) var(--d,0ms)}
+.chi{margin-top:30px;color:#c3ccc4;max-width:70ch}
+.chi b{color:#fff}
+
+/* ---------- dove e contatti ---------- */
+.dove{background:var(--stone)}
+.dove .wrap{display:grid;gap:22px}
+@media (min-width:860px){.dove .wrap{grid-template-columns:1fr 1fr;align-items:center}}
+.dove .ind{font-size:clamp(1.35rem,4.6vw,1.8rem);font-weight:800;line-height:1.3;margin:14px 0 8px}
+.dove .come{color:var(--muted);margin:0 0 20px}
+.dove figure{margin:0}
+.dove figure img{border-radius:20px;width:100%;aspect-ratio:3/1;object-fit:cover}
+.dove figcaption{font-size:.9375rem;color:var(--muted);margin-top:8px}
+
+.contatti{background:var(--green-dk);color:#fff;position:relative;overflow:hidden}
+.contatti .wrap{position:relative;z-index:1}
+.contatti h2{color:#fff;max-width:15ch}
+.contatti .sotto{color:#d3e6d5;max-width:48ch;margin:14px 0 0}
+.nap{margin:26px 0 30px;display:grid;gap:9px;font-size:1.0625rem}
+.nap a{color:#fff;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.4)}
+.nap span{display:inline-block;min-width:96px;color:#cfe5d2;font-size:.9375rem}
+.contatti .fiore{position:absolute;right:-60px;top:-50px;width:260px;opacity:.12}
+
+footer{background:#121813;color:#a9b4aa;font-size:.875rem;padding:26px 0 98px}
+footer p{margin:0 0 6px}
+@media (min-width:860px){footer{padding-bottom:26px}}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s var(--quint)}
+.barra.su{transform:none}
+.barra .btn{flex:1;min-height:48px;padding:0 12px}
+@media (min-width:860px){.barra{display:none}}
+
+a:focus-visible,.btn:focus-visible,button:focus-visible{outline:3px solid var(--terra-text);outline-offset:3px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rivela.attesa{opacity:1;transform:none}
+  .barra{transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="petali" viewBox="-50 -50 100 100"><g fill="#fff" stroke="#c9cfc6" stroke-width="1.2"><ellipse cy="-28" rx="8" ry="19"/><ellipse cy="-28" rx="8" ry="19" transform="rotate(30)"/><ellipse cy="-28" rx="8" ry="19" transform="rotate(60)"/><ellipse cy="-28" rx="8" ry="19" transform="rotate(90)"/><ellipse cy="-28" rx="8" ry="19" transform="rotate(120)"/><ellipse cy="-28" rx="8" ry="19" transform="rotate(150)"/><ellipse cy="-28" rx="8" ry="19" transform="rotate(180)"/><ellipse cy="-28" rx="8" ry="19" transform="rotate(210)"/><ellipse cy="-28" rx="8" ry="19" transform="rotate(240)"/><ellipse cy="-28" rx="8" ry="19" transform="rotate(270)"/><ellipse cy="-28" rx="8" ry="19" transform="rotate(300)"/><ellipse cy="-28" rx="8" ry="19" transform="rotate(330)"/></g><circle r="12" fill="#f6c700"/></symbol>
+    <symbol id="i-yoga" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#33413a"/><circle cx="22" cy="12" r="3.6" fill="#f6c700"/><path d="M22 16v9M12 22c4 0 7-2 10-4 3 2 6 4 10 4M14 32c3-3 5-7 8-7s5 4 8 7" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-erba" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#33413a"/><path d="M22 34V14M22 22c-6 0-9-4-9-9 6 0 9 4 9 9zM22 27c6 0 9-4 9-9-6 0-9 4-9 9z" fill="none" stroke="#8fd29a" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-fattoria" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#33413a"/><path d="M11 32V21l11-8 11 8v11zM18 32v-6h8v6" fill="none" stroke="#fff" stroke-width="2.2" stroke-linejoin="round"/><circle cx="22" cy="20.5" r="2.2" fill="#f6c700"/></symbol>
+    <symbol id="i-goccia" viewBox="0 0 44 44"><circle cx="22" cy="22" r="22" fill="#33413a"/><path d="M22 11c5 7 8 11 8 15a8 8 0 0 1-16 0c0-4 3-8 8-15z" fill="none" stroke="#b9a7e6" stroke-width="2.2" stroke-linejoin="round"/><path d="M18.5 27a3.5 3.5 0 0 0 3.5 3" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<div class="proto">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Maso Spezial</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo.png" alt="Maso Spezial" width="701" height="131"></a>
+    <nav aria-label="Sezioni">
+      <a href="#stanze">Le stanze</a>
+      <a href="#colazione">Colazione</a>
+      <a href="#corsi">Corsi</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="testa">
+      <h1><span>Dove il tempo</span><span><em>sembra fermarsi</em></span></h1>
+      <svg class="pratolina" viewBox="-50 -50 100 100" aria-hidden="true">
+        <g class="giro">
+          <g fill="#fff" stroke="#c9cfc6" stroke-width="1.2">
+            <ellipse class="petalo" style="--i:0" cy="-28" rx="8" ry="19"/>
+            <g transform="rotate(30)"><ellipse class="petalo" style="--i:1" cy="-28" rx="8" ry="19"/></g>
+            <g transform="rotate(60)"><ellipse class="petalo" style="--i:2" cy="-28" rx="8" ry="19"/></g>
+            <g transform="rotate(90)"><ellipse class="petalo" style="--i:3" cy="-28" rx="8" ry="19"/></g>
+            <g transform="rotate(120)"><ellipse class="petalo" style="--i:4" cy="-28" rx="8" ry="19"/></g>
+            <g transform="rotate(150)"><ellipse class="petalo" style="--i:5" cy="-28" rx="8" ry="19"/></g>
+            <g transform="rotate(180)"><ellipse class="petalo" style="--i:6" cy="-28" rx="8" ry="19"/></g>
+            <g transform="rotate(210)"><ellipse class="petalo" style="--i:7" cy="-28" rx="8" ry="19"/></g>
+            <g transform="rotate(240)"><ellipse class="petalo" style="--i:8" cy="-28" rx="8" ry="19"/></g>
+            <g transform="rotate(270)"><ellipse class="petalo" style="--i:9" cy="-28" rx="8" ry="19"/></g>
+            <g transform="rotate(300)"><ellipse class="petalo" style="--i:10" cy="-28" rx="8" ry="19"/></g>
+            <g transform="rotate(330)"><ellipse class="petalo" style="--i:11" cy="-28" rx="8" ry="19"/></g>
+          </g>
+          <circle class="cuore" r="12" fill="#f6c700"/>
+        </g>
+      </svg>
+    </div>
+    <p class="lead">Agriturismo con pernottamento e prima colazione tra i vigneti e i boschi di Pedersano, in Val Lagarina, a 450 metri di altitudine.</p>
+    <div class="btns">
+      <a class="btn btn-green" href="tel:+393497503075"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama ora</a>
+      <a class="btn btn-terra" href="https://wa.me/393497503075?text=Buongiorno%2C%20vorrei%20sapere%20se%20avete%20una%20stanza%20libera"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2m4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3"/></svg>Chiedi una stanza</a>
+    </div>
+  </div>
+  <div class="wrap vista">
+    <img src="assets/maso.jpg" alt="Il maso con il prato, il muretto in pietra e i vigneti della Val Lagarina" width="1600" height="1067">
+    <span class="alt">Pedersano di Villa Lagarina</span>
+  </div>
+</section>
+
+<section class="benv">
+  <div class="wrap">
+    <div>
+      <h2>Benvenuti a Maso Spezial</h2>
+      <p class="grande">Non esiste la fretta: si può assaporare ogni istante e ascoltare un battito d'ali di farfalla o il cinguettio degli uccelli.</p>
+      <p class="poi">Ci caratterizzano la cura dei dettagli e dei nostri ospiti e l'arredamento in stile trentino di fine Ottocento e inizio Novecento, con i mobili restaurati da noi. Lo Speziale era l'erborista medievale: la passione per le piante officinali ha dato il nome al maso.</p>
+    </div>
+    <figure>
+      <img src="assets/muretto.jpg" alt="Il muretto in pietra del maso con i gerani" width="720" height="238" loading="lazy">
+      <figcaption>Piccoli vani nei muri, realizzati con le nostre mani.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="stanze" id="stanze">
+  <div class="wrap">
+    <h2>Sette stanze, sette erbe</h2>
+    <p class="intro">Ogni stanza ha il bagno, il riscaldamento a pavimento, un terrazzo o un balcone sulla Val Lagarina, e il nome di un'erba medicinale con i suoi colori. Toccatene una.</p>
+    <div class="erbe" role="group" aria-label="Le stanze" id="erbe"></div>
+    <div class="scheda" id="scheda" aria-live="polite">
+      <div class="ritratto" id="ritratto" role="img" aria-label=""></div>
+      <div class="testo"><span class="tipo" id="sTipo"></span><h3 id="sNome"></h3><p id="sTesto"></p></div>
+    </div>
+    <p class="nota-stanze">Le camere sono disponibili dalle 16 del giorno di arrivo alle 10 del giorno di partenza. Per i bimbi sotto i tre anni c'è la culla.</p>
+  </div>
+</section>
+
+<section class="colaz" id="colazione">
+  <div class="wrap">
+    <div>
+      <h2>La colazione di Valentina</h2>
+      <p>Prodotti tipici trentini e di malga, pane, torte, strudel e confetture fatti in casa. D'estate si fa colazione all'aperto, nel "cortile dell'energia"; d'inverno ci si scalda la schiena sulla stufa a ole in mezzo alla sala.</p>
+      <p>Nella sala, il mobile di una farmacia del Settecento, una piccola biblioteca con libri sul Trentino e di erboristeria e un angolo con i giochi per i bambini.</p>
+    </div>
+    <div class="foto2">
+      <img src="assets/colazione.jpg" alt="Il tavolo della colazione con torte e pane fatti in casa" width="700" height="467" loading="lazy">
+      <img src="assets/sala.jpg" alt="La sala della colazione arredata in legno" width="700" height="467" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="didat" id="corsi">
+  <div class="wrap">
+    <h2>Erbe, yoga e benessere</h2>
+    <p class="intro">Una vacanza al maso si può unire ai corsi tenuti da noi durante l'anno, nella natura dei vigneti o in montagna. Su prenotazione, anche per gruppi di almeno quattro persone.</p>
+    <ul class="corsi">
+      <li class="corso rivela"><svg aria-hidden="true"><use href="#i-yoga"/></svg><h3>Yoga, Pilates e Mindfulness</h3><p>Lezioni in piccoli gruppi o individuali, anche una "full immersion relax" con yoga al mattino e pilates la sera.</p></li>
+      <li class="corso rivela"><svg aria-hidden="true"><use href="#i-erba"/></svg><h3>Percorso erboristico, dai 9 ai 99 anni</h3><p>Uscite all'aperto per riconoscere le erbe officinali e commestibili, i loro nomi e come si usano in cucina e per la salute.</p></li>
+      <li class="corso rivela"><svg aria-hidden="true"><use href="#i-goccia"/></svg><h3>Naturopatia e Fiori di Bach</h3><p>Consulenze di naturopatia e iridologia, floriterapia di Bach, riflessologia plantare e massaggi olistici e rilassanti.</p></li>
+      <li class="corso rivela"><svg aria-hidden="true"><use href="#i-fattoria"/></svg><h3>La fattoria didattica</h3><p>Corsi per conoscere la nostra azienda: i vigneti e le erbe officinali, come la lavanda che diventa olio essenziale.</p></li>
+    </ul>
+    <p class="chi">Vi accompagnano <b>Bruno</b>, erborista e naturopata, scrittore e poeta, e <b>Valeria</b>, naturopata e iridologa, istruttrice di Yoga e Pilates.</p>
+  </div>
+</section>
+
+<section class="dove" id="dove">
+  <div class="wrap">
+    <div>
+      <h2>Dove siamo</h2>
+      <p class="ind">Località Pozze 1<br>38060 Pedersano di Villa Lagarina (TN)</p>
+      <p class="come">Seguite le indicazioni per la località Cesuino.</p>
+      <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Agritur+Maso+Spezial+Pedersano+Villa+Lagarina" target="_blank" rel="noopener">Apri in Google Maps</a>
+    </div>
+    <figure>
+      <img src="assets/vigneti.jpg" alt="Il maso visto dall'alto in mezzo ai vigneti" width="720" height="238" loading="lazy">
+      <figcaption>Il maso in mezzo ai vigneti, sopra la Val Lagarina.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="contatti" id="contatti">
+  <svg class="fiore" viewBox="-50 -50 100 100" aria-hidden="true"><use href="#petali" x="-50" y="-50" width="100" height="100"/></svg>
+  <div class="wrap">
+    <h2>Scriveteci le vostre date</h2>
+    <p class="sotto">Per una stanza, un soggiorno più lungo o un corso: chiamateci o scriveteci, vi rispondiamo noi.</p>
+    <div class="nap">
+      <div><span>Telefono</span> <a href="tel:+393497503075">349 750 3075</a></div>
+      <div><span>Telefono</span> <a href="tel:+393288546068">328 854 6068</a></div>
+      <div><span>Email</span> <a href="mailto:info@masospezial.it">info@masospezial.it</a></div>
+    </div>
+    <div class="btns">
+      <a class="btn btn-white" href="tel:+393497503075">Chiama ora</a>
+      <a class="btn btn-terra" href="https://wa.me/393497503075?text=Buongiorno%2C%20vorrei%20sapere%20se%20avete%20una%20stanza%20libera">WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Agritur Maso Spezial di Maso Spezial s.s.a. · Località Pozze 1, 38060 Pedersano di Villa Lagarina (TN) · P.IVA 02387380229</p>
+    <p>Prototipo gratuito preparato da Stefano Pontalti, non ancora pubblicato come sito.</p>
+  </div>
+</footer>
+
+<div class="barra" id="barra">
+  <a class="btn btn-green" href="tel:+393497503075">Chiama ora</a>
+  <a class="btn btn-line" href="https://wa.me/393497503075?text=Buongiorno%2C%20vorrei%20sapere%20se%20avete%20una%20stanza%20libera">WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  var ridotto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // le sette stanze, dai testi del maso: il colore e' quello dell'erba che da' il nome
+  var stanze = [
+    ['Rosa canina','#e9a8ab','Camera doppia al piano terra, con terrazzo','Una camera di fine Ottocento del paese di Pedersano: l\'ha costruita il nonno Giobbe e noi le abbiamo ridato vita. Le sfumature della camera e del bagno sono rosa come il fiore della rosa canina.'],
+    ['Cicoria selvatica','#93b8e3','Camera doppia al piano terra, con terrazzo','Arredamento dei primi del Novecento: al posto della testiera, l\'asse di un vecchio letto, e nell\'armadio con l\'antico specchio una valigia di cartone degli emigranti trentini. Le sfumature sono azzurre come la cicoria.'],
+    ['Rosmarino','#a3c39c','Camera doppia al piano terra, con terrazzo','Arredamento tipico trentino in abete chiaro e sfumature verdi come il rosmarino: un piccolo angolo di pace in un giardino di primavera.'],
+    ['Iperico','#f2bb4e','Camera singola al piano terra, con terrazzo','Sfumature arancioni e gialle, il letto in abete chiaro dalla forma sinuosa e l\'armadio in cirmolo, che porta il profumo dei boschi di pino cembro.'],
+    ['Melissa','#b9d27e','Camera tripla al primo piano, con balcone','Molto spaziosa, recuperata in un paesino vicino al Lago di Garda: un aspetto signorile ma disinvolto, con pareti e bagno del verde della melissa.'],
+    ['Salvia selvatica','#aebbe0','Camera doppia, con terrazzo','Il letto ce l\'ha donato con amicizia Piero, che l\'aveva conservato per molti anni. Azzurrina come il fiore della salvia, con un piccolo scrittoio e una vecchia radio.'],
+    ['La suite','#f3a983','Camera quadrupla, con terrazzo e balcone','Una camera matrimoniale e una sala con il divano letto, in stile rustico trentino con bauli, stufette e paraventi. Dal balcone si vedono i boschi, e la vista dal terrazzo vi lascerà incantati.']
+  ];
+  var box = document.getElementById('erbe'), sez = document.getElementById('stanze'), scheda = document.getElementById('scheda');
+  var rit = document.getElementById('ritratto'), sTipo = document.getElementById('sTipo'), sNome = document.getElementById('sNome'), sTesto = document.getElementById('sTesto');
+  var bott = stanze.map(function(s, i){
+    var b = document.createElement('button'); b.type = 'button'; b.style.setProperty('--c', s[1]);
+    b.innerHTML = '<i></i>' + s[0]; b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function(){ mostra(i, true) }); box.appendChild(b); return b;
+  });
+  function chiaro(hex){ // il colore dell'erba schiarito all'80% col bianco, per lo sfondo della sezione
+    var n = parseInt(hex.slice(1), 16), c = [n >> 16, n >> 8 & 255, n & 255].map(function(v){ return Math.round(v * .22 + 255 * .78) });
+    return 'rgb(' + c.join(',') + ')' }
+  function mostra(i, anima){
+    var s = stanze[i];
+    bott.forEach(function(b, j){ b.setAttribute('aria-pressed', i === j) });
+    rit.style.backgroundPosition = (i * 100 / 6) + '% 0'; rit.style.setProperty('--c', s[1]);
+    rit.setAttribute('aria-label', 'La stanza ' + s[0]);
+    sTipo.textContent = s[2]; sNome.textContent = s[0]; sTesto.textContent = s[3];
+    sez.style.setProperty('--tinta', chiaro(s[1]));
+    if (anima && !ridotto) { scheda.classList.remove('cambia'); void scheda.offsetWidth; scheda.classList.add('cambia') }
+  }
+  mostra(0, false);
+
+  var top = document.getElementById('top'), barra = document.getElementById('barra');
+  function scorri(){ var y = scrollY; top.classList.toggle('scorso', y > 8); barra.classList.toggle('su', y > 380) }
+  addEventListener('scroll', scorri, {passive:true}); scorri();
+
+  if (!('IntersectionObserver' in window) || ridotto) return;
+  // i corsi compaiono uno dopo l'altro (solo quelli sotto la piega)
+  var o = new IntersectionObserver(function(v){
+    var n = 0;
+    v.forEach(function(x){ if (!x.isIntersecting) return; var el = x.target;
+      el.style.setProperty('--d', (n++ * 100) + 'ms'); el.classList.add('visto'); el.classList.remove('attesa'); o.unobserve(el) });
+  }, {rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rivela').forEach(function(el){ if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('attesa'); o.observe(el) } });
+})();
+</script>
+</body>
+</html>

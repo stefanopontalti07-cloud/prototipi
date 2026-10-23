@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Al Legno, ristorante e Casina di Sella</title>
+<meta name="description" content="Ristorante con i piatti della tradizione trentina e appartamenti della Casina di Sella, all'inizio della Val di Sella a Borgo Valsugana.">
+<meta name="theme-color" content="#2f2116">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236e3b1c'/%3E%3Cpath d='M9 24c4-9 9-14 15-16-3 6-7 12-15 16z' fill='%23e6cfae'/%3E%3C/svg%3E">
+<style id="font-locali">
+@font-face {
+  font-family: 'Arima Madurai';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/arima-madurai-normal-400-latin-ext-9fa29a.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Arima Madurai';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/arima-madurai-normal-400-latin-fbb1ee.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Arima Madurai';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/arima-madurai-normal-700-latin-ext-d4e851.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Arima Madurai';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/arima-madurai-normal-700-latin-6fecb7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Arima Madurai';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(assets/fonts/arima-madurai-normal-900-latin-ext-379224.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Arima Madurai';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(assets/fonts/arima-madurai-normal-900-latin-241379.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+/* Palette di Al Legno: il marrone della scritta nel logo, il legno chiaro della foglia,
+   il verde dei faggi della Val di Sella, il rosso dei gerani alle finestre della locanda */
+:root{
+  --ink:#24180f;
+  --ink-2:#4a3a2c;
+  --muted:#65574a;
+  --walnut:#6e3b1c;
+  --walnut-dk:#2f2116;
+  --leaf:#ba8c5c;
+  --leaf-lt:#efe2cf;
+  --forest:#2e4a2c;
+  --forest-2:#3d5e3a;
+  --moss:#eef2ec;
+  --geranio:#b8352a;
+  --line:#e3e1dc;
+  --white:#fff;
+  --display:"Arima Madurai",Georgia,"Times New Roman",serif;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --quart:cubic-bezier(.25,1,.5,1);
+  --quint:cubic-bezier(.22,1,.36,1);
+  --expo:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:66px}
+body{margin:0;background:var(--white);color:var(--ink);font:400 1.0625rem/1.62 var(--font)}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:900;line-height:1.02;letter-spacing:-.015em;text-wrap:balance}
+h2{font-size:clamp(2.1rem,7.4vw,3.4rem);color:var(--walnut)}
+h3{font-size:1.35rem;font-weight:700;line-height:1.15}
+p{margin:0 0 1em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left))}
+section{padding:80px 0}
+
+.proto{background:var(--walnut-dk);color:#eadccb;font-size:.8125rem;text-align:center;padding:7px 16px;line-height:1.4}
+.proto b{color:#fff}
+
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .25s var(--quart)}
+header.top.scorso{border-bottom-color:var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.brand img{height:46px;width:auto}
+.top nav{display:flex;gap:2px}
+.top nav a{font-weight:600;font-size:.9375rem;text-decoration:none;padding:9px 12px;border-radius:8px;color:var(--ink-2);transition:background-color .2s var(--quart)}
+.top nav a:hover{background:var(--moss)}
+@media (max-width:820px){.top nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 24px;border-radius:999px;font:700 1rem/1 var(--font);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background-color .2s var(--quart),color .2s var(--quart),transform .12s var(--quart),border-color .2s var(--quart)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-legno{background:var(--walnut);color:#fff}
+.btn-legno:hover{background:#5a2f15}
+.btn-bosco{background:var(--forest);color:#fff}
+.btn-bosco:hover{background:#22391f}
+.btn-line{background:#fff;color:var(--walnut);border-color:var(--walnut)}
+.btn-line:hover{background:var(--walnut);color:#fff}
+.btn-crema{background:var(--leaf-lt);color:var(--walnut-dk)}
+.btn-crema:hover{background:#fff}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+
+/* ---------- apertura: ieri e oggi ---------- */
+.hero{padding:22px 0 54px}
+.hero h1{font-size:clamp(2.5rem,10vw,4.8rem);color:var(--walnut);margin:24px 0 0;max-width:13ch}
+.hero h1 em{font-style:normal;color:var(--forest)}
+.hero .lead{max-width:44ch;color:var(--ink-2);font-size:clamp(1.05rem,3.5vw,1.25rem);margin:16px 0 24px}
+@media (min-width:900px){
+  .hero{padding:40px 0 70px}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:end}
+  .hero h1{margin-top:0}
+}
+.confronto{position:relative;aspect-ratio:4/3;border-radius:22px;overflow:hidden;background:#ddd5ca;touch-action:pan-y;user-select:none;-webkit-user-select:none;box-shadow:0 30px 50px -34px rgba(47,33,22,.7)}
+.confronto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.confronto .ieri{filter:sepia(.35) contrast(1.05)}
+.confronto .oggi{clip-path:inset(0 0 0 var(--x,100%))}
+.confronto.parte .oggi{animation:sviluppo 1.5s var(--quart) .5s both}
+@keyframes sviluppo{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 46%)}}
+.confronto .linea{position:absolute;top:0;bottom:0;left:var(--x,100%);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.confronto.parte .linea{animation:linea 1.5s var(--quart) .5s both}
+.confronto.parte .maniglia{animation:linea 1.5s var(--quart) .5s both}
+@keyframes linea{from{left:100%}to{left:46%}}
+.confronto .maniglia{position:absolute;top:50%;left:var(--x,46%);width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 8px 20px -6px rgba(0,0,0,.45);opacity:0;transition:opacity .3s var(--quart),transform .15s var(--quart)}
+.confronto.pronto .maniglia{opacity:1}
+.confronto.tira .maniglia{transform:scale(1.08)}
+.confronto .maniglia svg{width:26px;height:26px}
+.confronto .tag{position:absolute;bottom:14px;padding:6px 12px;border-radius:999px;font-weight:700;font-size:.875rem;background:rgba(36,24,15,.72);color:#fff;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.confronto .tag.a{left:14px}
+.confronto .tag.b{right:14px;background:rgba(46,74,44,.82)}
+.confronto input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize}
+.sotto-foto{margin:10px 2px 0;font-size:.9375rem;color:var(--muted)}
+
+/* ---------- le due anime ---------- */
+.due{background:var(--moss)}
+.due .grid{display:grid;gap:16px;margin-top:30px}
+@media (min-width:800px){.due .grid{grid-template-columns:1fr 1fr;gap:22px}}
+.anima{position:relative;display:block;text-decoration:none;border-radius:22px;overflow:hidden;min-height:340px;color:#fff;background:var(--walnut-dk)}
+.anima img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--quart)}
+.anima:hover img{transform:scale(1.05)}
+.anima::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(24,16,10,.86) 100%)}
+.anima .t{position:absolute;left:22px;right:22px;bottom:22px;z-index:1}
+.anima h3{font-size:clamp(1.8rem,6vw,2.4rem);font-weight:900}
+.anima p{margin:8px 0 0;color:#efe6da;max-width:34ch}
+.anima .va{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-weight:700}
+.anima .va svg{width:18px;height:18px;transition:transform .25s var(--quart)}
+.anima:hover .va svg{transform:translateX(4px)}
+
+/* ---------- il menu ---------- */
+.menu .wrap{display:grid;gap:34px}
+@media (min-width:900px){.menu .wrap{grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}.menu .testa{position:sticky;top:96px}}
+.menu .testa p{color:var(--ink-2);margin-top:14px;max-width:40ch}
+.piatti-foto{margin-top:22px;max-width:420px}
+.piatti-foto img{border-radius:18px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.filtri{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.filtri button{font:700 .9375rem/1 var(--font);min-height:42px;padding:0 16px;border-radius:999px;border:2px solid var(--line);background:#fff;color:var(--ink-2);cursor:pointer;transition:background-color .2s var(--quart),border-color .2s var(--quart),color .2s var(--quart)}
+.filtri button:hover{border-color:var(--leaf)}
+.filtri button[aria-pressed=true]{background:var(--forest);border-color:var(--forest);color:#fff}
+.portate{margin:0;padding:0;list-style:none}
+.portate .gruppo{font-family:var(--display);font-weight:700;font-size:1.05rem;color:#8a5a2e;margin:22px 0 4px}
+.portate .gruppo:first-child{margin-top:0}
+.portate li.p{display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:13px 0;border-bottom:1px dashed #d8cdbf;transition:opacity .3s var(--quart)}
+.portate li.p h3{font-family:var(--font);font-size:1.0625rem;font-weight:700;letter-spacing:0}
+.portate li.p p{grid-column:1/-1;margin:0;color:var(--muted);font-size:.9375rem;line-height:1.45}
+.etichette{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.etichette span{font-size:.75rem;font-weight:700;padding:3px 8px;border-radius:999px;background:var(--moss);color:var(--forest);white-space:nowrap}
+.portate li.p.via{display:none}
+.portate li.gruppo.via{display:none}
+.nota{margin-top:16px;font-size:.9375rem;color:var(--muted)}
+.rivela.attesa{opacity:0;transform:translateY(12px)}
+.rivela.visto{transition:opacity .5s var(--quint) var(--d,0ms),transform .5s var(--quint) var(--d,0ms)}
+
+/* ---------- casina di sella ---------- */
+.casina{background:var(--forest);color:#eaf0e7;overflow:hidden}
+.casina h2{color:#fff}
+.casina .intro{display:grid;gap:26px;align-items:center}
+@media (min-width:900px){.casina .intro{grid-template-columns:1fr 1fr;gap:50px}}
+.casina .intro p{color:#d5dfd1;max-width:44ch;margin-top:14px}
+.casina .foto{position:relative}
+.casina .foto img{border-radius:22px;width:100%;aspect-ratio:1/1;object-fit:cover}
+.casina .foto .piccola{position:absolute;right:-6px;bottom:-22px;width:42%;border:5px solid var(--forest);border-radius:18px;aspect-ratio:1}
+.apps{list-style:none;margin:56px 0 0;padding:0;display:grid;gap:12px}
+@media (min-width:860px){.apps{grid-template-columns:repeat(3,1fr);gap:16px}}
+.app{background:var(--forest-2);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:6px}
+.app h3{color:#fff}
+.app .ospiti{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--leaf-lt)}
+.app .ospiti svg{width:22px;height:22px}
+.app p{margin:4px 0 12px;color:#d5dfd1;font-size:.9375rem;line-height:1.5}
+.app .btn{margin-top:auto;align-self:flex-start;min-height:44px;padding:0 18px;font-size:.9375rem}
+.servizi{margin:22px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.servizi li{font-size:.9375rem;font-weight:600;border:1.5px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 13px}
+
+/* ---------- arte sella ---------- */
+.arte .wrap{display:grid;gap:26px;align-items:center}
+@media (min-width:900px){.arte .wrap{grid-template-columns:1.1fr .9fr;gap:50px}}
+.arte img{border-radius:22px;width:100%}
+.arte p{color:var(--ink-2);max-width:42ch;margin-top:14px}
+.arte a.link{font-weight:700;color:var(--walnut);text-underline-offset:4px}
+
+/* ---------- dove e contatti ---------- */
+.dove{background:var(--moss)}
+.dove .wrap{display:grid;gap:22px}
+@media (min-width:860px){.dove .wrap{grid-template-columns:1fr 1fr;align-items:center}}
+.dove .ind{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,5vw,2rem);line-height:1.2;margin:14px 0 20px;color:var(--ink)}
+.strada{display:block;text-decoration:none;border-radius:22px;overflow:hidden;background:#fff;border:1px solid var(--line);transition:transform .3s var(--quint),box-shadow .3s var(--quint)}
+.strada:hover{transform:translateY(-3px);box-shadow:0 18px 34px -24px rgba(36,24,15,.5)}
+.strada svg{width:100%;height:auto}
+.strada .et{display:block;padding:12px 16px;font-weight:700;font-size:.9375rem;color:var(--walnut)}
+
+.contatti{background:var(--walnut-dk);color:#fff}
+.contatti h2{color:#fff;max-width:14ch}
+.contatti .sotto{color:#dccbb6;max-width:48ch;margin:14px 0 0}
+.nap{margin:26px 0 30px;display:grid;gap:9px;font-size:1.0625rem}
+.nap a{color:#fff;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.4)}
+.nap span{display:inline-block;min-width:96px;color:#b8a48c;font-size:.9375rem}
+
+footer{background:#1d140d;color:#b5a593;font-size:.875rem;padding:26px 0 98px}
+footer p{margin:0 0 6px}
+@media (min-width:860px){footer{padding-bottom:26px}}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s var(--quint)}
+.barra.su{transform:none}
+.barra .btn{flex:1;min-height:48px;padding:0 12px}
+@media (min-width:860px){.barra{display:none}}
+
+a:focus-visible,.btn:focus-visible,button:focus-visible{outline:3px solid var(--geranio);outline-offset:3px}
+.confronto:focus-within .maniglia{box-shadow:0 0 0 4px var(--geranio)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rivela.attesa{opacity:1;transform:none}
+  .barra{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="proto">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per al Legno</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo.webp" alt="al Legno, Ristorante e Casina di Sella" width="560" height="347"></a>
+    <nav aria-label="Sezioni">
+      <a href="#ristorante">Ristorante</a>
+      <a href="#casina">Casina di Sella</a>
+      <a href="#dove">Dove siamo</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="confronto" id="confronto" style="--x:46%">
+        <img class="ieri" src="assets/ieri.jpg" alt="La locanda al Legno in una foto d'epoca" width="1400" height="1050">
+        <img class="oggi" src="assets/oggi.jpg" alt="La Locanda Legno oggi, all'inizio della Val di Sella" width="1400" height="1050">
+        <span class="linea" aria-hidden="true"></span>
+        <span class="maniglia" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#6e3b1c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+        <span class="tag a">Ieri</span><span class="tag b">Oggi</span>
+        <input type="range" id="cursore" min="0" max="100" value="46" aria-label="Sposta per confrontare la locanda di ieri e di oggi">
+      </div>
+      <p class="sotto-foto">Trascinate la maniglia: la locanda com'era e com'è oggi.</p>
+    </div>
+    <div>
+      <h1>200 anni di storia <em>in Val di Sella</em></h1>
+      <p class="lead">All'inizio della Val di Sella trovate al Legno, il luogo ideale per un pasto gustoso e per una vacanza rilassante nella natura.</p>
+      <div class="btns">
+        <a class="btn btn-legno" href="tel:+393498022389"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama ora</a>
+        <a class="btn btn-bosco" href="https://wa.me/393498022389"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2m4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3"/></svg>WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="due">
+  <div class="wrap">
+    <h2>Un pranzo, una vacanza</h2>
+    <div class="grid">
+      <a class="anima" href="#ristorante">
+        <img src="assets/sala.jpg" alt="La sala del ristorante al Legno con il camino" width="1400" height="788" loading="lazy">
+        <span class="t"><h3>Il ristorante</h3><p>I piatti della tradizione trentina, fatti con prodotti genuini.</p><span class="va">Il menù <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
+      <a class="anima" href="#casina">
+        <img src="assets/casina-libro.jpg" alt="Un libro aperto nel giardino della Casina di Sella" width="1000" height="1000" loading="lazy">
+        <span class="t"><h3>La Casina di Sella</h3><p>Quattro appartamenti immersi tra i faggi della Valle di Sella.</p><span class="va">Gli appartamenti <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="ristorante">
+  <div class="wrap">
+    <div class="testa">
+      <h2>Il ristorante</h2>
+      <p>Il ristorante dove la passione per la cucina e la cultura del buon cibo si incontrano: un locale storico, uno staff giovane e i migliori piatti della tradizione trentina.</p>
+      <div class="piatti-foto">
+        <img src="assets/canederli.jpg" alt="Canederli fatti in casa" width="900" height="900" loading="lazy">
+      </div>
+    </div>
+    <div>
+      <div class="filtri" role="group" aria-label="Filtra il menù">
+        <button type="button" data-f="tutti" aria-pressed="true">Tutti</button>
+        <button type="button" data-f="veg" aria-pressed="false">Vegetariano</button>
+        <button type="button" data-f="gf" aria-pressed="false">Gluten free</button>
+        <button type="button" data-f="sl" aria-pressed="false">Senza lattosio</button>
+      </div>
+      <ul class="portate" id="portate">
+        <li class="gruppo">Antipasti</li>
+        <li class="p rivela" data-t="gf"><h3>Tagliere del Legno</h3><span class="etichette"><span>Gluten free</span></span><p>Affettati e formaggi misti con le nostre fantasie.</p></li>
+        <li class="p rivela" data-t=""><h3>Carpaccio di canederli</h3><span class="etichette"></span><p>Canederlo a fette su letto di cappuccio, cipolla e speck croccante.</p></li>
+        <li class="p rivela" data-t="sl"><h3>Trota in saor</h3><span class="etichette"><span>Senza lattosio</span></span><p>Trota trentina marinata con cipolla, uvetta e pinoli, su insalatina croccante.</p></li>
+        <li class="gruppo">Primi</li>
+        <li class="p rivela" data-t=""><h3>Canederli trentini</h3><span class="etichette"></span><p>Fatti in casa, in brodo o al burro fuso su letto di cavolo cappuccio.</p></li>
+        <li class="p rivela" data-t="veg"><h3>Strangolapreti</h3><span class="etichette"><span>Vegetariano</span></span><p>Gnocchi di pane raffermo e spinaci fatti in casa, al burro fuso e grana.</p></li>
+        <li class="p rivela" data-t="sl"><h3>Gnocchetti montanari</h3><span class="etichette"><span>Senza lattosio</span></span><p>Di farina di grano saraceno, fatti in casa, con il sugo del giorno.</p></li>
+        <li class="p rivela" data-t="veg gf"><h3>Gnocchi di polenta</h3><span class="etichette"><span>Vegetariano</span><span>Gluten free</span></span><p>Con porri, pomodorini, zucchine, scaglie di grana e burro fuso.</p></li>
+        <li class="gruppo">Secondi</li>
+        <li class="p rivela" data-t="sl gf"><h3>Goulasch di manzo</h3><span class="etichette"><span>Senza lattosio</span><span>Gluten free</span></span><p>Spezzatino con paprika, cipolla e spezie, servito con polenta.</p></li>
+        <li class="p rivela" data-t="sl gf"><h3>Selvaggina</h3><span class="etichette"><span>Senza lattosio</span><span>Gluten free</span></span><p>Spezzatino in umido servito con polenta.</p></li>
+        <li class="p rivela" data-t="veg"><h3>Formaggio fuso, polenta e funghi</h3><span class="etichette"><span>Vegetariano</span></span><p>La ricetta del Legno con un mix di formaggi.</p></li>
+        <li class="gruppo">Dolci</li>
+        <li class="p rivela" data-t=""><h3>Strudel di mele</h3><span class="etichette"></span><p>Tra i dolci anche la Sacher e il gelato con i frutti di bosco.</p></li>
+        <li class="p rivela" data-t="gf"><h3>Torta al grano saraceno</h3><span class="etichette"><span>Gluten free</span></span><p>Anche la torta di mele è senza glutine.</p></li>
+      </ul>
+      <p class="nota">Alcuni piatti del menù. Per pranzi, cene e feste in famiglia o tra amici, prenotate per telefono.</p>
+    </div>
+  </div>
+</section>
+
+<section class="casina" id="casina">
+  <div class="wrap">
+    <div class="intro">
+      <div>
+        <h2>La Casina di Sella</h2>
+        <p>Immersa tra i faggi e il verde della Valle di Sella, il posto giusto per una vacanza di relax, in tranquillità e serenità. Ideale per un weekend romantico, con gli amici o in famiglia.</p>
+        <ul class="servizi">
+          <li>Giardino</li><li>Barbecue</li><li>Terrazza coperta</li><li>Parcheggio gratuito</li><li>Lenzuola e asciugamani</li><li>Lavanderia</li>
+        </ul>
+      </div>
+      <div class="foto">
+        <img src="assets/casina.jpg" alt="La Casina di Sella con il giardino" width="1100" height="1099" loading="lazy">
+        <img class="piccola" src="assets/stanza.jpg" alt="Una camera matrimoniale della Casina di Sella" width="900" height="900" loading="lazy">
+      </div>
+    </div>
+    <ul class="apps">
+      <li class="app"><h3>Appartamento Comfort</h3><span class="ospiti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14c3 0 5 2 5 5"/></svg>Fino a 4 persone</span><p>Cucina abitabile, una camera matrimoniale e una con due letti singoli, bagno con doccia.</p><a class="btn btn-crema" href="https://wa.me/393498022389?text=Buongiorno%2C%20vorrei%20informazioni%20sull%27appartamento%20Comfort%20della%20Casina%20di%20Sella">Chiedi le date</a></li>
+      <li class="app"><h3>Appartamento Superior</h3><span class="ospiti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14c3 0 5 2 5 5"/></svg>Fino a 6 persone</span><p>Cucina e soggiorno abitabili, una camera matrimoniale e una con quattro letti singoli, divano letto.</p><a class="btn btn-crema" href="https://wa.me/393498022389?text=Buongiorno%2C%20vorrei%20informazioni%20sull%27appartamento%20Superior%20della%20Casina%20di%20Sella">Chiedi le date</a></li>
+      <li class="app"><h3>Appartamento Family</h3><span class="ospiti"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M16 14c3 0 5 2 5 5"/></svg>Fino a 8 persone</span><p>Cucina e soggiorno abitabili, quattro camere da letto, divano letto: per le famiglie numerose.</p><a class="btn btn-crema" href="https://wa.me/393498022389?text=Buongiorno%2C%20vorrei%20informazioni%20sull%27appartamento%20Family%20della%20Casina%20di%20Sella">Chiedi le date</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="arte">
+  <div class="wrap">
+    <img src="assets/arte-sella.jpg" alt="Un'opera di Arte Sella nella neve" width="1200" height="900" loading="lazy">
+    <div>
+      <h2>A due passi, Arte Sella</h2>
+      <p>Quando arte, creatività e natura si incontrano nasce Arte Sella, un luogo speciale che cresce e si evolve stagione dopo stagione. Noi siamo all'inizio della valle.</p>
+      <a class="link" href="https://www.artesella.it/it/" target="_blank" rel="noopener">Il sito di Arte Sella</a>
+    </div>
+  </div>
+</section>
+
+<section class="dove" id="dove">
+  <div class="wrap">
+    <div>
+      <h2>Dove siamo</h2>
+      <p class="ind">Località Val di Sella 16<br>Borgo Valsugana (TN)</p>
+      <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=al+Legno+Localit%C3%A0+Val+di+Sella+16+Borgo+Valsugana" target="_blank" rel="noopener">Apri in Google Maps</a>
+    </div>
+    <a class="strada" href="https://www.google.com/maps/search/?api=1&amp;query=al+Legno+Localit%C3%A0+Val+di+Sella+16+Borgo+Valsugana" target="_blank" rel="noopener" aria-label="Apri la Val di Sella in Google Maps">
+      <svg viewBox="0 0 400 220" aria-hidden="true">
+        <rect width="400" height="220" fill="#eef2ec"/>
+        <path d="M0 170 70 110l40 30 60-62 50 44 54-56 56 52 70-46v148H0z" fill="#d7e3d2"/>
+        <path d="M0 196 90 140l50 26 70-50 60 38 60-42 70 40v68H0z" fill="#bfd3b8"/>
+        <path d="M40 220C90 190 120 170 170 160S260 130 300 96" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+        <path d="M40 220C90 190 120 170 170 160S260 130 300 96" fill="none" stroke="#ba8c5c" stroke-width="2.5" stroke-dasharray="7 8"/>
+        <g transform="translate(300 96)"><path d="M0 0c-10-12-15-19-15-26a15 15 0 0 1 30 0c0 7-5 14-15 26z" fill="#6e3b1c" stroke="#fff" stroke-width="3"/><circle cy="-26" r="5" fill="#fff"/></g>
+        <text x="20" y="34" font-family="system-ui,sans-serif" font-weight="700" font-size="14" fill="#2e4a2c">Borgo Valsugana</text>
+        <text x="238" y="54" font-family="system-ui,sans-serif" font-weight="700" font-size="14" fill="#2e4a2c">Val di Sella</text>
+      </svg>
+      <span class="et">Località Val di Sella 16 · apri la mappa</span>
+    </a>
+  </div>
+</section>
+
+<section class="contatti" id="contatti">
+  <div class="wrap">
+    <h2>Prenotate il vostro tavolo</h2>
+    <p class="sotto">Per pranzi, cene o feste in famiglia e tra amici, per gli eventi e per la disponibilità degli appartamenti: chiamateci o scriveteci.</p>
+    <div class="nap">
+      <div><span>Telefono</span> <a href="tel:+393498022389">349 802 2389</a></div>
+      <div><span>Email</span> <a href="mailto:ristoranteallegno@gmail.com">ristoranteallegno@gmail.com</a></div>
+      <div><span>Indirizzo</span> Località Val di Sella 16, Borgo Valsugana</div>
+    </div>
+    <div class="btns">
+      <a class="btn btn-crema" href="tel:+393498022389">Chiama ora</a>
+      <a class="btn btn-bosco" href="https://wa.me/393498022389">WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>al Legno, Ristorante e Casina di Sella · Località Val di Sella 16, Borgo Valsugana (TN)</p>
+    <p>Prototipo gratuito preparato da Stefano Pontalti, non ancora pubblicato come sito.</p>
+  </div>
+</footer>
+
+<div class="barra" id="barra">
+  <a class="btn btn-legno" href="tel:+393498022389">Chiama ora</a>
+  <a class="btn btn-line" href="https://wa.me/393498022389">WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  var ridotto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var conf = document.getElementById('confronto'), cur = document.getElementById('cursore');
+
+  // ieri e oggi: la foto di oggi si sviluppa sopra quella d'epoca, poi la maniglia e' vostra
+  function posa(v){ conf.style.setProperty('--x', v + '%') }
+  if (ridotto) { conf.classList.add('pronto') }
+  else {
+    conf.classList.add('parte');
+    setTimeout(function(){ conf.classList.remove('parte'); conf.classList.add('pronto') }, 2050);
+  }
+  cur.addEventListener('input', function(){ conf.classList.remove('parte'); conf.classList.add('pronto','tira'); posa(cur.value) });
+  cur.addEventListener('change', function(){ conf.classList.remove('tira') });
+
+  // filtri del menu
+  var bott = document.querySelectorAll('.filtri button'), voci = document.querySelectorAll('#portate li');
+  bott.forEach(function(b){ b.addEventListener('click', function(){
+    var f = b.dataset.f;
+    bott.forEach(function(x){ x.setAttribute('aria-pressed', x === b) });
+    var gruppo = null, visti = 0;
+    voci.forEach(function(li){
+      if (li.classList.contains('gruppo')) { if (gruppo) gruppo.classList.toggle('via', visti === 0); gruppo = li; visti = 0; return }
+      var ok = f === 'tutti' || (' ' + li.dataset.t + ' ').indexOf(' ' + f + ' ') > -1;
+      li.classList.toggle('via', !ok); if (ok) visti++;
+    });
+    if (gruppo) gruppo.classList.toggle('via', visti === 0);
+  }) });
+
+  var top = document.getElementById('top'), barra = document.getElementById('barra');
+  function scorri(){ var y = scrollY; top.classList.toggle('scorso', y > 8); barra.classList.toggle('su', y > 360) }
+  addEventListener('scroll', scorri, {passive:true}); scorri();
+
+  if (!('IntersectionObserver' in window) || ridotto) return;
+  // le portate compaiono una dopo l'altra (solo quelle sotto la piega)
+  var o = new IntersectionObserver(function(v){
+    var n = 0;
+    v.forEach(function(x){ if (!x.isIntersecting) return; var el = x.target;
+      el.style.setProperty('--d', (n++ * 70) + 'ms'); el.classList.add('visto'); el.classList.remove('attesa'); o.unobserve(el) });
+  }, {rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rivela').forEach(function(el){ if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('attesa'); o.observe(el) } });
+})();
+</script>
+</body>
+</html>

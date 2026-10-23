@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Dinamos, case chiavi in mano a Cles</title>
+<meta name="description" content="Costruzioni e ristrutturazioni chiavi in mano in Val di Non: dalla progettazione alla consegna delle chiavi, con tempi certi. Dinamos Soc. Coop. Edilizia, Cles.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-16 -16 32 32'%3E%3Cg fill='%233f8f52'%3E%3Cpath d='M0-13c5 2 6 7 2 10-3-3-4-7-2-10z'/%3E%3Cpath d='M0-13c5 2 6 7 2 10-3-3-4-7-2-10z' transform='rotate(72)'/%3E%3Cpath d='M0-13c5 2 6 7 2 10-3-3-4-7-2-10z' transform='rotate(144)'/%3E%3Cpath d='M0-13c5 2 6 7 2 10-3-3-4-7-2-10z' transform='rotate(216)'/%3E%3Cpath d='M0-13c5 2 6 7 2 10-3-3-4-7-2-10z' transform='rotate(288)'/%3E%3C/g%3E%3C/svg%3E">
+<style id="font-locali">
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-400-latin-ext-ab8d74.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-400-latin-702e3b.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-700-latin-ext-91ee0a.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-700-latin-b0cd9a.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-900-latin-ext-31dca3.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-900-latin-ba5299.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+/* Palette di Dinamos: i verdi delle foglie del logo, l'azzurro del logo in negativo,
+   il grigio scuro della scritta */
+:root{
+  --ink:#1f2428;
+  --ink-2:#424a50;
+  --muted:#5d656b;
+  --green:#3f8f52;
+  --green-dk:#2c6b3b;
+  --green-hi:#79c78b;
+  --green-lt:#e8f4eb;
+  --sky:#1d9ad6;
+  --sky-text:#146a96;
+  --stone:#f2f4f5;
+  --line:#e1e5e8;
+  --white:#fff;
+  --font:"Lato",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --quart:cubic-bezier(.25,1,.5,1);
+  --quint:cubic-bezier(.22,1,.36,1);
+  --expo:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:66px}
+body{margin:0;background:var(--white);color:var(--ink);font:400 1.0625rem/1.62 var(--font)}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:900;line-height:1.04;letter-spacing:-.02em;text-wrap:balance}
+h2{font-size:clamp(1.95rem,6.6vw,3.1rem)}
+h3{font-size:1.2rem;font-weight:900;letter-spacing:-.01em;line-height:1.2}
+p{margin:0 0 1em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left))}
+section{padding:80px 0}
+
+.proto{background:var(--green-dk);color:#e4f1e7;font-size:.8125rem;text-align:center;padding:7px 16px;line-height:1.4}
+.proto b{color:#fff}
+
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .25s var(--quart)}
+header.top.scorso{border-bottom-color:var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.brand img{width:150px;height:auto;mix-blend-mode:multiply}
+.top nav{display:flex;gap:2px}
+.top nav a{font-weight:700;font-size:.9375rem;text-decoration:none;padding:9px 12px;border-radius:8px;color:var(--ink-2);transition:background-color .2s var(--quart)}
+.top nav a:hover{background:var(--green-lt)}
+@media (max-width:820px){.top nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 24px;border-radius:10px;font:900 1rem/1 var(--font);letter-spacing:.01em;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background-color .2s var(--quart),color .2s var(--quart),transform .12s var(--quart),border-color .2s var(--quart),box-shadow .2s var(--quart)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-green{background:var(--green-dk);color:#fff;box-shadow:0 10px 22px -12px rgba(63,143,82,.9)}
+.btn-green:hover{background:#22562f}
+.btn-ink{background:var(--ink);color:#fff}
+.btn-ink:hover{background:#000}
+.btn-line{background:#fff;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-white{background:#fff;color:var(--green-dk)}
+.btn-white:hover{background:var(--green-lt)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+
+/* ---------- apertura: la dinamo, la casa, la chiave ---------- */
+.hero{padding:30px 0 50px;background:radial-gradient(120% 90% at 85% 10%,var(--green-lt) 0%,#fff 60%)}
+.hero .wrap{display:grid;gap:26px;align-items:center}
+@media (min-width:900px){.hero{padding:64px 0 80px}.hero .wrap{grid-template-columns:1.05fr .95fr;gap:50px}}
+.hero h1{font-size:clamp(2.6rem,11vw,5rem);letter-spacing:-.035em;line-height:.98}
+.hero h1 .verde{color:var(--green)}
+.hero h1 span{display:block;animation:su .8s var(--expo) both}
+.hero h1 span+span{animation-delay:.1s}
+@keyframes su{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.hero .lead{font-size:clamp(1.05rem,3.6vw,1.25rem);color:var(--ink-2);max-width:38ch;margin:18px 0 24px;animation:su .7s var(--quint) .25s both}
+.hero .btns{animation:su .7s var(--quint) .35s both}
+@media (max-width:420px){.hero .btn{flex:1 1 auto;padding:0 16px}}
+
+.scena{width:100%;max-width:520px;margin:0 auto;overflow:visible}
+.scena .rotore{transform-box:view-box;transform-origin:120px 128px;animation:gira 1.2s var(--quart) .05s both}
+@keyframes gira{from{transform:rotate(-540deg) scale(.4);opacity:0}30%{opacity:1}to{transform:none;opacity:1}}
+.scena .foglia{transition:transform .5s var(--quint)}
+.scena .casa{fill:none;stroke:var(--ink);stroke-width:5;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:traccia .8s var(--quint) .85s forwards}
+.scena .finestre rect{fill:var(--green-lt);stroke:var(--ink);stroke-width:3;opacity:0;animation:appare .4s var(--quart) forwards}
+.scena .finestre rect:nth-child(1){animation-delay:1.45s}
+.scena .finestre rect:nth-child(2){animation-delay:1.55s}
+.scena .porta{fill:#fff;stroke:var(--ink);stroke-width:4}
+.scena .porta,.scena .chiave{opacity:0;animation:appare .3s var(--quart) 1.5s forwards}
+.scena .chiave .gira{transform-box:fill-box;transform-origin:50% 50%;animation:chiave .45s var(--quint) 1.8s both}
+@keyframes chiave{from{transform:rotate(0)}to{transform:rotate(90deg)}}
+.scena .luce{fill:#fff2a8;opacity:0;animation:appare .35s var(--quart) 2.05s forwards}
+@keyframes traccia{to{stroke-dashoffset:0}}
+@keyframes appare{to{opacity:1}}
+.scena:hover .foglia{transform:rotate(18deg)}
+
+/* ---------- come ti possiamo aiutare ---------- */
+.aiuto{background:var(--stone)}
+.aiuto .intro{color:var(--muted);max-width:52ch;margin:12px 0 26px}
+.scelte{display:grid;gap:10px}
+@media (min-width:860px){.scelte{grid-template-columns:repeat(3,1fr);gap:14px}}
+.scelta{font:700 1.0625rem/1.35 var(--font);text-align:left;cursor:pointer;background:#fff;border:2px solid var(--line);border-radius:16px;padding:18px 18px 18px 56px;position:relative;color:var(--ink);transition:border-color .2s var(--quart),box-shadow .25s var(--quint),transform .2s var(--quart)}
+.scelta::before{content:"";position:absolute;left:18px;top:19px;width:22px;height:22px;border-radius:50%;border:2px solid #b9c2c8;transition:border-color .2s,background-color .2s,box-shadow .2s}
+.scelta:hover{border-color:var(--green-hi)}
+.scelta[aria-pressed=true]{border-color:var(--green);box-shadow:0 16px 30px -22px rgba(44,107,59,.8)}
+.scelta[aria-pressed=true]::before{border-color:var(--green);background:var(--green);box-shadow:inset 0 0 0 4px #fff}
+.risposta{margin-top:16px;border-radius:18px;background:var(--green-dk);color:#e9f4ec;padding:24px;display:grid;gap:14px}
+@media (min-width:860px){.risposta{grid-template-columns:1fr auto;align-items:center;padding:28px 32px}}
+.risposta p{margin:0;font-size:1.0625rem;max-width:62ch}
+.risposta b{color:#fff}
+.risposta .btn{min-height:46px}
+.risposta.cambia p{animation:cambia .45s var(--quint) both}
+@keyframes cambia{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---------- il progetto ---------- */
+.progetto .wrap{display:grid;gap:36px}
+@media (min-width:900px){.progetto .wrap{grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}}
+.progetto .testa p{color:var(--ink-2);margin-top:14px;max-width:42ch}
+.progetto .testa img{border-radius:18px;margin-top:22px;width:100%;aspect-ratio:3/2;object-fit:cover}
+.tappe{list-style:none;margin:0;padding:0;position:relative}
+.tappe::before{content:"";position:absolute;left:21px;top:8px;bottom:8px;width:2px;background:repeating-linear-gradient(var(--line) 0 6px,transparent 6px 12px)}
+.tappe li{position:relative;padding:0 0 30px 64px}
+.tappe li:last-child{padding-bottom:0}
+.tappe .n{position:absolute;left:0;top:-4px;width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid var(--green);display:grid;place-items:center}
+.tappe .n svg{width:24px;height:24px}
+.tappe li:last-child .n{background:var(--green);border-color:var(--green)}
+.tappe h3{margin-bottom:6px}
+.tappe p{margin:0;color:var(--ink-2)}
+.rivela.attesa{opacity:0;transform:translateY(14px)}
+.rivela.visto{transition:opacity .55s var(--quint) var(--d,0ms),transform .55s var(--quint) var(--d,0ms)}
+
+/* ---------- i lavori ---------- */
+.lavori{background:var(--ink);color:#e7eaec}
+.lavori h2{color:#fff}
+.lavori .intro{color:#bcc3c8;max-width:50ch;margin:12px 0 28px}
+.galleria{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.galleria figure{margin:0;border-radius:14px;overflow:hidden;background:#2b3136}
+.galleria img{width:100%;height:100%;object-fit:cover;aspect-ratio:1;transition:transform 1s var(--quart)}
+.galleria .larga{grid-column:span 2}
+.galleria .larga img{aspect-ratio:2/1}
+.galleria figure:hover img{transform:scale(1.04)}
+@media (min-width:860px){
+  .galleria{grid-template-columns:repeat(3,1fr);grid-auto-rows:230px;gap:12px}
+  .galleria img,.galleria .larga img{aspect-ratio:auto}
+  .galleria .tutta{grid-column:1/-1;grid-row:span 2}
+}
+
+/* ---------- vantaggi ---------- */
+.vant .lista{margin:30px 0 0;padding:0;list-style:none;display:grid;gap:0;border-top:2px solid var(--ink)}
+@media (min-width:860px){.vant .lista{grid-template-columns:1fr 1fr;column-gap:50px}}
+.vant li{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+@media (max-width:520px){.vant li{grid-template-columns:1fr;gap:4px}}
+.vant li b{font-size:1.25rem;font-weight:900;color:var(--green-dk)}
+.vant li span{color:var(--ink-2)}
+.immob{margin-top:36px;border-radius:18px;background:var(--green-lt);padding:22px 24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.immob p{margin:0;font-weight:700;font-size:1.0625rem}
+.immob a{font-weight:900;color:var(--sky-text);text-underline-offset:4px}
+
+/* ---------- dove e contatti ---------- */
+.dove{background:var(--stone)}
+.dove .wrap{display:grid;gap:22px}
+@media (min-width:860px){.dove .wrap{grid-template-columns:1fr 1fr;align-items:center}}
+.dove .ind{font-size:clamp(1.45rem,5vw,1.9rem);font-weight:900;line-height:1.25;margin:14px 0 20px}
+.mappa{display:block;text-decoration:none;border-radius:20px;overflow:hidden;background:#fff;border:1px solid var(--line);transition:transform .3s var(--quint),box-shadow .3s var(--quint)}
+.mappa:hover{transform:translateY(-3px);box-shadow:0 18px 34px -24px rgba(31,36,40,.5)}
+.mappa .et{display:block;padding:12px 16px;font-weight:700;font-size:.9375rem;color:var(--green-dk)}
+
+.contatti{background:var(--green-dk);color:#fff;overflow:hidden;position:relative}
+.contatti .wrap{position:relative;z-index:1}
+.contatti .fondo{position:absolute;right:-90px;bottom:-110px;width:360px;height:360px;opacity:.16;pointer-events:none}
+.contatti h2{max-width:15ch}
+.contatti .sotto{color:#d3e8d8;max-width:48ch;margin:14px 0 0}
+.nap{margin:26px 0 30px;display:grid;gap:9px;font-size:1.0625rem}
+.nap a{color:#fff;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.4)}
+.nap span{display:inline-block;min-width:96px;color:#d2e8d9;font-size:.9375rem}
+
+footer{background:#16191c;color:#a7aeb3;font-size:.875rem;padding:26px 0 98px}
+footer p{margin:0 0 6px}
+@media (min-width:860px){footer{padding-bottom:26px}}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s var(--quint)}
+.barra.su{transform:none}
+.barra .btn{flex:1;min-height:48px;padding:0 12px}
+@media (min-width:860px){.barra{display:none}}
+
+a:focus-visible,.btn:focus-visible,button:focus-visible{outline:3px solid var(--sky-text);outline-offset:3px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .scena .casa{stroke-dashoffset:0}
+  .scena .finestre rect,.scena .porta,.scena .chiave,.scena .luce{opacity:1}
+  .rivela.attesa{opacity:1;transform:none}
+  .barra{transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gFoglia" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9be0ab"/><stop offset=".55" stop-color="#5daa6e"/><stop offset="1" stop-color="#3f8f52"/></linearGradient>
+    <symbol id="f" viewBox="-60 -60 120 120"><path d="M-6-55c30 6 40 34 22 56-8-4-16-12-22-24-6-12-5-24 0-32z" fill="url(#gFoglia)"/><path d="M-4-48c10 12 15 28 16 44" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-dialogo" viewBox="0 0 24 24"><path d="M4 5h16v10H9l-5 4z" fill="none" stroke="#3f8f52" stroke-width="2" stroke-linejoin="round"/><path d="M8 9h8M8 12h5" stroke="#3f8f52" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-euro" viewBox="0 0 24 24"><path d="M17 6.5a6 6 0 1 0 0 11M5 10h8M5 14h8" fill="none" stroke="#3f8f52" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-gru" viewBox="0 0 24 24"><path d="M6 21V4h3l11 3H9M6 8h3M14 7v5" fill="none" stroke="#3f8f52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12h4v3h-4z" fill="#3f8f52"/><path d="M3 21h8" stroke="#3f8f52" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-chiave" viewBox="0 0 24 24"><circle cx="8" cy="12" r="4" fill="none" stroke="#fff" stroke-width="2.2"/><path d="M12 12h9M18 12v3M21 12v2" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<div class="proto">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Dinamos</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img src="assets/logo.png" alt="Dinamos" width="400" height="96"></a>
+    <nav aria-label="Sezioni">
+      <a href="#progetto">Il progetto</a>
+      <a href="#lavori">I nostri lavori</a>
+      <a href="#vantaggi">Vantaggi</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1><span>La tua casa,</span><span class="verde">chiavi in mano</span></h1>
+      <p class="lead">Costruiamo o ristrutturiamo seguendo il tuo progetto, con assistenza in ogni fase: dalla progettazione iniziale fino alla consegna delle chiavi.</p>
+      <div class="btns">
+        <a class="btn btn-green" href="tel:+393425198329"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama ora</a>
+        <a class="btn btn-ink" href="https://wa.me/393425198329"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2m4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3"/></svg>WhatsApp</a>
+      </div>
+    </div>
+
+    <svg class="scena" viewBox="0 0 480 300" role="img" aria-label="Il simbolo di Dinamos che gira, poi una casa con la chiave nella porta">
+      <g class="rotore">
+        <g transform="translate(120 128)">
+          <g class="foglia"><use href="#f" x="-78" y="-78" width="156" height="156"/></g>
+          <g transform="rotate(72)"><g class="foglia"><use href="#f" x="-78" y="-78" width="156" height="156"/></g></g>
+          <g transform="rotate(144)"><g class="foglia"><use href="#f" x="-78" y="-78" width="156" height="156"/></g></g>
+          <g transform="rotate(216)"><g class="foglia"><use href="#f" x="-78" y="-78" width="156" height="156"/></g></g>
+          <g transform="rotate(288)"><g class="foglia"><use href="#f" x="-78" y="-78" width="156" height="156"/></g></g>
+        </g>
+      </g>
+      <path class="casa" pathLength="1" d="M228 250V150l112-84 112 84v100zM206 166l134-100 134 100M206 250h268"/>
+      <g class="finestre"><rect x="252" y="160" width="40" height="36" rx="4"/><rect x="388" y="160" width="40" height="36" rx="4"/></g>
+      <rect class="luce" x="256" y="164" width="32" height="28" rx="2"/>
+      <rect class="porta" x="318" y="176" width="44" height="74" rx="5"/>
+      <g class="chiave"><g class="gira"><circle cx="351" cy="214" r="6" fill="#3f8f52"/><rect x="349" y="214" width="4" height="12" rx="2" fill="#3f8f52"/></g></g>
+    </svg>
+  </div>
+</section>
+
+<section class="aiuto" id="aiuto">
+  <div class="wrap">
+    <h2>Come ti possiamo aiutare?</h2>
+    <p class="intro">Qualunque sia la tua esigenza, scegli quella che ti somiglia di più.</p>
+    <div class="scelte" role="group" aria-label="La tua esigenza">
+      <button class="scelta" type="button" aria-pressed="true" data-r="0">Vorresti ristrutturare ma non sai da dove iniziare?</button>
+      <button class="scelta" type="button" aria-pressed="false" data-r="1">Hai acquistato un terreno e vorresti costruire casa?</button>
+      <button class="scelta" type="button" aria-pressed="false" data-r="2">Hai bisogno di una consulenza per la casa dei tuoi sogni?</button>
+    </div>
+    <div class="risposta" id="risposta" aria-live="polite">
+      <p id="rTesto"></p>
+      <a class="btn btn-white" id="rLink" href="https://wa.me/393425198329">Scrivici su WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="progetto" id="progetto">
+  <div class="wrap">
+    <div class="testa">
+      <h2>Il nostro progetto</h2>
+      <p>Realizziamo ristrutturazioni o nuove costruzioni a costi inferiori rispetto a quelli che pagheresti rivolgendoti a più aziende.</p>
+      <img src="assets/giardino.jpg" alt="Il giardino e il portico di una casa realizzata da Dinamos" width="1200" height="795" loading="lazy">
+    </div>
+    <ol class="tappe">
+      <li class="rivela"><span class="n"><svg aria-hidden="true"><use href="#i-dialogo"/></svg></span><h3>Consulenza a 360°</h3><p>Ti seguiamo a tutto tondo, con un supporto anche in ambito fiscale e finanziario.</p></li>
+      <li class="rivela"><span class="n"><svg aria-hidden="true"><use href="#i-euro"/></svg></span><h3>Condizioni vantaggiose</h3><p>Lavoriamo con fornitori specializzati, con prodotti e tecnologie all'avanguardia a un costo vantaggioso per te.</p></li>
+      <li class="rivela"><span class="n"><svg aria-hidden="true"><use href="#i-gru"/></svg></span><h3>Zero preoccupazioni</h3><p>Niente fornitori da cercare, preventivi da confrontare o cantiere da gestire: a ogni aspetto ci pensa Dinamos.</p></li>
+      <li class="rivela"><span class="n"><svg aria-hidden="true"><use href="#i-chiave"/></svg></span><h3>Le chiavi di casa tua</h3><p>L'avanzamento dei lavori sempre sotto controllo, la consegna delle chiavi programmata e garantita.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="lavori" id="lavori">
+  <div class="wrap">
+    <h2>I nostri lavori</h2>
+    <p class="intro">Alcune realizzazioni Dinamos: case nuove, palazzine e interni finiti, pronti da abitare.</p>
+    <div class="galleria">
+      <figure class="larga"><img src="assets/palazzina.jpg" alt="Una palazzina realizzata da Dinamos con lo striscione del cantiere" width="1400" height="927" loading="lazy"></figure>
+      <figure><img src="assets/facciata.jpg" alt="Facciata con balconi e vetrata verticale" width="1200" height="795" loading="lazy"></figure>
+      <figure><img src="assets/cucina.jpg" alt="Una cucina finita" width="1200" height="807" loading="lazy"></figure>
+      <figure><img src="assets/terrazzo.jpg" alt="Un terrazzo con vista sulle montagne" width="1200" height="795" loading="lazy"></figure>
+      <figure><img src="assets/bagno.jpg" alt="Un bagno finito con la vasca" width="1200" height="548" loading="lazy"></figure>
+      <figure class="larga tutta"><img src="assets/casa.jpg" alt="Una casa nuova con il balcone e le montagne sullo sfondo" width="1400" height="802" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="vant" id="vantaggi">
+  <div class="wrap">
+    <h2>I vantaggi del chiavi in mano</h2>
+    <ul class="lista">
+      <li><b>Garanzia</b><span>Un'attenta pianificazione del cantiere: rispetto del budget e dei tempi programmati.</span></li>
+      <li><b>Assistenza</b><span>Ti affianchiamo in ambito finanziario e fiscale, per le detrazioni, i contributi pubblici e il credito bancario.</span></li>
+      <li><b>Consulenza</b><span>Personalizzata, in ogni fase del tuo progetto: siamo sempre a disposizione.</span></li>
+      <li><b>Manutenzione</b><span>Costi di gestione più bassi, grazie a materiali di qualità e a prestazioni energetiche migliori.</span></li>
+      <li><b>Comfort</b><span>Una costruzione attenta e materiali ad alte prestazioni, in ogni realizzazione.</span></li>
+    </ul>
+    <div class="immob">
+      <p>Vuoi acquistare una casa nuova?</p>
+      <a href="https://dinamos.it/dinamos_immobiliare/" target="_blank" rel="noopener">Scopri Dinamos Immobiliare</a>
+    </div>
+  </div>
+</section>
+
+<section class="dove" id="dove">
+  <div class="wrap">
+    <div>
+      <h2>Dove siamo</h2>
+      <p class="ind">Via Ruatti 41<br>38023 Cles (TN)</p>
+      <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=Dinamos+Via+Ruatti+41+Cles" target="_blank" rel="noopener">Apri in Google Maps</a>
+    </div>
+    <a class="mappa" href="https://www.google.com/maps/search/?api=1&amp;query=Dinamos+Via+Ruatti+41+Cles" target="_blank" rel="noopener" aria-label="Apri Via Ruatti 41, Cles in Google Maps">
+      <svg viewBox="0 0 400 220" aria-hidden="true">
+        <rect width="400" height="220" fill="#eef4f0"/>
+        <path d="M0 150C60 120 120 160 200 130S330 90 400 110v110H0z" fill="#dcebdf"/>
+        <path d="M-10 70C90 90 170 60 260 80S360 120 410 100" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+        <path d="M150 -10C160 60 190 120 210 230" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+        <g transform="translate(184 92)"><path d="M0 0c-11-13-16-20-16-28a16 16 0 0 1 32 0c0 8-5 15-16 28z" fill="#3f8f52" stroke="#fff" stroke-width="3"/><circle cy="-28" r="5.5" fill="#fff"/></g>
+        <text x="20" y="200" font-family="Lato,system-ui,sans-serif" font-weight="900" font-size="15" fill="#2c6b3b">Cles · Val di Non</text>
+      </svg>
+      <span class="et">Via Ruatti 41, Cles · apri la mappa</span>
+    </a>
+  </div>
+</section>
+
+<section class="contatti" id="contatti">
+  <svg class="fondo" viewBox="-60 -60 120 120" aria-hidden="true"><use href="#f" x="-60" y="-60" width="120" height="120"/><use href="#f" x="-60" y="-60" width="120" height="120" transform="rotate(72)"/><use href="#f" x="-60" y="-60" width="120" height="120" transform="rotate(144)"/><use href="#f" x="-60" y="-60" width="120" height="120" transform="rotate(216)"/><use href="#f" x="-60" y="-60" width="120" height="120" transform="rotate(288)"/></svg>
+  <div class="wrap">
+    <h2>Parliamo della tua casa</h2>
+    <p class="sotto">Contattaci senza impegno per informazioni sulle nostre iniziative edilizie o per fissare un appuntamento con noi.</p>
+    <div class="nap">
+      <div><span>Telefono</span> <a href="tel:+393425198329">342 519 8329</a></div>
+      <div><span>Email</span> <a href="mailto:info@dinamos.it">info@dinamos.it</a></div>
+      <div><span>Sede</span> Via Ruatti 41, 38023 Cles (TN)</div>
+    </div>
+    <div class="btns">
+      <a class="btn btn-white" href="tel:+393425198329">Chiama ora</a>
+      <a class="btn btn-ink" href="https://wa.me/393425198329">WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Dinamos Soc. Coop. Edilizia · Via Ruatti 41, 38023 Cles (TN) · P.IVA 02040940229</p>
+    <p>Prototipo gratuito preparato da Stefano Pontalti, non ancora pubblicato come sito.</p>
+  </div>
+</footer>
+
+<div class="barra" id="barra">
+  <a class="btn btn-green" href="tel:+393425198329">Chiama ora</a>
+  <a class="btn btn-line" href="https://wa.me/393425198329">WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  var ridotto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // come ti possiamo aiutare: ogni scelta ha la sua risposta e il suo messaggio gia' pronto
+  var risposte = [
+    ['Con il chiavi in mano <b>ristrutturi casa affidandoti alla nostra esperienza</b>, ma seguendo il tuo progetto e le tue esigenze: ci pensiamo noi a fornitori, preventivi e cantiere.', 'Buongiorno, vorrei ristrutturare casa e non so da dove iniziare.'],
+    ['Sviluppiamo con te il progetto della casa sul tuo terreno e <b>la costruiamo con tempi certi di consegna</b>, seguendo ogni fase fino alle chiavi.', 'Buongiorno, ho un terreno e vorrei costruire casa.'],
+    ['Ti offriamo una <b>consulenza personalizzata in ogni fase</b>, anche in ambito fiscale e finanziario, per detrazioni, contributi e credito bancario.', 'Buongiorno, vorrei una consulenza per la mia casa.']
+  ];
+  var scelte = document.querySelectorAll('.scelta'), box = document.getElementById('risposta'), testo = document.getElementById('rTesto'), link = document.getElementById('rLink');
+  function mostra(i){
+    scelte.forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.r == i) });
+    testo.innerHTML = risposte[i][0];
+    link.href = 'https://wa.me/393425198329?text=' + encodeURIComponent(risposte[i][1]);
+    box.classList.remove('cambia'); void box.offsetWidth; box.classList.add('cambia');
+  }
+  scelte.forEach(function(b){ b.addEventListener('click', function(){ mostra(+b.dataset.r) }) });
+  mostra(0); box.classList.remove('cambia');
+
+  var top = document.getElementById('top'), barra = document.getElementById('barra');
+  function scorri(){ var y = scrollY; top.classList.toggle('scorso', y > 8); barra.classList.toggle('su', y > 340) }
+  addEventListener('scroll', scorri, {passive:true}); scorri();
+
+  if (!('IntersectionObserver' in window) || ridotto) return;
+  // le tappe del progetto compaiono una dopo l'altra (solo quelle sotto la piega)
+  var o = new IntersectionObserver(function(v){
+    var n = 0;
+    v.forEach(function(x){ if (!x.isIntersecting) return; var el = x.target;
+      el.style.setProperty('--d', (n++ * 110) + 'ms'); el.classList.add('visto'); el.classList.remove('attesa'); o.unobserve(el) });
+  }, {rootMargin:'0px 0px -10% 0px'});
+  document.querySelectorAll('.rivela').forEach(function(el){ if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('attesa'); o.observe(el) } });
+})();
+</script>
+</body>
+</html>
