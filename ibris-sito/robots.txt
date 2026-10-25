@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+Sitemap: https://www.ibrispizzeria.com/sitemap.xml
