@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Flash Pulizie, impresa di pulizie a Pergine Valsugana</title>
+<meta name="description" content="Pulizia di uffici, condomini, vetri e vetrine, sanificazione e cura del verde in tutta la provincia di Trento. Flash Pulizie di Paolo Sico, Costasavina di Pergine Valsugana.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Flash Pulizie: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/flash-pulizie/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/flash-pulizie/assets/og.jpg?v=202610260436">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Flash Pulizie su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 26C14 24 24 16 27 4c-2 9-9 17-21 22z' fill='%2300adef' stroke='%231f1a17' stroke-width='2'/%3E%3C/svg%3E">
+<style id="font-locali">
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url(assets/fonts/lato-italic-900-latin-ext-0d7e98.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url(assets/fonts/lato-italic-900-latin-73ca6e.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-400-latin-ext-ab8d74.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-400-latin-702e3b.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-700-latin-ext-91ee0a.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-700-latin-b0cd9a.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-900-latin-ext-31dca3.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url(assets/fonts/lato-normal-900-latin-ba5299.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+/* Palette di Flash Pulizie: l'azzurro e il nero del logo, il bianco del pulito */
+:root{
+  --ink:#1f1a17;
+  --ink-2:#3b3632;
+  --muted:#5c5650;
+  --azzurro:#00adef;
+  --azzurro-2:#00a5df;
+  --azzurro-dk:#00658c;
+  --azzurro-ink:#004d6b;
+  --cielo:#e8f7fd;
+  --line:#dcebf2;
+  --white:#fff;
+  --font:"Lato",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --quart:cubic-bezier(.25,1,.5,1);
+  --quint:cubic-bezier(.22,1,.36,1);
+  --expo:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--white);color:var(--ink);font:400 1.0625rem/1.62 var(--font)}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:900;line-height:1.04;letter-spacing:-.02em;text-wrap:balance}
+h2{font-size:clamp(1.95rem,6.6vw,3rem);font-style:italic}
+h3{font-size:1.2rem;letter-spacing:-.005em;line-height:1.25}
+p{margin:0 0 1em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left))}
+section{padding:76px 0}
+
+.proto{background:var(--ink);color:#ececec;font-size:.8125rem;text-align:center;padding:7px 16px;line-height:1.4}
+.proto b{color:#fff}
+
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .25s var(--quart)}
+header.top.scorso{border-bottom-color:var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
+.brand img{width:118px}
+.top nav{display:flex;gap:2px}
+.top nav a{font-weight:700;font-size:.9375rem;text-decoration:none;padding:9px 12px;border-radius:8px;color:var(--ink-2);transition:background-color .2s var(--quart)}
+.top nav a:hover{background:var(--cielo)}
+@media (max-width:820px){.top nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 24px;border-radius:999px;font:900 1rem/1 var(--font);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background-color .2s var(--quart),color .2s var(--quart),transform .12s var(--quart),border-color .2s var(--quart)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-blu{background:var(--azzurro-dk);color:#fff}
+.btn-blu:hover{background:var(--azzurro-ink)}
+.btn-nero{background:var(--ink);color:#fff}
+.btn-nero:hover{background:#000}
+.btn-line{background:#fff;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{background:var(--cielo)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+@media (max-width:420px){.btns .btn{flex:1 1 auto;padding:0 16px}}
+
+/* ---------- apertura: il vetro appannato e il tergivetro che lascia la scia del pulito ---------- */
+.hero{padding:24px 0 60px}
+.hero .wrap{display:grid;gap:26px;align-items:center}
+@media (min-width:900px){.hero{padding:56px 0 86px}.hero .wrap{grid-template-columns:1.1fr .9fr;gap:52px}}
+.vetro{position:relative;border-radius:18px;overflow:hidden;background-color:#00678f;background-image:linear-gradient(160deg,#004d6b 0%,#00678f 55%,#0078a8 100%);padding:34px 24px 40px;isolation:isolate;min-height:290px;display:flex;flex-direction:column;justify-content:flex-end}
+.vetro::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.28) 42%,transparent 54%);z-index:0;pointer-events:none}
+.vetro h1{position:relative;z-index:1;color:#fff;font-size:clamp(2.7rem,12vw,5rem);font-style:italic;letter-spacing:-.035em;line-height:.95}
+.vetro p{position:relative;z-index:1;color:#fff;font-weight:700;font-size:1.0625rem;margin:14px 0 0}
+.alone{position:absolute;inset:0;z-index:2;pointer-events:none;background:
+  radial-gradient(circle at 18% 30%,rgba(255,255,255,.55) 0 3px,transparent 4px),
+  radial-gradient(circle at 64% 22%,rgba(255,255,255,.5) 0 2px,transparent 3px),
+  radial-gradient(circle at 82% 70%,rgba(255,255,255,.55) 0 3px,transparent 4px),
+  radial-gradient(circle at 36% 78%,rgba(255,255,255,.5) 0 2px,transparent 3px),
+  radial-gradient(circle at 50% 50%,rgba(255,255,255,.45) 0 2px,transparent 3px),
+  rgba(226,238,244,.9);
+  clip-path:inset(0 0 0 0);animation:asciuga 1.35s var(--quart) .35s forwards}
+@keyframes asciuga{to{clip-path:inset(0 0 0 100%)}}
+.tergi{position:absolute;top:-4%;bottom:-4%;left:0;z-index:3;width:30px;pointer-events:none;transform:translateX(-40px);animation:passa 1.35s var(--quart) .35s forwards}
+.tergi i{position:absolute;inset:0 9px;border-radius:6px;background:var(--ink);box-shadow:0 0 0 3px rgba(255,255,255,.35)}
+.tergi b{position:absolute;left:-14px;top:50%;width:26px;height:12px;margin-top:-6px;border-radius:6px;background:var(--ink)}
+@keyframes passa{0%{transform:translateX(-40px)}100%{transform:translateX(calc(var(--w,360px) + 10px))}}
+.scia{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.55) 50%,transparent 100%);transform:translateX(-100%);animation:scia .9s var(--quint) 1.55s forwards}
+@keyframes scia{to{transform:translateX(100%)}}
+.hero .lead{font-size:clamp(1.05rem,3.6vw,1.2rem);color:var(--ink-2);max-width:42ch;margin:0 0 22px}
+.hero .lead b{color:var(--ink)}
+
+/* ---------- servizi ---------- */
+.servizi{background:var(--cielo)}
+.servizi .intro{color:var(--muted);max-width:52ch;margin:12px 0 30px}
+.griglia{display:grid;gap:14px}
+@media (min-width:640px){.griglia{grid-template-columns:1fr 1fr}}
+@media (min-width:980px){.griglia{grid-template-columns:repeat(3,1fr)}}
+.serv{background:#fff;border-radius:14px;padding:22px;border:1px solid var(--line);opacity:0;transform:translateY(14px);transition:opacity .5s var(--quint),transform .5s var(--quint)}
+.serv.vista{opacity:1;transform:none}
+.serv svg{width:46px;height:46px;margin-bottom:14px}
+.serv p{margin:8px 0 0;color:var(--ink-2);font-size:1rem}
+.sapevi{margin-top:26px;background:var(--ink);color:#eaeaea;border-radius:14px;padding:22px 24px}
+.sapevi b{color:#fff;display:block;font-size:1.125rem;margin-bottom:4px}
+
+/* ---------- chi siamo ---------- */
+.chi .wrap{display:grid;gap:30px}
+@media (min-width:880px){.chi .wrap{grid-template-columns:1fr 1fr;gap:60px;align-items:start}}
+.chi p{color:var(--ink-2)}
+.paolo{display:flex;gap:16px;align-items:center;margin-top:22px}
+.paolo img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--azzurro)}
+.paolo b{display:block;font-size:1.0625rem}
+.paolo span{color:var(--muted);font-size:.9375rem}
+.storia{list-style:none;margin:0;padding:0;border-left:3px solid var(--line);display:grid;gap:22px}
+.storia li{position:relative;padding-left:24px}
+.storia li::before{content:"";position:absolute;left:-9px;top:6px;width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--azzurro)}
+.storia .anno{display:block;font-weight:900;font-style:italic;font-size:1.6rem;color:var(--azzurro-dk);line-height:1}
+.storia p{margin:6px 0 0}
+.motto{margin-top:26px;font-size:1.125rem;font-weight:700;color:var(--ink);border-left:4px solid var(--azzurro);padding-left:16px}
+
+/* ---------- zona ---------- */
+.zona{background:var(--cielo)}
+.zona .wrap{display:grid;gap:22px}
+@media (min-width:860px){.zona .wrap{grid-template-columns:1fr 1fr;align-items:center}}
+.zona p{color:var(--ink-2);margin-top:14px}
+.sede{display:block;text-decoration:none;background:#fff;border-radius:14px;border:1px solid var(--line);padding:24px;transition:transform .3s var(--quint),box-shadow .3s var(--quint)}
+.sede:hover{transform:translateY(-3px);box-shadow:0 18px 34px -24px rgba(0,77,107,.5)}
+.sede h3{margin-bottom:8px}
+.sede p{margin:0 0 14px;font-size:1.125rem;font-weight:700;color:var(--ink)}
+.sede span{font-weight:900;color:var(--azzurro-dk);text-decoration:underline;text-underline-offset:4px}
+
+/* ---------- contatti ---------- */
+.contatti{background:var(--azzurro-ink);color:#fff}
+.contatti h2{max-width:16ch}
+.contatti .sotto{color:#d9f2fc;max-width:46ch;margin:14px 0 0}
+.nap{margin:26px 0 30px;display:grid;gap:10px;font-size:1.0625rem}
+.nap div{display:grid;grid-template-columns:88px 1fr;gap:0 10px;align-items:baseline}
+.nap span{font-weight:700;font-size:.9375rem}
+.nap a{color:#fff;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.5)}
+
+footer{background:#141110;color:#aaa49e;font-size:.875rem;padding:26px 0 98px}
+footer p{margin:0 0 6px}
+@media (min-width:860px){footer{padding-bottom:26px}}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s var(--quint)}
+.barra.su{transform:none}
+.barra .btn{flex:1;min-height:48px;padding:0 12px}
+@media (min-width:860px){.barra{display:none}}
+
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.contatti a:focus-visible{outline-color:#fff}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .alone,.tergi,.scia{display:none}
+  .serv{opacity:1;transform:none}
+  .barra{transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="proto">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Flash Pulizie</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Flash Pulizie"><img src="assets/logo.png" alt="Flash Pulizie" width="520" height="229"></a>
+    <nav aria-label="Sezioni">
+      <a href="#servizi">Servizi</a>
+      <a href="#chi">Chi siamo</a>
+      <a href="#zona">Dove lavoriamo</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="vetro" id="vetro">
+      <h1>La scia del pulito</h1>
+      <p>Rapidi ed efficienti, in tutta la provincia di Trento.</p>
+      <div class="scia" aria-hidden="true"></div>
+      <div class="alone" aria-hidden="true"></div>
+      <div class="tergi" aria-hidden="true"><i></i><b></b></div>
+    </div>
+    <div>
+      <p class="lead">Impresa di pulizie con sede a <b>Costasavina di Pergine Valsugana</b>. Puliamo uffici, condomini, stabili, vetri e vetrine, sanifichiamo gli ambienti e curiamo il verde, con uno staff affiatato e attrezzature professionali.</p>
+      <div class="btns">
+        <a class="btn btn-blu" href="tel:+393332844193"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama ora</a>
+        <a class="btn btn-nero" href="https://wa.me/393332844193?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20le%20pulizie"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2m4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3"/></svg>WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="servizi" id="servizi">
+  <div class="wrap">
+    <h2>I nostri servizi</h2>
+    <p class="intro">Per ogni esigenza di pulito, a casa, in ufficio e negli spazi comuni. Preventivo senza impegno.</p>
+    <div class="griglia">
+      <article class="serv">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#1f1a17" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="12" width="36" height="30" rx="3" fill="#e8f7fd"/><path d="M6 20h36M16 12V7h16v5"/><rect x="13" y="26" width="9" height="9" fill="#00adef"/><rect x="26" y="26" width="9" height="9" fill="#00adef"/></svg>
+        <h3>Pulizia di uffici e industriali</h3>
+        <p>Si passano ore ogni giorno sul posto di lavoro: l'ufficio deve essere pulito e accogliente, come casa vostra.</p>
+      </article>
+      <article class="serv">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#1f1a17" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M8 42V18l16-11 16 11v24z" fill="#e8f7fd"/><path d="M4 42h40"/><rect x="14" y="22" width="7" height="7" fill="#00adef"/><rect x="27" y="22" width="7" height="7" fill="#00adef"/><path d="M20 42V33h8v9"/></svg>
+        <h3>Pulizia dei condomini</h3>
+        <p>Scale e spazi comuni che profumano di pulito e superfici che brillano, fino al passaggio successivo.</p>
+      </article>
+      <article class="serv">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#1f1a17" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="36" height="36" rx="2" fill="#e8f7fd"/><path d="M24 6v36M6 24h36"/><path d="M12 14l6-4M28 32l8-6" stroke="#00adef" stroke-width="3" stroke-linecap="round"/></svg>
+        <h3>Lavaggio vetri e vetrine</h3>
+        <p>Per un negozio che punta sulla merce esposta, ma anche per uffici e giri scale: vetri brillanti, ovunque.</p>
+      </article>
+      <article class="serv">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#1f1a17" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M24 5l15 6v11c0 10-7 17-15 21C16 39 9 32 9 22V11z" fill="#e8f7fd"/><path d="M17 24l5 5 9-10" stroke="#00adef" stroke-width="3" stroke-linecap="round"/></svg>
+        <h3>Sanificazione</h3>
+        <p>Sanificare gli ambienti dove passate il tempo libero e di lavoro è importante per la salute. In tutta la provincia.</p>
+      </article>
+      <article class="serv">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#1f1a17" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M6 42h36M10 42V16h12v26M26 42V8h12v34" fill="#e8f7fd"/><path d="M14 22h4M14 30h4M30 14h4M30 22h4M30 30h4" stroke="#00adef" stroke-width="3"/></svg>
+        <h3>Pulizia di stabili</h3>
+        <p>Stabili interi puliti a fondo, con attrezzature professionali per la pulizia industriale e domestica.</p>
+      </article>
+      <article class="serv">
+        <svg viewBox="0 0 48 48" fill="none" stroke="#1f1a17" stroke-width="2.4" stroke-linejoin="round" aria-hidden="true"><path d="M24 42V22" /><path d="M24 24c-9 0-14-6-14-14 9 0 14 5 14 14zM24 30c0-8 5-13 14-13 0 8-5 13-14 13z" fill="#00adef"/><path d="M8 42h32"/></svg>
+        <h3>Giardinaggio e cura del verde</h3>
+        <p>Per sistemare e rendere gradevole il vostro angolo verde, in casa o negli spazi comuni del condominio.</p>
+      </article>
+    </div>
+    <div class="sapevi"><b>Lo sapevi?</b>Se hai un'azienda, le spese di pulizia le puoi detrarre fiscalmente dal reddito della tua impresa. Per dubbi o domande, chiedici pure: ti rispondiamo con un preventivo senza impegno.</div>
+  </div>
+</section>
+
+<section class="chi" id="chi">
+  <div class="wrap">
+    <div>
+      <h2>Chi siamo</h2>
+      <p style="margin-top:14px">Flash Pulizie nasce per iniziativa di Paolo Sico, che ha fatto esperienza in altre aziende importanti del settore prima di fondare la sua. Non sono solo pulizie: è lavorare a stretto contatto con la gente. Il nostro mondo si basa sulla soddisfazione del cliente e sul passaparola.</p>
+      <div class="paolo"><img src="assets/paolo.jpg" alt="Paolo Sico, titolare di Flash Pulizie" width="270" height="270" loading="lazy"><div><b>Paolo Sico</b><span>Titolare di Flash Pulizie</span></div></div>
+      <p class="motto">«Ho scelto il nome Flash Pulizie per dare l'idea di una scia pulente, rapida e persistente.»</p>
+    </div>
+    <ol class="storia">
+      <li><span class="anno">2006</span><p>Paolo inizia a lavorare nel settore delle pulizie, nelle aziende affermate di Pergine Valsugana e Trento.</p></li>
+      <li><span class="anno">2015</span><p>Nasce Flash Pulizie, con i collaboratori che ancora oggi formano lo staff e fanno crescere l'attività.</p></li>
+      <li><span class="anno">Oggi</span><p>Pulizie, sanificazione, vetri e cura del verde per aziende, condomini e privati in tutta la provincia di Trento.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="zona" id="zona">
+  <div class="wrap">
+    <div>
+      <h2>Dove lavoriamo</h2>
+      <p>La sede è a Costasavina, frazione di Pergine Valsugana. Lavoriamo in tutta la provincia di Trento.</p>
+    </div>
+    <a class="sede" href="https://www.google.com/maps/search/?api=1&amp;query=Flash+Pulizie+Via+del+Poch+5+Costasavina+Pergine+Valsugana" target="_blank" rel="noopener">
+      <h3>La sede</h3>
+      <p>Via del Poch 5<br>38057 Costasavina, Pergine Valsugana (TN)</p>
+      <span>Apri in Google Maps</span>
+    </a>
+  </div>
+</section>
+
+<section class="contatti" id="contatti">
+  <div class="wrap">
+    <h2>Chiedeteci un preventivo senza impegno</h2>
+    <p class="sotto">Diteci cosa c'è da pulire e dove: vi rispondiamo al più presto con un preventivo su misura.</p>
+    <div class="nap">
+      <div><span>Telefono</span> <a href="tel:+393332844193">333 284 4193</a></div>
+      <div><span>Email</span> <a href="mailto:info@flash-pulizie.it">info@flash-pulizie.it</a></div>
+      <div><span>Sede</span> Via del Poch 5, Costasavina di Pergine Valsugana</div>
+    </div>
+    <div class="btns">
+      <a class="btn btn-white" href="tel:+393332844193">Chiama ora</a>
+      <a class="btn btn-nero" href="https://wa.me/393332844193?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20le%20pulizie">WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Flash Pulizie di Paolo Sico · Via del Poch 5, 38057 Costasavina, Pergine Valsugana (TN) · P.IVA 02389110228</p>
+    <p>Prototipo gratuito preparato da Stefano Pontalti, non ancora pubblicato come sito.</p>
+  </div>
+</footer>
+
+<div class="barra" id="barra">
+  <a class="btn btn-blu" href="tel:+393332844193">Chiama ora</a>
+  <a class="btn btn-line" href="https://wa.me/393332844193?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20le%20pulizie">WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  // il tergivetro percorre tutta la larghezza del vetro, qualunque sia lo schermo
+  var v = document.getElementById('vetro');
+  function misura(){ v.style.setProperty('--w', v.offsetWidth + 'px') }
+  misura(); addEventListener('resize', misura);
+
+  // i servizi compaiono uno dopo l'altro quando arrivano sullo schermo
+  var carte = document.querySelectorAll('.serv');
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var io = new IntersectionObserver(function(voci){
+      voci.forEach(function(e){
+        if (!e.isIntersecting) return;
+        var i = Array.prototype.indexOf.call(carte, e.target) % 3;
+        e.target.style.transitionDelay = (i * 80) + 'ms';
+        e.target.classList.add('vista'); io.unobserve(e.target);
+      });
+    }, {rootMargin:'0px 0px -8% 0px'});
+    carte.forEach(function(c){ io.observe(c) });
+  } else carte.forEach(function(c){ c.classList.add('vista') });
+
+  var top = document.getElementById('top'), barra = document.getElementById('barra');
+  function scorri(){ var y = scrollY; top.classList.toggle('scorso', y > 8); barra.classList.toggle('su', y > 340) }
+  addEventListener('scroll', scorri, {passive:true}); scorri();
+})();
+</script>
+</body>
+</html>

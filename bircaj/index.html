@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Bircaj Costruzioni, impresa edile a Torbole</title>
+<meta name="description" content="Costruzioni e ristrutturazioni chiavi in mano sul Lago di Garda: Riva, Arco, Torbole, Nago, Dro fino a Trento. Bircaj Costruzioni, Nago-Torbole.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bircaj Costruzioni: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/bircaj/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/bircaj/assets/og.jpg?v=202610260436">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Bircaj Costruzioni su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 18 13 8l10 10' fill='none' stroke='%23c22a2a' stroke-width='3.5'/%3E%3Cpath d='M13 18 21 10l9 8' fill='none' stroke='%232f2f2f' stroke-width='3.5'/%3E%3Crect x='10' y='19' width='6' height='6' fill='%23c22a2a'/%3E%3C/svg%3E">
+<style id="font-locali">
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(assets/fonts/open-sans-normal-400-800-latin-ext-1c3db7.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(assets/fonts/open-sans-normal-400-800-latin-c79c2f.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+/* Palette di Bircaj: il rosso e il grigio scuro dei tetti nel logo, il rosso mattone dei loro cantieri */
+:root{
+  --ink:#1f2022;
+  --ink-2:#3f4246;
+  --muted:#5d6166;
+  --rosso:#c22a2a;
+  --rosso-dk:#9c1f1f;
+  --carbone:#2f2f2f;
+  --grigio:#7a7c80;
+  --mattone:#c8643c;
+  --calce:#f2f3f4;
+  --line:#e2e3e5;
+  --white:#fff;
+  --font:"Open Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --quart:cubic-bezier(.25,1,.5,1);
+  --quint:cubic-bezier(.22,1,.36,1);
+  --expo:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--white);color:var(--ink);font:400 1.0625rem/1.62 var(--font)}
+img,svg{display:block;max-width:100%}
+img{height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;font-weight:800;line-height:1.06;letter-spacing:-.025em;text-wrap:balance}
+h2{font-size:clamp(1.9rem,6.4vw,3rem)}
+h3{font-size:1.2rem;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+p{margin:0 0 1em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 max(20px,env(safe-area-inset-left))}
+section{padding:78px 0}
+
+.proto{background:var(--carbone);color:#ebebeb;font-size:.8125rem;text-align:center;padding:7px 16px;line-height:1.4}
+.proto b{color:#fff}
+
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .25s var(--quart)}
+header.top.scorso{border-bottom-color:var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg{width:46px;height:auto}
+.brand span{display:block;line-height:1.1}
+.brand b{display:block;font-size:.9375rem;font-weight:600;color:var(--carbone)}
+.brand i{display:block;font-style:normal;font-size:.9375rem;font-weight:700;color:var(--rosso)}
+.top nav{display:flex;gap:2px}
+.top nav a{font-weight:600;font-size:.9375rem;text-decoration:none;padding:9px 12px;border-radius:8px;color:var(--ink-2);transition:background-color .2s var(--quart)}
+.top nav a:hover{background:var(--calce)}
+@media (max-width:820px){.top nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;padding:0 24px;border-radius:4px;font:700 1rem/1 var(--font);text-decoration:none;border:2px solid transparent;cursor:pointer;transition:background-color .2s var(--quart),color .2s var(--quart),transform .12s var(--quart),border-color .2s var(--quart)}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-rosso{background:var(--rosso);color:#fff}
+.btn-rosso:hover{background:var(--rosso-dk)}
+.btn-carbone{background:var(--carbone);color:#fff}
+.btn-carbone:hover{background:#111}
+.btn-line{background:#fff;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-white:hover{background:var(--calce)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+@media (max-width:420px){.btns .btn{flex:1 1 auto;padding:0 16px}}
+
+/* ---------- apertura: i tetti del logo si disegnano, i mattoni salgono ---------- */
+.hero{padding:30px 0 56px;overflow:hidden}
+.hero .wrap{display:grid;gap:26px;align-items:center}
+@media (min-width:900px){.hero{padding:64px 0 84px}.hero .wrap{grid-template-columns:1fr 1fr;gap:56px}}
+.hero h1{font-size:clamp(2.5rem,11vw,4.8rem);letter-spacing:-.04em;line-height:.98}
+.hero h1 span{display:block;animation:su .8s var(--expo) both}
+.hero h1 span+span{color:var(--rosso);animation-delay:.1s}
+@keyframes su{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero .lead{font-size:clamp(1.05rem,3.6vw,1.22rem);color:var(--ink-2);max-width:40ch;margin:18px 0 24px;animation:su .7s var(--quint) .25s both}
+.hero .btns{animation:su .7s var(--quint) .35s both}
+.cantiere{width:100%;max-width:520px;margin:0 auto;overflow:visible}
+.cantiere .tetto{fill:none;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:traccia .8s var(--quint) forwards}
+.cantiere .t1{stroke:var(--rosso);animation-delay:.15s}
+.cantiere .t2{stroke:var(--carbone);animation-delay:.3s}
+.cantiere .t3{stroke:#8a8c90;animation-delay:.45s}
+@keyframes traccia{to{stroke-dashoffset:0}}
+.cantiere .mattone{transform-box:fill-box;transform-origin:50% 100%;animation:posa .4s var(--quint) both;animation-delay:calc(.7s + var(--r) * .14s + var(--c) * .03s)}
+@keyframes posa{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+.cantiere .vetro{fill:var(--rosso);transform-box:fill-box;transform-origin:center;animation:vetro .45s var(--expo) 1.75s both}
+@keyframes vetro{from{transform:scale(0)}to{transform:none}}
+.cantiere .terra{stroke:var(--line);stroke-width:3}
+
+/* ---------- cosa facciamo ---------- */
+.lavori .intro{color:var(--muted);max-width:54ch;margin:12px 0 34px}
+.riga{display:grid;gap:18px;align-items:center;margin-bottom:34px}
+@media (min-width:860px){.riga{grid-template-columns:1.15fr .85fr;gap:44px;margin-bottom:46px}.riga:nth-of-type(even) .foto{order:2}}
+.riga .foto{margin:0;border-radius:6px;overflow:hidden;background:var(--calce)}
+.riga .foto img{width:100%;aspect-ratio:16/8;object-fit:cover;transition:transform 1.2s var(--quart)}
+.riga:hover .foto img{transform:scale(1.04)}
+.riga h3{font-size:clamp(1.35rem,4.6vw,1.75rem);font-weight:800}
+.riga p{margin:10px 0 0;color:var(--ink-2)}
+.elenco{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:7px}
+.elenco li{display:flex;gap:10px;align-items:flex-start}
+.elenco li::before{content:"";flex:none;width:12px;height:12px;margin-top:7px;background:var(--rosso);clip-path:polygon(50% 0,100% 45%,100% 100%,0 100%,0 45%)}
+
+/* ---------- chiavi in mano ---------- */
+.chiavi{background:var(--carbone);color:#e9e9e9}
+.chiavi .wrap{display:grid;gap:24px}
+@media (min-width:860px){.chiavi .wrap{grid-template-columns:1fr 1fr;gap:56px;align-items:center}}
+.chiavi h2{color:#fff}
+.chiavi .slogan{font-size:clamp(1.3rem,4.4vw,1.75rem);font-weight:700;color:#fff;margin:16px 0 0}
+.chiavi ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.chiavi li{border-left:0;padding:16px 18px;border-radius:6px;background:#3a3a3a}
+.chiavi li b{display:block;color:#fff;font-size:1.0625rem}
+.chiavi li span{color:#cfcfcf;font-size:.9375rem}
+
+/* ---------- il cantiere passo dopo passo ---------- */
+.passo .intro{color:var(--muted);max-width:52ch;margin:12px 0 22px}
+.striscia{display:grid;grid-auto-flow:column;grid-auto-columns:min(78%,420px);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.striscia::-webkit-scrollbar{display:none}
+.striscia figure{margin:0;scroll-snap-align:start;position:relative;border-radius:6px;overflow:hidden;background:var(--calce)}
+.striscia img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.striscia figcaption{position:absolute;left:12px;bottom:12px;background:rgba(31,32,34,.82);color:#fff;font-weight:700;font-size:.9375rem;padding:6px 12px;border-radius:4px}
+.striscia figcaption b{color:#ff9d9d;margin-right:6px}
+.avanza{margin-top:14px;height:6px;border-radius:6px;background:var(--calce);overflow:hidden}
+.avanza i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--rosso),var(--mattone));transform:scaleX(var(--p,.2));transform-origin:left;transition:transform .2s var(--quart)}
+.passo .suggerimento{margin-top:10px;font-size:.9375rem;color:var(--muted)}
+
+/* ---------- zone ---------- */
+.zone{background:var(--calce)}
+.zone .wrap{display:grid;gap:22px}
+@media (min-width:860px){.zone .wrap{grid-template-columns:1fr 1fr;align-items:center}}
+.paesi{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.paesi li{font-weight:700;padding:8px 14px;border-radius:999px;background:#fff;border:1.5px solid var(--line)}
+.paesi li:first-child{border-color:var(--rosso);color:var(--rosso-dk)}
+.sede{display:block;text-decoration:none;background:#fff;border-radius:8px;border:1px solid var(--line);padding:24px;transition:transform .3s var(--quint),box-shadow .3s var(--quint)}
+.sede:hover{transform:translateY(-3px);box-shadow:0 18px 34px -24px rgba(31,32,34,.5)}
+.sede h3{margin-bottom:8px}
+.sede p{margin:0 0 14px;font-size:1.125rem;font-weight:600}
+.sede span{font-weight:700;color:var(--rosso-dk);text-decoration:underline;text-underline-offset:4px}
+
+/* ---------- contatti ---------- */
+.contatti{background:var(--rosso);color:#fff;position:relative;overflow:hidden}
+.contatti .wrap{position:relative;z-index:1}
+.contatti .fondo{position:absolute;right:-40px;bottom:-30px;width:300px;opacity:.14;pointer-events:none}
+.contatti h2{max-width:15ch}
+.contatti .sotto{color:#ffe1e1;max-width:46ch;margin:14px 0 0}
+.nap{margin:26px 0 30px;display:grid;gap:9px;font-size:1.0625rem}
+.nap div{display:grid;grid-template-columns:88px 1fr;gap:0 10px;align-items:baseline}
+.nap a{color:#fff;text-underline-offset:4px;text-decoration-color:rgba(255,255,255,.5)}
+.nap span{display:block;color:#fff;font-weight:700;font-size:.9375rem}
+
+footer{background:#18191a;color:#a9abae;font-size:.875rem;padding:26px 0 98px}
+footer p{margin:0 0 6px}
+@media (min-width:860px){footer{padding-bottom:26px}}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .35s var(--quint)}
+.barra.su{transform:none}
+.barra .btn{flex:1;min-height:48px;padding:0 12px}
+@media (min-width:860px){.barra{display:none}}
+
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--carbone);outline-offset:3px}
+.contatti a:focus-visible{outline-color:#fff}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .cantiere .tetto{stroke-dashoffset:0}
+  .barra{transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="tetti" viewBox="0 0 120 60"><path d="M6 44 34 16l28 28" fill="none" stroke="#c22a2a" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/><path d="M40 30 64 8l26 24" fill="none" stroke="#2f2f2f" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/><path d="M72 30 94 10l22 20" fill="none" stroke="#8a8c90" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/><rect x="26" y="34" width="16" height="16" fill="#c22a2a"/><path d="M34 34v16M26 42h16" stroke="#fff" stroke-width="2"/></symbol>
+  </defs>
+</svg>
+
+<div class="proto">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Bircaj Costruzioni</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Bircaj Costruzioni"><svg aria-hidden="true"><use href="#tetti"/></svg><span><b>Impresa di Costruzioni</b><i>Bircaj Lorenc</i></span></a>
+    <nav aria-label="Sezioni">
+      <a href="#lavori">Cosa facciamo</a>
+      <a href="#cantiere">Il cantiere</a>
+      <a href="#zone">Dove lavoriamo</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1><span>Costruttori</span><span>da sempre</span></h1>
+      <p class="lead">Case nuove, ristrutturazioni e lavori chiavi in mano sul Lago di Garda: da Torbole a Riva, Arco, Nago, Dro, fino a Trento. Con costi certi, garantiti da contratto.</p>
+      <div class="btns">
+        <a class="btn btn-rosso" href="tel:+393246254498"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Chiama ora</a>
+        <a class="btn btn-carbone" href="https://wa.me/393246254498?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20un%20lavoro"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2m4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.7-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3"/></svg>WhatsApp</a>
+      </div>
+    </div>
+    <svg class="cantiere" id="cantiere" viewBox="0 0 400 300" role="img" aria-label="I tre tetti del logo si disegnano e sotto si alzano i muri di mattoni">
+      <path class="tetto t1" pathLength="1" d="M30 150 130 54l100 96"/>
+      <path class="tetto t2" pathLength="1" d="M170 104 250 32l84 76"/>
+      <path class="tetto t3" pathLength="1" d="M262 108 318 56l58 52"/>
+      <g id="muro"></g>
+      <g class="vetro"><rect x="104" y="172" width="52" height="52"/><path d="M130 172v52M104 198h52" stroke="#fff" stroke-width="4"/></g>
+      <line class="terra" x1="10" y1="286" x2="390" y2="286"/>
+    </svg>
+  </div>
+</section>
+
+<section class="lavori" id="lavori">
+  <div class="wrap">
+    <h2>Cosa facciamo</h2>
+    <p class="intro">Costruiamo case nuove e ristrutturiamo, restauriamo e rinnoviamo abitazioni, sia su nostra iniziativa sia con appalti di privati ed enti pubblici. Se puoi pensarlo, possiamo farlo.</p>
+
+    <div class="riga">
+      <figure class="foto"><img src="assets/ristrutturazione.jpg" alt="Una casa in ristrutturazione con il balcone nuovo" width="1200" height="439" loading="lazy"></figure>
+      <div>
+        <h3>Costruzioni e ristrutturazioni</h3>
+        <ul class="elenco">
+          <li>Costruzioni edili complete</li>
+          <li>Ristrutturazione di edifici residenziali e commerciali</li>
+          <li>Ristrutturazioni anche di piccola entità</li>
+          <li>Bagni rifatti completi, anche sanitari e idraulica se richiesti</li>
+        </ul>
+      </div>
+    </div>
+    <div class="riga">
+      <figure class="foto"><img src="assets/esterni.jpg" alt="Una pavimentazione esterna sul lungolago con le palme" width="1366" height="500" loading="lazy"></figure>
+      <div>
+        <h3>Pavimentazioni da esterni</h3>
+        <p>Viali, cortili e passeggiate: affidatevi alla nostra esperienza e chiedeteci un preventivo.</p>
+      </div>
+    </div>
+    <div class="riga">
+      <figure class="foto"><img src="assets/caldane.jpg" alt="La caldana in un capannone in costruzione" width="1366" height="500" loading="lazy"></figure>
+      <div>
+        <h3>Caldane, tetti e piscine</h3>
+        <ul class="elenco">
+          <li>Caldane e alleggerito per aziende e abitazioni</li>
+          <li>Tetti e isolazioni</li>
+          <li>Scavi e strutture per piscine</li>
+          <li>Solette, carotaggi e piccoli lavori di muratura</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="chiavi">
+  <div class="wrap">
+    <div>
+      <h2>Chiavi in mano</h2>
+      <p class="slogan">Costi certi, garantiti da contratto, e tempi definiti da un'attenta valutazione del lavoro.</p>
+    </div>
+    <ul>
+      <li><b>Progettazione</b><span>Progettiamo insieme a voi, prima di aprire il cantiere.</span></li>
+      <li><b>Costruzione e ristrutturazione</b><span>Ci occupiamo noi di tutto il lavoro, dallo scavo alle finiture.</span></li>
+      <li><b>Controllo</b><span>Seguiamo da vicino ogni fase del lavoro.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="passo" id="cantiere">
+  <div class="wrap">
+    <h2>Il cantiere, passo dopo passo</h2>
+    <p class="intro">Alcuni dei nostri lavori, dallo scavo ai muri. Scorrete col dito.</p>
+    <div class="striscia" id="striscia" tabindex="0" aria-label="Foto dei cantieri, da scorrere">
+      <figure><img src="assets/scavo.jpg" alt="Lo scavo con l'escavatore" width="1000" height="750" loading="lazy"><figcaption><b>1</b>Lo scavo</figcaption></figure>
+      <figure><img src="assets/casseri.jpg" alt="I casseri gialli pronti per il getto" width="1000" height="750" loading="lazy"><figcaption><b>2</b>I casseri</figcaption></figure>
+      <figure><img src="assets/solaio.jpg" alt="Il solaio con i puntelli" width="1000" height="750" loading="lazy"><figcaption><b>3</b>Il solaio</figcaption></figure>
+      <figure><img src="assets/struttura.jpg" alt="La struttura della casa con i ponteggi" width="1000" height="750" loading="lazy"><figcaption><b>4</b>La struttura</figcaption></figure>
+      <figure><img src="assets/muri.jpg" alt="I muri interni in laterizio" width="1000" height="750" loading="lazy"><figcaption><b>5</b>I muri</figcaption></figure>
+    </div>
+    <div class="avanza" aria-hidden="true"><i id="avanza"></i></div>
+  </div>
+</section>
+
+<section class="zone" id="zone">
+  <div class="wrap">
+    <div>
+      <h2>Dove lavoriamo</h2>
+      <p style="color:var(--ink-2);margin-top:14px">La sede è a Torbole, sul Lago di Garda. Costruiamo e ristrutturiamo abitazioni nelle zone di:</p>
+      <ul class="paesi"><li>Torbole</li><li>Nago</li><li>Riva del Garda</li><li>Arco</li><li>Dro</li><li>fino a Trento</li></ul>
+    </div>
+    <a class="sede" href="https://www.google.com/maps/search/?api=1&amp;query=Bircaj+Costruzioni+Via+Strada+Granda+89+Nago-Torbole" target="_blank" rel="noopener">
+      <h3>La sede</h3>
+      <p>Via Strada Granda 89<br>38069 Nago-Torbole (TN)</p>
+      <span>Apri in Google Maps</span>
+    </a>
+  </div>
+</section>
+
+<section class="contatti" id="contatti">
+  <svg class="fondo" aria-hidden="true" viewBox="0 0 120 60"><use href="#tetti"/></svg>
+  <div class="wrap">
+    <h2>Chiedeteci un preventivo gratuito</h2>
+    <p class="sotto">Per una casa nuova, una ristrutturazione o una consulenza specifica: contattateci senza problemi.</p>
+    <div class="nap">
+      <div><span>Telefono</span> <a href="tel:+393246254498">324 625 4498</a></div>
+      <div><span>Email</span> <a href="mailto:info@bircajcostruzioni.it">info@bircajcostruzioni.it</a></div>
+      <div><span>Sede</span> Via Strada Granda 89, Nago-Torbole</div>
+    </div>
+    <div class="btns">
+      <a class="btn btn-white" href="tel:+393246254498">Chiama ora</a>
+      <a class="btn btn-carbone" href="https://wa.me/393246254498?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20un%20lavoro">WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Bircaj Costruzioni · Via Strada Granda 89, 38069 Nago-Torbole (TN) · P.IVA 02325280226</p>
+    <p>Prototipo gratuito preparato da Stefano Pontalti, non ancora pubblicato come sito.</p>
+  </div>
+</footer>
+
+<div class="barra" id="barra">
+  <a class="btn btn-rosso" href="tel:+393246254498">Chiama ora</a>
+  <a class="btn btn-line" href="https://wa.me/393246254498?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20un%20lavoro">WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  // il muro di mattoni sotto il tetto rosso: 6 file, sfalsate come in cantiere
+  var NS = 'http://www.w3.org/2000/svg', muro = document.getElementById('muro');
+  var colori = ['#c8643c','#b9552f','#d2754d'];
+  for (var r = 0; r < 6; r++) {
+    var y = 268 - r * 20, sfasa = r % 2 ? 18 : 0;
+    for (var c = 0; c < 6; c++) {
+      var x = 52 + sfasa + c * 36; if (x + 34 > 232) continue;
+      var m = document.createElementNS(NS, 'rect');
+      m.setAttribute('class', 'mattone'); m.setAttribute('x', x); m.setAttribute('y', y);
+      m.setAttribute('width', 34); m.setAttribute('height', 18); m.setAttribute('rx', 2);
+      m.setAttribute('fill', colori[(r + c) % 3]); m.style.setProperty('--r', r); m.style.setProperty('--c', c);
+      muro.appendChild(m);
+    }
+  }
+
+  // la striscia del cantiere: la barra sotto si riempie mentre si scorre
+  var st = document.getElementById('striscia'), av = document.getElementById('avanza');
+  function avanza(){ var max = st.scrollWidth - st.clientWidth; av.style.setProperty('--p', max > 0 ? Math.max(.2, st.scrollLeft / max) : 1) }
+  st.addEventListener('scroll', avanza, {passive:true}); avanza();
+
+  var top = document.getElementById('top'), barra = document.getElementById('barra');
+  function scorri(){ var y = scrollY; top.classList.toggle('scorso', y > 8); barra.classList.toggle('su', y > 340) }
+  addEventListener('scroll', scorri, {passive:true}); scorri();
+})();
+</script>
+</body>
+</html>
