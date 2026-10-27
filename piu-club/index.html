@@ -159,13 +159,40 @@ p{margin:0 0 1em}
 .foto img{width:100%;aspect-ratio:4/3;object-fit:cover}
 .foto figcaption{font-family:var(--mano);font-size:1.25rem;color:var(--penna);padding:4px 2px 0}
 
+/* ---------- galleria: le foto appese, da toccare per ingrandirle ---------- */
+.titolo-foto{font-weight:800;font-size:1.3rem;margin:0}
+.aiuto{color:var(--ink-2);font-size:.9375rem;margin:4px 0 16px}
+.galleria{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px 12px}
+.galleria li:first-child{grid-column:1/-1}
+@media (min-width:860px){.galleria{grid-template-columns:repeat(3,1fr)}.galleria li:first-child{grid-column:auto;grid-row:span 2}}
+.galleria li{transform:rotate(var(--r,0))}
+.apri{display:block;width:100%;height:100%;padding:8px 8px 6px;border:0;background:#fff;cursor:zoom-in;box-shadow:0 10px 18px -14px rgba(0,0,0,.6);text-align:left;font:inherit;color:inherit;transition:transform .2s var(--quart)}
+.apri:active{transform:scale(.98)}
+.apri img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.galleria li:first-child .apri img{aspect-ratio:4/3;object-position:50% 45%}
+@media (min-width:860px){.galleria li:first-child .apri img{aspect-ratio:3/4.15}}
+.apri span{display:block;font-family:var(--mano);font-size:1.25rem;color:var(--penna);padding:4px 2px 0}
+.lente{border:0;padding:0;margin:0;max-width:none;max-height:none;width:100vw;height:100dvh;background:rgba(20,19,18,.96);color:#fff}
+.lente::backdrop{background:rgba(20,19,18,.96)}
+.lente figure{margin:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:56px 10px 70px}
+.lente img{max-width:100%;max-height:calc(100dvh - 140px);object-fit:contain;touch-action:pan-y;transition:opacity .2s var(--quart)}
+.lente figcaption{margin-top:12px;font-size:1rem;text-align:center;color:#e9e6df}
+.lente figcaption b{font-weight:600;color:var(--oro);margin-left:8px}
+.lente button{position:absolute;border:0;background:rgba(255,255,255,.12);color:#fff;font:400 2rem/1 var(--font);width:52px;height:52px;border-radius:50%;cursor:pointer}
+.lente button:hover{background:rgba(255,255,255,.22)}
+.lente .chiudi{top:calc(10px + env(safe-area-inset-top));right:12px}
+.lente .vai{top:50%;margin-top:-26px}
+.lente .prec{left:8px}
+.lente .succ{right:8px}
+@media (max-width:640px){.lente .vai{top:auto;bottom:calc(14px + env(safe-area-inset-bottom));margin:0}.lente .prec{left:calc(50% - 64px)}.lente .succ{right:calc(50% - 64px)}}
+
 .canali{padding:56px 0;background:var(--carbone);color:#e9e7e2}
 .canali .wrap{display:grid;gap:22px;align-items:center}
 @media (min-width:860px){.canali .wrap{grid-template-columns:1fr 1fr;gap:48px}}
 .canali h2{color:#fff}
 .canali p{margin-top:12px;color:#d7d4cd}
 .canali figure{margin:0;border:3px solid var(--oro);border-radius:6px;overflow:hidden}
-.canali img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.canali img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 40%}
 
 /* ---------- la tessera con il buco sul giorno di oggi ---------- */
 .orari{padding:56px 0}
@@ -250,17 +277,21 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--oro-dk);outline-offse
   <div class="wrap">
     <h2>Non solo una palestra</h2>
     <p class="testo">Più Club è il cuore di un centro polifunzionale dove movimento, salute e benessere si incontrano. Accanto alle attrezzature fitness ci sono macchine isotoniche e posturali usate non solo per allenarsi, ma anche per la prevenzione, il recupero e il riequilibrio. Fisioterapisti, osteopati, nutrizionisti e psicologi dello sport lavorano insieme nello stesso spazio, per un percorso davvero personalizzato.</p>
-    <div class="foto">
-      <figure class="rivela" style="--r:-1.2deg"><img src="assets/ingresso.jpg" alt="L'ingresso del Più Club con il logo sulla porta a vetri" width="1200" height="605" loading="lazy"><figcaption>l'ingresso, via Brione</figcaption></figure>
-      <figure class="rivela" style="--r:1deg"><img src="assets/sala.jpg" alt="La sala con le macchine e gli schermi" width="900" height="900" loading="lazy"><figcaption>la sala</figcaption></figure>
-      <figure class="rivela" style="--r:-.6deg"><img src="assets/salotto.jpg" alt="Il salotto d'attesa con il divano in pelle" width="900" height="900" loading="lazy"><figcaption>l'attesa</figcaption></figure>
-    </div>
+    <h3 class="titolo-foto">Le foto della sala</h3>
+    <p class="aiuto">Toccate una foto per ingrandirla, poi sfogliatele.</p>
+    <ul class="galleria" id="galleria">
+      <li class="rivela" style="--r:-1deg"><button type="button" class="apri" data-i="0" data-grande="assets/sala-rack.jpg" data-w="1200" data-h="1600" aria-label="Ingrandisci: La sala pesi con il rack e le panche Canali"><img src="assets/sala-rack-p.jpg" alt="La sala pesi con il rack e le panche Canali" width="600" height="800" loading="lazy"><span>la sala pesi</span></button></li>
+      <li class="rivela" style="--r:1.2deg"><button type="button" class="apri" data-i="1" data-grande="assets/ingresso-fuori.jpg" data-w="1600" data-h="1200" aria-label="Ingrandisci: L'ingresso del Più Club in via Brione, con l'insegna"><img src="assets/ingresso-fuori-p.jpg" alt="L'ingresso del Più Club in via Brione, con l'insegna" width="700" height="525" loading="lazy"><span>l'ingresso, via Brione</span></button></li>
+      <li class="rivela" style="--r:-.8deg"><button type="button" class="apri" data-i="2" data-grande="assets/canali-g.jpg" data-w="1600" data-h="1067" aria-label="Ingrandisci: Lo schermo di una macchina Canali System"><img src="assets/canali.jpg" alt="Lo schermo di una macchina Canali System" width="1200" height="801" loading="lazy"><span>Canali System</span></button></li>
+      <li class="rivela" style="--r:.9deg"><button type="button" class="apri" data-i="3" data-grande="assets/sala-g.jpg" data-w="1224" data-h="1224" aria-label="Ingrandisci: La sala con le macchine e gli schermi"><img src="assets/sala.jpg" alt="La sala con le macchine e gli schermi" width="900" height="900" loading="lazy"><span>la sala</span></button></li>
+      <li class="rivela" style="--r:-1.3deg"><button type="button" class="apri" data-i="4" data-grande="assets/salotto-g.jpg" data-w="1224" data-h="1224" aria-label="Ingrandisci: Il salotto d'attesa con il divano in pelle"><img src="assets/salotto.jpg" alt="Il salotto d'attesa con il divano in pelle" width="900" height="900" loading="lazy"><span>l'attesa</span></button></li>
+    </ul>
   </div>
 </section>
 
 <section class="canali">
   <div class="wrap">
-    <figure><img src="assets/canali.jpg" alt="Lo schermo di una macchina Canali System" width="1200" height="801" loading="lazy"></figure>
+    <figure><img src="assets/sala-rack.jpg" alt="Il rack e le panche Canali nella sala pesi" width="1200" height="1600" loading="lazy"></figure>
     <div>
       <h2>Canali System</h2>
       <p>L'area esclusiva per chi pretende il massimo: una palestra altamente specializzata, con macchinari professionali per ogni distretto muscolare. Ci entrano solo i clienti del Più Club, insieme a fisioterapisti e osteopati accreditati.</p>
@@ -307,6 +338,14 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--oro-dk);outline-offse
   </div>
 </footer>
 
+
+<dialog class="lente" id="lente" aria-label="Foto ingrandita">
+  <figure><img id="lente-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt=""><figcaption><span id="lente-dida"></span> <b id="lente-conta"></b></figcaption></figure>
+  <button type="button" class="chiudi" id="lente-chiudi" aria-label="Chiudi">×</button>
+  <button type="button" class="vai prec" id="lente-prec" aria-label="Foto precedente">‹</button>
+  <button type="button" class="vai succ" id="lente-succ" aria-label="Foto successiva">›</button>
+</dialog>
+
 <nav class="barra" id="barra" aria-label="Contatti veloci">
   <a href="tel:+393487450314">Chiama ora</a>
   <a href="https://wa.me/393487450314?text=Buongiorno%2C%20vorrei%20informazioni%20sul%20Pi%C3%B9%20Club">WhatsApp</a>
@@ -321,6 +360,29 @@ a:focus-visible,.btn:focus-visible{outline:3px solid var(--oro-dk);outline-offse
   // la tessera degli orari: il buco e' sul giorno di oggi
   var oggi = document.querySelector('.tessera li[data-g="' + new Date().getDay() + '"]');
   if (oggi) oggi.classList.add('oggi');
+
+  // galleria: tocchi una foto, si apre grande e si sfoglia (frecce, dita, tastiera)
+  var lente = document.getElementById('lente');
+  if (lente && lente.showModal) {
+    var voci = [].slice.call(document.querySelectorAll('#galleria .apri')), ora = 0, x0 = null;
+    var img = document.getElementById('lente-img'), dida = document.getElementById('lente-dida'), conta = document.getElementById('lente-conta');
+    function mostra(i){
+      ora = (i + voci.length) % voci.length; var b = voci[ora], t = b.querySelector('img');
+      img.src = b.dataset.grande; img.width = b.dataset.w; img.height = b.dataset.h; img.alt = t.alt;
+      dida.textContent = b.querySelector('span').textContent; conta.textContent = (ora + 1) + ' / ' + voci.length;
+      [ora + 1, ora - 1].forEach(function(j){ var n = voci[(j + voci.length) % voci.length]; (new Image()).src = n.dataset.grande });
+    }
+    voci.forEach(function(b, i){ b.addEventListener('click', function(){ mostra(i); lente.showModal() }) });
+    document.getElementById('lente-prec').addEventListener('click', function(){ mostra(ora - 1) });
+    document.getElementById('lente-succ').addEventListener('click', function(){ mostra(ora + 1) });
+    document.getElementById('lente-chiudi').addEventListener('click', function(){ lente.close() });
+    lente.addEventListener('click', function(e){ if (e.target === lente || e.target.tagName === 'FIGURE') lente.close() });
+    lente.addEventListener('keydown', function(e){ if (e.key === 'ArrowLeft') mostra(ora - 1); if (e.key === 'ArrowRight') mostra(ora + 1) });
+    img.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX }, {passive:true});
+    img.addEventListener('touchend', function(e){ if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 40) mostra(ora + (dx < 0 ? 1 : -1)) });
+    lente.addEventListener('close', function(){ voci[ora].focus() });
+  }
+
   // le foto appese compaiono una dopo l'altra
   if (!('IntersectionObserver' in window) || ridotto) return;
   var o = new IntersectionObserver(function(v){ var n = 0; v.forEach(function(x){ if (!x.isIntersecting) return; x.target.style.setProperty('--d', (n++ * 90) + 'ms'); x.target.classList.add('visto'); x.target.classList.remove('attesa'); o.unobserve(x.target) }) }, {rootMargin:'0px 0px -6% 0px'});
