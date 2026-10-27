@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Appartamenti Segantini, appartamenti vacanza nel centro di Arco</title>
+<meta name="description" content="Tre appartamenti, Rosso, Blu e Verde, nel centro storico di Arco: posto auto coperto, deposito bici e bike service. Via Segantini 75.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Appartamenti Segantini: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/appartamenti-segantini/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/appartamenti-segantini/assets/og.jpg?v=202610270424">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Appartamenti Segantini su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 26 14 6h4L10 26z' fill='%2394c11f'/%3E%3Cpath d='M12 26 20 6h4l-8 20z' fill='%231b60ab'/%3E%3Cpath d='M18 26 26 6h4l-8 20z' fill='%23cf1248'/%3E%3C/svg%3E">
+<style>
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/rubik-normal-400-latin-ext-20c4b0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(assets/fonts/rubik-normal-400-latin-0ae40d.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/rubik-normal-400-latin-ext-20c4b0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(assets/fonts/rubik-normal-400-latin-0ae40d.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(assets/fonts/rubik-normal-400-latin-ext-20c4b0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Rubik';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url(assets/fonts/rubik-normal-400-latin-0ae40d.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Appartamenti Segantini: la tavola delle chiavi all'ingresso, coi portachiavi nei tre colori del loro logo */
+:root{
+  --rosso:#cf1248;
+  --blu:#1b60ab;
+  --verde:#94c11f;
+  --verde-dk:#4d6b06;
+  --legno:#a8774a;
+  --legno-dk:#7d5532;
+  --ottone:#c9a14a;
+  --ink:#262422;
+  --ink-2:#4b4743;
+  --muro:#f6f3ee;
+  --font:"Rubik",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --quart:cubic-bezier(.25,1,.5,1);
+  --quint:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--muro);color:var(--ink);font:400 1.0625rem/1.6 var(--font)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2{margin:0;line-height:1.08;text-wrap:balance;font-weight:800;letter-spacing:-.015em}
+h1{font-size:clamp(1.9rem,8vw,3.2rem)}
+h2{font-size:clamp(1.5rem,6vw,2.3rem)}
+p{margin:0 0 1em}
+.wrap{max-width:1040px;margin:0 auto;padding:0 max(18px,env(safe-area-inset-left))}
+
+.proto{background:var(--ink);color:#eeeae5;font-size:.8125rem;text-align:center;padding:7px 16px;line-height:1.4}
+.proto b{color:#fff}
+.banco{background:#fff;border-bottom:1px solid #e7e1d8}
+.banco .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px}
+.banco img{width:150px}
+.banco .tel{font-weight:500;text-decoration:none;color:var(--ink-2);padding:10px 0}
+
+/* ---------- la tavola delle chiavi ---------- */
+.bacheca{padding:30px 0 44px}
+.bacheca .lead{color:var(--ink-2);font-size:1.125rem;margin:12px 0 22px;max-width:40ch}
+.tavola{position:relative;display:flex;justify-content:space-around;gap:6px;padding:30px 10px 40px;border-radius:10px;
+  background:
+    repeating-linear-gradient(92deg,rgba(0,0,0,.05) 0 2px,transparent 2px 9px),
+    repeating-linear-gradient(88deg,rgba(255,255,255,.06) 0 1px,transparent 1px 23px),
+    linear-gradient(180deg,var(--legno),var(--legno-dk));
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.25),0 18px 28px -20px rgba(0,0,0,.6)}
+.chiave{position:relative;display:flex;flex-direction:column;align-items:center;text-decoration:none;width:31%;max-width:150px;transform-origin:50% 0;perspective:500px}
+.chiave::before{content:"";width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f3dc98,var(--ottone) 60%,#8a6a22);box-shadow:0 3px 4px rgba(0,0,0,.4);z-index:2}
+.anello{width:30px;height:30px;margin-top:-6px;border:4px solid #c9c9c6;border-radius:50%;box-shadow:inset 0 0 0 1px #8f8f8c}
+.ferro{position:absolute;top:22px;right:4%;z-index:0;transform:rotate(22deg);transform-origin:50% 0;width:13px;height:78px;background:linear-gradient(90deg,#9c9c99,#e5e5e2 45%,#8c8c89);border-radius:3px;clip-path:polygon(0 0,100% 0,100% 70%,70% 74%,100% 80%,60% 86%,100% 92%,50% 100%,0 100%)}
+.targa{margin-top:-74px;order:-1;display:none}
+.chiave .targa{position:relative;z-index:1;display:flex;order:0;margin-top:-4px;flex-direction:column;align-items:center;justify-content:center;width:100%;min-height:108px;padding:10px 6px;border-radius:44px 44px 18px 18px;color:#fff;text-align:center;box-shadow:inset 0 -6px 0 rgba(0,0,0,.18),inset 0 3px 0 rgba(255,255,255,.25),0 10px 14px -8px rgba(0,0,0,.55);transform:rotateX(90deg);transform-origin:50% 0;animation:gira .55s var(--quint) forwards;animation-delay:calc(.25s + var(--i) * .16s)}
+.chiave .targa::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--legno-dk);box-shadow:inset 0 2px 2px rgba(0,0,0,.5);margin-bottom:8px}
+.chiave b{font-size:1.4rem;font-weight:800;letter-spacing:.01em}
+.chiave small{font-size:.8125rem;font-weight:500;opacity:.95}
+.rosso .targa{background:var(--rosso)}
+.blu .targa{background:var(--blu)}
+.verde .targa{background:var(--verde-dk)}
+@keyframes gira{to{transform:none}}
+.chiave:hover .targa,.chiave:focus-visible .targa{filter:brightness(1.08)}
+.chiave:active .targa{transform:rotate(3deg)}
+
+.azioni{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.azioni.sx{margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:30px 30px 12px 12px;font:500 1.0625rem/1 var(--font);text-decoration:none;background:var(--ink);color:#fff;box-shadow:inset 0 -4px 0 rgba(0,0,0,.25);transition:transform .15s var(--quart),background-color .2s var(--quart)}
+.btn:hover{background:#000}
+.btn:active{transform:scale(.97)}
+.btn.chiaro{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink),inset 0 -4px 0 rgba(0,0,0,.12)}
+@media (max-width:420px){.azioni .btn{flex:1 1 auto}}
+
+.famiglia{padding:24px 0 50px}
+.famiglia .wrap{display:grid;gap:22px;align-items:center}
+@media (min-width:860px){.famiglia .wrap{grid-template-columns:1fr 1fr;gap:48px}}
+.famiglia figure{margin:0;border-radius:10px;overflow:hidden}
+.famiglia p{color:var(--ink-2);margin-top:12px}
+
+/* ---------- un appartamento per colore ---------- */
+.app{padding:46px 0;border-top:8px solid var(--c)}
+.app .wrap{display:grid;gap:20px;align-items:center}
+@media (min-width:860px){.app .wrap{grid-template-columns:1fr 1fr;gap:48px}.app:nth-of-type(odd) figure{order:2}}
+.app figure{margin:0;border-radius:10px;overflow:hidden}
+.app figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.cartellino{display:inline-block;background:var(--c);color:#fff;font-weight:800;padding:6px 16px 6px 24px;border-radius:20px 20px 8px 8px;margin:0 0 10px;position:relative}
+.cartellino::before{content:"";position:absolute;left:9px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--muro)}
+.dati{list-style:none;margin:12px 0 14px;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;font-weight:500}
+.dati li+li::before{content:"·";margin-right:14px;color:var(--c)}
+.app p{color:var(--ink-2)}
+.app .cartellino{color:#fff}
+
+.dotazione{padding:50px 0;background:#fff}
+.dotazione .elenco{color:var(--ink-2);margin:14px 0 22px;max-width:62ch}
+.servizi{margin:0;display:grid;gap:0}
+@media (min-width:760px){.servizi{grid-template-columns:1fr 1fr;gap:0 40px}}
+.servizi div{padding:12px 0;border-bottom:1px solid #ebe5dc}
+.servizi dt{font-weight:800}
+.servizi dd{margin:2px 0 0;color:var(--ink-2)}
+
+.arco{padding:52px 0 60px}
+.arco p{color:var(--ink-2);margin-top:12px;max-width:60ch}
+.sport{list-style:none;margin:20px 0 0;padding:0;display:grid;gap:10px}
+.sport li{padding:12px 14px;background:#fff;border-left:6px solid var(--verde);border-radius:4px}
+.sport li:nth-child(3n+2){border-left-color:var(--blu)}
+.sport li:nth-child(3n){border-left-color:var(--rosso)}
+.sport b{display:block}
+
+footer{background:var(--ink);color:#bdb7b0;font-size:.875rem;padding:24px 0 96px}
+footer p{margin:0 0 6px}
+footer a{color:#eee}
+@media (min-width:860px){footer{padding-bottom:24px}}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;gap:8px;padding:9px 10px calc(9px + env(safe-area-inset-bottom));background:var(--legno-dk);transform:translateY(110%);transition:transform .35s var(--quint)}
+.barra.su{transform:none}
+.barra a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;background:#fff;color:var(--ink);font-weight:500;text-decoration:none;border-radius:24px 24px 10px 10px}
+.pallino{width:10px;height:10px;border-radius:50%}
+@media (min-width:860px){.barra{display:none}}
+
+.rivela.attesa{opacity:0;transform:translateY(12px)}
+.rivela.visto{opacity:1;transform:none;transition:opacity .5s var(--quint),transform .5s var(--quint)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--blu);outline-offset:3px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .chiave .targa{transform:none}
+  .barra{transform:none}
+}
+
+</style>
+</head>
+<body>
+<div class="proto">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Appartamenti Segantini</div>
+
+<header class="banco">
+  <div class="wrap">
+    <img src="assets/logo.png" alt="Appartamenti Segantini, Arco" width="278" height="83">
+    <a class="tel" href="tel:+393474120189">347 412 0189</a>
+  </div>
+</header>
+
+<main>
+<section class="bacheca">
+  <div class="wrap">
+    <h1>Tre appartamenti nel centro storico di Arco</h1>
+    <p class="lead">Godetevi le vacanze in totale libertà: nessun orario, nessuna formalità. Scegliete la chiave.</p>
+    <div class="tavola" role="list" aria-label="Le chiavi dei tre appartamenti">
+      <a class="chiave rosso" role="listitem" href="#rosso" style="--i:0"><span class="anello" aria-hidden="true"></span><span class="ferro" aria-hidden="true"></span><span class="targa"><b>Rosso</b><small>3° piano<br>50 m²</small></span></a>
+      <a class="chiave blu" role="listitem" href="#blu" style="--i:1"><span class="anello" aria-hidden="true"></span><span class="ferro" aria-hidden="true"></span><span class="targa"><b>Blu</b><small>2° piano<br>40 m²</small></span></a>
+      <a class="chiave verde" role="listitem" href="#verde" style="--i:2"><span class="anello" aria-hidden="true"></span><span class="ferro" aria-hidden="true"></span><span class="targa"><b>Verde</b><small>1° piano<br>40 m²</small></span></a>
+    </div>
+    <div class="azioni">
+      <a class="btn" href="https://wa.me/393474120189?text=Buongiorno%2C%20vorrei%20sapere%20se%20un%20appartamento%20%C3%A8%20libero%20dal%20...%20al%20...">WhatsApp</a>
+      <a class="btn chiaro" href="tel:+393474120189">Chiama ora</a>
+    </div>
+  </div>
+</section>
+
+<section class="famiglia">
+  <div class="wrap">
+    <figure><img src="assets/casa.jpg" alt="La casa con i balconi in legno e gli scuri colorati, tra i rami di ulivo" width="960" height="700" loading="lazy"></figure>
+    <div>
+      <h2>La nostra casa, in via Segantini</h2>
+      <p>La vita della nostra famiglia è radicata nel nostro territorio, ed è per noi un piacere condividere con i nostri ospiti le meraviglie di Arco. Abbiamo dato ai nostri appartamenti i colori della forza e dell'energia: verde, blu e rosso. Fate il pieno!</p>
+    </div>
+  </div>
+</section>
+
+<section class="app" id="rosso" style="--c:var(--rosso)">
+  <div class="wrap">
+    <figure class="rivela"><img src="assets/rosso.jpg" alt="La tavola apparecchiata nell'appartamento Rosso" width="960" height="700" loading="lazy"></figure>
+    <div>
+      <p class="cartellino">Rosso</p>
+      <h2>Il mansardato col soppalco</h2>
+      <ul class="dati"><li>3° piano</li><li>50 m²</li><li>da 4 a 6 persone</li></ul>
+      <p>Un grande e luminosissimo soggiorno con cucina attrezzata e divano letto doppio. Un grande armadio separa il soggiorno dalla camera matrimoniale; un ampio soppalco aperto ospita un'altra camera matrimoniale. Il largo balcone in legno fa godere al massimo la posizione e la luce.</p>
+    </div>
+  </div>
+</section>
+<section class="app" id="blu" style="--c:var(--blu)">
+  <div class="wrap">
+    <figure class="rivela"><img src="assets/blu.jpg" alt="La camera matrimoniale dell'appartamento Blu" width="960" height="700" loading="lazy"></figure>
+    <div>
+      <p class="cartellino">Blu</p>
+      <h2>Col balcone in legno</h2>
+      <ul class="dati"><li>2° piano</li><li>40 m²</li><li>da 2 a 4 persone</li></ul>
+      <p>Un ampio balcone in legno, cucina attrezzata e luminoso soggiorno con divano letto. Il bagno ha la doccia, la camera un ampio armadio e i vetri insonorizzati.</p>
+    </div>
+  </div>
+</section>
+<section class="app" id="verde" style="--c:var(--verde-dk)">
+  <div class="wrap">
+    <figure class="rivela"><img src="assets/verde.jpg" alt="Il soggiorno dell'appartamento Verde col divano verde" width="960" height="700" loading="lazy"></figure>
+    <div>
+      <p class="cartellino">Verde</p>
+      <h2>Con la terrazza</h2>
+      <ul class="dati"><li>1° piano</li><li>40 m²</li><li>da 2 a 4 persone</li></ul>
+      <p>Un'ampia terrazza in legno, cucina attrezzata e luminoso soggiorno con divano letto. Il bagno ha la doccia, la camera un ampio armadio e i vetri insonorizzati.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dotazione">
+  <div class="wrap">
+    <h2>In ogni appartamento</h2>
+    <p class="elenco">Wi-fi gratuito · biancheria · cucina attrezzata · TV satellitare · aria condizionata · frigorifero · doccia · asciugacapelli · vetri insonorizzati</p>
+    <dl class="servizi">
+      <div><dt>Parcheggio</dt><dd>Ogni appartamento ha un posto auto coperto e privato, a 100 metri da casa.</dd></div>
+      <div><dt>Deposito bici</dt><dd>Un locale interrato per lasciare le bici in sicurezza.</dd></div>
+      <div><dt>Bike service</dt><dd>Un pit stop con il kit per la manutenzione, il pronto intervento e la ricarica delle bici a pedalata assistita.</dd></div>
+      <div><dt>Set bambino</dt><dd>Lettino, seggiolone, set pappa e passeggino su richiesta.</dd></div>
+      <div><dt>Lavatrice</dt><dd>Per una vacanza con le comodità di casa.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="arco">
+  <div class="wrap">
+    <h2>Dalla porta di casa</h2>
+    <p>Siamo nel centro storico, il cuore di Arco: caffè, ristoranti e negozi si raggiungono a piedi, la ciclabile parte accanto a casa e le principali falesie si raggiungono a piedi.</p>
+    <ul class="sport">
+      <li><b>Arrampicata</b>Le falesie tra gli ulivi, con le gare nazionali e internazionali.</li>
+      <li><b>Vie ferrate</b>Più di dieci in pochi chilometri.</li>
+      <li><b>Mountain bike</b>Percorsi per ogni livello nel Garda Trentino.</li>
+      <li><b>Windsurf e vela</b>Il Peler la mattina, l'Ora il pomeriggio.</li>
+      <li><b>Trekking e nordic walking</b>Più di 100 km di sentieri, e le ciaspole d'inverno.</li>
+    </ul>
+    <div class="azioni sx">
+      <a class="btn" href="https://wa.me/393474120189?text=Buongiorno%2C%20vorrei%20sapere%20se%20un%20appartamento%20%C3%A8%20libero%20dal%20...%20al%20...">Chiedi le date su WhatsApp</a>
+      <a class="btn chiaro" href="https://www.google.com/maps/search/?api=1&amp;query=Appartamenti+Segantini+Via+Segantini+75+Arco" target="_blank" rel="noopener">Come arrivare</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Appartamenti Segantini · Via Segantini 75, 38062 Arco (TN) · <a href="tel:+393474120189">347 412 0189</a> · <a href="mailto:info@appartamentisegantini.com">info@appartamentisegantini.com</a></p>
+    <p>P.IVA 02473870224 · CIN IT022006B4I3OC4FZ8</p>
+    <p>Prototipo gratuito preparato da Stefano Pontalti, non ancora pubblicato come sito.</p>
+  </div>
+</footer>
+
+<nav class="barra" id="barra" aria-label="Contatti veloci">
+  <a href="https://wa.me/393474120189?text=Buongiorno%2C%20vorrei%20sapere%20se%20un%20appartamento%20%C3%A8%20libero%20dal%20...%20al%20..."><i class="pallino" style="background:var(--verde)"></i>WhatsApp</a>
+  <a href="tel:+393474120189"><i class="pallino" style="background:var(--rosso)"></i>Chiama ora</a>
+</nav>
+
+<script>
+(function(){
+  var ridotto = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var barra = document.getElementById('barra');
+  function scorri(){ barra.classList.toggle('su', scrollY > 300) }
+  addEventListener('scroll', scorri, {passive:true}); scorri();
+  if (!('IntersectionObserver' in window) || ridotto) return;
+  var o = new IntersectionObserver(function(v){ v.forEach(function(x){ if (!x.isIntersecting) return; x.target.classList.add('visto'); x.target.classList.remove('attesa'); o.unobserve(x.target) }) }, {rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.rivela').forEach(function(el){ if (el.getBoundingClientRect().top > innerHeight) { el.classList.add('attesa'); o.observe(el) } });
+})();
+</script>
+</body>
+</html>
