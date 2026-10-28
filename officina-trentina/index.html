@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Officina Trentina di Decarli Claudio, Trento: carburatori, GPL, clima, meccanica</title>
+<meta name="description" content="Officina a Trento in Via di Briamasco 38: revisione carburatori Weber, Solex e Dell'Orto, impianti GPL Stargas, climatizzatori, elettronica e meccanica generale.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Officina Trentina: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/officina-trentina/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/officina-trentina/assets/og.jpg?v=202610280421">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Officina Trentina su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<meta name="theme-color" content="#edc007">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23edc007'/%3E%3Cpath d='M8 17l5 5 11-12' fill='none' stroke='%23002f70' stroke-width='4'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+/* Officina Trentina: la scheda di lavoro gialla dell'officina (Passo 0c), nei colori della loro
+   testata (giallo e blu, scritta a macchina). All'apertura i lavori si spuntano a penna. */
+:root{
+  --giallo:#f3cf3a;
+  --giallo-2:#edc007;
+  --carta:#fff6cf;
+  --blu:#002f70;
+  --blu-2:#123f80;
+  --penna:#1b2fa3;
+  --ink:#1d2433;
+  --grigio:#4a4f5c;
+  --fondo:#e9e6dc;
+  --macchina:"Courier Prime","Courier New",monospace;
+  --titoli:"Barlow Semi Condensed","Arial Narrow",system-ui,sans-serif;
+  --mano:"Nothing You Could Do","Comic Sans MS",cursive;
+  --quart:cubic-bezier(.25,1,.5,1);
+  --quint:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--fondo);color:var(--ink);font:400 1.0625rem/1.6 var(--titoli)}
+body{font-family:var(--titoli);font-weight:500;font-size:1.125rem}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;line-height:1.05}
+p{margin:0 0 1em}
+.wrap{max-width:1000px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-left))}
+.proto{background:var(--blu);color:#e6ecf7;font:400 .8125rem/1.4 system-ui,sans-serif;text-align:center;padding:7px 16px}
+.proto b{color:#fff}
+
+/* ---------- la scheda ---------- */
+.banco{padding:22px 0 40px;background:
+  repeating-linear-gradient(135deg,rgba(0,0,0,.025) 0 2px,transparent 2px 9px),var(--fondo)}
+.scheda{position:relative;max-width:640px;margin:0 auto;background:var(--carta);color:var(--blu);font-family:var(--macchina);
+  box-shadow:0 1px 0 #fff inset,0 20px 30px -20px rgba(0,0,0,.55);padding:0 0 18px;transform:rotate(-.6deg)}
+.scheda::before{content:"";position:absolute;left:0;right:0;top:-6px;height:12px;background:radial-gradient(circle at 6px 6px,var(--fondo) 3.5px,transparent 4px) 0 0/14px 12px repeat-x}
+.testa-scheda{background:var(--giallo-2);padding:16px 16px 12px;border-bottom:2px solid var(--blu)}
+.testa-scheda h1{font:700 clamp(1.35rem,6.4vw,2rem)/1.15 var(--macchina);color:var(--blu);letter-spacing:-.01em}
+.testa-scheda p{margin:6px 0 0;font-size:.9375rem;line-height:1.4;color:var(--blu)}
+.campi{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px;padding:14px 16px 6px;font-size:.9375rem}
+.campi div{border-bottom:1px solid var(--blu-2);padding:6px 0 2px;white-space:nowrap;overflow:hidden}
+.campi .lungo{grid-column:span 2}
+.campi i{font:400 1.125rem var(--mano);color:var(--penna);font-style:normal;margin-left:6px}
+.scheda h2{font:700 1rem/1 var(--macchina);letter-spacing:.08em;padding:16px 16px 6px;color:var(--blu)}
+.lavori{list-style:none;margin:0;padding:0 16px}
+.lavori li{border-top:1px dashed rgba(0,47,112,.45)}
+.lavori li:last-child{border-bottom:1px dashed rgba(0,47,112,.45)}
+.lavori button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start;width:100%;padding:11px 0;cursor:pointer;min-height:52px;-webkit-tap-highlight-color:transparent}
+.lavori button:focus-visible{outline:3px solid var(--blu);outline-offset:2px}
+.casella{position:relative;width:26px;height:26px;border:2px solid var(--blu);margin-top:2px;background:#fffdf0}
+.casella svg{position:absolute;left:-4px;top:-10px;width:40px;height:40px;overflow:visible}
+.casella path{fill:none;stroke:var(--penna);stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;transition:stroke-dashoffset .35s var(--quart)}
+.lavori button[aria-pressed=true] .casella path{stroke-dashoffset:0}
+.voce b{display:block;font:700 1.0625rem/1.25 var(--macchina);color:var(--blu)}
+.voce span{display:block;font:400 .9375rem/1.45 var(--macchina);color:#25365e;margin-top:3px}
+.voce em.dopo{opacity:0;clip-path:inset(0 100% 0 0)}
+.voce em{transition:opacity .2s linear,clip-path .7s var(--quart);display:block;font:400 1.25rem/1.25 var(--mano);font-style:normal;color:var(--penna);margin-top:6px;transform:rotate(-1.5deg)}
+.firma{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding:16px 16px 0;font-size:.875rem}
+.firma .timbro{font:700 .875rem/1.2 var(--macchina);color:#a3162e;border:2px solid #a3162e;padding:6px 8px;transform:rotate(-7deg);text-align:center}
+.istruzione{max-width:640px;margin:16px auto 0;text-align:center;color:var(--grigio);font-size:1rem}
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;font:700 1.125rem/1 var(--titoli);letter-spacing:.02em;text-decoration:none;color:var(--blu);background:transparent;border:2px solid var(--blu);border-radius:2px;transition:transform .12s var(--quart),background-color .2s var(--quart)}
+.btn:hover{background:rgba(0,47,112,.07)}
+.btn:active{transform:scale(.97)}
+.btn.pieno{background:var(--blu);color:#fff}
+.btn.pieno:hover{background:#00245a}
+@media (max-width:420px){.btns .btn{flex:1 1 auto}}
+
+/* ---------- sul banco ---------- */
+.sulbanco{padding:50px 0;background:#fff;border-top:6px solid var(--giallo-2)}
+.sulbanco .wrap{display:grid;gap:24px}
+@media (min-width:860px){.sulbanco .wrap{grid-template-columns:1fr 1fr;align-items:center;gap:44px}}
+.sulbanco h2{font:700 clamp(2rem,8vw,2.8rem)/1.05 var(--titoli);color:var(--blu)}
+.sulbanco p{color:var(--grigio)}
+.sulbanco figure{margin:0;background:#fff;border:1px solid #d9d5c7;padding:10px;transform:rotate(1deg);box-shadow:0 12px 20px -14px rgba(0,0,0,.45)}
+.sulbanco figcaption{font:400 1.125rem/1.3 var(--mano);color:var(--penna);padding-top:6px}
+.marche{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+.marche span{font:700 1.125rem/1 var(--macchina);color:var(--blu);border:2px solid var(--blu);padding:8px 10px}
+
+.dove{padding:50px 0 60px;background:var(--blu);color:#fff}
+.dove .wrap{display:grid;gap:20px}
+@media (min-width:860px){.dove .wrap{grid-template-columns:1fr 1fr;align-items:center}}
+.dove h2{font:700 clamp(2rem,8vw,2.8rem)/1.05 var(--titoli);color:var(--giallo)}
+.dove .nap{font:400 1.125rem/1.75 var(--macchina)}
+.dove .btn{color:#fff;border-color:#fff}
+.dove .btn.pieno{background:var(--giallo);border-color:var(--giallo);color:var(--blu)}
+.dove .btns{justify-content:flex-start}
+
+footer{background:#001c44;color:#cfd8ea;font:400 .875rem/1.5 system-ui,sans-serif;padding:20px 0 100px}
+footer p{margin:0 0 6px}
+@media (min-width:860px){footer{padding-bottom:22px}}
+
+/* barra: la striscia gialla della copia per il cliente */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;background:var(--giallo-2);border-top:2px dashed var(--blu);padding:0 0 env(safe-area-inset-bottom);transform:translateY(115%);transition:transform .35s var(--quint)}
+.barra.su{transform:none}
+.barra a{flex:1;display:flex;align-items:center;justify-content:center;min-height:56px;font:700 1.125rem/1 var(--macchina);color:var(--blu);text-decoration:none}
+.barra a+a{border-left:2px solid var(--blu)}
+@media (min-width:860px){.barra{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .barra{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="proto">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Officina Trentina</div>
+<main>
+<section class="banco">
+  <div class="wrap">
+    <div class="scheda">
+      <div class="testa-scheda">
+        <h1>Officina Trentina<br>di Decarli Claudio</h1>
+        <p>Via di Briamasco 38 · 38122 Trento · Tel. 0461 238554</p>
+      </div>
+      <div class="campi" aria-hidden="true">
+        <div>Veicolo:<i>la vostra</i></div>
+        <div>Targa:<i></i></div>
+        <div class="lungo">Data:<i>quando vi è comodo</i></div>
+      </div>
+      <h2>LAVORI RICHIESTI</h2>
+      <ul class="lavori">
+        <li><button type="button" aria-pressed="false"><span class="casella"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 21l9 10L35 4"/></svg></span><span class="voce"><b>Meccanica generale</b><span>Olio, freni, ammortizzatori. Tagliandi anche sulle auto ancora in garanzia, grazie al Decreto Monti. Preparazione per la revisione.</span></span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="casella"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 21l9 10L35 4"/></svg></span><span class="voce"><b>Climatizzatori</b><span>Ricariche del gas, riparazione e assistenza, filtri abitacolo e igienizzazione.</span></span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="casella"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 21l9 10L35 4"/></svg></span><span class="voce"><b>Elettronica dell'auto</b><span>Controllo elettronico multimarca: con l'attrezzatura giusta il guasto si trova prima, e si risparmiano ore di lavoro.</span></span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="casella"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 21l9 10L35 4"/></svg></span><span class="voce"><b>Revisione carburatori</b><span>Revisione e messa a punto di qualsiasi marca.</span><em>Weber, Solex, Dell'Orto</em></span></button></li>
+        <li><button type="button" aria-pressed="false"><span class="casella"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M6 21l9 10L35 4"/></svg></span><span class="voce"><b>Impianti GPL Stargas</b><span>Installatore autorizzato, iniezione elettronica sequenziale fasata. Si può montare anche su auto Euro 0.</span></span></button></li>
+      </ul>
+      <div class="firma"><span>Firma cliente ____________</span><span class="timbro">OFFICINA<br>TRENTINA</span></div>
+    </div>
+    <p class="istruzione">Toccate i lavori che vi servono, poi chiamate per fissare.</p>
+    <div class="btns">
+      <a class="btn pieno" href="tel:+390461238554">Chiama ora</a>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Officina+Trentina+Via+di+Briamasco+38+Trento" target="_blank" rel="noopener">Come arrivare</a>
+    </div>
+  </div>
+</section>
+
+<section class="sulbanco">
+  <div class="wrap">
+    <figure><img src="assets/weber.jpg" alt="Un carburatore Weber doppio corpo con i suoi cornetti" width="492" height="310" loading="lazy"><figcaption>Un Weber doppio corpo.</figcaption></figure>
+    <div>
+      <h2>I carburatori sono il nostro banco</h2>
+      <div class="marche"><span>WEBER</span><span>SOLEX</span><span>DELL'ORTO</span></div>
+      <p>La revisione e la messa a punto dei carburatori fanno risparmiare benzina e migliorano le prestazioni del motore. Revisioniamo qualsiasi marca, e la taratura la facciamo con grande cura.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dove">
+  <div class="wrap">
+    <div>
+      <h2>Via di Briamasco 38</h2>
+      <p class="nap">38122 Trento<br>Tel. <a href="tel:+390461238554">0461 238554</a></p>
+    </div>
+    <div class="btns">
+      <a class="btn pieno" href="tel:+390461238554">Chiama ora</a>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Officina+Trentina+Via+di+Briamasco+38+Trento" target="_blank" rel="noopener">Come arrivare</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="wrap">
+    <p>Officina Trentina di Decarli Claudio, Via di Briamasco 38, 38122 Trento. P.I. 01641190226</p>
+    <p>Testi e foto presi dal sito officinatrentina.it (ottobre 2026).</p>
+  </div>
+</footer>
+<nav class="barra" aria-label="Contatti rapidi">
+  <a href="tel:+390461238554">Chiama</a>
+  <a href="https://www.google.com/maps/search/?api=1&query=Officina+Trentina+Via+di+Briamasco+38+Trento" target="_blank" rel="noopener">Come arrivare</a>
+</nav>
+<script>
+(function(){
+  var ridotto=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var b=[].slice.call(document.querySelectorAll('.lavori button'));
+  b.forEach(function(x){x.addEventListener('click',function(){x.setAttribute('aria-pressed',x.getAttribute('aria-pressed')==='true'?'false':'true');});});
+  // all'apertura la penna spunta i carburatori, la loro specialità, e ci scrive accanto le marche
+  var carb=b[3], nota=carb.querySelector('em');
+  if(!ridotto){ nota.classList.add('dopo'); setTimeout(function(){carb.setAttribute('aria-pressed','true');},500); setTimeout(function(){nota.classList.remove('dopo');},850); }
+  else carb.setAttribute('aria-pressed','true');
+  var barra=document.querySelector('.barra');
+  var su=function(){barra.classList.toggle('su',window.scrollY>Math.min(window.innerHeight*.6,420));};
+  window.addEventListener('scroll',su,{passive:true});su();
+})();
+</script>
+</body>
+</html>
