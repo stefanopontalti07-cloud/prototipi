@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Lagorai Engineering, Borgo Valsugana: progettazione, direzione lavori, sicurezza cantieri</title>
+<meta name="description" content="Lagorai Engineering srl, Corso Ausugum 37 a Borgo Valsugana: progettazione, direzione lavori, sicurezza cantieri e Blower door test, per l'edilizia pubblica e privata.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lagorai Engineering: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/lagorai-engineering/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/lagorai-engineering/assets/og.jpg?v=202610290425">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Lagorai Engineering su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<meta name="theme-color" content="#117537">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fbfbf6'/%3E%3Cpath d='M4 16 16 5l12 11v12H4z' fill='%2354a431'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+/* Lagorai Engineering: la tavola di progetto (Passo 0c). Il sito e' un foglio da disegno con la
+   squadratura, le zone A-D / 1-4 sul bordo e il cartiglio coi dati dello studio. All'apertura il
+   plotter traccia la cornice e scrive il cartiglio riga per riga. */
+:root{
+  --carta:#fbfbf6;
+  --linea:#1d1f1c;
+  --tenue:#9ea39a;
+  --verde:#117537;
+  --verde-2:#54a431;
+  --testo:#2a2d29;
+  --grigio:#565b55;
+  --tec:'B612 Mono',ui-monospace,Menlo,monospace;
+  --tit:'Montserrat',system-ui,sans-serif;
+  --quart:cubic-bezier(.25,1,.5,1);
+  --expo:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#e9ebe5;color:var(--testo);font:400 1rem/1.6 var(--tit);overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+.proto{background:var(--linea);color:#dfe3dc;font:400 .8125rem/1.4 system-ui,sans-serif;text-align:center;padding:7px 16px}
+.proto b{color:#fff}
+
+/* il foglio */
+.foglio{position:relative;max-width:1080px;margin:14px auto 0;background:var(--carta);padding:26px 22px 22px;box-shadow:0 1px 0 #d4d7cf,0 18px 40px -28px rgba(0,0,0,.35)}
+@media (min-width:860px){.foglio{margin:28px auto 0;padding:44px 48px 40px}}
+.cornice{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.cornice rect{fill:none;stroke:var(--linea)}
+.cornice .esterna{stroke-width:.6;stroke:var(--tenue)}
+.cornice .interna{stroke-width:1.6}
+.zone{position:absolute;font:400 .625rem/1 var(--tec);color:var(--grigio)}
+.zone.su,.zone.giu{left:22px;right:22px;display:flex;justify-content:space-around}
+.zone.su{top:8px}.zone.giu{bottom:7px}
+.zone.sx,.zone.dx{top:26px;bottom:22px;display:flex;flex-direction:column;justify-content:space-around}
+.zone.sx{left:7px}.zone.dx{right:7px}
+@media (min-width:860px){.zone.su,.zone.giu{left:48px;right:48px}.zone.su{top:16px}.zone.giu{bottom:14px}.zone.sx{left:17px}.zone.dx{right:17px}.zone.sx,.zone.dx{top:44px;bottom:40px}}
+
+.dentro{position:relative;padding:22px 16px 18px}
+@media (min-width:860px){.dentro{padding:40px 44px 34px}}
+
+.testa{display:grid;gap:22px}
+.logo{width:min(100%,520px)}
+.logo img{width:100%}
+h1{font:700 clamp(1.5rem,5.4vw,2.35rem)/1.2 var(--tit);color:var(--linea);margin:0;max-width:22ch;text-wrap:balance;letter-spacing:-.01em}
+h1 span{color:var(--verde)}
+.sotto{margin:0;max-width:52ch;color:var(--grigio);font-size:.9375rem}
+
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;font:700 .9375rem/1 var(--tit);text-decoration:none;border:1.6px solid var(--linea);color:var(--linea);background:var(--carta);transition:background .2s var(--quart),color .2s var(--quart),transform .12s}
+.btn.pieno{background:var(--verde);border-color:var(--verde);color:#fff}
+.btn:hover{background:var(--linea);border-color:var(--linea);color:#fff}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--verde-2);outline-offset:3px}
+@media (max-width:420px){.btns .btn{flex:1 1 auto}}
+
+/* il cartiglio */
+.cartiglio{margin-top:30px;border:1.6px solid var(--linea);display:grid;grid-template-columns:1fr 1fr;font:400 .8125rem/1.35 var(--tec);background:var(--carta)}
+.cartiglio>div{padding:7px 9px 8px;border-top:1px solid var(--linea);min-width:0}
+.cartiglio>div:nth-child(-n+2){border-top:0}
+.cartiglio>div:nth-child(odd){border-right:1px solid var(--linea)}
+.cartiglio .largo{grid-column:1/-1;border-right:0!important}
+.cartiglio small{display:block;font-size:.6875rem;color:var(--grigio);margin-bottom:2px}
+.cartiglio b{font-weight:700;color:var(--linea);overflow-wrap:anywhere}
+.cartiglio a{text-decoration:none;display:inline-block;padding:4px 0}
+.cartiglio a:hover{text-decoration:underline}
+.cartiglio .nome b{font:700 1rem/1.25 var(--tit)}
+@media (min-width:860px){
+  .cartiglio{grid-template-columns:2fr 1.2fr 1fr 1fr;margin-left:auto;max-width:760px}
+  .cartiglio>div{border-top:1px solid var(--linea);border-right:1px solid var(--linea)}
+  .cartiglio>div:nth-child(-n+4){border-top:0}
+  .cartiglio>div:nth-child(4n){border-right:0}
+  .cartiglio .largo{grid-column:auto;border-right:1px solid var(--linea)!important}
+  .cartiglio .nome{grid-row:span 2}
+  .cartiglio .mail{border-right:0!important}
+}
+
+/* tavole interne */
+.tavola{margin-top:44px;padding-top:18px;border-top:1px dashed var(--tenue)}
+@media (min-width:860px){.tavola{margin-top:64px}}
+.tavola h2{font:700 clamp(1.25rem,4.2vw,1.75rem)/1.25 var(--tit);color:var(--linea);margin:0 0 6px;text-wrap:balance}
+.tavola .rif{margin:0 0 22px;font:400 .8125rem/1.4 var(--tec);color:var(--grigio)}
+
+.dettagli{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+@media (min-width:700px){.dettagli{grid-template-columns:1fr 1fr;gap:22px 30px}}
+.det{position:relative;padding:4px 0 0 56px;min-height:46px}
+.det .bolla{position:absolute;left:0;top:0;width:40px;height:40px;border:1.6px solid var(--linea);border-radius:50%;display:grid;place-items:center;font:700 .9375rem/1 var(--tec);color:var(--linea);background:var(--carta)}
+.det .bolla::after{content:"";position:absolute;left:50%;top:calc(100% + 2px);width:1px;height:calc(var(--h,40px));background:var(--tenue);transform-origin:top;transform:scaleY(var(--s,1));transition:transform .5s var(--quart) var(--d,0ms)}
+.det h3{font:700 1.0625rem/1.3 var(--tit);color:var(--linea);margin:0 0 4px}
+.det p{margin:0;color:var(--testo);font-size:.875rem}
+.det .sigla{color:var(--verde);font-weight:700}
+
+/* il blower door, in sezione */
+.prova{display:grid;gap:22px;align-items:center;margin-top:30px}
+@media (min-width:860px){.prova{grid-template-columns:300px 1fr;gap:40px}}
+.prova svg{width:min(100%,300px);height:auto;color:var(--linea)}
+.prova figcaption{font:400 .75rem/1.4 var(--tec);color:var(--grigio);margin-top:6px}
+.prova p{margin:0 0 10px;font-size:.9375rem;max-width:56ch}
+.ventola{transform-origin:150px 168px;animation:gira 2.4s linear infinite}
+@keyframes gira{to{transform:rotate(360deg)}}
+
+.dove{display:grid;gap:22px}
+@media (min-width:860px){.dove{grid-template-columns:1.1fr 1fr;gap:40px}}
+.nap{margin:0 0 14px;font-size:.9375rem}
+.nap a{text-decoration:none;border-bottom:1px solid var(--verde-2)}
+.orari{border:1.6px solid var(--linea);border-collapse:collapse;width:100%;font:400 .875rem/1.4 var(--tec)}
+.orari th,.orari td{border-top:1px solid var(--linea);padding:7px 10px;text-align:left;font-weight:400}
+.orari tr:first-child th,.orari tr:first-child td{border-top:0}
+.orari th{border-right:1px solid var(--linea);width:42%;color:var(--grigio)}
+.orari td{color:var(--linea);font-weight:700}
+.orari tr.oggi td,.orari tr.oggi th{background:#eef5e8}
+
+.piede{margin-top:44px;padding-top:14px;border-top:1.6px solid var(--linea);display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between;font:400 .75rem/1.5 var(--tec);color:var(--grigio)}
+.dopo{height:90px}
+@media (min-width:860px){.dopo{height:40px}}
+
+/* barra in basso: la striscia del cartiglio */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:auto 1fr 1fr;background:var(--carta);border-top:1.6px solid var(--linea);padding:0 0 env(safe-area-inset-bottom);transform:translateY(115%);transition:transform .35s var(--quart);font-family:var(--tec)}
+.barra.su{transform:none}
+.barra .tav{display:flex;flex-direction:column;justify-content:center;padding:6px 12px;font-size:.625rem;line-height:1.25;color:var(--grigio);border-right:1px solid var(--linea)}
+.barra .tav b{color:var(--linea);font-size:.75rem}
+.barra a{display:flex;align-items:center;justify-content:center;min-height:56px;font:700 1rem/1 var(--tit);color:var(--linea);text-decoration:none}
+.barra a+a{border-left:1px solid var(--linea)}
+.barra a.chiama{background:var(--verde);color:#fff}
+@media (min-width:860px){.barra{display:none}}
+
+/* apertura: il plotter */
+.js .cornice rect{stroke-dasharray:var(--l);stroke-dashoffset:var(--l)}
+.js.via .cornice rect{stroke-dashoffset:0;transition:stroke-dashoffset 1.05s var(--quart)}
+.js.via .cornice .interna{transition-delay:.15s}
+.js .zone{opacity:0}
+.js.via .zone{opacity:1;transition:opacity .4s ease .8s}
+.js .cartiglio>div{clip-path:inset(0 100% 0 0)}
+.js.via .cartiglio>div{clip-path:inset(0 0 0 0);transition:clip-path .42s var(--quart) calc(.85s + var(--i)*70ms)}
+.js .det .bolla::after{--s:0}
+.det.visto .bolla::after{--s:1}
+@media (prefers-reduced-motion:reduce){
+  .js .cornice rect{stroke-dashoffset:0}
+  .js .zone{opacity:1}
+  .js .cartiglio>div{clip-path:none}
+  .ventola{animation:none}
+  .barra{transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+<div class="proto">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Lagorai Engineering</div>
+
+<main class="foglio">
+  <svg class="cornice" aria-hidden="true" preserveAspectRatio="none"><rect class="esterna"/><rect class="interna"/></svg>
+  <div class="zone su" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+  <div class="zone giu" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+  <div class="zone sx" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span></div>
+  <div class="zone dx" aria-hidden="true"><span>A</span><span>B</span><span>C</span><span>D</span></div>
+
+  <div class="dentro">
+    <header class="testa">
+      <div class="logo"><img src="assets/logo.png" width="1200" height="409" alt="Lagorai Engineering"></div>
+      <h1>Progettazione, direzione lavori e sicurezza cantieri, <span>a Borgo Valsugana</span></h1>
+      <p class="sotto">Per l'edilizia pubblica e privata. E il Blower door test, la prova di tenuta all'aria degli edifici.</p>
+      <div class="btns">
+        <a class="btn pieno" href="tel:+3904611594785">Chiama ora</a>
+        <a class="btn" href="mailto:info@lagoraiengineering.it">Scrivi una email</a>
+      </div>
+    </header>
+
+    <div class="cartiglio" aria-label="Dati dello studio">
+      <div class="nome" style="--i:0"><small>Studio</small><b>LAGORAI ENGINEERING S.R.L.</b></div>
+      <div style="--i:1"><small>Sede</small><b>Corso Ausugum 37<br>38051 Borgo Valsugana (TN)</b></div>
+      <div style="--i:2"><small>Telefono</small><b><a href="tel:+3904611594785">0461 159 4785</a></b></div>
+      <div style="--i:4"><small>Orari</small><b>lun-ven 8-12 · 14-18</b></div>
+      <div style="--i:5"><small>Opere</small><b>pubbliche e private</b></div>
+      <div style="--i:6"><small>Tavola</small><b>01 · lo studio</b></div>
+      <div class="largo mail" style="--i:3"><small>Email</small><b><a href="mailto:info@lagoraiengineering.it">info@lagoraiengineering.it</a></b></div>
+    </div>
+
+    <section class="tavola" id="servizi">
+      <h2>Cosa facciamo</h2>
+      <p class="rif">Tavola 02 · quattro dettagli</p>
+      <ol class="dettagli">
+        <li class="det" style="--h:44px"><span class="bolla" aria-hidden="true">A</span>
+          <h3>Progettazione</h3>
+          <p>Progetti per l'edilizia, pubblica e privata.</p></li>
+        <li class="det" style="--h:44px"><span class="bolla" aria-hidden="true">B</span>
+          <h3>Direzione lavori <span class="sigla">(DL)</span></h3>
+          <p>Il progetto seguito in cantiere, fino alla fine dei lavori.</p></li>
+        <li class="det" style="--h:44px"><span class="bolla" aria-hidden="true">C</span>
+          <h3>Sicurezza cantieri</h3>
+          <p>La sicurezza di chi lavora nei cantieri, per opere pubbliche e private.</p></li>
+        <li class="det" style="--h:44px"><span class="bolla" aria-hidden="true">D</span>
+          <h3>Blower door test</h3>
+          <p>La prova di tenuta all'aria dell'edificio: il dettaglio qui sotto.</p></li>
+      </ol>
+
+      <div class="prova">
+        <figure style="margin:0">
+          <svg viewBox="0 0 300 330" role="img" aria-label="Schema del Blower door test: un ventilatore montato nel vano della porta d'ingresso">
+            <g fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M40 320V20h220v300"/>
+              <path d="M58 320V38h184v282" stroke-width="1"/>
+              <rect x="72" y="52" width="156" height="252" stroke-width="1.2"/>
+              <circle cx="150" cy="168" r="58"/>
+              <circle cx="150" cy="168" r="50" stroke-width="1" stroke-dasharray="3 4"/>
+              <g class="ventola" stroke-width="1.4"><path d="M150 168c6-22 26-34 40-28M150 168c-22-6-34-26-28-40M150 168c-6 22-26 34-40 28M150 168c22 6 34 26 28 40"/></g>
+              <circle cx="150" cy="168" r="6" fill="currentColor"/>
+              <rect x="186" y="244" width="30" height="20" stroke-width="1.2"/>
+              <path d="M201 244v-16h-20" stroke-width="1"/>
+            </g>
+            <g fill="currentColor" font-family="B612 Mono, monospace" font-size="11">
+              <text x="6" y="16">porta d'ingresso</text>
+              <text x="214" y="282">manometro</text>
+            </g>
+            <path d="M150 104V76M150 76l-5 8M150 76l5 8" stroke="#117537" stroke-width="1.6" fill="none"/>
+          </svg>
+          <figcaption>Dettaglio D · il ventilatore montato nel vano della porta</figcaption>
+        </figure>
+        <div>
+          <p>Un ventilatore viene montato nel vano della porta d'ingresso, a tenuta, e mette l'edificio in pressione e in depressione.</p>
+          <p>Lo strumento misura quanta aria passa dalle fessure di finestre, attacchi e impianti: si vede dove l'involucro perde e di quanto.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tavola" id="dove">
+      <h2>Dove siamo</h2>
+      <p class="rif">Tavola 03 · lo studio a Borgo Valsugana</p>
+      <div class="dove">
+        <div>
+          <p class="nap"><b>Lagorai Engineering S.r.l.</b><br>Corso Ausugum 37<br>38051 Borgo Valsugana (TN)<br>Tel. <a href="tel:+3904611594785">0461 159 4785</a><br><a href="mailto:info@lagoraiengineering.it">info@lagoraiengineering.it</a></p>
+          <div class="btns">
+            <a class="btn pieno" href="tel:+3904611594785">Chiama ora</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Lagorai%20Engineering%20Corso%20Ausugum%2037%20Borgo%20Valsugana" target="_blank" rel="noopener">Apri in Google Maps</a>
+          </div>
+        </div>
+        <table class="orari" aria-label="Orari dello studio">
+          <tr data-g="1"><th>lunedì</th><td>8-12 · 14-18</td></tr>
+          <tr data-g="2"><th>martedì</th><td>8-12 · 14-18</td></tr>
+          <tr data-g="3"><th>mercoledì</th><td>8-12 · 14-18</td></tr>
+          <tr data-g="4"><th>giovedì</th><td>8-12 · 14-18</td></tr>
+          <tr data-g="5"><th>venerdì</th><td>8-12 · 14-18</td></tr>
+          <tr data-g="6"><th>sabato e domenica</th><td>chiuso</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <footer class="piede">
+      <span>Lagorai Engineering S.r.l. · Corso Ausugum 37, 38051 Borgo Valsugana (TN) · P.IVA 02645120227</span>
+      <span>Tavola 04 di 04</span>
+    </footer>
+  </div>
+</main>
+<div class="dopo"></div>
+
+<nav class="barra" aria-label="Contatti rapidi">
+  <span class="tav"><b>LAGORAI</b>engineering</span>
+  <a class="chiama" href="tel:+3904611594785">Chiama</a>
+  <a href="mailto:info@lagoraiengineering.it">Email</a>
+</nav>
+
+<script>
+(function(){
+  var d=document.documentElement, ridotto=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var f=document.querySelector('.foglio'), svg=f.querySelector('.cornice'), r=svg.querySelectorAll('rect');
+  function cornice(){
+    var w=f.clientWidth, h=f.clientHeight, m=innerWidth>=860?[10,30]:[4,16];
+    svg.setAttribute('viewBox','0 0 '+w+' '+h);
+    [[m[0],r[0]],[m[1],r[1]]].forEach(function(p){
+      var k=p[0], el=p[1]; el.setAttribute('x',k); el.setAttribute('y',k); el.setAttribute('width',w-2*k); el.setAttribute('height',h-2*k);
+      el.style.setProperty('--l', 2*(w+h-4*k));
+    });
+  }
+  cornice(); addEventListener('resize',cornice);
+  if(!ridotto){ d.classList.add('js'); requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('via')})}); }
+
+  // le linee di richiamo dei dettagli A-D
+  var det=document.querySelectorAll('.det');
+  if('IntersectionObserver' in window && !ridotto){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}})},{rootMargin:'0px 0px -10% 0px'});
+    det.forEach(function(x,i){x.style.setProperty('--d',(i%2)*90+'ms');io.observe(x)});
+  } else det.forEach(function(x){x.classList.add('visto')});
+
+  // oggi negli orari
+  var g=new Date().getDay(); var riga=document.querySelector('.orari tr[data-g="'+(g===0?6:Math.min(g,6))+'"]'); if(riga) riga.classList.add('oggi');
+
+  var barra=document.querySelector('.barra');
+  var su=function(){barra.classList.toggle('su',scrollY>Math.min(innerHeight*.6,420))};
+  addEventListener('scroll',su,{passive:true}); su();
+})();
+</script>
+</body>
+</html>

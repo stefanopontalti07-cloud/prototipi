@@ -1,0 +1,159 @@
+/* Healthy Center: il bigliettino «il suo prossimo appuntamento» (Passo 0c). Ogni trattamento sul
+   loro sito finisce con «fissa appuntamento»: qui il biglietto e' il centro della pagina. All'apertura
+   ce lo porgono sul banco della reception e la penna scrive il giorno; nei trattamenti, toccando
+   «Lo scrivo sul biglietto», il trattamento finisce sul biglietto in basso e nel messaggio WhatsApp. */
+:root{
+  --teal:#0d98ad;
+  --teal-scuro:#0b6676;
+  --teal-chiaro:#e3f3f5;
+  --arancio:#b84a10;
+  --lime:#b8d432;
+  --fondo:#f5f7f7;
+  --carta:#fffefb;
+  --testo:#24312f;
+  --grigio:#56625f;
+  --penna:#1c3d8f;
+  --tit:'Quicksand',system-ui,sans-serif;
+  --txt:'Raleway',system-ui,sans-serif;
+  --mano:'Caveat','Segoe Print',cursive;
+  --quart:cubic-bezier(.25,1,.5,1);
+  --quint:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--fondo);color:var(--testo);font:400 1rem/1.6 var(--txt);overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+.proto{background:var(--teal-scuro);color:#dcf1f4;font:400 .8125rem/1.4 system-ui,sans-serif;text-align:center;padding:7px 16px}
+.proto b{color:#fff}
+.wrap{width:min(100% - 32px,1100px);margin:0 auto}
+
+/* testata */
+.testa{background:#fff;border-bottom:1px solid #dfe6e6}
+.testa .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px}
+.testa .logo img{width:150px;height:auto}
+@media (max-width:400px){.testa .logo img{width:128px}}
+.menu{display:flex;gap:4px}
+.menu a{font:700 .9375rem/1 var(--tit);text-decoration:none;color:var(--teal-scuro);padding:12px 8px;border-radius:2px;white-space:nowrap}
+.menu a[aria-current]{color:var(--arancio)}
+.menu a:hover{background:var(--teal-chiaro)}
+
+/* bottoni */
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;font:700 1rem/1 var(--tit);text-decoration:none;border:2px solid var(--teal-scuro);color:var(--teal-scuro);background:#fff;border-radius:3px;transition:background .2s var(--quart),color .2s var(--quart),transform .12s}
+.btn.pieno{background:var(--teal-scuro);color:#fff}
+.btn:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible{outline:2px solid var(--arancio);outline-offset:3px}
+@media (max-width:420px){.btns .btn{flex:1 1 auto}}
+
+/* il biglietto */
+.biglietto{position:relative;background:var(--carta);border-radius:4px;padding:16px 18px 14px;box-shadow:0 1px 0 rgba(0,0,0,.06),0 14px 30px -12px rgba(16,54,60,.45);border-top:6px solid var(--teal)}
+.biglietto .logo{width:150px}
+.biglietto h2{font:700 .9375rem/1.3 var(--tit);color:var(--teal-scuro);margin:10px 0 8px}
+.riga{display:flex;align-items:baseline;gap:8px;border-bottom:1px dotted #9fb3b3;padding:6px 0 2px;min-height:34px}
+.riga small{font:600 .8125rem/1 var(--txt);color:var(--grigio);flex:none}
+.riga .scritto{font:600 1.375rem/1 var(--mano);color:var(--penna);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.biglietto .piede{margin:10px 0 0;font-size:.75rem;line-height:1.45;color:var(--grigio)}
+
+/* apertura della home */
+.apertura{position:relative;background:#fff}
+.apertura .foto{position:relative;height:clamp(280px,62vw,560px);overflow:hidden}
+.apertura .foto img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.apertura .sul-banco{position:relative;margin:-120px auto 0;width:min(100% - 36px,360px);z-index:2;transform:rotate(-2.5deg)}
+@media (min-width:860px){
+  .apertura .foto{height:560px}
+  .apertura .sul-banco{position:absolute;right:max(32px,calc(50% - 520px));bottom:-60px;margin:0;width:380px}
+}
+.intro{padding:48px 0 0}
+@media (min-width:860px){.intro{padding-top:70px}.intro>*{max-width:620px}}
+h1{font:700 clamp(1.7rem,6.4vw,2.8rem)/1.15 var(--tit);color:var(--testo);margin:0;text-wrap:balance}
+h1 em{font-style:normal;color:var(--teal-scuro)}
+.intro p{margin:14px 0 0;color:var(--grigio);max-width:58ch}
+
+section{padding:64px 0 0}
+@media (min-width:860px){section{padding-top:96px}}
+h2.sez{font:700 clamp(1.45rem,5vw,2.1rem)/1.2 var(--tit);margin:0 0 8px;color:var(--testo);text-wrap:balance}
+.lead{margin:0 0 24px;color:var(--grigio);max-width:60ch}
+
+/* la sede */
+.sede{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sede img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.sede .grande{grid-column:1/-1}
+.sede .grande img{aspect-ratio:16/9}
+@media (min-width:860px){.sede{grid-template-columns:2fr 1fr 1fr;gap:12px}.sede .grande{grid-column:auto;grid-row:span 2}.sede .grande img{aspect-ratio:auto}}
+
+/* cosa facciamo: indice verso la pagina dei trattamenti */
+.indice{list-style:none;margin:0;padding:0;border-top:1px solid #d9e2e2}
+.indice li{border-bottom:1px solid #d9e2e2}
+.indice a{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:14px 2px;text-decoration:none}
+.indice b{font:700 1.125rem/1.3 var(--tit);color:var(--testo)}
+.indice span{color:var(--grigio);font-size:.875rem;grid-column:1}
+.indice i{grid-column:2;grid-row:1/span 2;align-self:center;font:600 1.25rem/1 var(--mano);color:var(--teal-scuro);font-style:normal}
+.indice a:hover b{color:var(--teal-scuro)}
+@media (min-width:860px){.indice{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;border-top:0}.indice li:nth-child(-n+2){border-top:1px solid #d9e2e2}}
+
+/* team */
+.team{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px 12px}
+@media (min-width:860px){.team{grid-template-columns:repeat(9,1fr)}}
+.team img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:50%;background:#fff}
+.team b{display:block;margin-top:8px;font:700 .9375rem/1.2 var(--tit);text-align:center}
+.team span{display:block;font-size:.75rem;line-height:1.3;color:var(--grigio);text-align:center}
+
+/* dove */
+.dove{display:grid;gap:26px}
+@media (min-width:860px){.dove{grid-template-columns:1fr 1fr;gap:48px}}
+.nap{margin:0 0 14px}
+.nap a{text-decoration:none;border-bottom:1px solid var(--teal)}
+.orari{width:100%;border-collapse:collapse;font-size:.9375rem;margin-bottom:6px;background:#fff}
+.orari th,.orari td{text-align:left;font-weight:400;padding:9px 12px;border-bottom:1px solid #e3e9e9}
+.orari th{color:var(--grigio);width:44%}
+.orari tr.oggi th,.orari tr.oggi td{color:var(--teal-scuro);font-weight:600;background:var(--teal-chiaro)}
+
+/* pagina trattamenti */
+.titolo-pag{padding:40px 0 0}
+.titolo-pag p{color:var(--grigio);margin:12px 0 0;max-width:60ch}
+.salta{display:flex;flex-wrap:wrap;gap:6px 14px;margin:20px 0 0;padding:0;list-style:none}
+.salta a{font:700 .9375rem/1.2 var(--tit);color:var(--teal-scuro);text-decoration:none;border-bottom:2px solid var(--teal-chiaro);padding:6px 0}
+.gruppo{padding-top:52px;scroll-margin-top:12px}
+.gruppo>p{margin:0 0 14px;color:var(--grigio);max-width:62ch}
+.listino{list-style:none;margin:0;padding:0;background:#fff;border:1px solid #dde5e5;border-radius:4px}
+.listino li{display:grid;grid-template-columns:1fr auto;gap:4px 14px;padding:14px 16px;border-top:1px solid #e6ecec}
+.listino li:first-child{border-top:0}
+.listino h3{font:700 1.0625rem/1.3 var(--tit);margin:0;color:var(--testo)}
+.listino .min{font:600 1.1rem/1.2 var(--mano);color:var(--teal-scuro);white-space:nowrap;align-self:start}
+.listino p{grid-column:1/-1;margin:0;color:var(--grigio);font-size:.9375rem}
+.listino button{grid-column:1/-1;justify-self:start;margin-top:4px;font:700 .875rem/1 var(--tit);color:var(--teal-scuro);background:none;border:0;border-bottom:2px dotted var(--teal);padding:10px 0 4px;cursor:pointer}
+.listino button[aria-pressed="true"]{color:var(--arancio);border-bottom-color:var(--arancio)}
+@media (min-width:860px){.listini{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;align-items:start}}
+
+footer{margin-top:72px;padding:24px 0 120px;background:#fff;border-top:1px solid #dfe6e6;font-size:.8125rem;color:var(--grigio)}
+footer p{margin:0 0 6px}
+@media (min-width:860px){footer{padding-bottom:30px}}
+
+/* barra in basso: la matrice del biglietto */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--carta);border-top:4px solid var(--teal);box-shadow:0 -8px 24px -14px rgba(16,54,60,.5);padding:8px 12px calc(8px + env(safe-area-inset-bottom));display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;transform:translateY(120%);transition:transform .35s var(--quart)}
+.barra.su{transform:none}
+.barra .appunto{min-width:0;line-height:1.15}
+.barra .appunto small{display:block;font:600 .6875rem/1.2 var(--txt);color:var(--grigio)}
+.barra .appunto b{display:block;font:600 1.25rem/1.1 var(--mano);color:var(--penna);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.barra a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 14px;font:700 .9375rem/1 var(--tit);text-decoration:none;border-radius:3px;border:2px solid var(--teal-scuro);color:var(--teal-scuro)}
+.barra a.wa{background:var(--teal-scuro);color:#fff}
+@media (min-width:860px){.barra{left:auto;right:24px;bottom:24px;width:420px;border-radius:4px}}
+
+/* movimento */
+.js .sul-banco{opacity:0;transform:translate(60px,30px) rotate(6deg)}
+.js.via .sul-banco{opacity:1;transform:rotate(-2.5deg);transition:transform .75s var(--quint) .25s,opacity .3s ease .25s}
+.js .sul-banco .oggi-scritto{clip-path:inset(-10% 100% -10% 0)}
+.js.via .sul-banco .oggi-scritto{clip-path:inset(-10% 0 -10% 0);transition:clip-path .55s cubic-bezier(.45,.05,.55,.95) 1.05s}
+.js .team li{opacity:0;transform:translateY(8px)}
+.js .team li.visto{opacity:1;transform:none;transition:opacity .45s var(--quart) var(--d),transform .45s var(--quart) var(--d)}
+.scritto.nuovo{animation:penna .5s cubic-bezier(.45,.05,.55,.95)}
+@keyframes penna{from{clip-path:inset(-10% 100% -10% 0)}to{clip-path:inset(-10% 0 -10% 0)}}
+@media (prefers-reduced-motion:reduce){
+  .js .sul-banco,.js.via .sul-banco{opacity:1;transform:rotate(-2.5deg);transition:none}
+  .js .sul-banco .oggi-scritto{clip-path:none}
+  .js .team li{opacity:1;transform:none}
+  .scritto.nuovo{animation:none}
+  .barra{transform:none;transition:none}
+}

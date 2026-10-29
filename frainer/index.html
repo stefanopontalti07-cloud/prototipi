@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Frainer Silvano, Marter di Roncegno: carpenteria metallica leggera e pesante</title>
+<meta name="description" content="Frainer Silvano, carpenteria metallica a Marter di Roncegno (TN) dal 1973: scale in ferro, parapetti, cancelli e recinzioni, ponti e passerelle, strutture portanti, tettoie, acciaio inox.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Frainer Silvano: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/frainer/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/frainer/assets/og.jpg?v=202610290425">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Frainer Silvano su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<meta name="theme-color" content="#2b3035">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%232b3035'/%3E%3Cpath d='M7 24 25 8' stroke='%23f4f1e8' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+/* Frainer: il ferro segnato col gessetto del carpentiere (Passo 0c). La trave in calamina, i
+   numeri dei pezzi col pennarello giallo, le quote a gesso. All'apertura il gessetto scrive il
+   nome sulla trave e tira la quota. */
+:root{
+  --ferro:#2b3035;
+  --ferro-2:#353b41;
+  --ferro-3:#1e2226;
+  --gesso:#f1eee4;
+  --giallo:#f2c230;
+  --testo:#e7e5df;
+  --tenue:#b7bcc0;
+  --tit:'Roboto Slab',Georgia,serif;
+  --txt:'Roboto',system-ui,sans-serif;
+  --mano:'Permanent Marker','Comic Sans MS',cursive;
+  --quart:cubic-bezier(.25,1,.5,1);
+  --grana:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .6 0 0 0 0 .66 0 0 0 .28 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  --polvere:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.1 .3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ferro-3);color:var(--testo);font:400 1rem/1.6 var(--txt);overflow-x:hidden}
+a{color:inherit}
+.proto{background:#121417;color:#c9cdd1;font:400 .8125rem/1.4 system-ui,sans-serif;text-align:center;padding:7px 16px}
+.proto b{color:#fff}
+.wrap{width:min(100% - 32px,1060px);margin:0 auto}
+
+/* il ferro: calamina con la grana */
+.ferro{background-color:var(--ferro);background-image:var(--grana),linear-gradient(180deg,rgba(255,255,255,.06),rgba(0,0,0,.12))}
+.gesso{color:var(--gesso);font-family:var(--mano);-webkit-mask-image:var(--polvere);mask-image:var(--polvere);-webkit-mask-size:160px;mask-size:160px}
+.giallo{color:var(--giallo);font-family:var(--mano)}
+
+/* la trave */
+.trave{position:relative;margin-top:22px;padding:26px 0 30px;border-top:7px solid #4a5157;border-bottom:7px solid #1a1d20;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 16px 30px -18px #000}
+@media (min-width:860px){.trave{margin-top:40px;padding:40px 0 46px}}
+.trave .wrap{position:relative}
+.nome{margin:0;font-size:clamp(2.1rem,11vw,5.2rem);line-height:1;letter-spacing:.01em;transform:rotate(-1.2deg);transform-origin:left}
+.nome .sub{font-size:.42em;margin-top:8px;display:block}
+.quota{position:relative;margin:26px 0 0;height:34px;width:min(100%,640px)}
+.quota svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.quota path{fill:none;stroke:var(--gesso);stroke-width:2.2;stroke-linecap:round}
+.quota b{position:absolute;left:50%;top:-6px;transform:translateX(-50%);background:var(--ferro);padding:0 10px;font-weight:400;font-size:1.05rem;white-space:nowrap}
+.pezzo{position:absolute;right:0;top:-6px;width:64px;height:64px;display:grid;place-items:center;font-size:1.4rem;transform:rotate(6deg)}
+.pezzo svg{position:absolute;inset:0;width:100%;height:100%}
+.pezzo circle{fill:none;stroke:var(--giallo);stroke-width:3}
+@media (max-width:520px){.pezzo{top:auto;bottom:-14px;width:54px;height:54px;font-size:1.15rem}}
+.dove-trave{margin:16px 0 0;font-size:1rem}
+
+.apri{padding:30px 0 0}
+h1{font:700 clamp(1.5rem,5.8vw,2.6rem)/1.15 var(--tit);margin:0;max-width:24ch;text-wrap:balance;color:#fff}
+.apri p{margin:14px 0 0;max-width:58ch;color:var(--tenue)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;font:700 1rem/1 var(--tit);text-decoration:none;border:2px solid var(--gesso);color:var(--gesso);background:transparent;transition:background .2s var(--quart),color .2s var(--quart),transform .12s}
+.btn.pieno{background:var(--giallo);border-color:var(--giallo);color:#1b1d1f}
+.btn:hover{background:var(--gesso);border-color:var(--gesso);color:#1b1d1f}
+.btn:active{transform:translateY(1px)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--giallo);outline-offset:3px}
+@media (max-width:420px){.btns .btn{flex:1 1 auto}}
+
+section{padding:64px 0 0}
+@media (min-width:860px){section{padding-top:96px}}
+h2{font:700 clamp(1.45rem,5vw,2.1rem)/1.2 var(--tit);margin:0 0 8px;color:#fff;text-wrap:balance}
+.lead{margin:0 0 24px;color:var(--tenue);max-width:60ch}
+
+/* i pezzi: ogni lavoro col suo numero a pennarello */
+.pezzi{list-style:none;margin:0;padding:0;display:grid;gap:0}
+@media (min-width:860px){.pezzi{grid-template-columns:1fr 1fr;column-gap:44px}}
+.pezzi li{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:16px 0;border-top:1px solid #3d444a}
+.pezzi .n{font-size:1.35rem;line-height:1.1;padding-top:2px}
+.pezzi h3{font:700 1.0625rem/1.3 var(--tit);margin:0 0 3px;color:#fff}
+.pezzi p{margin:0;color:var(--tenue);font-size:.9375rem}
+.sopralluogo{margin:26px 0 0;padding:16px 18px;border-left:4px solid var(--giallo);background:rgba(255,255,255,.04);max-width:62ch}
+
+/* la storia: le tacche lungo il ferro piatto */
+.piatto{position:relative;margin-top:10px;padding:22px 18px 8px;border-top:6px solid #4a5157;border-bottom:6px solid #191c1f}
+.anni{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+@media (min-width:860px){.anni{grid-template-columns:repeat(5,1fr);gap:22px}}
+.anni li{position:relative;padding-left:18px}
+.anni li::before{content:"";position:absolute;left:0;top:4px;bottom:4px;width:3px;background:var(--gesso);opacity:.85;transform:rotate(2deg)}
+.anni .anno{display:block;font-size:1.6rem;line-height:1}
+.anni p{margin:6px 0 0;font-size:.9375rem;color:var(--testo)}
+
+.dove{display:grid;gap:26px}
+@media (min-width:860px){.dove{grid-template-columns:1fr 1fr;gap:48px}}
+.nap{margin:0 0 14px;font-size:1rem}
+.nap a{text-decoration:none;border-bottom:1px solid var(--giallo)}
+.orari{width:100%;border-collapse:collapse;font-size:.9375rem;margin-bottom:16px}
+.orari th,.orari td{text-align:left;font-weight:400;padding:8px 0;border-bottom:1px solid #3d444a}
+.orari th{color:var(--tenue);width:46%}
+.orari tr.oggi th,.orari tr.oggi td{color:#fff;font-weight:500}
+.strada p{margin:0 0 10px;color:var(--tenue);font-size:.9375rem}
+.strada b{color:#fff;font-weight:500}
+footer{margin-top:72px;padding:22px 0 110px;border-top:1px solid #3d444a;font-size:.8125rem;color:var(--tenue)}
+@media (min-width:860px){footer{padding-bottom:30px}}
+
+/* barra in basso: un ritaglio della stessa trave */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;padding:0 0 env(safe-area-inset-bottom);border-top:4px solid #4a5157;transform:translateY(115%);transition:transform .35s var(--quart)}
+.barra.su{transform:none}
+.barra a{flex:1;display:flex;align-items:center;justify-content:center;min-height:56px;font:400 1.3rem/1 var(--mano);text-decoration:none}
+.barra a:first-child{color:var(--giallo)}
+.barra a+a{border-left:2px dashed rgba(241,238,228,.4);color:var(--gesso)}
+@media (min-width:860px){.barra{display:none}}
+
+/* apertura: il gessetto scrive, poi tira la quota e cerchia il pezzo */
+.js .scrive{clip-path:inset(-20% 100% -20% 0)}
+.js.via .scrive{clip-path:inset(-20% -2% -20% 0);transition:clip-path var(--t,.8s) cubic-bezier(.45,.05,.55,.95) var(--r,0s)}
+.js .quota path{stroke-dasharray:var(--l,700);stroke-dashoffset:var(--l,700)}
+.js.via .quota path{stroke-dashoffset:0;transition:stroke-dashoffset .55s var(--quart) 1.15s}
+.js .quota b{opacity:0}
+.js.via .quota b{opacity:1;transition:opacity .3s ease 1.5s}
+.js .pezzo circle{stroke-dasharray:190;stroke-dashoffset:190}
+.js.via .pezzo circle{stroke-dashoffset:0;transition:stroke-dashoffset .45s var(--quart) 1.7s}
+.js .pezzo b{opacity:0}
+.js.via .pezzo b{opacity:1;transition:opacity .2s ease 1.65s}
+.js .pezzi li,.js .anni li{opacity:0;transform:translateY(8px)}
+.js .pezzi li.visto,.js .anni li.visto{opacity:1;transform:none;transition:opacity .5s var(--quart) var(--d),transform .5s var(--quart) var(--d)}
+@media (prefers-reduced-motion:reduce){
+  .js .scrive{clip-path:none}
+  .js .quota path,.js .pezzo circle{stroke-dashoffset:0}
+  .js .quota b,.js .pezzo b{opacity:1}
+  .js .pezzi li,.js .anni li{opacity:1;transform:none}
+  .barra{transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+<div class="proto">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Frainer Silvano</div>
+
+<header>
+  <div class="trave ferro">
+    <div class="wrap">
+      <p class="nome gesso" aria-label="Frainer Silvano, carpenteria metallica"><span class="scrive" style="--t:.75s;display:block">FRAINER</span><span class="scrive sub" style="--t:.55s;--r:.6s">Silvano · carpenteria</span></p>
+      <div class="quota" aria-hidden="true">
+        <svg viewBox="0 0 640 34" preserveAspectRatio="none"><path d="M3 4v26M637 4v26M3 17h634M3 17l14-7M3 17l14 7M637 17l-14-7M637 17l-14 7"/></svg>
+        <b class="gesso">dal 1973</b>
+      </div>
+      <div class="pezzo giallo" aria-hidden="true"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" transform="rotate(-80 32 32)"/></svg><b>P1</b></div>
+      <p class="dove-trave gesso"><span class="scrive" style="--t:.5s;--r:1.05s;display:inline-block">Via Fornaci 4 · Marter di Roncegno</span></p>
+    </div>
+  </div>
+  <div class="apri wrap">
+    <h1>Carpenteria metallica leggera e pesante, civile e industriale</h1>
+    <p>Scale, parapetti, cancelli, ponti e passerelle, strutture portanti, tettoie e acciaio inox, fatti nel nostro capannone di Marter e messi in opera da noi.</p>
+    <div class="btns">
+      <a class="btn pieno" href="tel:+390461764274">Chiama ora</a>
+      <a class="btn" href="mailto:info@frainer.it">Scrivi una email</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="wrap" id="lavori">
+    <h2>Cosa facciamo</h2>
+    <p class="lead">Ogni pezzo col suo numero, come in officina.</p>
+    <ol class="pezzi">
+      <li><span class="n giallo">P1</span><div><h3>Scale in ferro</h3><p>Di qualsiasi tipologia, per uso civile e industriale: da esterno, o da interni in acciaio e vetro, in ferro verniciato o col legno. Anche scale di sicurezza.</p></div></li>
+      <li><span class="n giallo">P2</span><div><h3>Parapetti</h3><p>Struttura in acciaio verniciato o inox, con elementi in legno o vetro.</p></div></li>
+      <li><span class="n giallo">P3</span><div><h3>Cancelli e recinzioni</h3><p>Ringhiere in ferro di ogni forma, dalle più semplici a quelle artistiche, anche con lavorazioni laser. Cancelli artistici o industriali, anche grandi, scorrevoli su binario o a sbalzo.</p></div></li>
+      <li><span class="n giallo">P4</span><div><h3>Ponti e passerelle</h3><p>Colonne portanti in acciaio e pavimentazione in legno, o passerelle su misura per ogni applicazione.</p></div></li>
+      <li><span class="n giallo">P5</span><div><h3>Opere di carpenteria</h3><p>Strutture portanti per edifici commerciali e residenziali, consolidamento solai, soppalchi, tettoie, strutture di sostegno. Con la messa in opera.</p></div></li>
+      <li><span class="n giallo">P6</span><div><h3>Manufatti in acciaio inox</h3><p>Strutture, griglie, tubazioni e chiusure, standard e su misura.</p></div></li>
+      <li><span class="n giallo">P7</span><div><h3>Serramenti in acciaio</h3><p>Serramenti in acciaio Palladio, adatti per i centri storici, in acciaio zincato o inox.</p></div></li>
+      <li><span class="n giallo">P8</span><div><h3>Portoni e porte automatiche</h3><p>Portoni a libro, scorrevoli, sezionali e tagliafuoco REI. Porte automatiche anche antipanico, automazioni per cancelli e portoni.</p></div></li>
+    </ol>
+    <p class="sopralluogo">Per chi lo desidera, i nostri tecnici collaborano anche alla fase di progetto, partendo dall'idea. Sopralluoghi, progetti e preventivi: chiamateci.</p>
+  </section>
+
+  <section class="wrap" id="storia">
+    <h2>Dal 1973</h2>
+    <p class="lead">La storia del capannone, tacca per tacca.</p>
+    <div class="piatto ferro">
+      <ol class="anni">
+        <li><span class="anno gesso">1973</span><p>Nasce l'azienda di Silvano Frainer, a Novaledo, in un capannone di circa 250 mq.</p></li>
+        <li><span class="anno gesso">1978</span><p>Il capannone nuovo a Marter di Roncegno, 450 mq.</p></li>
+        <li><span class="anno gesso">1992</span><p>Da ditta individuale a S.N.C., con i figli Guido e Michele.</p></li>
+        <li><span class="anno gesso">2002</span><p>L'ampliamento, e un nuovo capannone annesso a quello esistente.</p></li>
+        <li><span class="anno gesso">oggi</span><p>Circa 1.400 mq, ristrutturati e messi a norma.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="wrap" id="dove">
+    <div class="dove">
+      <div>
+        <h2>Dove siamo</h2>
+        <p class="nap"><b>Frainer Silvano S.r.l.</b><br>Via Fornaci 4, 38050 Marter di Roncegno (TN)<br>Tel. <a href="tel:+390461764274">0461 764274</a> · Fax 0461 771717<br><a href="mailto:info@frainer.it">info@frainer.it</a><br>PEC frainersrl@pec.it</p>
+        <table class="orari" aria-label="Orari">
+          <tr data-g="1"><th>lunedì</th><td>8-17</td></tr>
+          <tr data-g="2"><th>martedì</th><td>8-17</td></tr>
+          <tr data-g="3"><th>mercoledì</th><td>8-17</td></tr>
+          <tr data-g="4"><th>giovedì</th><td>8-17</td></tr>
+          <tr data-g="5"><th>venerdì</th><td>8-17</td></tr>
+          <tr data-g="6"><th>sabato e domenica</th><td>chiuso</td></tr>
+        </table>
+        <div class="btns">
+          <a class="btn pieno" href="tel:+390461764274">Chiama ora</a>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Frainer%20Silvano%20Via%20Fornaci%204%20Roncegno%20Terme" target="_blank" rel="noopener">Apri in Google Maps</a>
+        </div>
+      </div>
+      <div class="strada">
+        <h2>Come arrivare</h2>
+        <p><b>Da Trento:</b> Statale 47 della Valsugana fino a Roncegno, uscita Roncegno/Marter, poi in direzione di Via Lagomorto.</p>
+        <p><b>Da Bassano:</b> Statale 47 della Valsugana, uscita Roncegno/Borgo Valsugana, poi la SP65 e Viale Roma in direzione di Via Lagomorto.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">Frainer Silvano S.r.l. · carpenteria metallica · Via Fornaci 4, 38050 Marter di Roncegno (TN)</footer>
+
+<nav class="barra ferro" aria-label="Contatti rapidi">
+  <a href="tel:+390461764274">Chiama</a>
+  <a href="mailto:info@frainer.it">Email</a>
+</nav>
+
+<script>
+(function(){
+  var d=document.documentElement, ridotto=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var q=document.querySelector('.quota path'); if(q) q.style.setProperty('--l', Math.ceil(q.getTotalLength()));
+  if(!ridotto){ d.classList.add('js'); requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('via')})}); }
+  var voci=document.querySelectorAll('.pezzi li,.anni li');
+  if('IntersectionObserver' in window && !ridotto){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
+    voci.forEach(function(x,i){x.style.setProperty('--d',(i%4)*70+'ms');io.observe(x)});
+  } else voci.forEach(function(x){x.classList.add('visto')});
+  var g=new Date().getDay(); var riga=document.querySelector('.orari tr[data-g="'+(g===0?6:g)+'"]'); if(riga) riga.classList.add('oggi');
+  var barra=document.querySelector('.barra');
+  var su=function(){barra.classList.toggle('su',scrollY>Math.min(innerHeight*.6,420))};
+  addEventListener('scroll',su,{passive:true}); su();
+})();
+</script>
+</body>
+</html>
