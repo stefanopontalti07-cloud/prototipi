@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Portici Caffè 2.0, Arco: colazioni, panini e aperitivo in Via Mantova</title>
+<meta name="description" content="Portici Caffè 2.0 ad Arco, Via Mantova 1: caffè e colazioni, panini farciti al momento, pranzi veloci e aperitivo, sotto i portici. Aperto dal lunedì al sabato dalle 6:30.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Portici Caffè 2.0: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/portici-caffe/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/portici-caffe/assets/og.jpg?v=202610300414">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Portici Caffè 2.0 su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<meta name="theme-color" content="#f0c232">
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="assets/fonts.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--giallo:#f0c232;--giallo-ombra:#d9a91c;--marrone:#4a2c1c;--marrone-2:#6b4129;--crema:#fff8e4;--grigio:#6d6a63;--serranda:#9c9e9f}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--giallo);color:var(--marrone);font:17px/1.55 "Work Sans",system-ui,sans-serif;-webkit-text-size-adjust:100%;padding-bottom:86px}
+img{display:block;max-width:100%}
+a{color:inherit}
+.proto{background:var(--marrone);color:#f6e7c6;font-size:13px;text-align:center;padding:7px 16px;padding-top:max(7px,env(safe-area-inset-top))}
+.proto b{color:#fff}
+.wrap{max-width:1080px;margin:0 auto;padding:0 18px}
+h1,h2,h3{font-family:Quicksand,sans-serif;font-weight:700;line-height:1.08;letter-spacing:-.01em}
+
+/* la facciata: muro giallo con il tetto in coppi e la scritta come sopra i loro archi */
+.tetto{height:26px;background:repeating-linear-gradient(90deg,#8b3b1f 0 26px,#a24a27 26px 52px);box-shadow:inset 0 -6px 0 #6e2c15;border-bottom:4px solid var(--giallo-ombra)}
+.testa{padding:20px 0 6px}
+.testa .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
+.insegna{background:#fff;border-radius:10px;padding:6px 10px;box-shadow:0 2px 0 var(--giallo-ombra)}
+.insegna img{width:min(190px,46vw);height:auto}
+.testa nav a{font-weight:600;font-size:15px;text-decoration:none;padding:10px 6px;display:inline-block}
+.testa nav a:hover{text-decoration:underline}
+
+.apertura{padding:10px 0 26px}
+.apertura h1{font-size:clamp(38px,8vw,66px);margin:14px 0 10px}
+.apertura .sotto{font-size:18px;max-width:46ch}
+.ora{display:inline-block;margin-top:14px;font-family:Quicksand,sans-serif;font-weight:700;font-size:16px;background:var(--marrone);color:var(--crema);border-radius:999px;padding:6px 14px}
+
+/* i portici: archi con dentro il bar, chiusi dalle serrande che si alzano */
+.portici{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,2.4vw,22px);margin:26px 0 8px;padding:0 0 14px;border-bottom:10px solid var(--giallo-ombra)}
+.arco{position:relative;aspect-ratio:3/4.4;border-radius:999px 999px 0 0;overflow:hidden;background:#3b2a20;box-shadow:inset 0 0 0 5px #e4b425}
+.arco img{width:100%;height:100%;object-fit:cover}
+.arco .serranda{position:absolute;inset:0;background:repeating-linear-gradient(180deg,#b3b5b6 0 9px,#8f9192 9px 11px,#a4a6a7 11px 13px);box-shadow:inset 0 -14px 0 #6f7172;transform:translateY(-102%)}
+.arco figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(30,18,10,.82));color:#fff;font-family:Quicksand,sans-serif;font-weight:700;font-size:clamp(13px,2.4vw,18px);padding:28px 8px 10px;text-align:center}
+@media (prefers-reduced-motion:no-preference){
+  .js .arco .serranda{transform:none;animation:alza 1s cubic-bezier(.55,0,.25,1) forwards}
+  .js .arco:nth-child(1) .serranda{animation-delay:.35s}
+  .js .arco:nth-child(2) .serranda{animation-delay:.6s}
+  .js .arco:nth-child(3) .serranda{animation-delay:.85s}
+  .js .arco:nth-child(4) .serranda{animation-delay:1.1s}
+  @keyframes alza{0%{transform:none}12%{transform:translateY(3%)}100%{transform:translateY(-102%)}}
+}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 24px;border-radius:12px;text-decoration:none;font-family:Quicksand,sans-serif;font-weight:700;font-size:17px}
+.btn.pieno{background:var(--marrone);color:var(--crema)}
+.btn.vuoto{border:2.5px solid var(--marrone)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--marrone);outline-offset:3px}
+
+section{padding:52px 0}
+h2{font-size:clamp(30px,6vw,46px);margin-bottom:12px}
+.chiaro{background:var(--crema)}
+.lead{max-width:56ch;font-size:18px}
+
+/* il bancone: le cose buone in fila come sulla vetrina */
+.banco{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:26px}
+.piatto{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 0 #ead9ae;opacity:1}
+.piatto img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.piatto div{padding:14px 16px 18px}
+.piatto h3{font-size:22px;margin-bottom:6px}
+.piatto p{color:#5b4a3e;font-size:16px}
+@media (prefers-reduced-motion:no-preference){
+  .js .piatto{opacity:0;transform:translateY(18px)}
+  .js .piatto.vista{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
+}
+
+/* il cartello degli orari appeso alla porta */
+.cartello{background:#fff;border-radius:12px;max-width:420px;padding:22px 24px 20px;position:relative;box-shadow:0 10px 24px -14px rgba(74,44,28,.6);margin-top:26px}
+.cartello::before{content:"";position:absolute;top:-30px;left:50%;width:120px;height:34px;margin-left:-60px;border:3px solid #7a7a78;border-bottom:0;border-radius:60px 60px 0 0}
+.cartello h3{font-size:24px;text-align:center;margin-bottom:12px}
+.cartello table{width:100%;border-collapse:collapse;font-size:18px}
+.cartello th{text-align:left;font-weight:500;padding:8px 0;border-bottom:1px dashed #e0cfa6}
+.cartello td{text-align:right;padding:8px 0;border-bottom:1px dashed #e0cfa6;font-variant-numeric:tabular-nums;font-weight:600}
+.cartello tr.oggi th,.cartello tr.oggi td{color:#9a3d14}
+.aperto{display:block;text-align:center;margin-top:12px;font-family:Quicksand,sans-serif;font-weight:700}
+
+.dove-foto{border-radius:16px;overflow:hidden;margin-top:24px}
+.dove-foto img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.nap{font-size:18px;margin-top:16px}
+.nap a{text-decoration:none;border-bottom:2px solid var(--marrone)}
+footer{background:var(--marrone);color:#f1e3c4;font-size:14px;padding:22px 0 28px}
+
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:10px;padding:10px 12px;padding-bottom:max(10px,env(safe-area-inset-bottom));background:var(--marrone);box-shadow:0 -6px 0 var(--giallo-ombra)}
+.barra a{flex:1;min-height:48px;display:flex;align-items:center;justify-content:center;border-radius:24px 24px 6px 6px;text-decoration:none;font-family:Quicksand,sans-serif;font-weight:700;font-size:17px;background:var(--giallo);color:var(--marrone)}
+.barra a.wa{background:var(--crema)}
+@media (min-width:900px){.barra{display:none}body{padding-bottom:0}}
+@media (max-width:420px){.testa nav{display:none}}
+@media (max-width:600px){.portici{grid-template-columns:repeat(2,1fr)}.arco{aspect-ratio:3/3.3}}
+</style>
+</head>
+<body>
+<div class="proto">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Portici Caffè 2.0</div>
+<div class="tetto" aria-hidden="true"></div>
+<header class="testa">
+  <div class="wrap">
+    <a class="insegna" href="./" aria-label="Portici Caffè 2.0, home"><img src="assets/logo.png" width="700" height="264" alt="Portici Caffè 2.0"></a>
+    <nav aria-label="Sezioni"><a href="#bancone">Da noi</a><a href="#orari">Orari</a><a href="#dove">Dove</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="apertura">
+    <div class="wrap">
+      <h1>Il bar che ti mancava, sotto i portici di Arco.</h1>
+      <p class="sotto">Colazione, caffè, panini farciti al momento, pranzi veloci e aperitivo, in Via Mantova 1.</p>
+      <span class="ora">Si alzano le serrande alle 6:30</span>
+      <div class="portici" aria-label="Il bar visto dagli archi">
+        <figure class="arco"><img src="assets/macchina.jpg" width="400" height="300" alt="La macchina del caffè al bancone"><figcaption>Caffè</figcaption><span class="serranda" aria-hidden="true"></span></figure>
+        <figure class="arco"><img src="assets/colazione.jpg" width="473" height="405" alt="Croissant, krapfen e succo sul tavolino all'aperto"><figcaption>Colazione</figcaption><span class="serranda" aria-hidden="true"></span></figure>
+        <figure class="arco"><img src="assets/panini.jpg" width="1200" height="900" alt="Panini farciti al momento con prosciutto"><figcaption>Panini</figcaption><span class="serranda" aria-hidden="true"></span></figure>
+        <figure class="arco"><img src="assets/aperitivo.jpg" width="611" height="900" alt="Due spritz con salumi e olive"><figcaption>Aperitivo</figcaption><span class="serranda" aria-hidden="true"></span></figure>
+      </div>
+      <div class="btns">
+        <a class="btn pieno" href="https://wa.me/393935643087?text=Ciao%21%20Vorrei%20un%27informazione" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn vuoto" href="tel:+393935643087">Chiama ora</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="chiaro" id="bancone">
+    <div class="wrap">
+      <h2>Da non perdere da noi</h2>
+      <p class="lead">Le colazioni e i panini li prepariamo al momento. Si sta al coperto, oppure fuori sotto i portici quando c'è il sole.</p>
+      <div class="banco">
+        <article class="piatto"><img src="assets/cappuccino.jpg" width="640" height="640" alt="Cappuccino con il cuore disegnato nella schiuma" loading="lazy"><div><h3>Cappuccino</h3><p>È sempre l'ora di un buon caffè o di un cappuccino. Accomodati, e sorseggialo con calma.</p></div></article>
+        <article class="piatto"><img src="assets/vetrina.jpg" width="640" height="640" alt="La vetrina dei dolci e delle brioche" loading="lazy"><div><h3>Colazione</h3><p>Brioche e dolci in vetrina dalla mattina presto, dalle 6:30.</p></div></article>
+        <article class="piatto"><img src="assets/panini.jpg" width="1200" height="900" alt="Panini farciti al momento" loading="lazy"><div><h3>Panini gustosi</h3><p>Farciti al momento, per un pranzo veloce o una pausa a metà giornata.</p></div></article>
+        <article class="piatto"><img src="assets/aperitivo.jpg" width="611" height="900" alt="Spritz con tagliere di salumi e olive" loading="lazy"><div><h3>Aperitivo</h3><p>Da gustare in compagnia, a fine giornata.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="orari">
+    <div class="wrap">
+      <h2>Quando siamo aperti</h2>
+      <div class="cartello">
+        <h3>Orari</h3>
+        <table aria-label="Orari di apertura">
+          <tr data-g="1"><th>Lunedì</th><td>6:30 - 20:00</td></tr>
+          <tr data-g="2"><th>Martedì</th><td>6:30 - 20:00</td></tr>
+          <tr data-g="3"><th>Mercoledì</th><td>6:30 - 20:00</td></tr>
+          <tr data-g="4"><th>Giovedì</th><td>6:30 - 20:00</td></tr>
+          <tr data-g="5"><th>Venerdì</th><td>6:30 - 20:00</td></tr>
+          <tr data-g="6"><th>Sabato</th><td>6:30 - 20:00</td></tr>
+          <tr data-g="0"><th>Domenica</th><td>8:00 - 13:00</td></tr>
+        </table>
+        <span class="aperto" id="aperto"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="chiaro" id="dove">
+    <div class="wrap">
+      <h2>Ci trovi qui</h2>
+      <div class="dove-foto"><img src="assets/facciata.jpg" width="1600" height="901" alt="La facciata gialla con i portici e la scritta caffè portici" loading="lazy"></div>
+      <p class="nap"><b>Portici Caffè 2.0</b><br>Via Mantova 1, 38062 Arco<br>Tel. e WhatsApp <a href="tel:+393935643087">393 564 3087</a> · <a href="mailto:porticicaffe2.0@outlook.it">porticicaffe2.0@outlook.it</a></p>
+      <div class="btns">
+        <a class="btn pieno" href="https://www.google.com/maps/search/?api=1&amp;query=Portici%20Caffe%202.0%20Via%20Mantova%201%20Arco" target="_blank" rel="noopener">Apri in Google Maps</a>
+        <a class="btn vuoto" href="https://www.instagram.com/portici_caffe_2.0_arco/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Portici Caffè 2.0 · Via Mantova 1, 38062 Arco (TN)</div></footer>
+
+<nav class="barra" aria-label="Contatti rapidi">
+  <a href="tel:+393935643087">Chiama</a>
+  <a class="wa" href="https://wa.me/393935643087?text=Ciao%21%20Vorrei%20un%27informazione" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+(function(){
+  var d=new Date(),g=d.getDay(),r=document.querySelector('.cartello tr[data-g="'+g+'"]'); if(r) r.className='oggi';
+  var m=d.getHours()*60+d.getMinutes(),ap=g===0?(m>=480&&m<780):(m>=390&&m<1200);
+  document.getElementById('aperto').textContent=ap?'Adesso siamo aperti':'Adesso siamo chiusi';
+  var els=document.querySelectorAll('.piatto');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('vista')});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e,i){if(e.isIntersecting){var t=e.target;setTimeout(function(){t.classList.add('vista')},80*([].indexOf.call(els,t)%4));io.unobserve(t)}})},{threshold:.2});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>

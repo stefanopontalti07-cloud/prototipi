@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Ristorante Pizzeria La Villa, Nago: pesce fresco e pizza dal forno a legna</title>
+<meta name="description" content="Ristorante Pizzeria La Villa a Nago, sopra il lago di Garda: pesce fresco ogni giorno, crostacei, pasta fatta a mano e pizza cotta nel forno a legna. Privè, terrazzo e sala per gruppi e famiglie.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ristorante Pizzeria La Villa: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/la-villa-nago/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/la-villa-nago/assets/og.jpg?v=202610300414">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Ristorante Pizzeria La Villa su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<meta name="theme-color" content="#1e1511">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='16' rx='15' ry='12' fill='%233b2418'/%3E%3Ctext x='16' y='21' font-size='14' text-anchor='middle' fill='%23f3ecdf' font-family='Georgia' font-style='italic'%3EV%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/fonts.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--fuliggine:#1e1511;--mattone:#2c1d16;--marrone:#3b2418;--crema:#f3ecdf;--carta:#faf6ee;--brace:#e8772e;--brace-chiara:#ffb85c;--testo:#2a1a12;--grigio:#6b5a4d}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--carta);color:var(--testo);font:17px/1.65 Mulish,system-ui,sans-serif;padding-bottom:84px}
+img{display:block;max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.fascia{background:#120c09;color:#e9dccb;font-size:13px;text-align:center;padding:9px 16px;line-height:1.5}
+.fascia b{color:#fff}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.08;margin:0}
+
+/* la bocca del forno: l'arco di mattoni con la brace dentro */
+.forno{background:var(--fuliggine);color:var(--crema);padding:34px 0 56px;overflow:hidden;position:relative}
+.forno::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 33px,rgba(0,0,0,.35) 33px 36px),repeating-linear-gradient(90deg,transparent 0 70px,rgba(0,0,0,.28) 70px 73px);opacity:.55;pointer-events:none}
+.forno .wrap{position:relative;display:grid;gap:30px;align-items:center}
+.bocca{position:relative;width:min(100%,420px);aspect-ratio:1/0.82;margin:0 auto;border-radius:50% 50% 6px 6px/62% 62% 6px 6px;background:#0d0806;box-shadow:0 0 0 14px #4a2a1c,0 0 0 17px #2a1810,0 0 0 30px #5b3322,0 0 0 33px #2a1810;overflow:hidden;isolation:isolate}
+.bocca .brace{position:absolute;inset:0;background:radial-gradient(ellipse 70% 46% at 50% 100%,var(--brace-chiara) 0,#f08a35 22%,#b2401a 46%,#4a170b 70%,transparent 86%);transform-origin:50% 100%}
+.bocca .brace.due{background:radial-gradient(ellipse 40% 30% at 38% 100%,#ffd27a 0,#f0802e 40%,transparent 75%),radial-gradient(ellipse 34% 26% at 66% 100%,#ffc56a 0,#e86a28 45%,transparent 78%);mix-blend-mode:screen}
+.bocca .ovale{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);width:66%;aspect-ratio:1.45/1;border-radius:50%;background:var(--marrone);box-shadow:0 0 0 3px #d8c7a6,0 14px 30px -8px rgba(0,0,0,.8);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:2}
+.ovale .firma{font-family:"Pinyon Script",cursive;font-size:clamp(46px,13vw,64px);line-height:.9;color:#fff8ea}
+.ovale small{display:block;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#f1e3c8;margin-top:6px}
+.ovale i{display:block;font-family:"Cormorant Garamond",serif;font-size:15px;color:#f1e3c8;margin-top:2px}
+.scintille span{position:absolute;bottom:8%;width:4px;height:4px;border-radius:50%;background:#ffcf7a;box-shadow:0 0 6px 2px rgba(255,170,80,.8);opacity:0;z-index:1}
+.forno .testo .occhiello{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--brace-chiara);font-weight:700}
+.forno h1{font-size:clamp(36px,9vw,60px);margin:12px 0 16px;color:#fff8ea}
+.forno h1 em{font-style:italic;color:var(--brace-chiara)}
+.forno p{max-width:46ch;color:#eadcc6;margin:0 0 22px}
+.bottoni{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:999px 999px 10px 10px;font-weight:700;text-decoration:none;font-size:16px}
+.btn.pieno{background:var(--brace-chiara);color:#2a1206}
+.btn.vuoto{border:2px solid #b89a7a;color:#fff8ea}
+@media (max-width:859px){.bocca{width:min(80%,360px)}.forno{padding-top:44px}}
+@media (min-width:860px){.forno{padding:60px 0 80px}.forno .wrap{grid-template-columns:1fr 1.05fr;gap:70px}}
+
+/* apertura: la brace si accende, poi arriva il resto */
+@media (prefers-reduced-motion:no-preference){
+  .js .bocca .brace{animation:accendi 2.2s cubic-bezier(.3,.1,.3,1) both,respira 3.4s ease-in-out 2.2s infinite}
+  .js .bocca .brace.due{animation:accendi 2.6s cubic-bezier(.3,.1,.3,1) .3s both,guizzo 2.1s ease-in-out 2.9s infinite}
+  .js .bocca .ovale{animation:compare 1s cubic-bezier(.2,.7,.2,1) 1.3s both}
+  .js .forno .testo>*{animation:sale .9s cubic-bezier(.2,.7,.2,1) both}
+  .js .forno .testo>:nth-child(1){animation-delay:1.6s}.js .forno .testo>:nth-child(2){animation-delay:1.75s}.js .forno .testo>:nth-child(3){animation-delay:1.9s}.js .forno .testo>:nth-child(4){animation-delay:2.05s}
+  .js .scintille span{animation:scintilla 3.2s linear infinite}
+  .js .scintille span:nth-child(1){left:30%;animation-delay:2s}.js .scintille span:nth-child(2){left:46%;animation-delay:2.9s}.js .scintille span:nth-child(3){left:58%;animation-delay:3.6s}.js .scintille span:nth-child(4){left:70%;animation-delay:4.4s}.js .scintille span:nth-child(5){left:40%;animation-delay:5.1s}
+  .js .arco-foto{clip-path:inset(100% 0 0 0 round 50% 50% 0 0);transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1)}
+  .js .arco-foto.vista{clip-path:inset(0 0 0 0 round 0)}
+  @keyframes accendi{0%{opacity:0;transform:scaleY(.25)}35%{opacity:.5}100%{opacity:1;transform:none}}
+  @keyframes respira{0%,100%{transform:none;filter:brightness(1)}50%{transform:scaleY(1.05);filter:brightness(1.12)}}
+  @keyframes guizzo{0%,100%{opacity:1}30%{opacity:.7}60%{opacity:1}80%{opacity:.85}}
+  @keyframes compare{from{opacity:0;transform:translate(-50%,-42%) scale(.9)}to{opacity:1;transform:translate(-50%,-50%)}}
+  @keyframes sale{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  @keyframes scintilla{0%{opacity:0;transform:translate(0,0)}10%{opacity:1}70%{opacity:.8}100%{opacity:0;transform:translate(14px,-190px)}}
+}
+
+section{padding:64px 0}
+.occhiello-sez{font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:#9a4a1c;margin-bottom:10px;display:block}
+h2{font-size:clamp(32px,7vw,48px);color:var(--marrone);margin-bottom:14px}
+.cucine{display:grid;gap:44px}
+.cucina{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:end}
+.arco-foto{width:clamp(140px,40vw,237px);border-radius:999px 999px 8px 8px;overflow:hidden;box-shadow:0 0 0 6px #fff,0 0 0 7px #d9c9ad,0 18px 30px -16px rgba(42,26,18,.7)}
+.arco-foto img{width:100%;aspect-ratio:3/3.6;object-fit:cover}
+.cucina h3{font-size:clamp(26px,5.6vw,34px);color:var(--marrone);margin-bottom:6px}
+.cucina p{margin:0;color:#3d2c22}
+.cucina .ora{display:inline-block;margin-top:10px;font-weight:700;color:#8a3e14;font-size:15px}
+@media (max-width:520px){.cucina{grid-template-columns:1fr;justify-items:start}}
+@media (min-width:860px){.cucine{grid-template-columns:1fr 1fr;gap:56px}}
+
+.sale-sez{background:var(--crema)}
+.ambienti{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
+.ambiente{background:var(--carta);border-radius:120px 120px 10px 10px;padding:34px 14px 22px;text-align:center;border:1px solid #e0d2b9}
+.ambiente h3{font-size:clamp(22px,5vw,28px);color:var(--marrone)}
+.ambiente p{margin:6px 0 0;font-size:15px;color:#4a382c;line-height:1.45}
+.foto-sale{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}
+.foto-sale img{width:clamp(140px,42vw,237px);border-radius:8px;box-shadow:0 12px 24px -14px rgba(42,26,18,.6)}
+@media (min-width:860px){.ambienti{grid-template-columns:repeat(4,1fr)}}
+
+.orari-sez{background:var(--fuliggine);color:var(--crema)}
+.orari-sez h2{color:#fff8ea}
+.orari-sez .occhiello-sez{color:var(--brace-chiara)}
+.orari{display:grid;gap:0;margin-top:20px;max-width:620px}
+.orari div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid rgba(243,236,223,.18)}
+.orari b{font-family:"Cormorant Garamond",serif;font-size:23px;font-weight:600;color:#fff8ea}
+.orari span{color:#f0e2cc;text-align:right;white-space:nowrap}
+.stagione{margin-top:18px;color:#e6d6bf;max-width:56ch}
+.stagione strong{color:var(--brace-chiara)}
+
+.dove p{max-width:58ch}
+.indirizzo{font-family:"Cormorant Garamond",serif;font-size:clamp(26px,6vw,34px);color:var(--marrone);margin:8px 0 18px;line-height:1.2}
+.dove .btn.pieno{background:var(--marrone);color:#fff8ea}
+.dove .btn.vuoto{border-color:var(--marrone);color:var(--marrone)}
+
+footer{background:#120c09;color:#d9c9b4;font-size:14px;padding:26px 0 30px;text-align:center}
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:12px;padding:10px 14px;padding-bottom:max(10px,env(safe-area-inset-bottom));background:var(--fuliggine);border-top:3px solid #4a2a1c}
+.barra a{flex:1;min-height:50px;display:flex;align-items:center;justify-content:center;border-radius:999px 999px 10px 10px;text-decoration:none;font-weight:700;font-size:17px}
+.barra a:first-child{background:var(--brace-chiara);color:#2a1206}
+.barra a:last-child{border:2px solid #b89a7a;color:#fff8ea}
+@media (min-width:900px){.barra{display:none}body{padding-bottom:0}}
+a:focus-visible{outline:3px solid var(--brace);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="fascia">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Ristorante Pizzeria La Villa</div>
+
+<header class="forno">
+  <div class="wrap">
+    <div class="bocca" role="img" aria-label="La bocca del forno a legna con la brace accesa e il logo La Villa">
+      <div class="brace"></div><div class="brace due"></div>
+      <div class="scintille" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="ovale" aria-hidden="true"><span class="firma">La Villa</span><small>ristorante pizzeria</small><i>specialità pesce di mare</i></div>
+    </div>
+    <div class="testo">
+      <span class="occhiello">Ristorante Pizzeria · Nago, lago di Garda</span>
+      <h1>Pesce fresco ogni giorno, e la pizza <em>dal forno a legna</em>.</h1>
+      <p>In paese a Nago, sopra il lago: crostacei, pasta fatta a mano e una carta dei vini curata, oppure una pizza con l'impasto ben lievitato. Aperti la sera, la domenica e i festivi anche a pranzo.</p>
+      <div class="bottoni">
+        <a class="btn pieno" href="tel:+390464505047">Prenota un tavolo</a>
+        <a class="btn vuoto" href="#orari">Orari</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="cucina">
+  <div class="wrap">
+    <span class="occhiello-sez">Due cucine, un tavolo</span>
+    <h2>Scegliete voi la serata</h2>
+    <div class="cucine">
+      <div class="cucina">
+        <div class="arco-foto"><img src="assets/piatto.jpg" width="237" height="168" alt="Piatto di mare con polenta alla griglia e verdure" loading="lazy"></div>
+        <div>
+          <h3>Il ristorante</h3>
+          <p>Specialità di mare: pesce fresco tutti i giorni, crostacei, pasta fatta a mano, insalate e verdure di ogni tipo. E una carta dei vini scelta con cura.</p>
+          <span class="ora">Dalle 18 alle 23</span>
+        </div>
+      </div>
+      <div class="cucina">
+        <div class="arco-foto"><img src="assets/forno.jpg" width="210" height="141" alt="Una pizza nel forno a legna, con la fiamma accesa" loading="lazy"></div>
+        <div>
+          <h3>La pizzeria</h3>
+          <p>Per noi la pizza non è un pasto veloce: impasto ben lievitato, cotto nel forno a legna. La sera si sforna fino a mezzanotte.</p>
+          <span class="ora">Dalle 18 alle 24</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sale-sez" id="sale">
+  <div class="wrap">
+    <span class="occhiello-sez">Quattro ambienti</span>
+    <h2>Un posto per ogni occasione</h2>
+    <p>Un locale elegante e moderno, con ambienti diversi per momenti diversi.</p>
+    <div class="ambienti">
+      <div class="ambiente"><h3>Il ristorante</h3><p>Per i piaceri del gusto</p></div>
+      <div class="ambiente"><h3>Il privè</h3><p>Per un'occasione romantica</p></div>
+      <div class="ambiente"><h3>Il terrazzo</h3><p>In pieno relax</p></div>
+      <div class="ambiente"><h3>La sala</h3><p>Per gruppi e famiglie</p></div>
+    </div>
+    <div class="foto-sale">
+      <img src="assets/sala.jpg" width="210" height="141" alt="La sala del ristorante con le vetrate e i tavoli apparecchiati" loading="lazy">
+      <img src="assets/sala-apparecchiata.jpg" width="237" height="168" alt="Una cameriera apparecchia i tavoli con le tovaglie bianche" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="orari-sez" id="orari">
+  <div class="wrap">
+    <span class="occhiello-sez">Quando siamo aperti</span>
+    <h2>Orari</h2>
+    <div class="orari">
+      <div><b>Ristorante</b><span>dalle 18 alle 23</span></div>
+      <div><b>Pizzeria</b><span>dalle 18 alle 24</span></div>
+      <div><b>Domenica e festivi</b><span>anche a pranzo, 12-14</span></div>
+    </div>
+    <p class="stagione">Da Pasqua a settembre <strong>aperti tutti i giorni</strong>. D'inverno il giorno di riposo è il <strong>mercoledì</strong>.</p>
+  </div>
+</section>
+
+<section class="dove" id="dove">
+  <div class="wrap">
+    <span class="occhiello-sez">Dove siamo</span>
+    <h2>In paese, a Nago</h2>
+    <div class="indirizzo">Via S. Sighele 9<br>38069 Nago (TN)</div>
+    <p>Sulla statale tra Rovereto e Riva del Garda: arrivati a Nago, dritti fino alla rotatoria, poi si entra in paese e dopo 30 metri ci siete.</p>
+    <div class="bottoni">
+      <a class="btn pieno" href="tel:+390464505047">0464 505047</a>
+      <a class="btn vuoto" href="https://www.google.com/maps/search/?api=1&amp;query=Ristorante+Pizzeria+La+Villa+Via+Sighele+9+Nago" target="_blank" rel="noopener">Apri la mappa</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Ristorante Pizzeria La Villa · Via S. Sighele 9, Nago (TN) · P.IVA 01723140222</div></footer>
+
+<nav class="barra" aria-label="Contatti rapidi">
+  <a href="tel:+390464505047">Chiama</a>
+  <a href="https://www.google.com/maps/search/?api=1&amp;query=Ristorante+Pizzeria+La+Villa+Via+Sighele+9+Nago" target="_blank" rel="noopener">Come arrivare</a>
+</nav>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.arco-foto');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('vista')});return}
+  // si osserva il contenitore: l'arco tutto chiuso dal clip-path per il browser non e' "visibile"
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.querySelector('.arco-foto').classList.add('vista');io.unobserve(e.target)}})},{threshold:.2});
+  els.forEach(function(e){io.observe(e.parentNode)});
+})();
+</script>
+</body>
+</html>
