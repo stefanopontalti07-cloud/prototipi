@@ -59,12 +59,28 @@ h1,h2,h3{font-family:"Fjalla One",sans-serif;font-weight:400;line-height:1.08;ma
 .tasto.on i{background:var(--led);box-shadow:0 0 8px 2px rgba(255,216,74,.9)}
 .tasto.on{color:#fff}
 .tasto:focus-visible{outline:3px solid var(--giallo);outline-offset:2px}
+.tasto.on.rosso i{background:#ff4a3d;box-shadow:0 0 8px 2px rgba(255,74,61,.9)}
+.comandi{display:grid;justify-items:center;gap:12px;position:relative;isolation:isolate}
+@media (max-width:859px){.placca{aspect-ratio:auto;grid-auto-rows:86px}.comandi .schermo{order:-1;min-height:0}}
+/* il display sotto la placca: dice cosa ha fatto il tasto */
+.schermo{width:min(300px,86vw);min-height:92px;background:var(--vetro);border-radius:10px;box-shadow:0 0 0 1px #3a3a3e,inset 0 1px 0 rgba(255,255,255,.06);padding:12px 14px;font-size:14px;line-height:1.45;color:#e8e6dc}
+.schermo b{color:#fff}
+.schermo a{display:inline-block;margin-top:6px;color:var(--giallo);font-weight:700;text-decoration:none;padding:4px 0}
+.schermo a:focus-visible{outline:3px solid var(--giallo);outline-offset:2px}
+/* Sole: il sole che sale nell'angolo */
+.sole-disco{position:absolute;left:50%;top:50%;width:360px;height:360px;margin:-180px 0 0 -180px;border-radius:50%;z-index:-1;background:radial-gradient(circle,rgba(255,205,70,.75),rgba(255,170,40,.32) 42%,transparent 70%);opacity:0;transform:translateY(70px) scale(.7);transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.stanza.sole .sole-disco{opacity:1;transform:translateY(-30px)}
+/* Allarme: il perimetro rosso della stanza */
+.perimetro{position:absolute;inset:0;border:4px solid rgba(255,74,61,.9);box-shadow:inset 0 0 60px rgba(255,60,50,.35);opacity:0;transition:opacity .3s;pointer-events:none}
+.stanza.allarme .perimetro{opacity:1}
 @media (min-width:860px){.stanza{padding:56px 0 76px}.stanza .wrap{grid-template-columns:1.2fr .8fr;gap:50px}}
 @media (prefers-reduced-motion:no-preference){
   .js .stanza .testo>*{animation:sale .7s cubic-bezier(.2,.7,.2,1) both}
   .js .stanza .testo>:nth-child(2){animation-delay:.1s}.js .stanza .testo>:nth-child(3){animation-delay:.2s}.js .stanza .testo>:nth-child(4){animation-delay:.3s}
   .js .placca{animation:sale .8s cubic-bezier(.2,.7,.2,1) .15s both}
   .js .tasto.lampeggia i{animation:lampeggia .5s steps(2) 2}
+  .stanza.allarme .perimetro{animation:pulsa .6s ease-in-out 3}
+  @keyframes pulsa{50%{opacity:.1}}
   @keyframes sale{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
   @keyframes lampeggia{50%{opacity:.2}}
   .js .rivela{opacity:0;transform:translateY(16px);transition:opacity .6s ease-out,transform .6s cubic-bezier(.2,.7,.2,1)}
@@ -115,6 +131,7 @@ a:focus-visible{outline:3px solid var(--giallo);outline-offset:3px}
 <div class="fascia">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Facchinelli Lorenzo</div>
 
 <header class="stanza" id="stanza">
+  <span class="perimetro" aria-hidden="true"></span>
   <div class="wrap">
     <div class="testo">
       <img class="logo" src="assets/logo-chiaro.png" width="700" height="246" alt="Facchinelli Lorenzo, progettazione, impianti elettrici, sicurezza">
@@ -125,11 +142,15 @@ a:focus-visible{outline:3px solid var(--giallo);outline-offset:3px}
         <a class="btn bordo" href="tel:+393470719432">Chiama ora</a>
       </div>
     </div>
-    <div class="placca" role="group" aria-label="Pulsantiera KNX: tocca Luci per accendere">
-      <button class="tasto" type="button" id="luci" aria-pressed="false"><i></i>Luci</button>
-      <a class="tasto" href="#fotovoltaico"><i></i>Sole</a>
-      <a class="tasto" href="#sicurezza"><i></i>Allarme</a>
-      <a class="tasto" href="#domotica"><i></i>Domotica</a>
+    <div class="comandi">
+      <span class="sole-disco" aria-hidden="true"></span>
+      <div class="placca" role="group" aria-label="Pulsantiera KNX: ogni tasto accende qualcosa">
+        <button class="tasto" type="button" id="luci" data-t="luci" aria-pressed="false"><i></i>Luci</button>
+        <button class="tasto" type="button" data-t="sole" aria-pressed="false"><i></i>Sole</button>
+        <button class="tasto rosso" type="button" data-t="allarme" aria-pressed="false"><i></i>Allarme</button>
+        <button class="tasto" type="button" data-t="domotica" aria-pressed="false"><i></i>Domotica</button>
+      </div>
+      <p class="schermo" id="schermo" aria-live="polite">Tocca un tasto della placca.</p>
     </div>
   </div>
 </header>
@@ -210,12 +231,34 @@ a:focus-visible{outline:3px solid var(--giallo);outline-offset:3px}
 
 <script>
 (function(){
-  var st=document.getElementById('stanza'),t=document.getElementById('luci');
-  function luce(on){st.classList.toggle('accesa',on);t.classList.toggle('on',on);t.setAttribute('aria-pressed',on?'true':'false')}
-  t.addEventListener('click',function(){luce(!st.classList.contains('accesa'))});
+  var st=document.getElementById('stanza'),t=document.getElementById('luci'),sc=document.getElementById('schermo');
+  var tasti={};document.querySelectorAll('.tasto[data-t]').forEach(function(b){tasti[b.dataset.t]=b});
+  var stato={luci:false,sole:false,allarme:false};
+  var testi={
+    luci:['<b>Luci accese.</b> Impianti elettrici per case, aziende e uffici, dal progetto al collaudo.','#progettazione','Cosa facciamo'],
+    sole:['<b>Fotovoltaico al lavoro.</b> Impianti completi, con le batterie di accumulo e la colonnina per l\'auto.','#fotovoltaico','Il fotovoltaico'],
+    allarme:['<b>Allarme inserito.</b> Antintrusione, rivelazione incendi e videosorveglianza, anche sugli impianti Axel.','#sicurezza','La sicurezza'],
+    domotica:['<b>Scena «Sera»: un tasto, tutta la casa.</b> Con il KNX luci, clima, consumi e giardino stanno in un impianto solo.','#domotica','La domotica KNX']
+  };
+  var nomi={luci:'Luci spente.',sole:'Fotovoltaico spento.',allarme:'Allarme disinserito.',domotica:'Tutto spento, con un tasto solo.'};
+  function scrivi(k,on){if(on){var x=testi[k];sc.innerHTML=x[0]+'<br><a href="'+x[1]+'">'+x[2]+' &darr;</a>'}else{sc.innerHTML='<b>'+nomi[k]+'</b> Prova un altro tasto.'}}
+  function aggiorna(){
+    st.classList.toggle('accesa',stato.luci);st.classList.toggle('sole',stato.sole);st.classList.toggle('allarme',stato.allarme);
+    var tutti=stato.luci&&stato.sole&&stato.allarme;
+    ['luci','sole','allarme'].forEach(function(k){tasti[k].classList.toggle('on',stato[k]);tasti[k].setAttribute('aria-pressed',stato[k]?'true':'false')});
+    tasti.domotica.classList.toggle('on',tutti);tasti.domotica.setAttribute('aria-pressed',tutti?'true':'false');
+  }
+  function luce(on){stato.luci=on;aggiorna()}
+  Object.keys(tasti).forEach(function(k){tasti[k].addEventListener('click',function(){
+    if(k==='domotica'){var on=!(stato.luci&&stato.sole&&stato.allarme);stato.luci=stato.sole=stato.allarme=on;aggiorna();scrivi('domotica',on);return}
+    stato[k]=!stato[k];
+    if(k==='allarme'&&stato[k]){st.classList.remove('allarme');void st.offsetWidth}
+    aggiorna();scrivi(k,stato[k]);
+  })});
   // all'apertura il LED blu lampeggia e la luce si accende da sola, come premendo il tasto
   var ridotto=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(ridotto){luce(true)}else{setTimeout(function(){t.classList.add('lampeggia')},500);setTimeout(function(){luce(true)},1150)}
+  function prima(){luce(true);sc.innerHTML='<b>Luci accese.</b> Prova anche gli altri tre tasti.'}
+  if(ridotto){prima()}else{setTimeout(function(){t.classList.add('lampeggia')},500);setTimeout(prima,1150)}
   var el=document.querySelectorAll('.rivela');
   if(!('IntersectionObserver' in window)){el.forEach(function(e){e.classList.add('vista')});return}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vista');io.unobserve(e.target)}})},{threshold:.15});
