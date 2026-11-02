@@ -1,0 +1,95 @@
+/* Acquatec: l'etichetta di lavaggio cucita nella biancheria. Raso bianco, cucitura, simboli stampati. */
+:root{--blu:#0a72b8;--blu-scuro:#075a92;--blu-notte:#0b2f4a;--raso:#fbfbf8;--raso-2:#eceae3;--filo:#9fb6c8;--testo:#16222d;--grigio:#56626d;--carta:#f4f7f9;--riga:#dde5eb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--carta);color:var(--testo);font:17px/1.6 "IBM Plex Sans",system-ui,sans-serif;padding-bottom:78px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"IBM Plex Sans Condensed",sans-serif;font-weight:700;line-height:1.08;margin:0}
+.fascia{background:var(--blu-notte);color:#d5e4ef;font-size:13px;text-align:center;padding:8px 16px;line-height:1.45}
+.fascia b{color:#fff}
+.testata{background:#fff;border-bottom:1px solid var(--riga)}
+.testata .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.testata .logo img{height:62px;width:auto}
+.menu{display:flex;gap:2px;flex-wrap:wrap}
+.menu a{font:600 17px/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.3px;text-decoration:none;color:var(--testo);padding:11px 9px;border-bottom:3px solid transparent}
+.menu a[aria-current]{border-color:var(--blu);color:var(--blu-scuro)}
+@media (max-width:420px){.testata .logo img{height:50px}.menu a{font-size:15px;padding:10px 6px}}
+
+/* apertura: il blu del loro marchio, e l'etichetta che viene cucita */
+.apertura{background-color:var(--blu-scuro);background-image:radial-gradient(120% 90% at 85% 10%,rgba(255,255,255,.14),transparent 55%);color:#fff;padding:40px 0 54px;overflow:hidden}
+.apertura .wrap{display:grid;gap:34px;align-items:center}
+.apertura h1{font-size:clamp(36px,8.2vw,60px)}
+.apertura p{max-width:50ch;color:#e3eff8;font-size:18px;margin:14px 0 22px}
+.bottoni{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;font:700 18px/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.3px;text-decoration:none;border-radius:3px}
+.btn.bianco{background:#fff;color:var(--blu-scuro)}
+.btn.bordo{border:2px solid rgba(255,255,255,.75);color:#fff}
+.btn.blu{background:var(--blu-scuro);color:#fff}
+@media (min-width:880px){.apertura{padding:60px 0 76px}.apertura .wrap{grid-template-columns:1.15fr .85fr;gap:56px}}
+.apertura.bassa{padding:30px 0 34px}
+.apertura.bassa h1{font-size:clamp(32px,7vw,50px)}
+
+.etichetta{justify-self:center;width:min(320px,84vw);background-color:#fbfbf8;background-image:linear-gradient(100deg,var(--raso) 0%,#fff 30%,var(--raso-2) 52%,#fff 74%,var(--raso) 100%);color:#1a2a38;padding:26px 22px 22px;position:relative;box-shadow:0 22px 34px -20px rgba(0,0,0,.6);clip-path:polygon(0 0,100% 0,100% 100%,50% calc(100% - 14px),0 100%);transform:rotate(-2deg)}
+.etichetta::before{content:"";position:absolute;left:10px;right:10px;top:9px;border-top:2px dashed var(--filo)}
+.etichetta .marca{font:700 22px/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:3px;text-align:center}
+.etichetta .luogo{font:600 12px/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:2px;text-align:center;color:#4a5866;margin-top:6px}
+.simboli{display:flex;justify-content:center;gap:10px;margin:16px 0 14px}
+.simboli svg{width:38px;height:30px;fill:none;stroke:#1a2a38;stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.simboli text{fill:#1a2a38;stroke:none;font:700 9px "IBM Plex Sans Condensed",sans-serif}
+.etichetta ul{list-style:none;margin:0;padding:0;font:600 14px/1.55 "IBM Plex Sans Condensed",sans-serif;letter-spacing:.8px;text-transform:uppercase;text-align:center}
+.etichetta .anno{text-align:center;margin-top:10px;padding-bottom:12px;font:700 13px/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:2px;color:#4a5866}
+
+@media (prefers-reduced-motion:no-preference){
+  .js .etichetta{animation:cala .8s cubic-bezier(.2,.7,.2,1) both}
+  .js .etichetta::before{clip-path:inset(0 100% 0 0);animation:cuci .9s steps(18,end) .7s forwards}
+  .js .simboli svg{animation:stampa .35s cubic-bezier(.2,.7,.2,1) both}
+  .js .simboli svg:nth-child(1){animation-delay:1.2s}.js .simboli svg:nth-child(2){animation-delay:1.35s}.js .simboli svg:nth-child(3){animation-delay:1.5s}.js .simboli svg:nth-child(4){animation-delay:1.65s}.js .simboli svg:nth-child(5){animation-delay:1.8s}
+  .js .etichetta ul,.js .etichetta .anno{animation:compare .5s ease-out 1.9s both}
+  .js .apertura .testo>*{animation:sale .7s cubic-bezier(.2,.7,.2,1) both}
+  .js .apertura .testo>:nth-child(2){animation-delay:.1s}.js .apertura .testo>:nth-child(3){animation-delay:.2s}
+  @keyframes cala{from{opacity:0;transform:translateY(-30px) rotate(-6deg)}to{opacity:1;transform:rotate(-2deg)}}
+  @keyframes cuci{to{clip-path:inset(0 0 0 0)}}
+  @keyframes stampa{from{opacity:0;transform:scale(1.4)}to{opacity:1;transform:none}}
+  @keyframes compare{from{opacity:0}to{opacity:1}}
+  @keyframes sale{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .js .rivela{opacity:0;transform:translateY(16px);transition:opacity .6s ease-out,transform .6s cubic-bezier(.2,.7,.2,1)}
+  .js .rivela.vista{opacity:1;transform:none}
+}
+
+section{padding:58px 0}
+.bianco-sez{background:#fff}
+h2{font-size:clamp(30px,6.2vw,44px);color:var(--blu-notte);margin-bottom:12px}
+.intro{max-width:62ch;color:#33414d;margin:0 0 24px}
+.numeri{display:grid;grid-template-columns:repeat(2,1fr);border-top:3px solid var(--blu)}
+.numero{padding:16px 10px 18px 0;border-bottom:1px solid var(--riga)}
+.numero b{display:block;font:700 clamp(32px,7vw,46px)/1 "IBM Plex Sans Condensed",sans-serif;color:var(--blu-scuro)}
+.numero span{font-size:15px;color:var(--grigio)}
+@media (min-width:880px){.numeri{grid-template-columns:repeat(4,1fr)}}
+
+/* i servizi come le righe di un'etichetta: bordo cucito tratteggiato */
+.righe{display:grid;gap:14px}
+.riga{background:#fff;border:1px solid var(--riga);border-radius:4px;padding:18px 18px 16px;position:relative}
+.riga::before{content:"";position:absolute;left:8px;right:8px;top:6px;border-top:1.5px dashed var(--filo)}
+.riga h3{font-size:25px;color:var(--blu-notte);margin-top:4px}
+.riga p{margin:6px 0 0;color:#33414d}
+.riga ul{margin:8px 0 0;padding-left:20px;color:#33414d}
+.riga a.vai{display:inline-block;margin-top:10px;font:700 16px/1 "IBM Plex Sans Condensed",sans-serif;color:var(--blu-scuro);text-decoration:none;border-bottom:2px solid var(--blu);padding:8px 0 4px}
+@media (min-width:880px){.righe.due{grid-template-columns:1fr 1fr}}
+
+.contatti{display:grid;gap:18px}
+.scheda{background:#fff;border:1px solid var(--riga);border-top:5px solid var(--blu);padding:20px}
+.scheda h3{font-size:24px;color:var(--blu-notte);margin-bottom:4px}
+.scheda p{margin:4px 0}
+.scheda a{font-weight:600;color:var(--blu-scuro)}
+@media (min-width:880px){.contatti{grid-template-columns:1fr 1fr}}
+footer{background:var(--blu-notte);color:#c3d4e2;font-size:14px;padding:22px 0 26px}
+
+/* barra: due etichette appese */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:10px;padding:8px 12px;padding-bottom:max(8px,env(safe-area-inset-bottom));background:var(--blu-scuro)}
+.barra a{flex:1;min-height:54px;display:flex;align-items:center;justify-content:center;background-color:#fff;background-image:linear-gradient(100deg,#fbfbf8,#fff 40%,#eceae3 60%,#fff);color:#16222d;text-decoration:none;font:700 18px/1 "IBM Plex Sans Condensed",sans-serif;letter-spacing:1.5px;text-transform:uppercase;clip-path:polygon(0 0,100% 0,100% 100%,50% calc(100% - 7px),0 100%);position:relative}
+.barra a::before{content:"";position:absolute;left:6px;right:6px;top:5px;border-top:1.5px dashed var(--filo)}
+@media (min-width:900px){.barra{display:none}body{padding-bottom:0}}
+a:focus-visible{outline:3px solid #ffd54a;outline-offset:3px}
+@media (min-width:880px){.etichetta{width:370px;padding:30px 26px 24px}.simboli svg{width:44px;height:34px}}

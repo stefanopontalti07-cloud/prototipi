@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Facchinelli Lorenzo, Pergine Valsugana: impianti elettrici, domotica KNX, fotovoltaico</title>
+<meta name="description" content="Per. Ind. Facchinelli Lorenzo, Susà di Pergine Valsugana: progettazione e impianti elettrici civili e industriali, fotovoltaico, antintrusione, videosorveglianza, domotica KNX dal 2005, manutenzioni.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Facchinelli Lorenzo: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/facchinelli/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/facchinelli/assets/og.jpg?v=202611020355">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Facchinelli Lorenzo su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<meta name="theme-color" content="#111111">
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="assets/fonts.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+:root{--nero:#111;--muro:#1b1b1d;--vetro:#0c0c0e;--giallo:#ffc800;--led:#ffd84a;--bianco:#f5f5f0;--carta:#fafaf7;--testo:#1c1c1c;--grigio:#5d5d5d;--riga:#e7e5df}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--carta);color:var(--testo);font:17px/1.6 Lato,system-ui,sans-serif;padding-bottom:86px}
+img{display:block;max-width:100%;height:auto}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:"Fjalla One",sans-serif;font-weight:400;line-height:1.08;margin:0}
+.fascia{background:#000;color:#d6d6d0;font-size:13px;text-align:center;padding:8px 16px;line-height:1.45}
+.fascia b{color:#fff}
+
+/* LA STANZA: la sera, col muro scuro; la pulsantiera KNX accende la striscia LED */
+.stanza{position:relative;background:var(--muro);color:var(--bianco);overflow:hidden;padding:30px 0 50px;isolation:isolate}
+.stanza::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:#2a2a2c;box-shadow:0 0 0 rgba(255,216,74,0);transition:background .6s,box-shadow .9s}
+.stanza::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(120% 70% at 50% 0,rgba(255,206,90,.32),rgba(255,190,70,.08) 45%,transparent 70%);opacity:0;transition:opacity .9s ease}
+.stanza.accesa::before{background:#fff4c8;box-shadow:0 0 18px 6px rgba(255,216,74,.75),0 0 60px 14px rgba(255,200,0,.35)}
+.stanza.accesa::after{opacity:1}
+.stanza .wrap{display:grid;gap:28px;align-items:center}
+.logo{width:min(300px,80%)}
+.stanza h1{font-size:clamp(36px,8.4vw,60px);margin:16px 0 12px;color:#9a9a96;transition:color .8s ease}
+.stanza.accesa h1{color:#fff}
+.stanza h1 em{font-style:normal;color:#8a7a3a;transition:color .8s ease}
+.stanza.accesa h1 em{color:var(--giallo)}
+.stanza p{max-width:46ch;color:#c9c9c3;margin:0 0 20px}
+.bottoni{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;font:400 19px/1 "Fjalla One",sans-serif;letter-spacing:.4px;text-decoration:none;border-radius:6px}
+.btn.giallo{background:var(--giallo);color:#111}
+.btn.bordo{border:2px solid #77776f;color:#f5f5f0}
+
+/* la pulsantiera: placca in vetro nero, quattro tasti incisi, il LED di stato su ognuno */
+.placca{justify-self:center;width:min(300px,86vw);aspect-ratio:1;background:linear-gradient(145deg,#26262a,#08080a 60%);border-radius:14px;padding:16px;box-shadow:0 0 0 1px #3a3a3e,0 24px 40px -18px #000,inset 0 1px 0 rgba(255,255,255,.12);display:grid;grid-template-columns:1fr 1fr;gap:10px;position:relative}
+.placca::after{content:"KNX";position:absolute;right:16px;bottom:7px;font:700 9px/1 Lato,sans-serif;letter-spacing:1.5px;color:#55555a}
+.tasto{position:relative;border:0;border-radius:8px;background:linear-gradient(160deg,#1d1d21,#111114);box-shadow:inset 0 0 0 1px #2e2e33,inset 0 -3px 6px rgba(0,0,0,.6);color:#bdbdb6;font:700 13px/1.2 Lato,sans-serif;letter-spacing:.8px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;text-decoration:none;padding:8px;transition:transform .12s}
+.tasto:active{transform:scale(.97)}
+.tasto i{width:9px;height:9px;border-radius:50%;background:#2c5fd0;box-shadow:0 0 6px rgba(70,120,255,.8)}
+.tasto.on i{background:var(--led);box-shadow:0 0 8px 2px rgba(255,216,74,.9)}
+.tasto.on{color:#fff}
+.tasto:focus-visible{outline:3px solid var(--giallo);outline-offset:2px}
+@media (min-width:860px){.stanza{padding:56px 0 76px}.stanza .wrap{grid-template-columns:1.2fr .8fr;gap:50px}}
+@media (prefers-reduced-motion:no-preference){
+  .js .stanza .testo>*{animation:sale .7s cubic-bezier(.2,.7,.2,1) both}
+  .js .stanza .testo>:nth-child(2){animation-delay:.1s}.js .stanza .testo>:nth-child(3){animation-delay:.2s}.js .stanza .testo>:nth-child(4){animation-delay:.3s}
+  .js .placca{animation:sale .8s cubic-bezier(.2,.7,.2,1) .15s both}
+  .js .tasto.lampeggia i{animation:lampeggia .5s steps(2) 2}
+  @keyframes sale{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes lampeggia{50%{opacity:.2}}
+  .js .rivela{opacity:0;transform:translateY(16px);transition:opacity .6s ease-out,transform .6s cubic-bezier(.2,.7,.2,1)}
+  .js .rivela.vista{opacity:1;transform:none}
+}
+
+section{padding:60px 0}
+h2{font-size:clamp(32px,6.4vw,46px);margin-bottom:14px}
+.intro{max-width:62ch;color:#3d3d3a;margin:0 0 24px}
+.chi{display:grid;gap:16px;background:#fff;border:1px solid var(--riga);border-left:6px solid var(--giallo);padding:22px 20px}
+.chi b{font-family:"Fjalla One",sans-serif;font-weight:400;font-size:22px;display:block}
+.chi span{color:var(--grigio);font-size:15px}
+@media (min-width:860px){.chi{grid-template-columns:repeat(3,1fr)}}
+
+.servizi{display:grid;gap:14px}
+.servizio{background:#fff;border:1px solid var(--riga);border-radius:10px;padding:20px 20px 18px;scroll-margin-top:20px}
+.servizio h3{font-size:25px;display:flex;align-items:center;gap:10px}
+.servizio h3 i{flex:0 0 auto;width:10px;height:10px;border-radius:50%;background:var(--giallo);box-shadow:0 0 0 3px #fff4c8}
+.servizio p{margin:8px 0 0;color:#3d3d3a}
+.servizio ul{margin:8px 0 0;padding-left:20px;color:#3d3d3a}
+@media (min-width:860px){.servizi{grid-template-columns:1fr 1fr}}
+
+.lavori{background:#141416;color:var(--bianco)}
+.lavori h2{color:#fff}
+.lavori .intro{color:#c9c9c3}
+.galleria{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.galleria figure{margin:0;background:#000;border-radius:8px;overflow:hidden}
+.galleria img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.galleria figcaption{font-size:13px;color:#bdbdb6;padding:7px 9px 9px}
+@media (min-width:860px){.galleria{grid-template-columns:repeat(4,1fr)}}
+
+.contatti{display:grid;gap:20px}
+.scheda{background:#fff;border:1px solid var(--riga);border-top:6px solid var(--nero);padding:20px}
+.scheda p{margin:4px 0}
+.scheda a{font-weight:700;color:var(--testo)}
+@media (min-width:860px){.contatti{grid-template-columns:1fr 1fr}}
+footer{background:#000;color:#bdbdb6;font-size:14px;padding:24px 0 28px}
+
+/* barra: due tasti KNX in fondo allo schermo */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:10px;padding:10px 12px;padding-bottom:max(10px,env(safe-area-inset-bottom));background:linear-gradient(180deg,#1d1d21,#0b0b0d);box-shadow:0 -1px 0 #333}
+.barra a{flex:1;min-height:52px;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:8px;background-color:#18181b;background-image:linear-gradient(160deg,#232327,#121215);box-shadow:inset 0 0 0 1px #34343a;color:#f5f5f0;text-decoration:none;font:400 19px/1 "Fjalla One",sans-serif;letter-spacing:.5px}
+.barra a::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--led);box-shadow:0 0 8px 2px rgba(255,216,74,.85)}
+@media (min-width:900px){.barra{display:none}body{padding-bottom:0}}
+a:focus-visible{outline:3px solid var(--giallo);outline-offset:3px}
+</style>
+</head>
+<body>
+<div class="fascia">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Facchinelli Lorenzo</div>
+
+<header class="stanza" id="stanza">
+  <div class="wrap">
+    <div class="testo">
+      <img class="logo" src="assets/logo-chiaro.png" width="700" height="246" alt="Facchinelli Lorenzo, progettazione, impianti elettrici, sicurezza">
+      <h1>Impianti elettrici, fotovoltaico e domotica <em>KNX</em>, a Pergine.</h1>
+      <p>Il perito industriale che progetta l'impianto, lo realizza e lo collauda: case, aziende, uffici. In Valsugana, da Susà.</p>
+      <div class="bottoni">
+        <a class="btn giallo" href="https://wa.me/393470719432?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20un%20impianto" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn bordo" href="tel:+393470719432">Chiama ora</a>
+      </div>
+    </div>
+    <div class="placca" role="group" aria-label="Pulsantiera KNX: tocca Luci per accendere">
+      <button class="tasto" type="button" id="luci" aria-pressed="false"><i></i>Luci</button>
+      <a class="tasto" href="#fotovoltaico"><i></i>Sole</a>
+      <a class="tasto" href="#sicurezza"><i></i>Allarme</a>
+      <a class="tasto" href="#domotica"><i></i>Domotica</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="chi rivela">
+      <div><b>Per. Ind. Lorenzo Facchinelli</b><span>specializzato in elettrotecnica e automazione</span></div>
+      <div><b>Albo Periti n. 2188</b><span>iscritto all'albo dei Periti Industriali della provincia di Trento</span></div>
+      <div><b>KNX Partner dal 2005</b><span>programmazione di impianti domotici con lo standard KNX</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Cosa facciamo</h2>
+    <p class="intro">Dal preventivo al progetto, dalla realizzazione al collaudo.</p>
+    <div class="servizi">
+      <article class="servizio rivela" id="progettazione"><h3><i></i>Progettazione</h3>
+        <p>Progetti degli impianti elettrici per edifici civili, industriali e commerciali, con strutture tradizionali o in legno, e le pratiche per il fotovoltaico. Il progetto firmato da un professionista iscritto all'albo, come chiede il D.M. 37 del 22 gennaio 2008.</p></article>
+      <article class="servizio rivela"><h3><i></i>Impianti elettrici</h3>
+        <ul><li>Impianti civili</li><li>Impianti industriali e terziario</li><li>Cancelli e barriere automatiche</li></ul></article>
+      <article class="servizio rivela" id="fotovoltaico"><h3><i></i>Fotovoltaico</h3>
+        <p>Impianti fotovoltaici completi, dal dimensionamento alle pratiche, con le batterie di accumulo e la colonnina per ricaricare l'auto.</p></article>
+      <article class="servizio rivela" id="sicurezza"><h3><i></i>Sicurezza</h3>
+        <ul><li>Antintrusione</li><li>Rivelazione incendi</li><li>Videosorveglianza</li></ul>
+        <p>Dal 30/09/2021 Siel3 di Trento ha chiuso: se avete un contratto di manutenzione o un impianto Axel, possiamo seguirlo noi.</p></article>
+      <article class="servizio rivela" id="domotica"><h3><i></i>Domotica KNX</h3>
+        <p>Installiamo, programmiamo e personalizziamo impianti KNX nuovi o esistenti: luci, termoregolazione, consumi, irrigazione del giardino e videosorveglianza in un impianto solo. E se siete installatori, programmiamo i dispositivi KNX con voi.</p></article>
+      <article class="servizio rivela"><h3><i></i>Manutenzioni</h3>
+        <p>Interventi singoli o un piano di manutenzione annuale, e interventi rapidi sui guasti, anche sugli impianti speciali come allarmi e videosorveglianza. Siamo anche installatori EOLO, per internet dove gli altri non arrivano.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="lavori">
+  <div class="wrap">
+    <h2>Alcuni lavori</h2>
+    <p class="intro">Le foto dei nostri impianti, dalle luci nel legno ai tetti fotovoltaici.</p>
+    <div class="galleria">
+      <figure class="rivela"><img src="assets/camera-led.jpg" width="453" height="340" alt="Camera con la parete in legno vecchio e la luce LED nascosta lungo il bordo" loading="lazy"><figcaption>LED nel legno</figcaption></figure>
+      <figure class="rivela"><img src="assets/anelli-luce.jpg" width="275" height="344" alt="Soffitto a travi con lampade ad anello sopra il tavolo" loading="lazy"><figcaption>Luci ad anello</figcaption></figure>
+      <figure class="rivela"><img src="assets/edificio-sera.jpg" width="453" height="340" alt="Edificio commerciale la sera con le luci accese in facciata" loading="lazy"><figcaption>Illuminazione esterna</figcaption></figure>
+      <figure class="rivela"><img src="assets/profilo-led.jpg" width="353" height="265" alt="Profilo LED a soffitto lungo la parete" loading="lazy"><figcaption>Profilo LED</figcaption></figure>
+      <figure class="rivela"><img src="assets/fotovoltaico-tetto.jpg" width="467" height="263" alt="Pannelli fotovoltaici sul tetto in legno" loading="lazy"><figcaption>Fotovoltaico</figcaption></figure>
+      <figure class="rivela"><img src="assets/inverter-batteria.jpg" width="274" height="366" alt="Inverter e batteria di accumulo montati a parete" loading="lazy"><figcaption>Inverter e accumulo</figcaption></figure>
+      <figure class="rivela"><img src="assets/wallbox.jpg" width="272" height="362" alt="Auto in carica alla colonnina in garage" loading="lazy"><figcaption>Ricarica auto</figcaption></figure>
+      <figure class="rivela"><img src="assets/quadri.jpg" width="274" height="342" alt="Quadri elettrici con gli interruttori modulari" loading="lazy"><figcaption>Quadri elettrici</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="contatti">
+  <div class="wrap">
+    <h2>Contatti</h2>
+    <div class="contatti">
+      <div class="scheda rivela">
+        <p><b>Per. Ind. Facchinelli Lorenzo</b></p>
+        <p>Via degli Artigianelli 7, frazione Susà<br>38057 Pergine Valsugana (TN)</p>
+        <p>Telefono e WhatsApp <a href="tel:+393470719432">347 071 9432</a></p>
+        <p>Email <a href="mailto:lorenz.facchinelli@gmail.com">lorenz.facchinelli@gmail.com</a></p>
+      </div>
+      <div class="scheda rivela">
+        <p>Per un preventivo o un sopralluogo, scriveteci cosa vi serve: impianto nuovo, rifacimento, fotovoltaico, allarme o domotica.</p>
+        <div class="bottoni" style="margin-top:14px"><a class="btn giallo" href="https://wa.me/393470719432?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20un%20impianto" target="_blank" rel="noopener">WhatsApp</a><a class="btn" style="border:2px solid #111;color:#111" href="https://www.google.com/maps/search/?api=1&amp;query=Via+degli+Artigianelli+7+Sus%C3%A0+Pergine+Valsugana" target="_blank" rel="noopener">Apri la mappa</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Per. Ind. Facchinelli Lorenzo · Via degli Artigianelli 7, Susà, Pergine Valsugana · P.IVA 02281890224</div></footer>
+
+<nav class="barra" aria-label="Contatti rapidi">
+  <a href="tel:+393470719432">Chiama</a>
+  <a href="https://wa.me/393470719432?text=Buongiorno%2C%20vorrei%20un%20preventivo%20per%20un%20impianto" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
+
+<script>
+(function(){
+  var st=document.getElementById('stanza'),t=document.getElementById('luci');
+  function luce(on){st.classList.toggle('accesa',on);t.classList.toggle('on',on);t.setAttribute('aria-pressed',on?'true':'false')}
+  t.addEventListener('click',function(){luce(!st.classList.contains('accesa'))});
+  // all'apertura il LED blu lampeggia e la luce si accende da sola, come premendo il tasto
+  var ridotto=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(ridotto){luce(true)}else{setTimeout(function(){t.classList.add('lampeggia')},500);setTimeout(function(){luce(true)},1150)}
+  var el=document.querySelectorAll('.rivela');
+  if(!('IntersectionObserver' in window)){el.forEach(function(e){e.classList.add('vista')});return}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vista');io.unobserve(e.target)}})},{threshold:.15});
+  el.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
