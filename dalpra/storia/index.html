@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>La storia: dal 1936 a Trento | Panificio Dalprà</title>
+<meta name="description" content="La storia del Panificio Dalprà: Riccardo Dalprà panificatore a Trento dal 1936, i figli dal 1971, le ricette tradizionali trentine, lo zelten, la colomba, il panettone, lo strudel e la torta di fregolotti.">
+<meta name="theme-color" content="#9b1b1f">
+<link rel="icon" href="../assets/logo.png">
+<link rel="stylesheet" href="../assets/fonts.css">
+<link rel="stylesheet" href="../assets/stile.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="fascia">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Panificio Dalprà</div>
+<header class="testata"><div class="wrap">
+  <a href="../" aria-label="Panificio Dalprà, pagina iniziale"><img src="../assets/logo.png" width="250" height="128" alt="Dalprà, oltre il pane"></a>
+  <nav class="menu" aria-label="Pagine"><a href="../">Home</a><a href="../negozi/">Negozi</a><a href="../storia/" aria-current="page">Storia</a></nav>
+</div></header>
+<header class="sacchetto kraft basso"><div class="wrap"><div class="testo"><h1>Dal 1936, a Trento</h1><p>Oltre quarant'anni di storia dei fratelli Dalprà, su quella del padre.</p></div></div></header>
+<section><div class="wrap storia">
+  <div class="rivela">
+    <h2>Le ricette di Riccardo</h2>
+    <p>Riccardo Dalprà è un panificatore conosciuto in città dal 1936. Dal 1971 i suoi figli raccolgono i segreti della tradizione artigianale trentina e ne fanno il cuore del loro lavoro.</p>
+    <p>Accanto al pane di ogni giorno, con le ricette avute dal padre, i fratelli Dalprà fanno prodotti da forno e dolci, e le specialità delle feste: lo zelten, la colomba e il panettone artigianali, lo strudel, la focaccia, la crostata, la torta di fregolotti e le torte di pasta lievitata.</p>
+    <div class="bottoni" style="margin-top:18px"><a class="btn pieno" href="../negozi/">I negozi</a></div>
+  </div>
+  <div class="foto-storiche">
+    <figure class="rivela"><img src="../assets/storica-fornai.jpg" width="914" height="1000" alt="Fotografia storica: i fornai in grembiule bianco con la pala del forno" loading="lazy"><figcaption>I fornai, con la pala</figcaption></figure>
+    <figure class="rivela"><img src="../assets/storica-forno.jpg" width="269" height="419" alt="Fotografia storica: un fornaio col bambino davanti al forno" loading="lazy"><figcaption>Davanti al forno</figcaption></figure>
+    <figure class="rivela"><img src="../assets/storica-strada.jpg" width="708" height="1000" alt="Fotografia storica: un uomo con due bambini per strada in città" loading="lazy"><figcaption>Per le strade di Trento</figcaption></figure>
+    <figure class="rivela"><img src="../assets/storica-bambini.jpg" width="921" height="1000" alt="Fotografia storica: due bambini seduti su una roccia" loading="lazy"><figcaption>Dalle foto di famiglia</figcaption></figure>
+  </div>
+</div></section>
+<footer><div class="wrap">Panificio Dalprà Riccardo dei F.lli Dalprà · Viale Rovereto 57, 38122 Trento · <a href="mailto:info@panificiodalpra.it">info@panificiodalpra.it</a></div></footer>
+<nav class="barra" aria-label="Contatti rapidi"><a href="tel:+390461913046">Chiama</a><a href="../negozi/">I 5 negozi</a></nav>
+<script>
+(function(){
+  var b=document.querySelector('.bollino[data-giro]');
+  if(b&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var c=['var(--grigio)','var(--verde)','var(--giallo)','var(--viola)','var(--bordeaux)'],i=0;
+    setTimeout(function g(){b.style.setProperty('--c',c[i]);i++;if(i<c.length)setTimeout(g,320)},900);
+  }
+  var el=document.querySelectorAll('.rivela');if(!('IntersectionObserver' in window)){el.forEach(function(e){e.classList.add('vista')});return}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vista');io.unobserve(e.target)}})},{threshold:.15});el.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>

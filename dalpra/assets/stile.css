@@ -1,0 +1,94 @@
+/* Dalpra': il sacchetto di carta del pane col bollino della mezza spiga, che cambia colore per ogni linea */
+:root{--bordeaux:#9b1b1f;--bordeaux-scuro:#7a1418;--grigio:#5f6062;--verde:#4f7a27;--giallo:#c99a10;--viola:#6c3d8f;--kraft:#e3d3b6;--kraft-2:#d6c3a1;--carta:#faf6ef;--nero:#141210;--testo:#2a2420;--riga:#e2d6c2}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--carta);color:var(--testo);font:17px/1.6 Karla,system-ui,sans-serif;padding-bottom:80px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Cinzel,serif;font-weight:700;line-height:1.12;margin:0;letter-spacing:.3px}
+.fascia{background:var(--nero);color:#ddd2c2;font-size:13px;text-align:center;padding:8px 16px;line-height:1.45}
+.fascia b{color:#fff}
+.kraft{background-color:var(--kraft);background-image:repeating-linear-gradient(97deg,rgba(120,90,50,.06) 0 1px,transparent 1px 7px),repeating-linear-gradient(7deg,rgba(255,255,255,.12) 0 1px,transparent 1px 13px)}
+.testata{background:#fff;border-bottom:1px solid var(--riga)}
+.testata .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.testata img{height:58px;width:auto}
+.menu{display:flex;gap:2px;flex-wrap:wrap}
+.menu a{font:700 15px/1 Karla,sans-serif;letter-spacing:1.4px;text-transform:uppercase;text-decoration:none;padding:12px 9px;border-bottom:3px solid transparent}
+.menu a[aria-current]{border-color:var(--bordeaux);color:var(--bordeaux-scuro)}
+@media (max-width:420px){.testata img{height:48px}.menu a{font-size:13px;padding:10px 6px;letter-spacing:1px}}
+
+/* apertura: il sacchetto con la piega in alto e il bollino */
+.sacchetto{position:relative;padding:34px 0 50px;overflow:hidden}
+.sacchetto::before{content:"";position:absolute;left:0;right:0;top:0;height:22px;background:repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 10px,transparent 10px 20px);clip-path:polygon(0 0,100% 0,100% 60%,98% 100%,96% 60%,94% 100%,92% 60%,90% 100%,88% 60%,86% 100%,84% 60%,82% 100%,80% 60%,78% 100%,76% 60%,74% 100%,72% 60%,70% 100%,68% 60%,66% 100%,64% 60%,62% 100%,60% 60%,58% 100%,56% 60%,54% 100%,52% 60%,50% 100%,48% 60%,46% 100%,44% 60%,42% 100%,40% 60%,38% 100%,36% 60%,34% 100%,32% 60%,30% 100%,28% 60%,26% 100%,24% 60%,22% 100%,20% 60%,18% 100%,16% 60%,14% 100%,12% 60%,10% 100%,8% 60%,6% 100%,4% 60%,2% 100%,0 60%)}
+.sacchetto .wrap{display:grid;gap:30px;align-items:center}
+.bollino{justify-self:center;width:clamp(150px,44vw,230px);aspect-ratio:1;border-radius:50%;background:var(--c,var(--bordeaux));display:grid;place-items:center;box-shadow:inset 0 0 0 5px rgba(255,255,255,.18),0 10px 22px -12px rgba(0,0,0,.55);transition:background-color .35s ease}
+.bollino svg{width:40%;height:auto;fill:rgba(255,255,255,.95);stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.sacchetto h1{font-size:clamp(34px,7.6vw,58px);color:var(--nero)}
+.sacchetto h1 em{font-style:normal;color:var(--bordeaux-scuro)}
+.sacchetto p{max-width:50ch;margin:14px 0 22px;color:#3a2f27;font-size:18px}
+.bottoni{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;font:700 15px/1 Karla,sans-serif;letter-spacing:1.4px;text-transform:uppercase;text-decoration:none;border-radius:2px}
+.btn.pieno{background:var(--bordeaux);color:#fff}
+.btn.vuoto{box-shadow:inset 0 0 0 2px var(--nero);color:var(--nero)}
+@media (min-width:880px){.sacchetto{padding:56px 0 70px}.sacchetto .wrap{grid-template-columns:1.3fr .7fr;gap:50px}.bollino{order:2}}
+.sacchetto.basso{padding:30px 0 34px}
+.sacchetto.basso h1{font-size:clamp(30px,6.6vw,46px)}
+
+@media (prefers-reduced-motion:no-preference){
+  .js .bollino{animation:timbro .55s cubic-bezier(.3,1.4,.5,1) .2s both}
+  .js .sacchetto .testo>*{animation:sale .7s cubic-bezier(.2,.7,.2,1) both}
+  .js .sacchetto .testo>:nth-child(2){animation-delay:.1s}.js .sacchetto .testo>:nth-child(3){animation-delay:.2s}
+  @keyframes timbro{from{opacity:0;transform:scale(1.6) rotate(-25deg)}to{opacity:1;transform:none}}
+  @keyframes sale{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .js .rivela{opacity:0;transform:translateY(16px);transition:opacity .6s ease-out,transform .6s cubic-bezier(.2,.7,.2,1)}
+  .js .rivela.vista{opacity:1;transform:none}
+}
+
+section{padding:58px 0}
+h2{font-size:clamp(28px,6vw,42px);color:var(--nero);margin-bottom:12px}
+.intro{max-width:62ch;color:#3a2f27;margin:0 0 24px}
+
+/* la vetrina: le loro foto sul nero */
+.vetrina{background:var(--nero);color:#efe6d8}
+.vetrina h2{color:#fff}
+.vetrina .intro{color:#d6cbbb}
+.prodotti{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.prodotti figure{margin:0}
+.prodotti img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.prodotti figcaption{font-size:14px;color:#cfc4b4;padding:6px 2px 4px}
+@media (min-width:880px){.prodotti{grid-template-columns:repeat(4,1fr)}}
+
+/* le linee: un bollino per colore */
+.linee{display:grid;gap:14px}
+.linea{display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:start;background:#fff;border:1px solid var(--riga);padding:16px}
+.linea .b{width:64px;height:64px;border-radius:50%;background:var(--c);display:grid;place-items:center}
+.linea .b svg{width:40%;fill:rgba(255,255,255,.95);stroke:#fff;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.linea h3{font-size:21px;color:var(--nero)}
+.linea p{margin:4px 0 0;color:#3a2f27}
+@media (min-width:880px){.linee{grid-template-columns:1fr 1fr}}
+
+.negozi{display:grid;gap:16px}
+.negozio{background:#fff;border:1px solid var(--riga);border-top:6px solid var(--bordeaux);padding:18px 18px 16px}
+.negozio h3{font-size:22px;color:var(--nero)}
+.negozio dl{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;margin:10px 0 10px;font-size:16px}
+.negozio dt{font-weight:700}
+.negozio dd{margin:0}
+.negozio .azioni{display:flex;gap:10px;flex-wrap:wrap}
+.negozio .azioni a{font:700 14px/1 Karla,sans-serif;letter-spacing:1px;text-transform:uppercase;text-decoration:none;color:var(--bordeaux-scuro);border-bottom:2px solid var(--bordeaux);padding:8px 0 4px}
+@media (min-width:880px){.negozi{grid-template-columns:repeat(3,1fr)}}
+
+.storia{display:grid;gap:22px}
+.foto-storiche{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.foto-storiche figure{margin:0;background:#fff;padding:8px 8px 4px;border:1px solid var(--riga)}
+.foto-storiche img{width:100%;aspect-ratio:1;object-fit:cover;filter:sepia(.15)}
+.foto-storiche figcaption{font-size:13px;color:#5d5146;padding:4px 2px}
+@media (min-width:880px){.storia{grid-template-columns:1fr 1fr;align-items:start}}
+
+footer{background:var(--nero);color:#cfc4b4;font-size:14px;padding:22px 0 26px}
+/* barra: due bollini */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:10px;padding:9px 12px;padding-bottom:max(9px,env(safe-area-inset-bottom));background-color:var(--kraft);background-image:repeating-linear-gradient(97deg,rgba(120,90,50,.07) 0 1px,transparent 1px 7px);box-shadow:0 -6px 14px -10px rgba(0,0,0,.6)}
+.barra a{flex:1;min-height:52px;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;background:var(--bordeaux);color:#fff;text-decoration:none;font:700 15px/1 Karla,sans-serif;letter-spacing:1.4px;text-transform:uppercase}
+.barra a:last-child{background:var(--grigio)}
+@media (min-width:900px){.barra{display:none}body{padding-bottom:0}}
+a:focus-visible{outline:3px solid var(--giallo);outline-offset:3px}
