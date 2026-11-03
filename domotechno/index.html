@@ -33,9 +33,53 @@
 <div class="bottoni"><a class="btn azzurro" href="tel:+393473318678">Chiama ora</a><a class="btn bordo" href="https://wa.me/393473318678?text=Buongiorno%2C%20vorrei%20un%20preventivo" target="_blank" rel="noopener">WhatsApp</a></div></div>
 <div class="quadro" id="quadro">
 <span class="viti" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-<div class="riga-din"><a class="modulo" href="impianti/#impianti"><span class="nastro">Luci e prese</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo" href="impianti/#domotica"><span class="nastro">Domotica</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo" href="impianti/#fotovoltaico"><span class="nastro">Foto&shy;voltaico</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo" href="impianti/#cancelli"><span class="nastro">Cancelli</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo" href="sicurezza/#allarmi"><span class="nastro">Allarme</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo" href="sicurezza/#videosorveglianza"><span class="nastro">Tele&shy;camere</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo" href="tende/#tende"><span class="nastro">Tende da sole</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo" href="tende/#veneziane"><span class="nastro">Zanza&shy;riere</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a></div>
-<p class="legenda">Ogni interruttore è un nostro lavoro: toccatelo per vedere cosa facciamo.</p>
+<div class="riga-din"><button type="button" class="modulo" data-k="luci" aria-pressed="false"><span class="nastro">Luci e prese</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></button><button type="button" class="modulo" data-k="domotica" aria-pressed="false"><span class="nastro">Domotica</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></button><button type="button" class="modulo" data-k="fotovoltaico" aria-pressed="false"><span class="nastro">Foto&shy;voltaico</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></button><button type="button" class="modulo" data-k="cancelli" aria-pressed="false"><span class="nastro">Cancelli</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></button><button type="button" class="modulo" data-k="allarme" aria-pressed="false"><span class="nastro">Allarme</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></button><button type="button" class="modulo" data-k="telecamere" aria-pressed="false"><span class="nastro">Tele&shy;camere</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></button><button type="button" class="modulo" data-k="tende" aria-pressed="false"><span class="nastro">Tende da sole</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></button><button type="button" class="modulo" data-k="zanzariere" aria-pressed="false"><span class="nastro">Zanza&shy;riere</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></button></div>
+<p class="lcd" id="lcd" aria-live="polite">Toccate un interruttore: la casa qui sotto risponde.</p>
 <span class="sportello" aria-hidden="true"></span>
+</div>
+<div class="casa" id="casa">
+<span class="nastro etichetta" aria-hidden="true">La vostra casa</span>
+<svg viewBox="0 0 420 230" role="img" aria-label="Disegno di una casa con le luci, i pannelli, il cancello, l'allarme, la telecamera, la tenda e la zanzariera comandati dal quadro">
+<defs>
+<pattern id="righe" width="12" height="10" patternUnits="userSpaceOnUse"><rect width="6" height="10" fill="#6cc0e3"/><rect x="6" width="6" height="10" fill="#f2f2ee"/></pattern>
+<pattern id="maglia" width="3" height="3" patternUnits="userSpaceOnUse"><path d="M0 .5H3M.5 0V3" stroke="#7d8d94" stroke-width=".6" opacity=".85"/></pattern>
+<radialGradient id="pozza"><stop offset="0" stop-color="#ffd36a" stop-opacity=".55"/><stop offset="1" stop-color="#ffd36a" stop-opacity="0"/></radialGradient>
+<linearGradient id="caldo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb347" stop-opacity="0"/><stop offset="1" stop-color="#ffb347" stop-opacity=".28"/></linearGradient>
+<filter id="sfuma" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="5"/></filter>
+<clipPath id="corsa"><rect x="326" y="170" width="74" height="40"/></clipPath>
+<clipPath id="tetto-pannelli"><polygon points="196,72 266,72 290,110 206,110"/></clipPath>
+</defs>
+<g class="stelle" fill="#cfe8f2"><circle cx="40" cy="28" r="1"/><circle cx="78" cy="52" r=".8"/><circle cx="150" cy="22" r="1"/><circle cx="262" cy="30" r=".8"/><circle cx="318" cy="18" r="1"/><circle cx="24" cy="86" r=".8"/></g>
+<rect class="tramonto" width="420" height="208" fill="url(#caldo)"/>
+<g class="sole"><circle cx="374" cy="42" r="26" fill="none" stroke="#ffcf5a" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/><circle cx="374" cy="42" r="17" fill="#ffcf5a"/></g>
+<rect y="208" width="420" height="22" fill="#05303f"/><path d="M0 208.5H420" stroke="#2d7898"/>
+<ellipse class="pozza" cx="204" cy="212" rx="120" ry="9" fill="url(#pozza)"/>
+<g class="alone" fill="#ffcf6b" filter="url(#sfuma)"><rect x="124" y="132" width="48" height="40"/><rect x="242" y="132" width="48" height="40"/><rect x="190" y="152" width="28" height="18"/></g>
+<polygon points="96,118 132,64 276,64 312,118" fill="#082f3e" stroke="#5fb3d6" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M120 82H288M108 100H300" stroke="#6cc0e3" stroke-opacity=".16"/>
+<polygon class="pannelli" points="196,72 266,72 290,110 206,110" stroke="#4f86ad"/>
+<path d="M219.3 72L234 110M242.7 72L262 110M201 91H278" stroke="#4f86ad" fill="none"/>
+<g clip-path="url(#tetto-pannelli)"><rect class="riflesso" x="170" y="60" width="12" height="60" fill="#fff"/></g>
+<path d="M204 54V64" stroke="#5fb3d6" stroke-width="1.5"/>
+<g class="onde" fill="none" stroke="#6cc0e3" stroke-width="2" stroke-linecap="round"><path class="o1" d="M197 47Q204 41 211 47"/><path class="o2" d="M192 42Q204 32 216 42"/><path class="o3" d="M187 37Q204 23 221 37"/></g>
+<circle class="hub" cx="204" cy="52" r="3.5"/>
+<rect x="110" y="118" width="192" height="90" fill="#0b4558" stroke="#5fb3d6" stroke-width="1.5"/>
+<g class="vetri"><rect x="126" y="134" width="44" height="36"/><rect x="244" y="134" width="44" height="36"/><rect x="192" y="154" width="24" height="14"/></g>
+<g fill="none" stroke="#8fcbe3" stroke-width="1.5"><rect x="126" y="134" width="44" height="36"/><rect x="244" y="134" width="44" height="36"/><path d="M148 134V170M126 152H170M266 134V170M244 152H288"/></g>
+<rect x="186" y="148" width="36" height="60" fill="#083646" stroke="#8fcbe3" stroke-width="1.5"/><rect x="192" y="154" width="24" height="14" fill="none" stroke="#8fcbe3"/><circle cx="215" cy="182" r="2" fill="#cfe8f2"/>
+<g class="termostato"><circle cx="238" cy="188" r="6" fill="#0a3a4b" stroke="#8fcbe3"/><circle class="anello" cx="238" cy="188" r="3" fill="none" stroke-width="2"/></g>
+<rect x="196" y="124" width="16" height="13" rx="2" fill="#d9dcd6"/><circle class="led-allarme" cx="204" cy="130.5" r="3"/>
+<g class="rete"><rect x="126" y="134" width="44" height="36" fill="url(#maglia)"/><rect x="124.5" y="168" width="47" height="3" fill="#c9ccc6"/></g>
+<rect x="122" y="129" width="52" height="5" rx="1" fill="#c9ccc6"/>
+<g class="tenda"><polygon points="240,131 292,131 300,151 232,151" fill="url(#righe)"/><path d="M232 151a4.25 4.25 0 0 0 8.5 0a4.25 4.25 0 0 0 8.5 0a4.25 4.25 0 0 0 8.5 0a4.25 4.25 0 0 0 8.5 0a4.25 4.25 0 0 0 8.5 0a4.25 4.25 0 0 0 8.5 0a4.25 4.25 0 0 0 8.5 0a4.25 4.25 0 0 0 8.5 0Z" fill="#6cc0e3"/></g>
+<rect x="238" y="126" width="56" height="5" rx="1" fill="#c9ccc6"/>
+<polygon class="cono" points="95,130 12,200 60,208"/>
+<path d="M110 130H104" stroke="#c9ccc6" stroke-width="2"/><rect x="92" y="126" width="14" height="8" rx="2" fill="#d9dcd6"/><circle cx="93.5" cy="130" r="2" fill="#1d2224"/><circle class="rec" cx="102" cy="128.3" r="1.5"/>
+<rect class="perimetro" x="86" y="56" width="236" height="158" rx="8"/>
+<rect x="302" y="194" width="14" height="14" fill="#0b4558" stroke="#5fb3d6"/>
+<g clip-path="url(#corsa)"><g class="anta" fill="none" stroke="#9fd3ea" stroke-width="2"><rect x="328" y="178" width="70" height="28"/><path d="M335 178V206M342 178V206M349 178V206M356 178V206M363 178V206M370 178V206M377 178V206M384 178V206M391 178V206"/></g></g>
+<rect x="316" y="166" width="10" height="42" fill="#d9dcd6"/><rect x="400" y="166" width="10" height="42" fill="#d9dcd6"/><circle class="lampeggiante" cx="321" cy="162" r="3.5"/>
+</svg>
 </div>
 </div></section>
 
@@ -76,10 +120,30 @@
 <nav class="barra" aria-label="Contatti rapidi"><a href="tel:+393473318678"><i aria-hidden="true"></i>Chiama</a><a href="https://wa.me/393473318678?text=Buongiorno%2C%20vorrei%20un%20preventivo" target="_blank" rel="noopener"><i aria-hidden="true"></i>WhatsApp</a></nav>
 <script>
 (function(){
-  var q=document.getElementById('quadro'),ridotto=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var mod=document.querySelectorAll('.apertura .modulo');
-  function accendi(){mod.forEach(function(m,i){setTimeout(function(){m.classList.add('on')},ridotto?0:i*90)})}
-  if(q){ if(ridotto){q.classList.add('statico');accendi()} else {setTimeout(function(){q.classList.add('aperto')},250);setTimeout(accendi,820)} }
+  var q=document.getElementById('quadro'),casa=document.getElementById('casa'),lcd=document.getElementById('lcd');
+  var ridotto=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var T={
+    luci:['Luci e prese: <b>accese</b>.','Luci e prese: <b>spente</b>.','impianti/#impianti','Impianti elettrici'],
+    domotica:['Domotica <b>attiva</b>: luci, allarme e tapparelle si comandano anche da fuori casa.','Domotica <b>spenta</b>.','impianti/#domotica','Sistemi domotici'],
+    fotovoltaico:['Fotovoltaico: i pannelli <b>producono</b>.','Fotovoltaico <b>fermo</b>.','impianti/#fotovoltaico','Pannelli fotovoltaici'],
+    cancelli:['Cancello <b>aperto</b>.','Cancello <b>chiuso</b>.','impianti/#cancelli','Automazione cancelli'],
+    allarme:['Allarme <b>inserito</b>.','Allarme <b>disinserito</b>.','sicurezza/#allarmi','Sistemi di allarme'],
+    telecamere:['Telecamera <b>accesa</b>: registra il giardino.','Telecamera <b>spenta</b>.','sicurezza/#videosorveglianza','Videosorveglianza'],
+    tende:['Tenda da sole <b>giù</b>.','Tenda da sole <b>su</b>.','tende/#tende','Tende da sole'],
+    zanzariere:['Zanzariera <b>giù</b>.','Zanzariera <b>su</b>.','tende/#veneziane','Veneziane e zanzariere']
+  };
+  var mod={},stato={},timer;
+  document.querySelectorAll('.apertura .modulo').forEach(function(m){mod[m.dataset.k]=m;stato[m.dataset.k]=false});
+  function metti(k,on){
+    stato[k]=on;mod[k].classList.toggle('on',on);mod[k].setAttribute('aria-pressed',on?'true':'false');casa.classList.toggle(k,on);
+    if(k==='cancelli'){casa.classList.add('muove');clearTimeout(timer);timer=setTimeout(function(){casa.classList.remove('muove')},ridotto?0:1700)}
+  }
+  function scrivi(k){var t=T[k];lcd.innerHTML=(stato[k]?t[0]:t[1])+' <a href="'+t[2]+'">'+t[3]+' &rarr;</a>'}
+  Object.keys(mod).forEach(function(k){mod[k].addEventListener('click',function(){metti(k,!stato[k]);scrivi(k)})});
+  var avvio=['luci','domotica','fotovoltaico','telecamere','allarme'];
+  function accendi(){avvio.forEach(function(k,i){setTimeout(function(){metti(k,true)},ridotto?0:i*380)});
+    setTimeout(function(){lcd.innerHTML='Provate voi: <b>aprite il cancello</b>, abbassate la tenda e la zanzariera.'},ridotto?0:avvio.length*380+300)}
+  if(ridotto){q.classList.add('statico');accendi()} else {setTimeout(function(){q.classList.add('aperto')},250);setTimeout(accendi,900)}
   var el=document.querySelectorAll('.attacca');
   if(!('IntersectionObserver' in window)){el.forEach(function(e){e.classList.add('visto')});return}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}})},{threshold:.2});

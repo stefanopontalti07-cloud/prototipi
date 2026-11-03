@@ -20,7 +20,7 @@
 <span class="nastro" style="font-size:18px">Luci e prese</span>
 <h1>Impianti elettrici, domotica e fotovoltaico.</h1>
 <p>Per controllare e gestire l'energia in modo più efficiente: in casa, in negozio, in azienda.</p>
-<div class="riga-din"><a class="modulo on" href="../impianti/#impianti"><span class="nastro">Luci e prese</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo on" href="../impianti/#domotica"><span class="nastro">Domotica</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo on" href="../impianti/#fotovoltaico"><span class="nastro">Foto&shy;voltaico</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo on" href="../impianti/#cancelli"><span class="nastro">Cancelli</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a></div>
+<div class="riga-din"><a class="modulo" href="../impianti/#impianti"><span class="nastro">Luci e prese</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo" href="../impianti/#domotica"><span class="nastro">Domotica</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo" href="../impianti/#fotovoltaico"><span class="nastro">Foto&shy;voltaico</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo" href="../impianti/#cancelli"><span class="nastro">Cancelli</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a></div>
 </div></section>
 <section><div class="wrap"><div class="colonne">
 <article class="dettaglio attacca" id="impianti"><span class="nastro">Luci e prese</span><h3>Impianti elettrici</h3>
@@ -56,6 +56,14 @@
   var mod=document.querySelectorAll('.apertura .modulo');
   function accendi(){mod.forEach(function(m,i){setTimeout(function(){m.classList.add('on')},ridotto?0:i*90)})}
   if(q){ if(ridotto){q.classList.add('statico');accendi()} else {setTimeout(function(){q.classList.add('aperto')},250);setTimeout(accendi,820)} }
+  document.querySelectorAll('.pagina .modulo').forEach(function(m){
+    var h=m.getAttribute('href'),i=h.indexOf('#'),dest=i>=0&&document.getElementById(h.slice(i+1));
+    if(!dest)return;
+    m.addEventListener('click',function(e){
+      e.preventDefault();var on=!m.classList.contains('on');m.classList.toggle('on',on);if(!on)return;
+      setTimeout(function(){dest.scrollIntoView({behavior:ridotto?'auto':'smooth',block:'start'});dest.classList.remove('alimentato');void dest.offsetWidth;dest.classList.add('alimentato')},ridotto?0:420);
+    });
+  });
   var el=document.querySelectorAll('.attacca');
   if(!('IntersectionObserver' in window)){el.forEach(function(e){e.classList.add('visto')});return}
   var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}})},{threshold:.2});
