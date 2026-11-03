@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Garnì Bucaneve · Centro della Salute e Bellezza · Baselga di Pinè</title>
+<meta name="description" content="Garnì a Baselga di Pinè con area wellness (sauna, bagno turco, idromassaggio), centro estetico e palestra. Via dei Campori 15, a 11 km da Trento.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Garnì Bucaneve: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/bucaneve/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/bucaneve/assets/og.jpg?v=202611030433">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Garnì Bucaneve su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<link rel="stylesheet" href="assets/fonts.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Garnì Bucaneve: il cartellino appeso alla maniglia. Da una parte «Non disturbare»,
+   dall'altra la loro frase del centro estetico: «Prenditi il tuo tempo». */
+:root{--rosa:#f4cfdc;--rosa-2:#eab4c8;--rosa-scuro:#9a3d5e;--rosso:#d41f26;--grigio:#575356;--inchiostro:#2c2829;--legno:#ead7b8;--legno-2:#d9bf96;--legno-3:#a37d4c;--carta:#fbf8f4;--riga:#eadfd3}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--carta);color:var(--inchiostro);font:17px/1.65 Mulish,system-ui,sans-serif;padding-bottom:88px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Marcellus,Georgia,serif;font-weight:400;line-height:1.12;margin:0;letter-spacing:.3px}
+.fascia{background:#000;color:#ddd;font-size:13px;text-align:center;padding:8px 16px;line-height:1.45}
+.fascia b{color:#fff}
+
+/* la porta della camera, in legno chiaro, con la maniglia */
+.porta{background-color:var(--legno);background-image:repeating-linear-gradient(90deg,rgba(150,105,50,.07) 0 2px,transparent 2px 13px),linear-gradient(180deg,#f1e2c8,var(--legno));padding:20px 0 40px;overflow:hidden}
+.porta .wrap{display:grid;gap:18px;align-items:center}
+@media (min-width:860px){.porta .wrap{grid-template-columns:1.1fr .9fr;gap:36px}.appeso{grid-column:2;grid-row:1/3}}
+.logo img{width:min(440px,100%);height:auto}
+.porta h1{font-size:clamp(32px,6.6vw,54px);color:var(--inchiostro);margin:14px 0 10px}
+.porta h1 em{font-family:"Pinyon Script",cursive;font-style:normal;font-size:1.25em;color:var(--rosa-scuro);line-height:1}
+.porta p.sotto{max-width:44ch;color:#4a4244;margin:0 0 20px}
+.bottoni{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:999px;font-weight:700;text-decoration:none}
+.btn.pieno{background:var(--rosa-scuro);color:#fff}
+.btn.bordo{border:2px solid var(--rosa-scuro);color:var(--rosa-scuro)}
+
+/* maniglia + cartellino */
+.appeso{position:relative;height:420px;display:flex;justify-content:center}
+@media (max-width:859px){.appeso{height:330px;order:-1}}
+.maniglia{position:absolute;top:30px;left:50%;width:120px;height:26px;margin-left:-14px;border-radius:13px;background-color:#b9b6b0;background-image:linear-gradient(180deg,#f4f3f0,#a8a49d 55%,#77736c);box-shadow:0 6px 8px -3px rgba(0,0,0,.4);z-index:6}
+.rosetta{position:absolute;top:17px;left:50%;width:52px;height:52px;margin-left:-40px;border-radius:50%;background-color:#bdb9b2;background-image:radial-gradient(circle at 40% 35%,#f5f4f1,#a29e97 70%);box-shadow:0 4px 6px -2px rgba(0,0,0,.35);z-index:2}
+.cartellino{position:absolute;top:-8px;left:50%;width:200px;height:360px;margin-left:-100px;perspective:900px;z-index:4}
+@media (max-width:859px){.cartellino{top:2px;transform:scale(.8);transform-origin:50% 0}}
+.giro{position:relative;width:100%;height:100%;transform-style:preserve-3d;transform-origin:50% 0;transition:transform .9s cubic-bezier(.45,.05,.25,1)}
+.girato .giro{transform:rotateY(180deg)}
+.faccia{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:110px 18px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;box-shadow:0 18px 26px -14px rgba(60,30,40,.55)}
+.faccia::before{content:"";position:absolute;top:20px;left:50%;width:62px;height:62px;margin-left:-31px;border-radius:50%;background:var(--legno);box-shadow:inset 0 3px 6px rgba(0,0,0,.35)}
+.faccia::after{content:"";position:absolute;top:76px;left:50%;width:10px;height:22px;margin-left:-5px;background:var(--legno);box-shadow:inset 0 2px 3px rgba(0,0,0,.3)}
+.davanti{background-color:#fff;background-image:linear-gradient(180deg,#ffffff,#f3eee9);border:1px solid #ddd2c6}
+.davanti b{font-family:Marcellus,serif;font-weight:400;font-size:24px;letter-spacing:2px;text-transform:uppercase;color:var(--inchiostro);line-height:1.2;margin-top:24px}
+.davanti span{display:block;margin-top:14px;font-size:14px;color:var(--grigio)}
+.dietro{transform:rotateY(180deg);background-color:var(--rosa);background-image:linear-gradient(160deg,#f9e1ea,var(--rosa) 50%,var(--rosa-2));border:1px solid #e3a6bd}
+.dietro .script{font-family:"Pinyon Script",cursive;font-size:38px;line-height:1.05;color:var(--inchiostro);margin-top:20px}
+.dietro .stelle{margin-top:16px;color:var(--rosso);font-size:22px;letter-spacing:6px}
+.dietro small{display:block;margin-top:14px;font-size:13px;color:#4b3940;letter-spacing:1px;text-transform:uppercase}
+.gira-btn{position:absolute;bottom:4px;left:50%;transform:translateX(-50%);border:0;background:none;font:inherit;font-size:14px;color:#5a4636;text-decoration:underline;cursor:pointer;padding:8px;z-index:5}
+@media (max-width:859px){.gira-btn{bottom:-6px}}
+@media (prefers-reduced-motion:no-preference){.js .appeso .cartellino{animation:dondola 1.6s cubic-bezier(.36,.07,.3,1) .1s both}}
+@keyframes dondola{0%{transform:rotate(9deg)}30%{transform:rotate(-6deg)}55%{transform:rotate(3deg)}80%{transform:rotate(-1deg)}100%{transform:rotate(0)}}
+@media (max-width:859px) and (prefers-reduced-motion:no-preference){.js .appeso .cartellino{animation-name:dondolaM}}
+@keyframes dondolaM{0%{transform:scale(.8) rotate(9deg)}30%{transform:scale(.8) rotate(-6deg)}55%{transform:scale(.8) rotate(3deg)}80%{transform:scale(.8) rotate(-1deg)}100%{transform:scale(.8) rotate(0)}}
+
+section{padding:56px 0}
+h2{font-size:clamp(28px,5.4vw,40px);margin-bottom:12px}
+.lead{max-width:58ch;color:var(--grigio);margin:0 0 24px}
+.casa{margin:0}
+.casa img{width:100%;height:clamp(180px,30vw,330px);object-fit:cover}
+.casa figcaption{max-width:1060px;margin:8px auto 0;padding:0 20px;font-size:14px;color:var(--grigio)}
+
+/* tre porte, tre cartellini: garni, wellness, estetica */
+.stanze{display:grid;gap:22px}
+@media (min-width:860px){.stanze{grid-template-columns:repeat(3,1fr)}}
+.stanza{background:#fff;border:1px solid var(--riga);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.stanza img{width:100%;height:190px;object-fit:cover}
+.stanza .dentro{padding:18px 20px 20px}
+.stanza h3{font-size:25px;margin-bottom:8px}
+.stanza ul{margin:0;padding-left:20px}
+.stanza li{margin:3px 0}
+.etichetta{display:inline-block;margin-bottom:8px;padding:3px 12px;border-radius:999px;background:var(--rosa);color:#5b2338;font-size:13px;font-weight:700;letter-spacing:.6px;text-transform:uppercase}
+.js .compare{opacity:0;transform:translateY(16px);transition:opacity .6s ease-out,transform .6s cubic-bezier(.2,.7,.2,1)}
+.js .compare.vista{opacity:1;transform:none}
+.js .compare:nth-child(2){transition-delay:.1s}.js .compare:nth-child(3){transition-delay:.2s}
+.strip{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}
+@media (min-width:760px){.strip{grid-template-columns:repeat(4,1fr)}}
+.strip img{width:100%;height:140px;object-fit:cover;border-radius:10px}
+
+.orari{display:grid;gap:24px}
+@media (min-width:860px){.orari{grid-template-columns:1fr 1fr}}
+.orari table{border-collapse:collapse;width:100%}
+.orari td{padding:7px 0;border-bottom:1px solid var(--riga)}
+.orari td:first-child{font-weight:700;width:7em}
+.info p{margin:0 0 10px}
+.info a{font-weight:700;color:var(--rosa-scuro);display:inline-block;padding:3px 0}
+.piede{background:#3b3437;color:#eee5e8;padding:26px 0;font-size:14px}
+
+/* barra in basso: due cartellini rosa */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background-color:var(--legno);background-image:linear-gradient(180deg,#f1e2c8,var(--legno-2));box-shadow:0 -6px 14px -8px rgba(0,0,0,.4)}
+.barra a{flex:1;min-height:54px;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;border-radius:12px;background-color:var(--rosa);background-image:linear-gradient(160deg,#f9e1ea,var(--rosa-2));border:1px solid #d995ae;font-weight:700;color:#4b1d2f}
+.barra a::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--legno);box-shadow:inset 0 1px 2px rgba(0,0,0,.35)}
+@media (min-width:900px){.barra{display:none}body{padding-bottom:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .compare{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="fascia">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Garnì Bucaneve</div>
+
+<header class="porta"><div class="wrap">
+<div class="appeso" id="appeso">
+<span class="rosetta" aria-hidden="true"></span><span class="maniglia" aria-hidden="true"></span>
+<div class="cartellino" aria-hidden="true"><div class="giro">
+<div class="faccia davanti"><b>Non<br>disturbare</b><span>sauna, massaggio e relax in corso</span></div>
+<div class="faccia dietro"><div class="script">Prenditi<br>il tuo tempo</div><div class="stelle">★★★</div><small>Garnì Bucaneve</small></div>
+</div></div>
+<button class="gira-btn" type="button" id="gira">Girate il cartellino</button>
+</div>
+<div class="testo">
+<a class="logo" href="./"><img src="assets/logo.png" width="700" height="148" alt="Centro della Salute e Bellezza, Garnì Bucaneve, di Corradi Anna"></a>
+<h1>Un garnì a Pinè, con la <em>spa</em> in casa.</h1>
+<p class="sotto">Camere, area wellness, centro estetico e palestra sotto lo stesso tetto, in via dei Campori 15 a Baselga di Pinè, a 11 km da Trento. D'estate e d'inverno.</p>
+<div class="bottoni"><a class="btn pieno" href="tel:+390461558905">Chiama ora</a><a class="btn bordo" href="mailto:info@garnibellezzaesalute.it?subject=Richiesta%20disponibilit%C3%A0">Scrivici</a></div>
+</div>
+</div></header>
+
+<figure class="casa"><img src="assets/casa.jpg" width="1178" height="330" alt="Il Garnì Bucaneve a Baselga di Pinè, con i pannelli solari sul tetto" loading="lazy"><figcaption>Via dei Campori 15, Baselga di Pinè.</figcaption></figure>
+
+<main>
+<section id="garni"><div class="wrap">
+<h2>Tre porte, una sola casa</h2>
+<p class="lead">Si dorme al garnì, ci si rilassa nell'area wellness, ci si fa coccolare al centro estetico. Senza prendere la macchina.</p>
+<div class="stanze">
+<article class="stanza compare"><img src="assets/camera.jpg" width="258" height="157" alt="Una camera del Garnì Bucaneve" loading="lazy"><div class="dentro"><span class="etichetta">Il garnì</span><h3>Le camere</h3>
+<ul><li>TV a schermo piatto e WiFi gratuito</li><li>Alcune con area salotto, vista sulle montagne o sul giardino</li><li>Camere familiari e appartamenti, camere per ospiti disabili, ascensore</li><li>Sala colazione, soggiorno con TV, giardino e terrazza solarium</li><li>Parcheggio privato gratuito</li><li>Animali ammessi, senza supplemento</li></ul></div></article>
+<article class="stanza compare"><img src="assets/idromassaggio.jpg" width="230" height="157" alt="La vasca idromassaggio dell'area wellness" loading="lazy"><div class="dentro"><span class="etichetta">Il benessere</span><h3>L'area wellness</h3>
+<ul><li>Sauna finlandese</li><li>Bagno turco con vapore aromatizzato, e docce fredde per riattivare la circolazione</li><li>Doccia emozionale</li><li>Grande vasca doppia idromassaggio, a 37-38 °C</li><li>Solarium UVA</li><li>Zona relax con angolo tisane e frutta</li></ul></div></article>
+<article class="stanza compare"><img src="assets/cabina.jpg" width="244" height="157" alt="Una cabina del centro estetico" loading="lazy"><div class="dentro"><span class="etichetta">La bellezza</span><h3>Il centro estetico</h3>
+<p>Trattamenti viso e corpo, make up, Bio Energy, mani e piedi, massaggi, con i prodotti professionali Diego Dalla Palma. Programmi per la donna e per l'uomo.</p>
+<p>Gli strumenti sono sterilizzati in autoclave.</p></div></article>
+</div>
+<div class="strip">
+<img src="assets/relax.jpg" width="214" height="157" alt="La zona relax" loading="lazy">
+<img src="assets/sauna.jpg" width="201" height="157" alt="La sauna finlandese" loading="lazy">
+<img src="assets/idromassaggio.jpg" width="230" height="157" alt="La vasca idromassaggio" loading="lazy">
+<img src="assets/camera.jpg" width="258" height="157" alt="Una camera" loading="lazy">
+</div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+<h2>Per chi si muove</h2>
+<p class="lead">Palestra attrezzata Technogym. E fuori: passeggiate tra boschi, prati e laghi, gite in montagna a piedi, in bici e a cavallo, mountain bike e nordic walking. Bikers friendly.</p>
+<p class="lead">Parliamo italiano, tedesco, inglese e francese.</p>
+</div></section>
+
+<section style="padding-top:0" id="orari"><div class="wrap orari">
+<div>
+<h2>Centro estetico</h2>
+<table>
+<tr><td>Lunedì</td><td>9.00-12.00 · 14.00-18.00</td></tr>
+<tr><td>Martedì</td><td>9.00-12.00 · 14.00-18.00</td></tr>
+<tr><td>Mercoledì</td><td>9.00-12.00 · 14.00-19.00</td></tr>
+<tr><td>Giovedì</td><td>9.00-12.00 · 14.00-18.00</td></tr>
+<tr><td>Venerdì</td><td>9.00-12.00 · 14.00-18.00</td></tr>
+<tr><td>Sabato</td><td>9.00-16.00 continuato</td></tr>
+<tr><td>Domenica</td><td>chiuso</td></tr>
+</table>
+</div>
+<div class="info">
+<h2>Prenotare</h2>
+<p>Per disponibilità e preventivi, e per gli appuntamenti del centro estetico, chiamate la direzione: preferiamo parlare con voi di persona, per darvi sempre il prezzo migliore.</p>
+<p>Telefono <a href="tel:+390461558905">0461 558905</a><br>Email <a href="mailto:info@garnibellezzaesalute.it">info@garnibellezzaesalute.it</a></p>
+<p>Via dei Campori 15, 38042 Baselga di Pinè (TN) · <a href="https://www.google.com/maps/search/?api=1&amp;query=Garni+Bucaneve+via+dei+Campori+15+Baselga+di+Pine" target="_blank" rel="noopener">Apri la mappa →</a></p>
+<p><a href="https://www.facebook.com/centrodellasalutebellezzaBaselgadiPine" target="_blank" rel="noopener">La pagina Facebook</a></p>
+</div>
+</div></section>
+</main>
+<footer class="piede"><div class="wrap">Centro della Salute e Bellezza · Garnì Bucaneve di Corradi Anna · Baselga di Pinè</div></footer>
+<nav class="barra" aria-label="Contatti rapidi"><a href="tel:+390461558905">Chiama</a><a href="mailto:info@garnibellezzaesalute.it?subject=Richiesta%20disponibilit%C3%A0">Scrivici</a></nav>
+
+<script>
+(function(){
+  var a=document.getElementById('appeso'),b=document.getElementById('gira');
+  var rid=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(rid){a.classList.add('girato')}else{setTimeout(function(){a.classList.add('girato')},1300)}
+  b.addEventListener('click',function(){a.classList.toggle('girato')});
+  var el=document.querySelectorAll('.compare');
+  if(!('IntersectionObserver' in window)){el.forEach(function(e){e.classList.add('vista')});return}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vista');io.unobserve(e.target)}})},{threshold:.15});
+  el.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>

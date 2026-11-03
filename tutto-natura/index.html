@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Erboristeria Tutto Natura · Tione di Trento</title>
+<meta name="description" content="Erboristeria da più di 30 anni, naturopatia e iridologia, in via Pinzolo 25/A a Tione di Trento: tisane, integratori, cosmesi naturale, prodotti biologici e idee regalo.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tutto Natura: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/tutto-natura/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/tutto-natura/assets/og.jpg?v=202611030428">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Tutto Natura su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<link rel="stylesheet" href="assets/fonts.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Tutto Natura: la cassettiera di legno dell'erboristeria. Ogni cassetto ha il suo cartellino
+   nella cornicetta d'ottone; toccandolo si apre e dentro c'e' quella parte del negozio. */
+:root{--verde:#5c9a1e;--verde-scuro:#2f5413;--verde-notte:#1f3a0c;--legno:#7a4c29;--legno-chiaro:#a8713f;--legno-scuro:#4e2e16;--ottone:#b38b3e;--carta:#f8f3e6;--cartellino:#f6efd9;--inchiostro:#2b2419;--grigio:#5d5446;--riga:#e2d8bf}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--carta);color:var(--inchiostro);font:18px/1.6 "Alegreya Sans",system-ui,sans-serif;padding-bottom:88px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Alegreya,Georgia,serif;font-weight:700;line-height:1.1;margin:0}
+.fascia{background:#000;color:#ddd6c8;font-size:13px;text-align:center;padding:8px 16px;line-height:1.45}
+.fascia b{color:#fff}
+
+.testata{padding:22px 0 8px}
+.testata .wrap{display:flex;align-items:center;gap:14px}
+.testata img{width:58px;height:auto}
+.testata .nome{font-family:Alegreya,serif;font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:var(--verde-scuro);font-weight:700;line-height:1.3}
+.apertura{padding:8px 0 40px}
+.apertura h1{font-size:clamp(36px,7.6vw,62px);color:var(--verde-notte);margin:10px 0 10px;max-width:15ch}
+.apertura .sotto{max-width:44ch;color:var(--grigio);margin:0 0 22px;font-size:19px}
+.apertura .sotto i{font-family:Alegreya,serif;font-style:italic;color:var(--verde-scuro)}
+
+/* la cassettiera */
+.mobile{background-color:var(--legno-scuro);background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 2px,transparent 2px 9px),linear-gradient(180deg,#5d3a1d,var(--legno-scuro));border-radius:6px;padding:12px;box-shadow:inset 0 0 0 3px #3a210e,0 16px 26px -16px rgba(0,0,0,.65);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media (min-width:760px){.mobile{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.cassetto{position:relative;height:118px;border:0;border-radius:3px;cursor:pointer;font:inherit;color:inherit;padding:14px 8px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background-color:var(--legno-chiaro);background-image:repeating-linear-gradient(178deg,rgba(80,40,10,.12) 0 2px,transparent 2px 7px),linear-gradient(180deg,#b57c48,#93602f);box-shadow:inset 0 1px 0 rgba(255,230,190,.35),inset 0 -3px 0 rgba(60,30,8,.4),0 2px 0 #3a210e;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.cornice{display:block;padding:3px;border-radius:4px;background-color:var(--ottone);background-image:linear-gradient(135deg,#e7cb85,#a57a2e 45%,#e2c27a 70%,#8d6421);box-shadow:0 1px 2px rgba(0,0,0,.45);max-width:100%}
+.cartellino{display:block;background:var(--cartellino);padding:4px 10px 5px;border-radius:2px;font-family:Alegreya,serif;font-style:italic;font-weight:500;font-size:17px;line-height:1.15;color:var(--inchiostro);text-align:center;box-shadow:inset 0 0 6px rgba(120,90,40,.25)}
+.pomolo{width:22px;height:22px;border-radius:50%;background-color:var(--ottone);background-image:radial-gradient(circle at 35% 30%,#f6e2a6,#c39a49 45%,#7d5719);box-shadow:0 3px 4px rgba(0,0,0,.45)}
+.cassetto[aria-expanded="true"]{transform:translateY(5px);box-shadow:inset 0 1px 0 rgba(255,230,190,.35),inset 0 -3px 0 rgba(60,30,8,.4),0 10px 14px -6px rgba(0,0,0,.65)}
+.cassetto[aria-expanded="true"] .cartellino{background:#fffaea}
+.cassetto:focus-visible{outline:3px solid #e9d18d;outline-offset:2px}
+.js .mobile:not(.pronta) .cassetto{opacity:0;transform:scale(.94)}
+.js .mobile.pronta .cassetto{transition:opacity .45s ease-out,transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+
+/* l'interno del cassetto aperto */
+.interno{margin-top:-4px;background-color:#e9dcc0;background-image:linear-gradient(180deg,#d8c39b 0,#e9dcc0 26px);border:3px solid var(--legno-scuro);border-top:0;border-radius:0 0 6px 6px;padding:26px 18px 20px;display:grid;gap:16px;min-height:220px}
+@media (min-width:760px){.interno{grid-template-columns:1.1fr .9fr;align-items:center;padding:30px 26px 24px}}
+.interno h2{font-size:30px;color:var(--verde-notte);margin-bottom:6px}
+.interno p{margin:0 0 10px}
+.interno ul{margin:0;padding-left:20px}
+.interno figure{margin:0;background:#fff;padding:8px;box-shadow:0 8px 14px -10px rgba(0,0,0,.6);transform:rotate(1.2deg);max-width:340px;justify-self:center}
+.interno img{width:100%;height:auto}
+.js .interno.cambia .foglio{animation:esce .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes esce{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+.aiuto{font-size:15px;color:var(--grigio);margin:10px 2px 0}
+
+section{padding:54px 0}
+h2.t{font-size:clamp(28px,5.4vw,40px);color:var(--verde-notte);margin-bottom:12px}
+.vetrina{padding:0;margin:0}
+.vetrina img{width:100%;height:clamp(200px,32vw,380px);object-fit:cover}
+.vetrina figcaption{max-width:1040px;margin:8px auto 0;padding:0 20px;font-size:15px;color:var(--grigio);font-family:Alegreya,serif;font-style:italic}
+.citazione{font-family:Alegreya,serif;font-style:italic;font-size:22px;color:var(--verde-scuro);max-width:30ch;margin:0}
+.citazione span{display:block;font-style:normal;font-size:15px;color:var(--grigio);margin-top:6px}
+
+/* orari: il cartello appeso alla porta */
+.porta{display:grid;gap:26px}
+@media (min-width:760px){.porta{grid-template-columns:1fr 1fr;align-items:start}}
+.cartello{background-color:var(--cartellino);background-image:radial-gradient(rgba(120,90,40,.08) 1px,transparent 1.2px);background-size:6px 6px;border:2px solid #c9b78d;border-radius:6px;padding:22px 22px 16px;box-shadow:0 12px 20px -14px rgba(0,0,0,.6);position:relative;max-width:420px}
+.cartello::before{content:"";position:absolute;top:-16px;left:50%;width:120px;height:22px;margin-left:-60px;border:2px solid #8a6a2c;border-bottom:0;border-radius:60px 60px 0 0}
+.cartello h3{font-size:24px;color:var(--verde-notte);margin-bottom:10px}
+.cartello table{border-collapse:collapse;width:100%;font-size:17px}
+.cartello td{padding:6px 0;border-bottom:1px dashed #cdbf98;vertical-align:top}
+.cartello td:first-child{font-weight:700;width:5.5em;color:var(--verde-scuro)}
+.recapiti p{margin:0 0 12px}
+.recapiti a{font-weight:700;color:var(--verde-scuro);display:inline-block;padding:4px 0}
+.piede{background:var(--verde-notte);color:#dfe8d2;padding:26px 0;font-size:14px}
+.piede a{color:#fff}
+
+/* barra in basso: due frontalini di cassetto */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background-color:var(--legno-scuro);background-image:linear-gradient(180deg,#5d3a1d,var(--legno-scuro));box-shadow:0 -6px 14px -8px rgba(0,0,0,.6)}
+.barra a{flex:1;min-height:54px;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;border-radius:3px;background-color:var(--legno-chiaro);background-image:linear-gradient(180deg,#b57c48,#93602f);box-shadow:inset 0 1px 0 rgba(255,230,190,.35),0 2px 0 #3a210e}
+.barra span{background:var(--cartellino);padding:5px 12px;border-radius:2px;border:2px solid #b38b3e;font:700 16px/1 "Alegreya Sans",sans-serif;color:var(--inchiostro)}
+@media (min-width:900px){.barra{display:none}body{padding-bottom:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .mobile:not(.pronta) .cassetto{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="fascia">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Erboristeria Tutto Natura</div>
+<header class="testata"><div class="wrap"><img src="assets/logo.png" width="89" height="80" alt="Tutto Natura"><div class="nome">Erboristeria<br>Tutto Natura</div></div></header>
+
+<main>
+<section class="apertura" style="padding-top:8px"><div class="wrap">
+<h1>L'erboristeria di Tione, da più di 30 anni.</h1>
+<p class="sotto">Erboristeria, naturopatia e iridologia in via Pinzolo 25/A. <i>Aprite un cassetto</i>: dentro c'è quello che trovate in negozio.</p>
+
+<div class="mobile" id="mobile" role="group" aria-label="La cassettiera: scegliete un cassetto">
+<button class="cassetto" type="button" data-c="roberta" aria-expanded="false" aria-controls="interno"><span class="cornice"><span class="cartellino">I consigli<br>di Roberta</span></span><span class="pomolo"></span></button>
+<button class="cassetto" type="button" data-c="tisane" aria-expanded="false" aria-controls="interno"><span class="cornice"><span class="cartellino">Tisane<br>e infusi</span></span><span class="pomolo"></span></button>
+<button class="cassetto" type="button" data-c="integratori" aria-expanded="false" aria-controls="interno"><span class="cornice"><span class="cartellino">Integratori</span></span><span class="pomolo"></span></button>
+<button class="cassetto" type="button" data-c="cosmesi" aria-expanded="false" aria-controls="interno"><span class="cornice"><span class="cartellino">Cosmesi<br>naturale</span></span><span class="pomolo"></span></button>
+<button class="cassetto" type="button" data-c="bio" aria-expanded="false" aria-controls="interno"><span class="cornice"><span class="cartellino">Biologico<br>e vegano</span></span><span class="pomolo"></span></button>
+<button class="cassetto" type="button" data-c="regali" aria-expanded="false" aria-controls="interno"><span class="cornice"><span class="cartellino">Idee<br>regalo</span></span><span class="pomolo"></span></button>
+</div>
+<div class="interno" id="interno" aria-live="polite"><div class="foglio" id="foglio"></div><figure id="foto"><img id="fotoimg" src="assets/scaffale.jpg" width="570" height="308" alt="Gli scaffali dell'erboristeria Tutto Natura"></figure></div>
+<p class="aiuto">Toccate un cassetto per aprirlo.</p>
+
+<div class="bottoni" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
+<a href="tel:+390465326268" style="display:inline-flex;align-items:center;min-height:50px;padding:0 24px;border-radius:999px;background:var(--verde-scuro);color:#fff;font-weight:700;text-decoration:none">Chiama ora</a>
+<a href="https://www.google.com/maps/search/?api=1&amp;query=Erboristeria+Tutto+Natura+via+Pinzolo+25+Tione+di+Trento" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;min-height:50px;padding:0 24px;border-radius:999px;border:2px solid var(--verde-scuro);color:var(--verde-scuro);font-weight:700;text-decoration:none">Come arrivare</a>
+</div>
+</div></section>
+
+<figure class="vetrina"><img src="assets/slide2.jpg" width="1400" height="459" alt="La vetrina dell'erboristeria Tutto Natura, sul muschio" loading="lazy"><figcaption>In vetrina, sul muschio.</figcaption></figure>
+
+<section><div class="wrap">
+<p class="citazione">«La natura non fa nulla di inutile.»<span>Aristotele</span></p>
+</div></section>
+
+<section style="padding-top:0" id="orari"><div class="wrap porta">
+<div class="cartello">
+<h3>Orario del negozio</h3>
+<table>
+<tr><td>Lunedì</td><td>9.00-12.00</td></tr>
+<tr><td>Martedì</td><td>9.00-12.00 · 15.00-19.00</td></tr>
+<tr><td>Mercoledì</td><td>9.00-12.00 · 15.00-19.00</td></tr>
+<tr><td>Giovedì</td><td>9.00-12.00 · 15.00-19.00</td></tr>
+<tr><td>Venerdì</td><td>9.00-12.00 · 15.00-19.00</td></tr>
+<tr><td>Sabato</td><td>9.00-12.00 · 15.00-19.00</td></tr>
+</table>
+</div>
+<div class="recapiti">
+<h2 class="t">Venite a trovarci</h2>
+<p>Via Pinzolo 25/A, 38079 Tione di Trento (TN).<br><a href="https://www.google.com/maps/search/?api=1&amp;query=Erboristeria+Tutto+Natura+via+Pinzolo+25+Tione+di+Trento" target="_blank" rel="noopener">Apri la mappa →</a></p>
+<p>Telefono: <a href="tel:+390465326268">0465 326268</a><br>Email: <a href="mailto:michelevigilio@alice.it">michelevigilio@alice.it</a><br><a href="https://www.facebook.com/erboristeriatuttonatura/" target="_blank" rel="noopener">La pagina Facebook</a></p>
+</div>
+</div></section>
+</main>
+<footer class="piede"><div class="wrap">Tutto Natura di Brunelli Roberta · erboristeria, naturopatia e iridologia · Tione di Trento</div></footer>
+<nav class="barra" aria-label="Contatti rapidi"><a href="tel:+390465326268"><span>Chiama</span></a><a href="https://www.google.com/maps/search/?api=1&amp;query=Erboristeria+Tutto+Natura+via+Pinzolo+25+Tione+di+Trento" target="_blank" rel="noopener"><span>Come arrivare</span></a></nav>
+
+<script>
+(function(){
+  var C={
+    roberta:{t:'I consigli di Roberta',h:'<p>In negozio vi accoglie Roberta, naturopata e iridologa: vi suggerisce il prodotto più adatto a voi e offre consulenze in ambito erboristico e naturopatico.</p><p>Al centro, sempre, la persona.</p>',f:'scaffale.jpg',w:570,hh:308,a:'Gli scaffali dell\'erboristeria Tutto Natura'},
+    tisane:{t:'Tisane e infusi',h:'<p>Tisane e infusi d\'erbe, con le tazze e i barattoli per il tè.</p>',f:'tea.jpg',w:270,hh:308,a:'Tazze e barattoli per il tè in negozio'},
+    integratori:{t:'Integratori',h:'<p>Integratori per la salute del corpo. Tra le novità:</p><ul><li>Propoli Gola Fast e Propoli Immuno Rapid</li><li>Argento colloidale Plus</li><li>la linea Erbe dell\'Arcobaleno</li></ul>',f:'vetrina.jpg',w:270,hh:308,a:'Prodotti esposti in erboristeria'},
+    cosmesi:{t:'Cosmesi naturale',h:'<p>Prodotti di bellezza con ingredienti naturali. In vetrina L\'Erbolario, nato a Lodi nel 1978 come Premiata Erboristeria Artigiana, e Nature\'s.</p>',f:'cosmesi.jpg',w:270,hh:308,a:'La cosmesi naturale in vetrina'},
+    bio:{t:'Biologico e vegano',h:'<p>Prodotti biologici per chi è vegano e per chi è intollerante al glutine, e prodotti certificati ICEA.</p>',f:'candele.jpg',w:270,hh:308,a:'Uno scaffale dell\'erboristeria'},
+    regali:{t:'Idee regalo',h:'<p>Oggettistica varia per i vostri regali.</p>',f:'regali.jpg',w:270,hh:308,a:'Le idee regalo in negozio'}
+  };
+  var m=document.getElementById('mobile'),b=m.querySelectorAll('.cassetto'),fo=document.getElementById('foglio'),img=document.getElementById('fotoimg'),box=document.getElementById('interno');
+  function apri(k){var c=C[k];b.forEach(function(x){x.setAttribute('aria-expanded',x.dataset.c===k?'true':'false')});
+    fo.innerHTML='<h2>'+c.t+'</h2>'+c.h;img.src='assets/'+c.f;img.width=c.w;img.height=c.hh;img.alt=c.a;
+    box.classList.remove('cambia');void box.offsetWidth;box.classList.add('cambia')}
+  b.forEach(function(x){x.addEventListener('click',function(){apri(x.dataset.c)})});
+  apri('roberta');
+  var rid=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(rid){m.classList.add('pronta');return}
+  b.forEach(function(x,i){x.style.transitionDelay=(i*80)+'ms'});
+  requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('pronta')})});
+  setTimeout(function(){b.forEach(function(x){x.style.transitionDelay=''})},1200);
+})();
+</script>
+</body>
+</html>

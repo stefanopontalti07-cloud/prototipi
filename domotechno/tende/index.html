@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tende da sole, veneziane e zanzariere · Domotechno</title>
+<meta name="description" content="Tende da sole a braccio, a caduta, a pergola, motorizzate con sensori; veneziane e zanzariere. Domotechno, Rovereto.">
+<link rel="stylesheet" href="../assets/stile.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="fascia">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Domotechno S.r.l.</div>
+<header class="testata"><div class="wrap">
+<a class="logo" href="../"><img src="../assets/logo.png" width="520" height="147" alt="Domotechno"></a>
+<nav class="menu" aria-label="Pagine"><a href="../">Home</a><a href="../impianti/">Impianti e domotica</a><a href="../sicurezza/">Sicurezza</a><a href="../tende/" aria-current="page">Tende e schermature</a></nav>
+</div></header>
+<main>
+<section class="pagina"><div class="wrap">
+<span class="nastro" style="font-size:18px">Tende da sole</span>
+<h1>Tende da sole, veneziane e zanzariere.</h1>
+<p>Fresco d'estate, meno aria condizionata, raggi UV fuori: la tenda giusta per lo stile della vostra casa.</p>
+<div class="riga-din"><a class="modulo on" href="../tende/#tende"><span class="nastro">Tende da sole</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a><a class="modulo on" href="../tende/#veneziane"><span class="nastro">Zanza&shy;riere</span><span class="corpo" aria-hidden="true"><span class="segni"><b>I</b><b>0</b></span><span class="leva"></span><span class="spia"></span></span></a></div>
+</div></section>
+<section><div class="wrap"><div class="colonne">
+<article class="dettaglio attacca" id="tende"><span class="nastro">Tende da sole</span><h3>Tende da sole</h3>
+<ul><li>A braccio, avvolgibili, a caduta, climatiche, a pergola, gazebi</li><li>Tanti colori, tessuti e forme, per ogni stile di architettura</li><li>Manuali o motorizzate</li><li>Accessori: telecomandi e sensori di vento, pioggia e sole</li></ul>
+<p class="nota">Proteggono dai raggi UV e dal calore, riducono i costi dell'aria condizionata e fanno più bella la casa.</p></article>
+<article class="dettaglio attacca" id="veneziane"><span class="nastro">Zanzariere</span><h3>Veneziane e zanzariere</h3>
+<ul><li>Verticali e orizzontali</li><li>In legno, alluminio o PVC</li></ul></article>
+</div></div></section>
+</main>
+
+<footer class="targa" id="contatti"><div class="wrap">
+<div class="placca">
+<h2>Targa del quadro</h2>
+<dl>
+<dt>Costruttore</dt><dd>Domotechno S.r.l.</dd>
+<dt>Indirizzo</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Domotechno+via+Cavour+46+Rovereto" target="_blank" rel="noopener">via Cavour 46, 38068 Rovereto (TN)</a></dd>
+<dt>Cellulare</dt><dd><a href="tel:+393473318678">347 331 8678</a></dd>
+<dt>Telefono</dt><dd><a href="tel:+390464880464">0464 880464</a></dd>
+<dt>Email</dt><dd><a href="mailto:info@domotechno.it">info@domotechno.it</a></dd>
+<dt>Orari</dt><dd>lunedì-venerdì 7.30-12.00 e 13.00-18.00</dd>
+</dl>
+</div>
+<p class="piede">Domotechno S.r.l. · P.IVA 01843510221 · PEC domotechno@pec.it · <a href="https://www.facebook.com/Domotechno/" target="_blank" rel="noopener">Facebook</a></p>
+</div></footer>
+<nav class="barra" aria-label="Contatti rapidi"><a href="tel:+393473318678"><i aria-hidden="true"></i>Chiama</a><a href="https://wa.me/393473318678?text=Buongiorno%2C%20vorrei%20un%20preventivo" target="_blank" rel="noopener"><i aria-hidden="true"></i>WhatsApp</a></nav>
+<script>
+(function(){
+  var q=document.getElementById('quadro'),ridotto=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mod=document.querySelectorAll('.apertura .modulo');
+  function accendi(){mod.forEach(function(m,i){setTimeout(function(){m.classList.add('on')},ridotto?0:i*90)})}
+  if(q){ if(ridotto){q.classList.add('statico');accendi()} else {setTimeout(function(){q.classList.add('aperto')},250);setTimeout(accendi,820)} }
+  var el=document.querySelectorAll('.attacca');
+  if(!('IntersectionObserver' in window)){el.forEach(function(e){e.classList.add('visto')});return}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}})},{threshold:.2});
+  el.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>

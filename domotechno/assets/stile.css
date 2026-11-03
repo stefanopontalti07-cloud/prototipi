@@ -1,0 +1,114 @@
+/* Domotechno: il quadro elettrico. Ogni servizio e' un interruttore sulla guida DIN,
+   con l'etichetta scritta a pennarello sul nastro di carta, come nei quadri veri. */
+@import url(fonts.css);
+:root{--petrolio:#023b4f;--petrolio-2:#012c3b;--azzurro:#6cc0e3;--azzurro-scuro:#1f6f93;--quadro:#dfe0dc;--quadro-ombra:#c4c6c1;--modulo:#fbfbf8;--leva:#22262a;--on:#c8312b;--off:#2f7d3b;--nastro:#efe4c4;--carta:#f6f6f3;--testo:#13252d;--grigio:#4c5a60;--riga:#d6d8d3}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--carta);color:var(--testo);font:17px/1.6 Montserrat,system-ui,sans-serif;padding-bottom:92px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Montserrat,sans-serif;font-weight:800;line-height:1.1;margin:0;letter-spacing:-.3px}
+.fascia{background:#000;color:#dcdcd6;font-size:13px;text-align:center;padding:8px 16px;line-height:1.45}
+.fascia b{color:#fff}
+
+/* testata */
+.testata{background:#fff;border-bottom:1px solid var(--riga)}
+.testata .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:10px}
+.logo img{height:46px;width:auto}
+.menu{display:flex;flex-wrap:wrap;gap:2px;justify-content:flex-end}
+.menu a{font-weight:600;font-size:15px;text-decoration:none;color:var(--petrolio);padding:10px 9px;border-bottom:3px solid transparent}
+.menu a[aria-current]{border-color:var(--azzurro)}
+.menu a:hover{color:var(--azzurro-scuro)}
+@media (max-width:640px){.testata .wrap{flex-direction:column;align-items:flex-start;gap:2px}.logo img{height:38px}.menu{justify-content:flex-start}.menu a{font-size:14px;padding:8px 7px}}
+
+/* il nastro di carta scritto a pennarello */
+.nastro{display:inline-block;font-family:"Permanent Marker",cursive;font-weight:400;color:#1a1a1a;background-color:var(--nastro);background-image:linear-gradient(90deg,rgba(0,0,0,.05),transparent 8%,transparent 92%,rgba(0,0,0,.05));padding:3px 9px 2px;line-height:1.25;letter-spacing:.3px;transform:rotate(-1.2deg);box-shadow:0 1px 1px rgba(0,0,0,.12);clip-path:polygon(0 4%,3% 0,97% 3%,100% 0,99% 96%,96% 100%,4% 97%,0 100%)}
+
+/* IL QUADRO */
+.apertura{background:var(--petrolio);color:#eef5f8;padding:34px 0 40px;position:relative;overflow:hidden}
+.apertura h1{font-size:clamp(30px,6.4vw,54px);max-width:18ch}
+.apertura h1 em{font-style:normal;color:var(--azzurro)}
+.apertura .sotto{max-width:46ch;color:#d4e4ea;font-size:18px;margin:14px 0 6px}
+.apertura .quadro{margin-top:26px}
+@media (min-width:980px){.apertura .quadro{margin-top:0}}
+.quadro{position:relative;background-color:var(--quadro);background-image:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,0) 30%),radial-gradient(rgba(0,0,0,.05) 1px,transparent 1.3px);background-size:auto,5px 5px;border-radius:14px;padding:22px 16px 18px;box-shadow:0 0 0 1px #b9bcb6,inset 0 0 0 6px #e9eae6,0 22px 40px -22px rgba(0,0,0,.65);perspective:1200px;max-width:760px}
+.quadro .viti{position:absolute;inset:8px;pointer-events:none}
+.quadro .viti i{position:absolute;width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f3f3f1,#a7a9a4);box-shadow:inset 0 0 0 1px #8e908b}
+.quadro .viti i::after{content:"";position:absolute;left:2px;right:2px;top:5px;height:1px;background:#6b6d69;transform:rotate(35deg)}
+.viti i:nth-child(1){left:0;top:0}.viti i:nth-child(2){right:0;top:0}.viti i:nth-child(3){left:0;bottom:0}.viti i:nth-child(4){right:0;bottom:0}
+.riga-din{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px 6px;padding:10px 6px 12px;isolation:isolate}
+@media (min-width:980px){.apertura .wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:10px 44px;align-items:center}.apertura .testo{grid-row:1/3}.apertura .quadro{grid-column:2}}
+.modulo{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:inherit}
+.modulo::before{content:"";position:absolute;left:-5px;right:-5px;top:80px;height:16px;background:linear-gradient(#9da09b,#d7d9d5 30%,#bfc1bc 70%,#8f928d);z-index:-1}
+.modulo .nastro{font-size:12px;height:34px;hyphens:manual;overflow-wrap:anywhere;padding:2px 4px;display:flex;align-items:center;text-align:center;justify-content:center;width:100%;max-width:98px}
+.corpo{position:relative;width:100%;max-width:78px;height:96px;background:linear-gradient(90deg,#e9e9e4,var(--modulo) 18%,var(--modulo) 82%,#e3e3de);border-radius:4px;box-shadow:0 0 0 1px #bfc0bb,0 4px 6px -3px rgba(0,0,0,.35)}
+.corpo::before{content:"";position:absolute;left:50%;top:16px;width:30px;height:56px;margin-left:-15px;background:#2a2e31;border-radius:5px;box-shadow:inset 0 2px 4px rgba(0,0,0,.6)}
+.leva{position:absolute;left:50%;top:38px;width:22px;height:30px;margin-left:-11px;background:linear-gradient(#3c4247,var(--leva));border-radius:4px;box-shadow:0 2px 0 #0d0f10,inset 0 1px 0 rgba(255,255,255,.18);transform:translateY(0);transition:transform .32s cubic-bezier(.3,1.4,.5,1)}
+.spia{position:absolute;left:50%;bottom:8px;width:24px;height:7px;margin-left:-12px;border-radius:2px;background:var(--off);box-shadow:inset 0 1px 1px rgba(0,0,0,.35);transition:background .2s}
+.segni{position:absolute;left:4px;top:18px;font:700 10px/1 Montserrat,sans-serif;color:#7b7f81;display:flex;flex-direction:column;gap:30px}
+.on .leva{transform:translateY(-20px)}
+.on .spia{background:var(--on)}
+.modulo:focus-visible{outline:3px solid var(--azzurro);outline-offset:4px;border-radius:6px}
+.modulo:hover .corpo{box-shadow:0 0 0 2px var(--azzurro),0 4px 6px -3px rgba(0,0,0,.35)}
+.legenda{font-size:13px;color:#43515a;margin:10px 4px 0}
+
+/* lo sportello fume' che si apre */
+.sportello{position:absolute;inset:6px;border-radius:10px;background:linear-gradient(115deg,rgba(40,55,60,.55),rgba(60,80,88,.35) 40%,rgba(255,255,255,.18) 48%,rgba(60,80,88,.35) 56%,rgba(30,40,45,.55));box-shadow:inset 0 0 0 3px rgba(0,0,0,.25);transform-origin:0 50%;z-index:3;pointer-events:none}
+.sportello::after{content:"";position:absolute;right:14px;top:50%;width:10px;height:44px;margin-top:-22px;border-radius:4px;background:#1d2224}
+.js .sportello{transition:transform .75s cubic-bezier(.6,.05,.3,1),opacity .3s .55s}
+.js .aperto .sportello{transform:rotateY(-104deg);opacity:0}
+.no-js .sportello,.statico .sportello{display:none}
+
+.bottoni{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:6px;font-weight:700;text-decoration:none;font-size:16px}
+.btn.azzurro{background:var(--azzurro);color:var(--petrolio-2)}
+.btn.bordo{border:2px solid #9fd3ea;color:#fff}
+
+/* sezioni */
+section{padding:56px 0}
+h2{font-size:clamp(28px,5vw,40px);color:var(--petrolio);margin-bottom:10px}
+.intro{max-width:56ch;color:var(--grigio);margin:0 0 26px}
+.circuiti{display:grid;gap:18px}
+@media (min-width:720px){.circuiti{grid-template-columns:1fr 1fr}}
+.circuito{background:#fff;border:1px solid var(--riga);border-radius:10px;padding:20px 20px 18px;position:relative}
+.circuito .nastro{font-size:20px;margin:-34px 0 10px -6px}
+.circuito p{margin:0 0 10px}
+.circuito ul{margin:0;padding-left:20px}
+.circuito li{margin:3px 0}
+.circuito a.vai{display:inline-block;margin-top:10px;font-weight:700;color:var(--azzurro-scuro);padding:6px 0}
+.js .attacca .nastro{transition:transform .5s cubic-bezier(.2,.9,.3,1.2),opacity .3s}
+.js .attacca:not(.visto) .nastro{transform:rotate(-7deg) translateY(-10px) scale(1.08);opacity:0}
+.colonne{display:grid;gap:22px}
+@media (min-width:760px){.colonne{grid-template-columns:1fr 1fr}}
+.dettaglio{background:#fff;border:1px solid var(--riga);border-radius:10px;padding:22px}
+.dettaglio h3{font-size:22px;color:var(--petrolio);margin-bottom:8px}
+.dettaglio ul{margin:8px 0 0;padding-left:20px}
+.dettaglio .nota{color:var(--grigio);font-size:15px;margin-top:10px}
+
+/* la targa del quadro: chi l'ha costruito, dove, quando risponde */
+.targa{background:var(--petrolio-2);color:#e7f1f5;padding:48px 0 40px}
+.targa .placca{background-color:#ececE8;background-image:linear-gradient(180deg,#f3f3ef,#e1e2dd);color:#1a2328;border-radius:6px;padding:20px 20px 16px;max-width:680px;box-shadow:inset 0 0 0 1px #aeb1ab,0 10px 24px -14px #000;font-size:15px}
+.targa .placca h2{font-size:15px;letter-spacing:1.2px;text-transform:uppercase;color:#1a2328;margin:0 0 12px;font-weight:800;border-bottom:1px solid #b8bab4;padding-bottom:8px}
+.targa dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 14px;margin:0}
+.targa dt{font-weight:700;color:#3d4a50}
+.targa dd{margin:0}
+.targa a{color:#014a66;font-weight:700}
+.targa dd a{display:inline-block;padding:3px 0}
+.targa .piede{margin-top:20px;font-size:13px;color:#b9cdd5}
+.targa .piede a{color:#d9eef7}
+@media (max-width:480px){.targa dl{grid-template-columns:1fr}.targa dt{margin-top:6px}}
+
+/* barra in basso: due interruttori */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background-color:var(--quadro);background-image:linear-gradient(#e9eae6,var(--quadro));box-shadow:0 -1px 0 #b9bcb6,0 -6px 14px -8px rgba(0,0,0,.35)}
+.barra a{flex:1;display:flex;align-items:center;gap:10px;justify-content:center;min-height:54px;background:var(--modulo);border-radius:5px;box-shadow:0 0 0 1px #bfc0bb;text-decoration:none;font-weight:800;color:var(--petrolio)}
+.barra a i{width:14px;height:24px;border-radius:3px;background:var(--leva);box-shadow:inset 0 -9px 0 var(--on)}
+@media (min-width:900px){.barra{display:none}body{padding-bottom:0}}
+
+/* pagine interne: testata con pochi interruttori */
+.pagina{background:var(--petrolio);color:#eef5f8;padding:30px 0 34px}
+.pagina h1{font-size:clamp(28px,5.6vw,46px);margin:12px 0 10px}
+.pagina p{max-width:52ch;color:#d4e4ea;margin:0}
+.pagina .riga-din{max-width:420px;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:20px;background:var(--quadro);border-radius:10px;padding:12px 10px 14px}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}.sportello{display:none}}

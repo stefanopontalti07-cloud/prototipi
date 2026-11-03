@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hotel Corona · garnì nel centro storico di Lavis</title>
+<meta name="description" content="Garnì a gestione familiare in un palazzo d'epoca in piazza Manci 4, nel centro storico di Lavis, a 7 km da Trento. 15 stanze con bagno e TV, aperto tutto l'anno.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hotel Corona: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/hotel-corona/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/hotel-corona/assets/og.jpg?v=202611030425">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Hotel Corona su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<link rel="stylesheet" href="assets/fonts.css">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* Hotel Corona: la chiave d'albergo con la medaglia d'ottone, quella che si lascia in reception
+   e sta appesa alla bacheca dietro il banco (si vede nella loro foto della reception). */
+:root{--vino:#5b1f25;--vino-2:#3d1418;--ottone:#a87b2e;--ottone-chiaro:#e8cb80;--ottone-scuro:#6e4c16;--carta:#f6efe2;--carta-2:#efe4cf;--inchiostro:#2a1f1a;--grigio:#62534a;--riga:#dccdb2;--legno:#6b4528;--legno-2:#4f311b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--carta);color:var(--inchiostro);font:18px/1.65 "Libre Caslon Text",Georgia,serif;padding-bottom:88px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-weight:700;line-height:1.12;margin:0}
+.fascia{background:#000;color:#ddd5c6;font:13px/1.45 system-ui,sans-serif;text-align:center;padding:8px 16px}
+.fascia b{color:#fff}
+
+/* apertura */
+.ingresso{background-color:var(--vino-2);background-image:radial-gradient(120% 90% at 70% 0,#6e2a30 0,var(--vino) 35%,var(--vino-2) 80%);color:#f3e7d3;padding:26px 0 44px;overflow:hidden;position:relative}
+.ingresso .wrap{display:grid;gap:8px;align-items:center}
+@media (min-width:860px){.ingresso .wrap{grid-template-columns:1.15fr .85fr;gap:30px}.chiave-box{grid-column:2;grid-row:1}}
+.ingresso .motto{font-style:italic;color:var(--ottone-chiaro);font-size:19px;margin:0 0 8px}
+.ingresso h1{font-size:clamp(40px,8.4vw,72px);letter-spacing:-.5px}
+.ingresso p.dove{max-width:40ch;color:#ecdcc2;margin:14px 0 22px}
+.bottoni{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:999px;font:700 16px/1 system-ui,sans-serif;text-decoration:none;letter-spacing:.2px}
+.btn.ottone{background-color:var(--ottone-chiaro);background-image:linear-gradient(180deg,#f1d995,#d9b25e);color:#2a1a08;box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 2px 0 var(--ottone-scuro)}
+.btn.bordo{border:2px solid #d7b876;color:#fff}
+
+/* la chiave sul gancio */
+.chiave-box{position:relative;height:350px;display:flex;justify-content:center}
+.scala{position:absolute;left:0;right:0;top:0;height:350px;transform-origin:50% 0}
+@media (max-width:859px){.chiave-box{height:250px;order:-1;margin-bottom:10px}.scala{transform:scale(.7)}}
+.gancio{position:absolute;top:0;left:50%;width:30px;height:26px;margin-left:-15px;border-radius:0 0 50% 50%;background-color:var(--ottone);background-image:linear-gradient(90deg,#7a5418,#e3c070 45%,#8a611d);box-shadow:0 3px 6px rgba(0,0,0,.45)}
+.pendolo{position:absolute;top:14px;left:50%;width:180px;margin-left:-90px;transform-origin:50% 0;display:flex;flex-direction:column;align-items:center}
+.pendolo svg{display:block}
+.medaglia{position:relative;width:150px;height:200px;margin-top:-6px;border-radius:50%/40%;background-color:var(--ottone);background-image:radial-gradient(60% 50% at 38% 30%,#f4dc9b 0,#d5ab52 38%,#a27428 72%,#6e4c16 100%);box-shadow:inset 0 0 0 3px rgba(110,76,22,.65),inset 0 0 0 7px rgba(244,220,155,.35),inset 0 -10px 18px rgba(60,35,5,.45),0 18px 26px -10px rgba(0,0,0,.7);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#3e2a0b;overflow:hidden}
+.medaglia::before{content:"";position:absolute;top:14px;left:50%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--vino-2);box-shadow:inset 0 2px 3px #000,0 0 0 2px #c79d4a}
+.medaglia b{display:block;font-size:13px;letter-spacing:3px;text-transform:uppercase;text-shadow:0 1px 0 rgba(255,236,190,.7),0 -1px 0 rgba(70,45,10,.5);margin-top:18px}
+.medaglia .num{font-size:52px;line-height:1;font-weight:700;margin:6px 0 4px;text-shadow:0 1px 0 rgba(255,236,190,.75),0 -1px 0 rgba(70,45,10,.6)}
+.medaglia span{font-size:10px;letter-spacing:1.4px;max-width:96px;line-height:1.35;text-transform:uppercase;text-shadow:0 1px 0 rgba(255,236,190,.7)}
+.riflesso{position:absolute;inset:-20%;background:linear-gradient(110deg,transparent 40%,rgba(255,250,225,.65) 50%,transparent 60%);transform:translateX(-120%);pointer-events:none}
+@media (prefers-reduced-motion:no-preference){
+  .js .pendolo{animation:dondola 2.1s cubic-bezier(.36,.07,.3,1) .2s both}
+  .js .riflesso{animation:luccica 1.1s ease-out 1.7s both}
+  .js .ingresso .testo>*{animation:sale .7s cubic-bezier(.2,.7,.2,1) both}
+  .js .ingresso .testo>:nth-child(2){animation-delay:.08s}.js .ingresso .testo>:nth-child(3){animation-delay:.16s}.js .ingresso .testo>:nth-child(4){animation-delay:.24s}
+}
+@keyframes dondola{0%{transform:rotate(26deg)}22%{transform:rotate(-15deg)}42%{transform:rotate(9deg)}60%{transform:rotate(-5deg)}76%{transform:rotate(2.5deg)}90%{transform:rotate(-1deg)}100%{transform:rotate(0)}}
+@keyframes luccica{to{transform:translateX(120%)}}
+@keyframes sale{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+section{padding:58px 0}
+h2{font-size:clamp(30px,5.6vw,44px);color:var(--vino);margin-bottom:12px}
+.lead{max-width:56ch;color:var(--grigio);margin:0 0 24px}
+
+/* la bacheca delle chiavi */
+.stanze{display:grid;gap:30px;align-items:start}
+@media (min-width:860px){.stanze{grid-template-columns:1fr 1fr}}
+.bacheca{background-color:var(--legno);background-image:repeating-linear-gradient(92deg,rgba(255,255,255,.04) 0 3px,transparent 3px 11px),linear-gradient(180deg,#7a5130,var(--legno-2));border-radius:8px;padding:18px 14px 22px;box-shadow:inset 0 0 0 4px #3e2412,0 14px 24px -14px rgba(0,0,0,.6);display:grid;grid-template-columns:repeat(5,1fr);gap:18px 6px}
+.posto{display:flex;flex-direction:column;align-items:center;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:#f1dfbd}
+.posto small{font:700 11px/1 system-ui,sans-serif;background:#e9d9b6;color:#3a2410;border-radius:2px;padding:3px 5px;margin-bottom:4px;box-shadow:0 1px 0 #2c1a0b}
+.posto .k{transform-origin:50% 0;transition:transform .2s}
+.posto.gira .k{animation:piccola 1.2s cubic-bezier(.36,.07,.3,1)}
+.posto:focus-visible{outline:2px solid var(--ottone-chiaro);outline-offset:3px;border-radius:4px}
+@keyframes piccola{0%{transform:rotate(0)}15%{transform:rotate(22deg)}35%{transform:rotate(-14deg)}55%{transform:rotate(7deg)}75%{transform:rotate(-3deg)}100%{transform:rotate(0)}}
+.bacheca-nota{font-size:14px;color:var(--grigio);margin:10px 2px 0}
+.lista{margin:0;padding:0;list-style:none}
+.lista li{padding:12px 0;border-bottom:1px solid var(--riga)}
+.lista li b{color:var(--vino)}
+
+/* il palazzo: le due foto loro come cartoline */
+.palazzo{background:var(--carta-2)}
+.cartoline{display:flex;gap:18px;flex-wrap:wrap;margin:6px 0 22px}
+.cartolina{background:#fffaf0;padding:10px 10px 30px;box-shadow:0 10px 18px -12px rgba(0,0,0,.55);max-width:320px;position:relative}
+.cartolina:nth-child(1){transform:rotate(-1.6deg)}
+.cartolina:nth-child(2){transform:rotate(1.2deg)}
+.cartolina figcaption{position:absolute;left:12px;bottom:7px;font-style:italic;font-size:14px;color:var(--grigio)}
+.cartolina img{width:100%;height:auto}
+.due{display:grid;gap:26px}
+@media (min-width:860px){.due{grid-template-columns:1fr 1fr}}
+.due p{margin:0 0 12px}
+
+/* storia */
+.storia p{max-width:62ch;margin:0 0 14px}
+.storia .capolettera::first-letter{float:left;font-size:58px;line-height:.9;padding:6px 8px 0 0;color:var(--vino)}
+
+/* arrivare e contatti */
+.arrivo{display:grid;gap:22px}
+@media (min-width:860px){.arrivo{grid-template-columns:1fr 1fr}}
+.arrivo article{background:#fffaf0;border:1px solid var(--riga);border-radius:8px;padding:20px}
+.arrivo h3{font-size:22px;color:var(--vino);margin-bottom:8px}
+.arrivo ol{margin:0;padding-left:20px}
+.arrivo li{margin:4px 0}
+.mappa{display:inline-block;margin-top:12px;font-weight:700;color:var(--vino);padding:6px 0}
+
+.registro{background:var(--vino-2);color:#f1e3cc;padding:50px 0 40px}
+.registro h2{color:var(--ottone-chiaro)}
+.registro dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 16px;margin:0;max-width:640px}
+.registro dt{color:#d9c19a}
+.registro dd{margin:0}
+.registro a{color:#fff;font-weight:700;display:inline-block;padding:3px 0}
+.registro .piede{margin-top:24px;font:13px/1.5 system-ui,sans-serif;color:#cdb898}
+@media (max-width:480px){.registro dl{grid-template-columns:1fr}.registro dt{margin-top:8px}}
+
+/* barra in basso: due medagliette d'ottone */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:10px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(61,20,24,.96);box-shadow:0 -6px 14px -8px rgba(0,0,0,.6)}
+.barra a{flex:1;min-height:54px;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;text-decoration:none;font:700 17px/1 system-ui,sans-serif;color:#2a1a08;background-color:var(--ottone-chiaro);background-image:radial-gradient(70% 90% at 35% 25%,#f5e0a6,#d6ad57 60%,#a87b2e);box-shadow:inset 0 0 0 2px rgba(110,76,22,.6),0 2px 0 #2a0d10}
+.barra a::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--vino-2);box-shadow:inset 0 1px 2px #000}
+@media (min-width:900px){.barra{display:none}body{padding-bottom:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="fascia">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Hotel Corona Lavis</div>
+
+<header class="ingresso"><div class="wrap">
+<div class="chiave-box" aria-hidden="true"><div class="scala">
+<span class="gancio"></span>
+<div class="pendolo">
+<svg width="34" height="40" viewBox="0 0 34 40"><defs><linearGradient id="an" x1="0" x2="1"><stop offset="0" stop-color="#7a5418"/><stop offset=".45" stop-color="#f0d38a"/><stop offset="1" stop-color="#8a611d"/></linearGradient></defs><ellipse cx="17" cy="20" rx="12" ry="16" fill="none" stroke="url(#an)" stroke-width="4.5"/></svg>
+<div class="medaglia"><span class="riflesso"></span><b>Hotel Corona</b><div class="num">4</div><span>piazza Manci<br>Lavis</span></div>
+<svg width="44" height="112" viewBox="0 0 44 112" style="margin-top:-8px"><defs><linearGradient id="kg" x1="0" x2="1"><stop offset="0" stop-color="#6e4c16"/><stop offset=".35" stop-color="#e6c674"/><stop offset=".6" stop-color="#b98a35"/><stop offset="1" stop-color="#5f400f"/></linearGradient></defs><circle cx="22" cy="18" r="14" fill="none" stroke="url(#kg)" stroke-width="7"/><rect x="18" y="30" width="8" height="66" rx="2" fill="url(#kg)"/><path d="M26 74h11v6h-6v5h7v6h-7v5h-5z" fill="url(#kg)"/><rect x="16" y="34" width="12" height="4" rx="1.5" fill="#d9b25e" opacity=".8"/></svg>
+</div>
+</div></div>
+<div class="testo">
+<p class="motto">… un posto nella storia dove riposare …</p>
+<h1>Hotel Corona, Lavis</h1>
+<p class="dove">Garnì a gestione familiare in un palazzo d'epoca, in piazza Manci 4, nel centro storico. Aperto tutto l'anno, a 7 km da Trento.</p>
+<div class="bottoni"><a class="btn ottone" href="tel:+393385948620">Chiama ora</a><a class="btn bordo" href="https://wa.me/393385948620?text=Buongiorno%2C%20vorrei%20sapere%20se%20avete%20una%20stanza%20libera" target="_blank" rel="noopener">WhatsApp</a></div>
+</div>
+</div></header>
+
+<main>
+<section id="stanze"><div class="wrap stanze">
+<div>
+<h2>15 stanze, una chiave per ognuna</h2>
+<p class="lead">Stanze confortevoli e a buon prezzo, tutte con bagno e TV, con la prima colazione. Le chiavi stanno qui, sulla bacheca dietro il banco.</p>
+<ul class="lista">
+<li><b>Centro storico.</b> A pochi passi dal grande parcheggio di piazza Mercato, a 2 minuti dalla chiesa parrocchiale.</li>
+<li><b>Per chi va in bici.</b> Garage per i ciclisti di passaggio sulla ciclabile della via Claudia Augusta, su richiesta.</li>
+<li><b>Base per le valli.</b> All'imbocco della val di Non, della val di Cembra e della Valsugana.</li>
+<li><b>Gruppi e comitive.</b> Chiamateci per le richieste particolari.</li>
+</ul>
+</div>
+<div>
+<div class="bacheca" id="bacheca" aria-label="La bacheca delle chiavi: 15 stanze"></div>
+<p class="bacheca-nota">Toccate una chiave.</p>
+</div>
+</div></section>
+
+<section class="palazzo" id="palazzo"><div class="wrap">
+<h2>Il palazzo e il ristorante</h2>
+<div class="cartoline">
+<figure class="cartolina"><img src="assets/facciata.jpg" width="320" height="200" alt="La facciata dell'Hotel Corona in piazza Manci a Lavis"><figcaption>Piazza Manci 4</figcaption></figure>
+<figure class="cartolina"><img src="assets/reception.jpg" width="300" height="200" alt="Il banco della reception dell'Hotel Corona, con la bacheca delle chiavi"><figcaption>La reception</figcaption></figure>
+</div>
+<div class="due">
+<p>Al piano terra dello stesso palazzo, un edificio storico del 1500 circa, c'è il ristorante pizzeria «Corona»: tre sale da pranzo, circa cento posti, affreschi e volte a botte.</p>
+<p>Piatti semplici ma gustosi, alternati alle pizze tradizionali e a quelle nuove, preparati da cuochi e pizzaioli di lunga esperienza. Per chi dorme da noi c'è un menù convenzionato: chiedetelo quando prenotate.</p>
+</div>
+</div></section>
+
+<section class="storia" id="storia"><div class="wrap">
+<h2>Il paese del ponte</h2>
+<p class="capolettera">Lavis si chiamava Pons Avisii, il paese del ponte sull'Avisio: per secoli un passaggio obbligato per uomini e merci, da nord a sud lungo le antiche vie d'Europa e da est a ovest lungo il torrente.</p>
+<p>La piana dell'Adige era una distesa di paludi, e anche Albrecht Dürer, nel suo primo viaggio verso Venezia, dovette girare verso la val di Cembra perché la strada per Trento era allagata.</p>
+<p>Dal Duecento Lavis fu il confine tra la Contea del Tirolo e il Principato Vescovile di Trento, con il suo dazio, e un porto fluviale dove passava il legname delle valli di Fiemme e di Fassa.</p>
+</div></section>
+
+<section id="arrivare"><div class="wrap">
+<h2>Come arrivare</h2>
+<p class="lead">Siamo in piazza Manci 4, a pochi metri dal Municipio. Dal parcheggio, la galleria Passaggio dei Lona vi porta davanti all'hotel.</p>
+<div class="arrivo">
+<article><h3>In auto</h3><ol><li>Da nord: uscita A22 Mezzocorona / San Michele, poi verso Trento per circa 10 km.</li><li>Da sud: uscita Trento Nord, direzione Zona Industriale, poi a sinistra verso Lavis.</li><li>In paese: via Degasperi fino al Municipio, poi a destra per circa 100 metri fino al parcheggio.</li></ol></article>
+<article><h3>In treno e in autobus</h3><ol><li>Da nord: stazione di Mezzocorona, poi il treno Trento-Malè fino a Lavis.</li><li>Da sud: dalla stazione di Trento l'autobus per Lavis.</li><li>Dalla stazione di Lavis: sottopasso, via Degasperi, oltre il Municipio, il vicolo di fronte.</li></ol>
+<a class="mappa" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Corona+piazza+Manci+4+Lavis" target="_blank" rel="noopener">Apri la mappa →</a></article>
+</div>
+</div></section>
+</main>
+
+<footer class="registro" id="contatti"><div class="wrap">
+<h2>Per prenotare</h2>
+<dl>
+<dt>Cellulare</dt><dd><a href="tel:+393385948620">338 594 8620</a></dd>
+<dt>Albergo</dt><dd><a href="tel:+390461246772">0461 246772</a></dd>
+<dt>Ristorante</dt><dd><a href="tel:+390461245302">0461 245302</a></dd>
+<dt>Email</dt><dd><a href="mailto:hotelcorona.lavis@alice.it">hotelcorona.lavis@alice.it</a></dd>
+<dt>Indirizzo</dt><dd>piazza Manci 4, 38015 Lavis (TN)</dd>
+</dl>
+<p class="piede">Hotel Corona · garnì a gestione familiare, Lavis.</p>
+</div></footer>
+<nav class="barra" aria-label="Contatti rapidi"><a href="tel:+393385948620">Chiama</a><a href="https://wa.me/393385948620?text=Buongiorno%2C%20vorrei%20sapere%20se%20avete%20una%20stanza%20libera" target="_blank" rel="noopener">WhatsApp</a></nav>
+
+<script>
+(function(){
+  var b=document.getElementById('bacheca');
+  var k='<svg class="k" width="22" height="56" viewBox="0 0 22 56" aria-hidden="true"><defs><linearGradient id="kgx" x1="0" x2="1"><stop offset="0" stop-color="#6e4c16"/><stop offset=".4" stop-color="#e6c674"/><stop offset="1" stop-color="#6e4c16"/></linearGradient></defs><ellipse cx="11" cy="13" rx="9" ry="11" fill="url(#kgx)"/><circle cx="11" cy="6" r="2.2" fill="#3d1418"/><rect x="9" y="23" width="4" height="26" rx="1" fill="url(#kgx)"/><path d="M13 41h5v3h-3v3h4v3h-6z" fill="url(#kgx)"/></svg>';
+  var h='';
+  for(var i=1;i<=15;i++){h+='<button class="posto" type="button" aria-label="Chiave della stanza '+i+'"><small>'+i+'</small>'+k+'</button>'}
+  b.innerHTML=h;
+  b.addEventListener('click',function(e){var p=e.target.closest('.posto');if(!p)return;p.classList.remove('gira');void p.offsetWidth;p.classList.add('gira')});
+})();
+</script>
+</body>
+</html>
