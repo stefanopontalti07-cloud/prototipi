@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Zadra Engine Components · preparazione motori e marmitte a Mezzolombardo</title>
+<meta name="description" content="Officina meccanica a Mezzolombardo dal 1997: preparazione motori 2 e 4 tempi, marmitte e parti speciali, banco prova di potenza inerziale, assistenza in pista.">
+<!-- anteprima WhatsApp: automazioni/controlli/anteprima-prototipo.py -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zadra Engine Components: il sito rinnovato">
+<meta property="og:description" content="Prototipo gratuito preparato da Stefano Pontalti. Da guardare dal telefono, senza impegno.">
+<meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/zadra-engine/">
+<meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/zadra-engine/assets/og.jpg?v=202611050402">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Il sito rinnovato di Zadra Engine Components su un telefono">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /anteprima -->
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+/* La stampa del banco prova: la schermata del banco inerziale con la griglia e le curve,
+   i colori sono quelli del logo (verde e giallo su grafite), le scritte da strumento. */
+:root{--fondo:#232221;--grafite:#373535;--griglia:rgba(236,235,230,.07);--verde:#00aa8a;--verde-chiaro:#2fd3ad;--giallo:#fff115;--testo:#eeede8;--grigio:#b4b6b2;--riga:#44423f}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background-color:var(--fondo);background-image:linear-gradient(var(--griglia) 1px,transparent 1px),linear-gradient(90deg,var(--griglia) 1px,transparent 1px);background-size:22px 22px;color:var(--testo);font:17px/1.6 Saira,system-ui,sans-serif;padding-bottom:92px}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{margin:0;line-height:1.08}
+.mono{font-family:"Share Tech Mono",ui-monospace,monospace;letter-spacing:.5px}
+.fascia{background:#000;color:#d9d9d4;font-size:13px;text-align:center;padding:8px 16px;line-height:1.45}
+.fascia b{color:#fff}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+header.testa{padding:16px 0 4px}
+header.testa img{height:58px;width:auto}
+
+/* LO SCHERMO DEL BANCO PROVA */
+.banco{padding:14px 0 34px}
+.schermo{position:relative;background:#121211;border:2px solid #4a4845;border-radius:6px;box-shadow:inset 0 0 0 1px #000,0 18px 30px -18px #000;padding:10px 10px 8px}
+.schermo .riga-su{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--grigio);padding:0 2px 6px;border-bottom:1px solid #2c2b29}
+.schermo .riga-su b{color:var(--verde-chiaro);font-weight:400}
+.schermo svg{display:block;width:100%;height:auto;margin-top:6px}
+.schermo .assi text{font:11px "Share Tech Mono",monospace;fill:#8d908c}
+.curva{fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.curva.pot{stroke:var(--verde-chiaro)}
+.curva.cop{stroke:var(--giallo)}
+.legenda{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--grigio);padding:4px 2px 0}
+.legenda i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px}
+.fine{position:absolute;right:14px;top:44px;font-size:12px;color:#121211;background:var(--giallo);padding:2px 6px;border-radius:2px}
+.testo h1{font-style:italic;font-weight:800;font-size:clamp(32px,8vw,56px);letter-spacing:-.5px;margin-top:22px;text-transform:none}
+.testo h1 span{color:var(--giallo)}
+.testo .sotto{color:var(--grigio);max-width:44ch;margin:12px 0 0;font-size:18px}
+.bottoni{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;font-weight:600;text-decoration:none;border-radius:3px;font-size:17px}
+.btn.verde{background:var(--verde);color:#08120f}
+.btn.bordo{border:2px solid var(--giallo);color:var(--giallo)}
+.btn:focus-visible,.marca:focus-visible,.console a:focus-visible,.contatti a:focus-visible{outline:3px solid var(--giallo);outline-offset:3px}
+@media (min-width:900px){.banco .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:center}.banco .schermo{order:2}.testo h1{margin-top:0}}
+
+/* i quattro lavori come i canali dello strumento */
+section{padding:44px 0}
+h2{font-style:italic;font-weight:800;font-size:clamp(28px,6vw,42px)}
+.intro{color:var(--grigio);max-width:58ch;margin:10px 0 22px}
+.canali{display:grid;gap:12px}
+@media (min-width:760px){.canali{grid-template-columns:1fr 1fr}}
+.canale{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;background:#1b1a19;border:1px solid var(--riga);border-left:4px solid var(--verde);border-radius:4px;padding:12px}
+.canale:nth-child(2n){border-left-color:var(--giallo)}
+.canale img{width:96px;height:68px;object-fit:cover;border-radius:2px;filter:saturate(.9)}
+.canale .ch{font-size:12px;color:var(--grigio)}
+.canale h3{font-size:19px;font-weight:600;margin:2px 0 2px;font-style:normal}
+.canale p{margin:0;font-size:15px;color:var(--grigio);line-height:1.45}
+.js .canale{transition:border-left-color .4s,opacity .5s,transform .5s cubic-bezier(.2,.8,.2,1)}
+.js .canale:not(.visto){opacity:0;transform:translateX(-12px);border-left-color:var(--riga)}
+
+/* le applicazioni: si sceglie la marca come sul selettore del veicolo */
+.marche{display:flex;flex-wrap:wrap;gap:8px}
+.marca{font:16px "Share Tech Mono",monospace;letter-spacing:.5px;background:#121211;color:var(--testo);border:1px solid #4a4845;border-radius:3px;padding:10px 12px;min-height:44px;cursor:pointer}
+.marca[aria-pressed="true"]{background:var(--giallo);color:#121211;border-color:var(--giallo)}
+.modelli{margin-top:14px;background:#121211;border:1px solid #4a4845;border-radius:4px;padding:12px 14px;min-height:120px}
+.modelli h3{font:15px "Share Tech Mono",monospace;color:var(--verde-chiaro);margin-bottom:6px;font-style:normal}
+.modelli ul{list-style:none;margin:0;padding:0;columns:2;column-gap:20px}
+.modelli li{padding:5px 0;border-bottom:1px dashed #2f2e2c;break-inside:avoid;font-size:16px}
+.su-misura{margin-top:18px;display:grid;gap:14px;align-items:center}
+.su-misura img{border-radius:3px;border:1px solid var(--riga)}
+@media (min-width:760px){.su-misura{grid-template-columns:1fr 1fr}}
+.su-misura p{margin:0}
+.su-misura b{color:var(--giallo);font-weight:600}
+
+/* il titolare */
+.titolare{display:grid;gap:22px}
+@media (min-width:860px){.titolare{grid-template-columns:1.2fr .8fr;align-items:start}}
+blockquote{margin:0;padding:16px 18px;background:#1b1a19;border-left:4px solid var(--giallo);font-size:18px;line-height:1.55}
+blockquote footer{margin-top:10px;font-size:14px;color:var(--grigio)}
+.fatti{list-style:none;margin:0;padding:0}
+.fatti li{display:grid;grid-template-columns:62px 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--riga)}
+.fatti .anno{font-family:"Share Tech Mono",monospace;color:var(--verde-chiaro)}
+
+/* in officina */
+.striscia{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.striscia figure:first-child{grid-column:1/-1}
+.striscia figure:first-child img{aspect-ratio:16/9}
+@media (min-width:760px){.striscia{grid-template-columns:repeat(5,1fr)}.striscia figure:first-child{grid-column:auto}.striscia figure:first-child img{aspect-ratio:4/3}}
+.striscia figure{margin:0}
+.striscia img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;border:1px solid var(--riga)}
+.striscia figcaption{font-size:13px;color:var(--grigio);margin-top:4px}
+
+/* contatti come la targhetta dello strumento */
+.contatti{background:#121211;border:2px solid #4a4845;border-radius:6px;padding:18px}
+.contatti dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 16px;margin:0}
+.contatti dt{font-family:"Share Tech Mono",monospace;color:var(--grigio);font-size:14px;padding-top:2px}
+.contatti dd{margin:0}
+.contatti a{color:var(--giallo);text-decoration:none;font-weight:600;display:inline-block;padding:2px 0}
+@media (max-width:480px){.contatti dl{grid-template-columns:1fr}.contatti dt{margin-top:6px}}
+.piede{color:#8d908c;font-size:13px;padding:22px 0 30px}
+
+/* la barra in basso: i due tasti della console, con la spia */
+.console{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:8px;padding:9px 10px calc(9px + env(safe-area-inset-bottom));background:#151514;border-top:2px solid #4a4845}
+.console a{flex:1;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;text-decoration:none;font:17px "Share Tech Mono",monospace;letter-spacing:1px;color:var(--testo);background:linear-gradient(#3b3937,#2a2928);border:1px solid #57544f;border-radius:4px;box-shadow:0 3px 0 #0b0b0a}
+.console a:active{transform:translateY(2px);box-shadow:0 1px 0 #0b0b0a}
+.console i{width:10px;height:10px;border-radius:50%;background:var(--verde-chiaro);box-shadow:0 0 8px var(--verde-chiaro)}
+.console a+a i{background:var(--giallo);box-shadow:0 0 8px var(--giallo)}
+@media (min-width:900px){.console{display:none}body{padding-bottom:0}}
+
+/* apertura: le due curve si disegnano come durante una prova */
+.js .curva{stroke-dasharray:var(--l);stroke-dashoffset:var(--l)}
+.js .fine{opacity:0}
+.js .prova .curva.pot{animation:traccia 1.5s cubic-bezier(.45,.05,.4,1) .25s forwards}
+.js .prova .curva.cop{animation:traccia 1.5s cubic-bezier(.45,.05,.4,1) .4s forwards}
+.js .prova .fine{animation:fine .3s ease 2s forwards}
+@keyframes traccia{to{stroke-dashoffset:0}}
+@keyframes fine{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .js .curva{stroke-dashoffset:0;animation:none!important}
+  .js .fine{opacity:1;animation:none!important}
+  .js .canale{transition:none;opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<div class="fascia">Prototipo gratuito preparato da <b>Stefano Pontalti</b> per Zadra Engine Components</div>
+<header class="testa"><div class="wrap"><img src="assets/logo.png" width="300" height="118" alt="Zadra Engine Components"></div></header>
+<main>
+<section class="banco" aria-labelledby="titolo"><div class="wrap">
+  <div class="schermo" id="schermo">
+    <div class="riga-su mono"><span>BANCO PROVA POTENZA INERZIALE</span><b>ZADRA</b></div>
+    <svg viewBox="0 0 400 220" role="img" aria-label="La schermata del banco prova con la curva della potenza e quella della coppia">
+      <defs><pattern id="gr" width="35" height="17" patternUnits="userSpaceOnUse"><path d="M35 0V17M0 17H35" fill="none" stroke="#2c2b29"/></pattern></defs>
+      <rect x="40" y="16" width="350" height="174" fill="url(#gr)"/>
+      <g class="assi"><path d="M40 16V190H390" fill="none" stroke="#6d6f6b" stroke-width="1.5"/><text x="44" y="12">potenza</text><text x="390" y="206" text-anchor="end">giri/min</text></g>
+      <path class="curva cop" style="--l:420" d="M40 150C105 132 180 100 245 76S318 86 352 116 384 150 390 160"/>
+      <path class="curva pot" style="--l:470" d="M40 186C120 180 196 152 254 86S322 32 352 38 382 72 390 96"/>
+    </svg>
+    <div class="legenda mono"><span><i style="background:var(--verde-chiaro)"></i>potenza</span><span><i style="background:var(--giallo)"></i>coppia</span></div>
+    <span class="fine mono">FINE PROVA</span>
+  </div>
+  <div class="testo">
+    <h1 id="titolo">Preparazione motori 2 e 4 tempi, <span>marmitte e parti speciali.</span></h1>
+    <p class="sotto">Officina meccanica a Mezzolombardo dal 1997, con il banco prova di potenza inerziale dove testiamo i nostri prodotti e i motori dei clienti.</p>
+    <div class="bottoni"><a class="btn verde" href="tel:+390461602888">Chiama ora</a><a class="btn bordo" href="mailto:info@zadraengine.it">Scrivi una email</a></div>
+  </div>
+</div></section>
+
+<section aria-labelledby="t-lavoro"><div class="wrap">
+  <h2 id="t-lavoro">Il lavoro</h2>
+  <p class="intro">Specializzati nel motore 2 tempi, seguiamo anche i 4 tempi e i nuovi motori elettrici. Molti articoli sono di nostra produzione, progettati e testati qui.</p>
+  <div class="canali">
+    <article class="canale"><img src="assets/pezzi.jpg" width="645" height="100" alt="Albero motore, biella, marmitta ed espansione Zadra" style="object-position:30% 50%"><div><span class="ch mono">CH 1</span><h3>Marmitte e parti speciali</h3><p>Progettazione e produzione di marmitte e parti speciali per motori.</p></div></article>
+    <article class="canale"><img src="assets/scooter.jpg" width="121" height="84" alt="Uno scooter preparato da Zadra"><div><span class="ch mono">CH 2</span><h3>Preparazione motori</h3><p>Preparazione completa di motori 2 e 4 tempi, anche per uso agonistico.</p></div></article>
+    <article class="canale"><img src="assets/officina-3.jpg" width="130" height="98" alt="Una moto da cross sul banco prova dell'officina"><div><span class="ch mono">CH 3</span><h3>Banco prova inerziale</h3><p>Officina attrezzata con banco prova potenza: test dei nostri prodotti e prove potenza per i clienti.</p></div></article>
+    <article class="canale"><img src="assets/pista.jpg" width="201" height="142" alt="Moto in pista durante una gara"><div><span class="ch mono">CH 4</span><h3>Assistenza in pista</h3><p>Seguiamo i piloti anche in gara.</p></div></article>
+  </div>
+</div></section>
+
+<section aria-labelledby="t-app"><div class="wrap">
+  <h2 id="t-app">Applicazioni</h2>
+  <p class="intro">Scegliete la marca: ecco i modelli per cui abbiamo prodotti. Per ordinare basta una email o una telefonata.</p>
+  <div class="marche" role="group" aria-label="Marche" id="marche"></div>
+  <div class="modelli" id="modelli" aria-live="polite"></div>
+  <div class="su-misura">
+    <img src="assets/pezzi.jpg" width="645" height="100" alt="Parti di produzione Zadra: albero motore, biella, marmitta, espansione">
+    <p><b>Espansioni su misura.</b> Se il vostro mezzo non è nella lista, l'espansione si progetta su misura e si prova al banco.</p>
+  </div>
+</div></section>
+
+<section aria-labelledby="t-tit"><div class="wrap titolare">
+  <div>
+    <h2 id="t-tit">Il titolare</h2>
+    <p class="intro">Marco Zadra, classe 1974, cresciuto a Roverè della Luna.</p>
+    <blockquote>«Credo ancora nel potenziale del 2 tempi, ma soprattutto credo nella mia voglia e nella mia capacità di migliorarlo per renderlo nuovamente utilizzabile per le nuove esigenze richieste.»<footer>Marco Zadra</footer></blockquote>
+  </div>
+  <ul class="fatti">
+    <li><span class="anno">1996</span><span>Laurea in Scienze Automobilistiche all'ISSAM di Modena.</span></li>
+    <li><span class="anno">1997</span><span>Fonda la Zadra Engine Components a Mezzolombardo.</span></li>
+    <li><span class="anno">oggi</span><span>L'azienda è apprezzata nel settore motoristico, in Italia e in Europa.</span></li>
+  </ul>
+</div></section>
+
+<section aria-labelledby="t-off"><div class="wrap">
+  <h2 id="t-off">In officina</h2>
+  <p class="intro">Le nostre realizzazioni e tante moto dei nostri clienti.</p>
+  <div class="striscia">
+    <figure><img src="assets/officina-1.jpg" width="130" height="98" alt="Moto in officina"><figcaption>L'officina</figcaption></figure>
+    <figure><img src="assets/officina-2.jpg" width="130" height="98" alt="Lavorazione su un motore"><figcaption>Al motore</figcaption></figure>
+    <figure><img src="assets/officina-4.jpg" width="130" height="98" alt="Saldatura di una marmitta"><figcaption>Saldatura</figcaption></figure>
+    <figure><img src="assets/cross.jpg" width="120" height="83" alt="Moto da cross in salto"><figcaption>Cross</figcaption></figure>
+    <figure><img src="assets/ape.jpg" width="121" height="83" alt="Un'Ape preparata in gara"><figcaption>Ape in gara</figcaption></figure>
+  </div>
+</div></section>
+
+<section aria-labelledby="t-cont"><div class="wrap">
+  <h2 id="t-cont">Ordini e contatti</h2>
+  <p class="intro">Per ordinare i prodotti Zadra: una email a info@zadraengine.it oppure una telefonata allo 0461 602888.</p>
+  <div class="contatti">
+    <dl>
+      <dt>INDIRIZZO</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=Zadra%20Engine%20Components%20Via%20Trento%2095%20Mezzolombardo" target="_blank" rel="noopener">Via Trento 95, 38017 Mezzolombardo (TN)</a></dd>
+      <dt>TELEFONO</dt><dd><a href="tel:+390461602888">0461 602888</a></dd>
+      <dt>EMAIL</dt><dd><a href="mailto:info@zadraengine.it">info@zadraengine.it</a></dd>
+      <dt>ORARI</dt><dd>lunedì-venerdì 8:30-12 e 14-19, sabato 8:30-12</dd>
+    </dl>
+  </div>
+  <p class="piede">Zadra Engine Components Snc di Zadra Marco e C. · Via Trento 95, 38017 Mezzolombardo (TN) · P.IVA 01567370224</p>
+</div></section>
+</main>
+<nav class="console" aria-label="Contatti rapidi"><a href="tel:+390461602888"><i aria-hidden="true"></i>CHIAMA</a><a href="mailto:info@zadraengine.it"><i aria-hidden="true"></i>EMAIL</a></nav>
+<script>
+(function(){
+  var s=document.getElementById('schermo');
+  requestAnimationFrame(function(){setTimeout(function(){s.classList.add('prova')},120)});
+  var M={
+    'APRILIA':['RS 50','RX-MX','SR 50','SR Di Tech (motore Aprilia)','SR Di Tech (motore Piaggio)','RS 125'],
+    'BETA':['Ark','RR (Minarelli)'],
+    'CAGIVA':['Mito 125','Planet 125','Raptor 125'],
+    'HM HONDA':['CRE 50','HM 50','HM 90'],
+    'MALAGUTI':['F12','F10','F15','Fifty Top'],
+    'PIAGGIO':['Ape 50','Vespa ET3 - Special - PK','NRG - Zip','NRG Power Pure-Jet','Ape TM','Vespa PX 125-150','Vespa PX 200','Vespa Old','Vespa GTS-GTV 250-300'],
+    'YAMAHA MBK':['Aerox - Nitro','DT'],
+    'MOTOSLITTE':['Espansioni per motoslitte']
+  };
+  var box=document.getElementById('marche'),out=document.getElementById('modelli'),btn=[];
+  function scegli(k){btn.forEach(function(b){b.setAttribute('aria-pressed',b.textContent===k?'true':'false')});
+    out.innerHTML='<h3>'+k+'</h3><ul>'+M[k].map(function(m){return '<li>'+m+'</li>'}).join('')+'</ul>'}
+  Object.keys(M).forEach(function(k){var b=document.createElement('button');b.type='button';b.className='marca';b.textContent=k;b.setAttribute('aria-pressed','false');b.addEventListener('click',function(){scegli(k)});box.appendChild(b);btn.push(b)});
+  scegli('PIAGGIO');
+  var el=document.querySelectorAll('.canale');
+  if(!('IntersectionObserver' in window)){el.forEach(function(e){e.classList.add('visto')});return}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visto');io.unobserve(e.target)}})},{threshold:.3});
+  el.forEach(function(e,i){e.style.transitionDelay=(i%2)*90+'ms';io.observe(e)});
+})();
+</script>
+</body>
+</html>
