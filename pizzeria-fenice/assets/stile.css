@@ -1,0 +1,127 @@
+/* Pizzeria Fenice, prototipo 11/11/2026.
+   Concetto: la tovaglietta di carta della loro sala (la foto della scheda Google: tovaglie grigie,
+   tovagliette bianche, tovaglioli arancioni piegati a triangolo). Il sito e' la tovaglietta stampata
+   in blu col loro logo, appoggiata sulla tovaglia grigia; il tovagliolo si piega e si posa
+   sull'angolo. Colori dal logo: blu 0077C0, giallo della fiamma, bianco; arancio dei tovaglioli. */
+:root {
+  --tovaglia: #c9cbcc;
+  --carta: #fdfdfb;
+  --blu: #0068ad;
+  --blu-logo: #0077c0;
+  --inchiostro: #183b5a;
+  --giallo: #ffdf1f;
+  --arancio: #ec7a34;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; color: #22292f;
+  font-family: 'Nunito', system-ui, sans-serif; font-size: 17px; line-height: 1.6;
+  background-color: var(--tovaglia);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.13) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 1px, transparent 1px 3px);
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: 'Barlow Condensed', 'Nunito', sans-serif; font-weight: 700; line-height: 1.05; margin: 0; letter-spacing: .01em; }
+p { margin: 0; }
+
+.fascia { background: #1d2a33; color: #e9eef2; font-size: 12.5px; text-align: center; padding: 7px 14px; line-height: 1.35; }
+
+.testa { width: min(980px, 100% - 32px); margin: 0 auto; padding: 12px 0 4px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.testa .nome { white-space: nowrap; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; color: var(--blu); text-decoration: none; letter-spacing: .02em; }
+.testa nav { display: flex; gap: 14px; }
+.testa nav a { white-space: nowrap; text-decoration: none; font-weight: 700; font-size: 15px; padding: 10px 0; color: #24333f; }
+.testa nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 var(--blu); }
+@media (max-width: 380px) { .testa nav { gap: 10px; } .testa nav a { font-size: 14px; } .testa .nome { font-size: 19px; } }
+
+/* la tovaglietta */
+.tavolo { padding: 30px 0 40px; }
+.tovaglietta {
+  position: relative; width: min(760px, 100% - 28px); margin: 0 auto;
+  background: var(--carta); color: var(--inchiostro);
+  padding: 46px 22px 26px; border-radius: 2px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.6) inset, 0 14px 26px -16px rgba(0,0,0,.45), 0 2px 4px rgba(0,0,0,.12);
+}
+.tovaglietta::before { /* filetto blu stampato lungo il bordo */
+  content: ""; position: absolute; inset: 10px; border: 1.5px solid var(--blu-logo); border-radius: 2px; pointer-events: none;
+}
+.tovaglietta > * { position: relative; }
+.logo { background: var(--blu-logo); padding: 6px 8px; border-radius: 1px; }
+.logo img { width: 100%; image-rendering: auto; }
+.tovaglietta h1 { margin-top: 22px; font-size: clamp(36px, 10.5vw, 58px); color: var(--blu); }
+.tovaglietta .intro { margin-top: 12px; font-size: 17.5px; color: #26384a; }
+.bottoni { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 10px 20px; border-radius: 3px; font-weight: 800; text-decoration: none; font-size: 16px; }
+.btn.pieno { background: var(--blu); color: #fff; }
+.btn.vuoto { background: transparent; color: var(--blu); box-shadow: inset 0 0 0 2px var(--blu); }
+
+/* riquadri stampati sulla tovaglietta */
+.riquadri { display: grid; gap: 14px; margin-top: 24px; }
+@media (min-width: 720px) { .riquadri { grid-template-columns: 1fr 1fr; } }
+.riquadro { border: 1.5px dashed rgba(0,104,173,.55); padding: 16px 16px 14px; border-radius: 3px; }
+.riquadro h2 { font-size: 27px; color: var(--blu); }
+.poi { margin-top: 8px; font-size: 15.5px; color: #3a4d5e; }
+.riquadro .vai { display: inline-block; margin-top: 10px; font-weight: 800; color: var(--blu); text-decoration: none; padding: 6px 0; }
+.voci { list-style: none; margin: 10px 0 0; padding: 0; }
+.voci li { display: flex; align-items: baseline; gap: 8px; padding: 5px 0; }
+.voci b { font-family: 'Barlow Condensed', sans-serif; font-size: 21px; font-weight: 600; color: #1d3550; white-space: nowrap; }
+.voci .punti { flex: 1; border-bottom: 2px dotted rgba(0,104,173,.35); transform: translateY(-5px); min-width: 12px; }
+.voci span:last-child { text-align: right; font-size: 15px; color: #3a4d5e; }
+.stato { display: inline-block; margin-top: 8px; padding: 3px 10px; border-radius: 3px; font-weight: 800; font-size: 14.5px; background: #e8ecef; color: #2c3e4e; }
+.stato.aperto { background: var(--giallo); color: #123a5c; }
+.stato:empty { display: none; }
+.bordo { margin-top: 22px; padding-top: 12px; border-top: 1.5px solid rgba(0,104,173,.35); font-size: 13.5px; color: #36506a; text-align: center; letter-spacing: .02em; }
+
+/* il tovagliolo arancione: un quadrato che si piega sulla diagonale */
+.tovagliolo { position: absolute; z-index: 3; left: -14px; top: -42px; width: 84px; height: 84px; transform: rotate(-9deg); pointer-events: none; filter: drop-shadow(0 3px 3px rgba(0,0,0,.22)); perspective: 400px; }
+.tovagliolo span { position: absolute; inset: 0; background: var(--arancio); }
+.tovagliolo .sotto { clip-path: polygon(0 0, 0 100%, 100% 100%); background: linear-gradient(135deg, #f08a47, #e06d29); }
+.tovagliolo .lembo { clip-path: polygon(0 0, 100% 0, 100% 100%); background: linear-gradient(315deg, #f39252, #ea7633); transform-origin: 50% 50%; transform: rotate3d(1, 1, 0, -180deg); }
+.js .tovagliolo .lembo { transform: none; animation: piega .75s .55s cubic-bezier(.5, 0, .2, 1) forwards; }
+@keyframes piega {
+  0% { transform: rotate3d(1, 1, 0, 0deg); filter: brightness(1); }
+  55% { filter: brightness(.82); }
+  100% { transform: rotate3d(1, 1, 0, -180deg); filter: brightness(.94); }
+}
+.js .tovaglietta { animation: posa .6s var(--ease) both; }
+@keyframes posa { from { opacity: 0; transform: translateY(18px) rotate(.6deg); } to { opacity: 1; transform: none; } }
+.js .compare { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .6s var(--ease); transition-delay: calc(var(--i, 0) * 90ms); }
+.js .compare.vista { opacity: 1; transform: none; }
+
+/* la sala */
+.sala { width: min(760px, 100% - 28px); margin: 34px auto 0; }
+.sala figure { margin: 0; background: #fff; padding: 8px 8px 10px; box-shadow: 0 12px 22px -14px rgba(0,0,0,.45); }
+.sala figcaption { font-size: 14px; color: #44525e; padding: 8px 2px 0; }
+.sezione { width: min(760px, 100% - 28px); margin: 0 auto; padding: 34px 0 6px; }
+.sezione h2 { font-size: 34px; color: #1f3a55; }
+.sezione p + p { margin-top: 8px; }
+
+/* orari */
+.orari { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 16px; }
+.orari td { padding: 7px 0; border-bottom: 2px dotted rgba(0,104,173,.3); }
+.orari td + td { text-align: right; }
+.orari tr.oggi td { font-weight: 800; color: #0d3557; }
+
+footer { padding: 30px 16px 120px; text-align: center; font-size: 14px; color: #33414c; }
+footer p + p { margin-top: 4px; }
+@media (min-width: 860px) { footer { padding-bottom: 34px; } }
+
+/* la barra in basso: la striscia da staccare della tovaglietta */
+.barra {
+  position: fixed; left: 8px; right: 8px; bottom: 8px; z-index: 40; display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--carta); border-radius: 2px; box-shadow: 0 10px 24px rgba(0,0,0,.35);
+  border-top: 2px dashed rgba(0,104,173,.5); padding-bottom: env(safe-area-inset-bottom);
+}
+.barra a { text-align: center; padding: 14px 6px; min-height: 52px; font-weight: 800; color: var(--blu); text-decoration: none; font-size: 16.5px; }
+.barra a + a { border-left: 1.5px solid rgba(0,104,173,.25); }
+@media (min-width: 860px) { .barra { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .tovagliolo .lembo { transform: rotate3d(1, 1, 0, -180deg); }
+  .js .compare { opacity: 1; transform: none; }
+}
+.sezione .btn.vuoto { background: var(--carta); }
