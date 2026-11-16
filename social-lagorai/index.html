@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>Le prove per Lagorai Engineering</title>
-<meta name="description" content="Un carosello e due video per i social di Lagorai Engineering, preparati gratis da Stefano Pontalti.">
+<meta name="description" content="Il carosello sulla trave per i social di Lagorai Engineering, preparato gratis da Stefano Pontalti.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Le prove per Lagorai Engineering">
-<meta property="og:description" content="Un carosello e due video, preparati gratis da Stefano Pontalti.">
+<meta property="og:description" content="Il carosello sulla trave, dalle vostre tavole alla gru. Preparato gratis da Stefano Pontalti.">
 <meta property="og:url" content="https://stefanopontalti07-cloud.github.io/prototipi/social-lagorai/">
 <meta property="og:image" content="https://stefanopontalti07-cloud.github.io/prototipi/social-lagorai/assets/trave-01.jpg">
 <meta name="theme-color" content="#e4e4e3">
@@ -28,12 +28,6 @@ h1{font-weight:800;font-size:clamp(34px,10vw,46px);line-height:1;letter-spacing:
 .chi img{width:34px;height:34px;object-fit:contain}
 .chi b{font-weight:800;font-size:15px}
 .chi span{margin-left:auto;font:500 12px/1 "Fira Mono",monospace;color:var(--grigio)}
-.scorri{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.scorri::-webkit-scrollbar{display:none}
-.scorri img{flex:0 0 100%;width:100%;height:auto;aspect-ratio:4/5;scroll-snap-align:center;display:block}
-.punti{display:flex;justify-content:center;gap:6px;padding:10px 0 2px}
-.punti i{width:7px;height:7px;border-radius:50%;background:#c9c9c7}
-.punti i.qui{background:var(--verde)}
 video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:var(--carta)}
 .testo{padding:12px 14px 4px;font-size:15.5px;white-space:pre-line}
 .testo b{font-weight:800}
@@ -47,28 +41,44 @@ h2{font-weight:800;font-size:24px;line-height:1.1;letter-spacing:-.02em;margin:0
 .nota{color:var(--grigio);font-size:15.5px;margin:0 0 12px}
 .firma{color:var(--grigio);font-size:15px}
 .firma a{color:var(--ink);font-weight:800}
+.giostra{position:relative}
+.scorri{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.scorri::-webkit-scrollbar{display:none}
+.scorri img{flex:0 0 100%;width:100%;height:auto;aspect-ratio:4/5;scroll-snap-align:center;scroll-snap-stop:always;display:block;cursor:pointer;-webkit-user-select:none;user-select:none}
+.frec{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.92);box-shadow:0 1px 5px rgba(0,0,0,.3);font:600 30px/46px Arial,sans-serif;color:#111;cursor:pointer;padding:0;transition:opacity .2s}
+.frec.sx{left:8px}.frec.dx{right:8px}
+.frec[disabled]{opacity:0;pointer-events:none}
+.punti{display:flex;justify-content:center;align-items:center;gap:0;padding:6px 0 0}
+.punti button{width:26px;height:26px;border:0;background:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.punti button i{width:8px;height:8px;border-radius:50%;background:#cfc8bc;display:block}
+.punti button.qui i{background:#008a39}
+.aiuto{text-align:center;font-size:12.5px;color:#6b665d;padding:2px 0 4px}
 </style>
 </head>
 <body>
 <div class="fascia">Preparate gratis da Stefano Pontalti per Lagorai Engineering</div>
 <main>
   <h1>Le prove per Lagorai Engineering</h1>
-  <p class="intro">Un carosello e due video, fatti solo con il materiale che mi avete mandato: le vostre tavole, le vostre foto, i vostri render. Guardateli dal telefono, come li vedrebbe chi vi segue.</p>
+  <p class="intro">Il carosello sulla trave reticolare, fatto solo con il vostro materiale: le 15 tavole e la foto del sollevamento. Guardatelo dal telefono, come lo vedrebbe chi vi segue. Il video lo preparo con le vostre riprese: qui sotto trovate cosa mi serve.</p>
 
   <h2>1. Il carosello</h2>
   <p class="dove">LinkedIn · Instagram · Facebook · 7 immagini</p>
   <article class="post">
     <div class="chi"><img src="assets/marchio.png" alt=""><b>lagoraiengineering</b><span id="conta">1 / 7</span></div>
-    <div class="scorri" id="scorri">
+    <div class="giostra"><div class="scorri" id="scorri">
       <img src="assets/trave-01.jpg" alt="Prima della gru, 15 tavole" width="1080" height="1350">
-      <img src="assets/trave-02.jpg" alt="Tre tubi lunghi quasi 12 metri" width="1080" height="1350" loading="lazy">
-      <img src="assets/trave-03.jpg" alt="79 pezzi, ognuno ha il suo nome" width="1080" height="1350" loading="lazy">
-      <img src="assets/trave-04.jpg" alt="Ogni diagonale ha il suo taglio" width="1080" height="1350" loading="lazy">
-      <img src="assets/trave-05.jpg" alt="Qui la trave incontra il muro" width="1080" height="1350" loading="lazy">
-      <img src="assets/trave-06.jpg" alt="28 ottobre 2024: la trave sale" width="1080" height="1350" loading="lazy">
-      <img src="assets/trave-07.jpg" alt="Lagorai Engineering" width="1080" height="1350" loading="lazy">
+      <img src="assets/trave-02.jpg" alt="Tre tubi lunghi quasi 12 metri" width="1080" height="1350">
+      <img src="assets/trave-03.jpg" alt="79 pezzi, ognuno ha il suo nome" width="1080" height="1350">
+      <img src="assets/trave-04.jpg" alt="Ogni diagonale ha il suo taglio" width="1080" height="1350">
+      <img src="assets/trave-05.jpg" alt="Qui la trave incontra il muro" width="1080" height="1350">
+      <img src="assets/trave-06.jpg" alt="28 ottobre 2024: la trave sale" width="1080" height="1350">
+      <img src="assets/trave-07.jpg" alt="Lagorai Engineering" width="1080" height="1350">
     </div>
-    <div class="punti" id="punti"><i class="qui"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <button class="frec sx" id="prec" type="button" aria-label="Immagine precedente">‹</button>
+      <button class="frec dx" id="succ" type="button" aria-label="Immagine successiva">›</button>
+    </div>
+    <div class="punti" id="punti"></div>
+    <p class="aiuto">Scorri col dito o tocca le frecce</p>
     <p class="testo"><b>lagoraiengineering</b> Prima che una gru la sollevi, una trave così passa da 15 tavole.
 
 Tronco 1: tre tubi lunghi quasi 12 metri, 36 diagonali, 10 traversi. In tutto 79 pezzi, ognuno con la sua sigla e il suo disegno, perché in officina e in cantiere non si improvvisa.
@@ -80,46 +90,24 @@ Le tavole portano la data del 24 luglio 2024. Il 28 ottobre la trave era appesa 
     </div>
   </article>
 
-  <h2>2. Il video dell'hotel</h2>
-  <p class="dove">Reel su Instagram e Facebook · video su LinkedIn · 44 secondi</p>
-  <p class="nota">Dentro si entra con calma: una stanza alla volta, e alla fine cosa c'è dietro.</p>
-  <article class="post">
-    <div class="chi"><img src="assets/marchio.png" alt=""><b>lagoraiengineering</b><span>Reel</span></div>
-    <video src="assets/lagorai-hotel-lungo.mp4" poster="assets/hotel-copertina.jpg" controls playsinline muted loop preload="metadata"></video>
-    <p class="testo"><b>lagoraiengineering</b> Hotel Pizzo degli Uccelli, Passo Brocon, 1.616 metri.
-
-Com'è oggi e come diventerà. Fuori: un'ala nuova con la base in pietra, il legno e le grandi vetrate, e la piscina davanti ai prati. Dentro: il centro benessere con la vasca, la zona relax, la hall e la sala.
-
-Un progetto così ne contiene quattro: architettonico, energetico, sismico, antincendio.</p>
-    <div class="tasti">
-      <a class="pieno" href="assets/lagorai-hotel-lungo.mp4" download>Scarica il video (44 secondi)</a>
-      <a href="assets/lagorai-hotel.mp4">Guarda la versione breve (22 secondi)</a>
-    </div>
-  </article>
-
-  <h2>3. Un'idea diversa: «Comando: TRAVE»</h2>
-  <p class="dove">Per chi cerca collaboratori · Reel e LinkedIn · 29 secondi</p>
-  <p class="nota">Lo schermo che un tecnico guarda tutto il giorno, raccontato dalla riga di comando. È una prova fuori dal solito: ditemi se vi somiglia.</p>
-  <article class="post">
-    <div class="chi"><img src="assets/marchio.png" alt=""><b>lagoraiengineering</b><span>Reel</span></div>
-    <video src="assets/lagorai-comando.mp4" poster="assets/comando-copertina.jpg" controls playsinline muted loop preload="metadata"></video>
-    <p class="testo"><b>lagoraiengineering</b> Abbiamo chiesto al CAD di sollevare una trave. Ha risposto: comando sconosciuto.
-
-Tronco 1: 11.721 mm, 36 diagonali, 79 pezzi, 15 tavole datate 24 luglio 2024. Il 28 ottobre la gru ha fatto il resto.
-
-Se questi comandi li conosci, fatti conoscere: info@lagoraiengineering.it</p>
-    <div class="tasti"><a class="pieno" href="assets/lagorai-comando.mp4" download>Scarica il video</a></div>
-  </article>
+  <div class="conferma">
+    <h2>2. Il video: cosa mi serve</h2>
+    <p class="nota">Con i soli render e le tavole viene una presentazione, non il racconto del vostro lavoro. Basta quello che avete già, anche girato col telefono:</p>
+    <ul>
+      <li>video dal cantiere, anche brevi e storti (10-20 secondi): un sollevamento, un montaggio, un sopralluogo. Se c'è un video o altre foto del giorno della trave, ancora meglio;</li>
+      <li>una registrazione dello schermo mentre girate il modello 3D della trave o dell'hotel nel vostro programma (20-30 secondi);</li>
+      <li>tre o quattro fatti per progetto: per la trave dove si trova, cosa regge, quanto pesa e cosa avete seguito voi; per l'hotel i metri quadri nuovi, i tempi e cosa cambia nella struttura;</li>
+      <li>se vi va, un vocale di 30 secondi dell'ing. Voltolini che racconta una tavola o un cantiere: lo monto io coi sottotitoli sopra i disegni;</li>
+      <li>gli originali della scuola Gozzer: il render della facciata e le tavole in PDF.</li>
+    </ul>
+  </div>
 
   <div class="conferma">
     <h2>Da confermare prima di pubblicare</h2>
     <ul>
-      <li>La trave: il committente è d'accordo a mostrarla? Nella foto ho tagliato fuori nomi e targhe.</li>
-      <li>La trave: cosa avete seguito voi (calcolo, tavole d'officina, direzione lavori)? Lo scrivo nel post.</li>
-      <li>L'hotel: i render si possono pubblicare, e a che punto è il progetto?</li>
-      <li>L'hotel: nel finale elenco quattro progettazioni (architettonica, energetica, sismica, antincendio). Le seguite tutte voi su questo progetto?</li>
-      <li>L'hotel: con 3 o 4 dati veri (metri quadri nuovi, tempi, cosa cambia nella struttura) posso spiegare anche il come, non solo il risultato.</li>
-      <li>Il video «Comando»: le candidature vanno bene a info@lagoraiengineering.it?</li>
+      <li>Il committente è d'accordo a mostrare la trave? Nella foto ho tagliato fuori nomi e targhe.</li>
+      <li>Cosa avete seguito voi (calcolo, tavole d'officina, direzione lavori)? Lo scrivo nel post.</li>
+      <li>L'ultima tavola parla a un tecnico che cerca uno studio: state cercando una figura precisa (ingegnere, geometra, tirocinante)?</li>
       <li>Le misure e le sigle vengono dalle vostre tavole del 24/07/2024: se qualcosa è cambiato dopo, lo correggo.</li>
     </ul>
   </div>
@@ -127,9 +115,23 @@ Se questi comandi li conosci, fatti conoscere: info@lagoraiengineering.it</p>
   <p class="firma">Stefano Pontalti · <a href="https://wa.me/393716863533">371 686 3533</a></p>
 </main>
 <script>
-const s = document.getElementById('scorri'), p = [...document.getElementById('punti').children], c = document.getElementById('conta');
-s.addEventListener('scroll', () => { const n = Math.round(s.scrollLeft / s.clientWidth);
-  p.forEach((e, i) => e.classList.toggle('qui', i === n)); c.textContent = (n + 1) + ' / 7'; }, {passive: true});
+(function(){
+const s=document.getElementById('scorri'), imgs=[...s.querySelectorAll('img')], N=imgs.length;
+const pp=document.getElementById('punti'), c=document.getElementById('conta');
+const sx=document.getElementById('prec'), dx=document.getElementById('succ');
+pp.innerHTML=imgs.map((_,i)=>'<button type="button" aria-label="Immagine '+(i+1)+'"><i></i></button>').join('');
+const dots=[...pp.children]; let cur=0;
+function stato(n){cur=n;dots.forEach((d,i)=>d.classList.toggle('qui',i===n));if(c)c.textContent=(n+1)+' / '+N;sx.disabled=n===0;dx.disabled=n===N-1}
+function vai(n){n=Math.max(0,Math.min(N-1,n));stato(n);const x=n*s.clientWidth;
+  try{s.scrollTo({left:x,behavior:'smooth'})}catch(e){s.scrollLeft=x}
+  setTimeout(()=>{if(Math.abs(s.scrollLeft-x)>4)s.scrollLeft=x},450)}
+s.addEventListener('scroll',()=>{const n=Math.round(s.scrollLeft/s.clientWidth);if(n!==cur)stato(n)},{passive:true});
+sx.addEventListener('click',()=>vai(cur-1));dx.addEventListener('click',()=>vai(cur+1));
+dots.forEach((d,i)=>d.addEventListener('click',()=>vai(i)));
+imgs.forEach(im=>im.addEventListener('click',e=>{const r=im.getBoundingClientRect();vai(e.clientX-r.left<r.width/3?cur-1:cur+1)}));
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')vai(cur+1);if(e.key==='ArrowLeft')vai(cur-1)});
+stato(0);
+})();
 </script>
 </body>
 </html>

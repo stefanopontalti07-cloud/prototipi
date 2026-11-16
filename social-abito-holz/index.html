@@ -30,12 +30,6 @@ h1{font:600 clamp(34px,10vw,46px)/1.02 "Playfair Display",Georgia,serif;letter-s
 .chi img{width:34px;height:34px;object-fit:contain}
 .chi b{font-weight:600;font-size:15px}
 .chi span{margin-left:auto;font-size:12px;color:var(--grigio)}
-.scorri{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.scorri::-webkit-scrollbar{display:none}
-.scorri img{flex:0 0 100%;width:100%;height:auto;aspect-ratio:4/5;scroll-snap-align:center;display:block}
-.punti{display:flex;justify-content:center;gap:6px;padding:10px 0 2px}
-.punti i{width:7px;height:7px;border-radius:50%;background:#d6cfc3}
-.punti i.qui{background:var(--oro)}
 video{display:block;width:100%;height:auto;aspect-ratio:9/16;background:var(--carta)}
 .testo{padding:12px 14px 4px;font-size:15px;white-space:pre-line}
 .testo b{font-weight:600}
@@ -48,6 +42,18 @@ h2{font:600 26px/1.1 "Playfair Display",Georgia,serif;margin:0 0 6px}
 .conferma li{margin:0 0 12px 20px}
 .firma{color:var(--grigio);font-size:15px}
 .firma a{color:var(--ink);font-weight:600}
+.giostra{position:relative}
+.scorri{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.scorri::-webkit-scrollbar{display:none}
+.scorri img{flex:0 0 100%;width:100%;height:auto;aspect-ratio:4/5;scroll-snap-align:center;scroll-snap-stop:always;display:block;cursor:pointer;-webkit-user-select:none;user-select:none}
+.frec{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.92);box-shadow:0 1px 5px rgba(0,0,0,.3);font:600 30px/46px Arial,sans-serif;color:#111;cursor:pointer;padding:0;transition:opacity .2s}
+.frec.sx{left:8px}.frec.dx{right:8px}
+.frec[disabled]{opacity:0;pointer-events:none}
+.punti{display:flex;justify-content:center;align-items:center;gap:0;padding:6px 0 0}
+.punti button{width:26px;height:26px;border:0;background:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.punti button i{width:8px;height:8px;border-radius:50%;background:#cfc8bc;display:block}
+.punti button.qui i{background:#b99338}
+.aiuto{text-align:center;font-size:12.5px;color:#6b665d;padding:2px 0 4px}
 </style>
 </head>
 <body>
@@ -60,15 +66,19 @@ h2{font:600 26px/1.1 "Playfair Display",Georgia,serif;margin:0 0 6px}
   <p class="dove">LinkedIn · Instagram · Facebook · 6 immagini</p>
   <article class="post">
     <div class="chi"><img src="assets/marchio.png" alt=""><b>abitoholz</b><span id="conta">1 / 6</span></div>
-    <div class="scorri" id="scorri">
+    <div class="giostra"><div class="scorri" id="scorri">
       <img src="assets/spa-01.jpg" alt="Una spa in 15 metri quadri" width="1080" height="1350">
-      <img src="assets/spa-02.jpg" alt="Tre misure, una spa" width="1080" height="1350" loading="lazy">
-      <img src="assets/spa-03.jpg" alt="Pareti che scorrono, come in Giappone" width="1080" height="1350" loading="lazy">
-      <img src="assets/spa-04.jpg" alt="Dentro c'è anche la sauna" width="1080" height="1350" loading="lazy">
-      <img src="assets/spa-05.jpg" alt="Si fa su misura, e va ovunque" width="1080" height="1350" loading="lazy">
-      <img src="assets/spa-06.jpg" alt="Abito Holz" width="1080" height="1350" loading="lazy">
+      <img src="assets/spa-02.jpg" alt="Tre misure, una spa" width="1080" height="1350">
+      <img src="assets/spa-03.jpg" alt="Pareti che scorrono, come in Giappone" width="1080" height="1350">
+      <img src="assets/spa-04.jpg" alt="Dentro c'è anche la sauna" width="1080" height="1350">
+      <img src="assets/spa-05.jpg" alt="Si fa su misura, e va ovunque" width="1080" height="1350">
+      <img src="assets/spa-06.jpg" alt="Abito Holz" width="1080" height="1350">
     </div>
-    <div class="punti" id="punti"><i class="qui"></i><i></i><i></i><i></i><i></i><i></i></div>
+      <button class="frec sx" id="prec" type="button" aria-label="Immagine precedente">‹</button>
+      <button class="frec dx" id="succ" type="button" aria-label="Immagine successiva">›</button>
+    </div>
+    <div class="punti" id="punti"></div>
+    <p class="aiuto">Scorri col dito o tocca le frecce</p>
     <p class="testo"><b>abitoholz</b> Una spa in 15 metri quadri, fatta su misura.
 
 My Secret: una piattaforma di 4,5 × 9 m pensata per galleggiare sull'acqua e un modulo di 2,5 × 6 m con le pareti scorrevoli shoji, ispirate alla tradizione giapponese. Dentro, un grande futon, la sauna finlandese e la doccia emozionale con cromoterapia.
@@ -109,9 +119,23 @@ La Cristallo Pool: 230 m² con le travi in legno sopra l'acqua e le pareti di ve
   <p class="firma">Stefano Pontalti · <a href="https://wa.me/393716863533">371 686 3533</a></p>
 </main>
 <script>
-const s = document.getElementById('scorri'), p = [...document.getElementById('punti').children], c = document.getElementById('conta');
-s.addEventListener('scroll', () => { const n = Math.round(s.scrollLeft / s.clientWidth);
-  p.forEach((e, i) => e.classList.toggle('qui', i === n)); c.textContent = (n + 1) + ' / 6'; }, {passive: true});
+(function(){
+const s=document.getElementById('scorri'), imgs=[...s.querySelectorAll('img')], N=imgs.length;
+const pp=document.getElementById('punti'), c=document.getElementById('conta');
+const sx=document.getElementById('prec'), dx=document.getElementById('succ');
+pp.innerHTML=imgs.map((_,i)=>'<button type="button" aria-label="Immagine '+(i+1)+'"><i></i></button>').join('');
+const dots=[...pp.children]; let cur=0;
+function stato(n){cur=n;dots.forEach((d,i)=>d.classList.toggle('qui',i===n));if(c)c.textContent=(n+1)+' / '+N;sx.disabled=n===0;dx.disabled=n===N-1}
+function vai(n){n=Math.max(0,Math.min(N-1,n));stato(n);const x=n*s.clientWidth;
+  try{s.scrollTo({left:x,behavior:'smooth'})}catch(e){s.scrollLeft=x}
+  setTimeout(()=>{if(Math.abs(s.scrollLeft-x)>4)s.scrollLeft=x},450)}
+s.addEventListener('scroll',()=>{const n=Math.round(s.scrollLeft/s.clientWidth);if(n!==cur)stato(n)},{passive:true});
+sx.addEventListener('click',()=>vai(cur-1));dx.addEventListener('click',()=>vai(cur+1));
+dots.forEach((d,i)=>d.addEventListener('click',()=>vai(i)));
+imgs.forEach(im=>im.addEventListener('click',e=>{const r=im.getBoundingClientRect();vai(e.clientX-r.left<r.width/3?cur-1:cur+1)}));
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')vai(cur+1);if(e.key==='ArrowLeft')vai(cur-1)});
+stato(0);
+})();
 </script>
 </body>
 </html>
