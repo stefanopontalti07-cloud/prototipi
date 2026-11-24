@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Stefano Pontalti · prova del sito nuovo</title>
+<meta name="description" content="Siti web, automazioni AI e social per attività locali in Trentino. Prova di un sito nuovo.">
+<meta name="theme-color" content="#020f19">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<style>
+/* Prova del sito di Stefano (24/11/2026), con le tecniche del sito di Alma Digital che gli e' piaciuto: un oggetto
+   di vetro sopra il nome enorme, la scritta che si batte da sola, i lavori che scorrono di lato, il metodo a passi
+   con la barra. Il marchio resta il suo (fondo blu notte, arancio «alba», Archivo, il punto arancio dopo il nome).
+   Il vetro non e' un video: e' disegnato dal browser (WebGL, niente librerie), segue il mouse o il dito.
+   Niente Google Fonts, niente Analytics, niente cookie: carattere in locale. */
+@font-face{font-family:"Archivo";src:url(assets/fonts/archivo-latin.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+:root{
+  --bg:#020f19; --surface:#051824; --line:#243540; --ink:#eff2f4; --muto:#a9b8c2;
+  --sky:#77b8d7; --dawn:#f97c3d; --dawn-ink:#200b03;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --gut:clamp(16px,5vw,64px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.55 "Archivo",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+.solo-lettori{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:2px solid var(--dawn);outline-offset:3px}
+
+/* barra di lettura */
+.lettura{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--dawn);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+
+/* testata */
+.testata{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px var(--gut);transition:background .4s,backdrop-filter .4s}
+.testata.giu{background:rgba(2,15,25,.78);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.logo{font:800 26px/1 "Archivo";letter-spacing:-.04em;text-decoration:none}
+.logo i{font-style:normal;color:var(--dawn)}
+.voci{display:flex;gap:30px;list-style:none}
+.voci a{text-decoration:none;font-weight:500;font-size:16px;position:relative;opacity:.86}
+.voci a sup{position:absolute;top:-12px;right:-12px;font-size:10px;color:var(--dawn);font-weight:700}
+.voci a:hover{opacity:1}
+.bottone{display:inline-flex;align-items:center;gap:10px;font:600 16px/1 "Archivo";padding:15px 22px;border-radius:999px;text-decoration:none;border:1px solid var(--line);transition:transform .3s var(--ease),background .3s,border-color .3s}
+.bottone:hover{transform:translateY(-2px)}
+.bottone.pieno{background:var(--dawn);color:var(--dawn-ink);border-color:var(--dawn)}
+.bottone.pieno:hover{background:#ff9459}
+.bottone.vuoto:hover{border-color:var(--ink)}
+@media (max-width:860px){.voci{display:none}.testata .bottone{padding:12px 16px;font-size:15px}}
+
+/* apertura: il vetro sopra il nome */
+.apertura{position:relative;height:100svh;min-height:560px;overflow:hidden}
+#vetro{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+.senza-3d{position:absolute;inset:0;display:none;place-items:center;text-align:center}
+.senza-3d p{font:800 clamp(64px,15vw,220px)/.86 "Archivo";letter-spacing:-.06em}
+.senza-3d i{font-style:normal;color:var(--dawn)}
+.no-gl .senza-3d{display:grid}
+.no-gl #vetro{display:none}
+.sotto-vetro{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(28px,6vh,64px);display:flex;align-items:flex-end;justify-content:space-between;gap:28px;flex-wrap:wrap;pointer-events:none}
+.sotto-vetro > *{pointer-events:auto}
+.battuta{font:500 clamp(22px,3.1vw,38px)/1.2 "Archivo";letter-spacing:-.015em;max-width:21ch}
+.battuta b{font-weight:700;color:var(--dawn)}
+.cursore{display:inline-block;width:.08em;height:1.05em;margin-left:.06em;vertical-align:-.15em;background:var(--dawn);animation:lampeggia 1s steps(1) infinite}
+@keyframes lampeggia{50%{opacity:0}}
+.azioni{display:flex;gap:12px;flex-wrap:wrap}
+.fatti{position:absolute;top:50%;right:var(--gut);transform:translateY(-50%);writing-mode:vertical-rl;font:600 12px/1 "Archivo";letter-spacing:.22em;text-transform:uppercase;color:var(--muto);display:flex;gap:26px;align-items:center}
+.fatti::before{content:"";width:1px;height:46px;background:var(--line)}
+@media (max-width:700px){.fatti{display:none}.sotto-vetro{flex-direction:column;align-items:flex-start}}
+
+/* nastro dei servizi */
+.nastro{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:18px 0;font:600 clamp(18px,2.2vw,26px)/1 "Archivo";letter-spacing:-.01em}
+.nastro div{display:inline-block;animation:scorre 32s linear infinite}
+.nastro span{margin-right:42px}
+.nastro span::after{content:"◆";color:var(--dawn);margin-left:42px;font-size:.6em;vertical-align:.2em}
+@keyframes scorre{to{transform:translateX(-50%)}}
+
+/* sezioni */
+.sezione{padding:clamp(80px,12vw,150px) var(--gut)}
+.capo{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:clamp(34px,5vw,60px);flex-wrap:wrap}
+.capo h2{font:700 clamp(40px,6.4vw,92px)/.95 "Archivo";letter-spacing:-.045em}
+.capo h2 i{font-style:normal;color:var(--dawn)}
+.capo p{max-width:42ch;color:var(--muto)}
+
+/* rivela allo scorrimento */
+[data-rivela]{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--i,0) * 90ms)}
+[data-rivela].visto{opacity:1;transform:none}
+
+/* lavori: scorrono di lato */
+.lavori .binario{display:flex;gap:clamp(16px,2.4vw,28px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 var(--gut) 8px;margin:0 calc(var(--gut) * -1);cursor:grab;overscroll-behavior-x:contain;scroll-padding-inline:var(--gut)}
+.lavori .binario::-webkit-scrollbar{display:none}
+.lavori .binario.tira{cursor:grabbing;scroll-snap-type:none}
+.lavoro{flex:0 0 min(84vw,640px);scroll-snap-align:start;position:relative;text-decoration:none}
+.schermo{position:relative;aspect-ratio:16/10;border-radius:18px;overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+.schermo img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 1.2s var(--ease)}
+.lavoro:hover .schermo img{transform:scale(1.04)}
+.telefono{position:absolute;right:5%;bottom:-8%;width:24%;aspect-ratio:390/844;border-radius:18px;overflow:hidden;border:4px solid #0d2433;box-shadow:0 24px 50px -10px rgba(0,0,0,.6);transition:transform .9s var(--ease)}
+.telefono img{width:100%;height:100%;object-fit:cover;object-position:top}
+.lavoro:hover .telefono{transform:translateY(-12px) rotate(-2deg)}
+.didascalia{padding:34px 4px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.didascalia h3{font:700 clamp(24px,2.6vw,32px)/1.05 "Archivo";letter-spacing:-.025em}
+.didascalia p{color:var(--muto);font-size:15px;margin-top:6px}
+.etichette{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.etichette span{font:600 12px/1 "Archivo";letter-spacing:.06em;text-transform:uppercase;padding:8px 11px;border-radius:999px;background:var(--dawn);color:var(--dawn-ink);white-space:nowrap}
+.etichette span + span{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.frecce{display:flex;gap:10px}
+.frecce button{width:54px;height:54px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 22px/1 "Archivo";cursor:pointer;transition:background .3s,border-color .3s}
+.frecce button:hover{border-color:var(--ink)}
+.frecce button:disabled{opacity:.3;cursor:default}
+
+/* metodo: i passi con la barra */
+.metodo{background:#f3efe9;color:#0b1a24}
+.metodo .capo p{color:#3d4d58}
+.passi{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.passi::-webkit-scrollbar{display:none}
+.passo{flex:0 0 100%;scroll-snap-align:start;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(24px,5vw,80px);align-items:start}
+.passo .num{font:800 clamp(120px,20vw,260px)/.8 "Archivo";letter-spacing:-.07em;color:transparent;-webkit-text-stroke:2px #0b1a24}
+.passo h3{font:700 clamp(28px,3.4vw,44px)/1.05 "Archivo";letter-spacing:-.03em;margin-bottom:16px}
+.passo p{font-size:clamp(17px,1.5vw,20px);max-width:46ch;color:#24343f}
+.passo p + p{margin-top:12px}
+@media (max-width:700px){.passo{grid-template-columns:1fr}}
+.pista{margin-top:48px;display:flex;align-items:center;gap:18px}
+.pista .riga{flex:1;height:2px;background:#cfc8bf;position:relative}
+.pista .riga i{position:absolute;left:0;top:-1px;height:4px;width:25%;background:var(--dawn);transition:width .5s var(--ease)}
+.pista .tacca{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:#f3efe9;border:2px solid #cfc8bf;cursor:pointer;padding:0;transition:border-color .3s,background .3s}
+.pista .tacca.fatta{border-color:var(--dawn);background:var(--dawn)}
+.pista .quale{font:700 13px/1 "Archivo";letter-spacing:.16em;color:#c2541c;min-width:60px}
+.metodo .frecce button{border-color:#cfc8bf;color:#0b1a24}
+.metodo .frecce button:hover{border-color:#0b1a24}
+
+/* cosa faccio */
+.servizi{list-style:none;border-top:1px solid var(--line)}
+.servizi li{border-bottom:1px solid var(--line)}
+.servizi a{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,1.2fr) 40px;gap:24px;align-items:baseline;padding:30px 0;text-decoration:none;transition:padding .5s var(--ease)}
+.servizi a:hover{padding-left:14px}
+.servizi .n{font:600 14px/1 "Archivo";color:var(--dawn);letter-spacing:.1em}
+.servizi h3{font:700 clamp(26px,3.4vw,46px)/1 "Archivo";letter-spacing:-.035em}
+.servizi p{color:var(--muto)}
+.servizi .va{font-size:26px;opacity:0;transform:translateX(-10px);transition:opacity .4s,transform .4s var(--ease);color:var(--dawn)}
+.servizi a:hover .va{opacity:1;transform:none}
+@media (max-width:760px){.servizi a{grid-template-columns:44px 1fr;gap:10px 14px}.servizi p{grid-column:2}.servizi .va{display:none}}
+
+/* prezzi */
+.fasce{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:900px){.fasce{grid-template-columns:1fr}}
+.fascia{border:1px solid var(--line);border-radius:22px;padding:34px 30px;background:var(--surface);position:relative}
+.fascia.su{border-color:var(--dawn)}
+.fascia .tag{position:absolute;top:-13px;left:28px;font:700 12px/1 "Archivo";letter-spacing:.12em;text-transform:uppercase;background:var(--dawn);color:var(--dawn-ink);padding:8px 12px;border-radius:999px}
+.fascia h3{font:700 24px/1.1 "Archivo";letter-spacing:-.02em}
+.fascia .prezzo{font:800 clamp(34px,3.4vw,44px)/1 "Archivo";letter-spacing:-.04em;margin:18px 0 4px}
+.fascia .prezzo small{font:500 15px/1 "Archivo";letter-spacing:0;color:var(--muto)}
+.fascia ul{list-style:none;margin-top:22px;display:grid;gap:10px;color:var(--muto);font-size:16px}
+.fascia li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--sky);margin-right:12px;vertical-align:.12em}
+.nota-prezzi{margin-top:22px;color:var(--muto);font-size:15px}
+
+/* chiamata finale */
+.finale{margin:0 var(--gut) clamp(60px,9vw,110px);border-radius:28px;background:var(--dawn);color:var(--dawn-ink);padding:clamp(48px,8vw,110px) clamp(24px,6vw,90px);position:relative;overflow:hidden}
+.finale h2{font:800 clamp(42px,7vw,104px)/.92 "Archivo";letter-spacing:-.05em;max-width:12ch}
+.finale p{font-size:clamp(18px,1.7vw,22px);max-width:40ch;margin:24px 0 34px}
+.finale .bottone{background:var(--dawn-ink);color:var(--ink);border-color:var(--dawn-ink)}
+.finale .bottone.vuoto{background:transparent;color:var(--dawn-ink);border-color:rgba(32,11,3,.35)}
+.finale .grande{position:absolute;right:-.06em;bottom:-.22em;font:800 clamp(160px,30vw,460px)/1 "Archivo";letter-spacing:-.08em;color:rgba(32,11,3,.08);pointer-events:none;user-select:none}
+
+.piede{padding:0 var(--gut) 40px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muto);font-size:14px}
+.piede a{text-decoration:none}
+.prova-nota{border-top:1px solid var(--line);margin:0 var(--gut);padding:18px 0 40px;color:var(--muto);font-size:13px}
+
+@media (prefers-reduced-motion:reduce){
+  [data-rivela]{opacity:1;transform:none;transition:none}
+  .nastro div,.cursore{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="lettura" id="lettura"></div>
+
+<header class="testata" id="testata">
+  <a class="logo" href="#inizio" aria-label="Stefano Pontalti, inizio">SP<i>.</i></a>
+  <nav aria-label="Sezioni"><ul class="voci">
+    <li><a href="#lavori">Lavori<sup>01</sup></a></li>
+    <li><a href="#metodo">Metodo<sup>02</sup></a></li>
+    <li><a href="#servizi">Servizi<sup>03</sup></a></li>
+    <li><a href="#prezzi">Prezzi<sup>04</sup></a></li>
+  </ul></nav>
+  <a class="bottone pieno" href="https://wa.me/393716863533?text=Ciao%20Stefano%2C%20ho%20visto%20il%20tuo%20sito">Scrivimi</a>
+</header>
+
+<main id="inizio">
+  <section class="apertura" aria-label="Apertura">
+    <h1 class="solo-lettori">Stefano Pontalti: siti web, automazioni AI e social per attività locali in Trentino</h1>
+    <canvas id="vetro" aria-hidden="true"></canvas>
+    <div class="senza-3d" aria-hidden="true"><p>Stefano<br>Pontalti<i>.</i></p></div>
+    <div class="fatti" aria-hidden="true"><span>Civezzano</span><span>Trentino</span></div>
+    <div class="sotto-vetro">
+      <p class="battuta">Siti web e automazioni AI per <b id="chi">ristoranti</b><span class="cursore" aria-hidden="true"></span></p>
+      <div class="azioni">
+        <a class="bottone pieno" href="https://wa.me/393716863533?text=Ciao%20Stefano%2C%20vorrei%20il%20prototipo%20gratuito">Il prototipo è gratis</a>
+        <a class="bottone vuoto" href="#lavori">Guarda i lavori</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="nastro" aria-hidden="true"><div>
+    <span>Siti web</span><span>Automazioni AI</span><span>Google Business</span><span>Social media</span><span>Assistenza continua</span>
+    <span>Siti web</span><span>Automazioni AI</span><span>Google Business</span><span>Social media</span><span>Assistenza continua</span>
+  </div></div>
+
+  <section class="sezione lavori" id="lavori">
+    <div class="capo">
+      <h2 data-rivela>Lavori<i>.</i></h2>
+      <div class="frecce" data-rivela style="--i:1"><button type="button" id="lav-prec" aria-label="Lavoro precedente">←</button><button type="button" id="lav-succ" aria-label="Lavoro successivo">→</button></div>
+    </div>
+    <div class="binario" id="binario">
+      <a class="lavoro" href="https://panoramalagodicaldonazzo.com/" target="_blank" rel="noopener" data-rivela>
+        <div class="schermo"><img src="assets/lavori/panorama-desk.webp" alt="Il sito di Panorama Pizzeria sul Lago" loading="lazy" width="1200" height="750"><div class="telefono"><img src="assets/lavori/panorama-mob.webp" alt="" loading="lazy" width="390" height="844"></div></div>
+        <div class="didascalia"><div><h3>Panorama</h3><p>Pizzeria sul lago · Calceranica</p></div><div class="etichette"><span>Sito</span><span>Menù</span></div></div>
+      </a>
+      <a class="lavoro" href="https://fiorincanto.com/" target="_blank" rel="noopener" data-rivela style="--i:1">
+        <div class="schermo"><img src="assets/lavori/fiorincanto-desk.webp" alt="Il sito di Fiori Incanto" loading="lazy" width="1200" height="750"><div class="telefono"><img src="assets/lavori/fiorincanto-mob.webp" alt="" loading="lazy" width="390" height="844"></div></div>
+        <div class="didascalia"><div><h3>Fiori Incanto</h3><p>Bottega floreale · Levico Terme</p></div><div class="etichette"><span>SEO</span><span>Google</span></div></div>
+      </a>
+      <a class="lavoro" href="https://porfidigommevirgilio.com/" target="_blank" rel="noopener" data-rivela style="--i:2">
+        <div class="schermo"><img src="assets/lavori/porfidi-desk.webp" alt="Il sito di Porfidi Gomme" loading="lazy" width="1200" height="750"><div class="telefono"><img src="assets/lavori/porfidi-mob.webp" alt="" loading="lazy" width="390" height="844"></div></div>
+        <div class="didascalia"><div><h3>Porfidi Gomme</h3><p>Pneumatici · Fornace</p></div><div class="etichette"><span>Sito</span></div></div>
+      </a>
+      <a class="lavoro" href="https://www.valeroad.it/" target="_blank" rel="noopener" data-rivela style="--i:3">
+        <div class="schermo"><img src="assets/lavori/valeroad-desk.webp" alt="Il sito di Valeroad" loading="lazy" width="1200" height="750"><div class="telefono"><img src="assets/lavori/valeroad-mob.webp" alt="" loading="lazy" width="390" height="844"></div></div>
+        <div class="didascalia"><div><h3>Valeroad</h3><p>Soccorso stradale · Villa Lagarina</p></div><div class="etichette"><span>Sito</span></div></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sezione metodo" id="metodo">
+    <div class="capo">
+      <h2 data-rivela>Prima te lo faccio vedere.</h2>
+      <p data-rivela style="--i:1">Niente presentazioni e niente preventivi al buio: il primo passo è un prototipo vero della tua attività, gratis.</p>
+    </div>
+    <div class="passi" id="passi">
+      <article class="passo"><span class="num" aria-hidden="true">01</span><div><h3>Il prototipo, gratis</h3><p>Con le tue foto, il tuo menù o listino, i tuoi orari. In pochi giorni ti mando un link da aprire dal telefono.</p><p>Lo guardi e decidi senza impegno: se ti piace partiamo, se no ci siamo conosciuti.</p></div></article>
+      <article class="passo"><span class="num" aria-hidden="true">02</span><div><h3>Decidi tu</h3><p>Se il prototipo ti convince, ti dico il prezzo, dentro una delle tre fasce qui sotto. Si parte con un acconto del 40%, il resto alla consegna.</p></div></article>
+      <article class="passo"><span class="num" aria-hidden="true">03</span><div><h3>Costruisco</h3><p>Dal prototipo al sito vero in 2-4 settimane. Correggiamo insieme finché è tuo, e penso io a dominio e hosting.</p></div></article>
+      <article class="passo"><span class="num" aria-hidden="true">04</span><div><h3>Consegno, e resto</h3><p>Sito online, ti mostro come cambiare le cose da solo. Poi rimango per aggiornamenti e nuove idee: un messaggio e ci sono.</p></div></article>
+    </div>
+    <div class="pista">
+      <span class="quale" id="quale">PASSO 1</span>
+      <div class="riga" id="riga"><i id="riempi"></i></div>
+      <div class="frecce"><button type="button" id="pas-prec" aria-label="Passo precedente">←</button><button type="button" id="pas-succ" aria-label="Passo successivo">→</button></div>
+    </div>
+  </section>
+
+  <section class="sezione" id="servizi">
+    <div class="capo"><h2 data-rivela>Cosa faccio<i>.</i></h2><p data-rivela style="--i:1">Lavoro con le attività che campano su chi entra dalla porta. Parli direttamente con chi progetta, costruisce e mantiene.</p></div>
+    <ul class="servizi">
+      <li data-rivela><a href="https://stefanopontalti.com/servizi/siti-web.html"><span class="n">01</span><h3>Siti web</h3><p>Veloci, pensati per il telefono e per far prenotare. Il menù si aggiorna in un minuto.</p><span class="va" aria-hidden="true">→</span></a></li>
+      <li data-rivela style="--i:1"><a href="https://stefanopontalti.com/servizi/automazioni-ai.html"><span class="n">02</span><h3>Automazioni AI</h3><p>Un assistente che risponde sul sito e prenotazioni online. Lavorano mentre tu sei in negozio.</p><span class="va" aria-hidden="true">→</span></a></li>
+      <li data-rivela style="--i:2"><a href="https://stefanopontalti.com/servizi/google-business.html"><span class="n">03</span><h3>Google Business</h3><p>La scheda che compare quando cercano «vicino a me»: foto vere, orari giusti.</p><span class="va" aria-hidden="true">→</span></a></li>
+      <li data-rivela style="--i:3"><a href="https://stefanopontalti.com/servizi/social-media.html"><span class="n">04</span><h3>Social media</h3><p>Tu fai le foto, i post li preparo io. Caroselli e video con i tuoi lavori.</p><span class="va" aria-hidden="true">→</span></a></li>
+      <li data-rivela style="--i:4"><a href="https://stefanopontalti.com/servizi/assistenza.html"><span class="n">05</span><h3>Assistenza</h3><p>Non sparisco dopo la consegna: aggiornamenti e manutenzione, con un messaggio.</p><span class="va" aria-hidden="true">→</span></a></li>
+    </ul>
+  </section>
+
+  <section class="sezione" id="prezzi">
+    <div class="capo"><h2 data-rivela>Quanto costa<i>.</i></h2><p data-rivela style="--i:1">Prezzo una tantum: il sito è tuo. Il prezzo esatto te lo dico dopo il prototipo.</p></div>
+    <div class="fasce">
+      <article class="fascia" data-rivela><h3>Sito vetrina</h3><p class="prezzo">800 – 1.200 € <small>una tantum</small></p><ul><li>Home, chi siamo, menù o listino, contatti</li><li>Fatto per il telefono</li><li>SEO di base</li><li>Ti insegno a gestirlo</li></ul></article>
+      <article class="fascia su" data-rivela style="--i:1"><span class="tag">Il più scelto</span><h3>Sito completo</h3><p class="prezzo">1.500 – 2.500 € <small>una tantum</small></p><ul><li>Tutto del sito vetrina</li><li>Menù digitale, eventi, recensioni</li><li>SEO locale</li><li>Google Maps e social collegati</li></ul></article>
+      <article class="fascia" data-rivela style="--i:2"><h3>Sito avanzato</h3><p class="prezzo">2.500 – 4.000 € <small>una tantum</small></p><ul><li>Tutto del sito completo</li><li>Design unico</li><li>Prenotazioni online</li><li>Collegamento al gestionale</li></ul></article>
+    </div>
+    <p class="nota-prezzi" data-rivela>Assistenza, assistente AI e social hanno un canone a parte, con disdetta di 30 giorni.</p>
+  </section>
+
+  <section class="finale" aria-label="Contatti">
+    <span class="grande" aria-hidden="true">SP.</span>
+    <h2 data-rivela>Raccontami l'attività.</h2>
+    <p data-rivela style="--i:1">Rispondo io, non un segretario automatico. Anche se, volendo, te ne costruisco uno.</p>
+    <div class="azioni" data-rivela style="--i:2"><a class="bottone" href="https://wa.me/393716863533?text=Ciao%20Stefano%2C%20ho%20visto%20il%20tuo%20sito">Scrivimi su WhatsApp</a><a class="bottone vuoto" href="mailto:stefanopontalti07@gmail.com">Email</a></div>
+  </section>
+</main>
+
+<footer class="piede">
+  <span>© 2026 Stefano Pontalti · P. IVA 02849390220 · Civezzano (TN)</span>
+  <a href="#inizio">Torna su ↑</a>
+</footer>
+<p class="prova-nota">Pagina di prova, non è il sito online. Il sito vero resta stefanopontalti.com.</p>
+
+<script>
+(() => {
+  const ridotto = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- il vetro: WebGL, un blob di vetro che piega il nome ---------- */
+  const cv = document.getElementById('vetro');
+  const gl = cv.getContext('webgl', {antialias:false, premultipliedAlpha:false});
+  if (!gl) { document.documentElement.classList.add('no-gl'); }
+  else {
+    const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    const fs = `precision highp float;
+uniform vec2 R;uniform float T;uniform vec2 M;uniform sampler2D X;uniform float S;
+float sm(float a,float b,float k){float h=clamp(.5+.5*(b-a)/k,0.,1.);return mix(b,a,h)-k*h*(1.-h);}
+float sd(vec3 p){
+  float t=T*.45;
+  vec3 q=p-vec3(M*.35,0.);
+  float d=length(q)-.78*S+.07*S*sin(q.x*4./S+t*2.)*sin(q.y*3.5/S-t*1.6)*sin(q.z*4./S+t);
+  d=sm(d,length(q-vec3(sin(t*1.1)*.75,cos(t*.9)*.45,sin(t*.7)*.3)*S)-.36*S,.38*S);
+  d=sm(d,length(q-vec3(cos(t*.8)*-.8,sin(t*1.3)*.5,cos(t)*.25)*S)-.30*S,.36*S);
+  d=sm(d,length(q-vec3(sin(t*.6+2.)*.35,sin(t*.8+1.)*-.7,.2)*S)-.26*S,.34*S);
+  return d;}
+vec3 nr(vec3 p){vec2 e=vec2(.002,0.);return normalize(vec3(sd(p+e.xyy)-sd(p-e.xyy),sd(p+e.yxy)-sd(p-e.yxy),sd(p+e.yyx)-sd(p-e.yyx)));}
+vec3 amb(vec3 d){
+  vec3 c=mix(vec3(.01,.06,.1),vec3(.47,.72,.84),smoothstep(-.2,1.,d.y));
+  c+=vec3(.98,.49,.24)*pow(max(dot(d,normalize(vec3(-.8,.25,.55))),0.),6.)*1.6;
+  c+=vec3(1.)*pow(max(dot(d,normalize(vec3(.6,.75,.4))),0.),40.)*1.4;
+  return c;}
+void main(){
+  vec2 uv=gl_FragCoord.xy/R;
+  vec2 p=(gl_FragCoord.xy-.5*R)/R.y;
+  vec3 ro=vec3(0.,0.,3.2),rd=normalize(vec3(p,-1.9));
+  float t=0.,h=1.;
+  for(int i=0;i<72;i++){h=sd(ro+rd*t);if(h<.0015||t>6.)break;t+=h;}
+  vec3 bg=texture2D(X,uv).rgb;
+  if(t>6.){gl_FragColor=vec4(bg,1.);return;}
+  vec3 pos=ro+rd*t,n=nr(pos);
+  float fr=pow(1.-max(dot(-rd,n),0.),3.);
+  vec3 rf=refract(rd,n,1./1.45);
+  vec2 o=rf.xy*.26+n.xy*.09;
+  vec3 g=vec3(texture2D(X,uv+o*1.).r,texture2D(X,uv+o*1.07).g,texture2D(X,uv+o*1.14).b);
+  g=g*vec3(.92,.97,1.04)+vec3(.0,.015,.03);
+  vec3 c=mix(g,amb(reflect(rd,n)),.08+.8*fr);
+  c+=vec3(.98,.49,.24)*pow(fr,2.)*.25;
+  gl_FragColor=vec4(c,1.);}`;
+    const sh = (t, s) => { const o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); if (!gl.getShaderParameter(o, gl.COMPILE_STATUS)) throw gl.getShaderInfoLog(o); return o; };
+    try {
+      const pr = gl.createProgram();
+      gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs));
+      gl.linkProgram(pr); gl.useProgram(pr);
+      const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW);
+      const lp = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(lp); gl.vertexAttribPointer(lp, 2, gl.FLOAT, false, 0, 0);
+      const U = n => gl.getUniformLocation(pr, n);
+      const uR = U('R'), uT = U('T'), uM = U('M'), uS = U('S');
+      const tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tex);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+      gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+      gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+      const tc = document.createElement('canvas'), tx = tc.getContext('2d');
+
+      let W = 0, H = 0, scala = 1;
+      const disegnaNome = () => {
+        tc.width = W; tc.height = H;
+        tx.fillStyle = '#020f19'; tx.fillRect(0, 0, W, H);
+        const verticale = H > W * 1.1;
+        const righe = verticale ? ['Stefano', 'Pontalti'] : ['Stefano', 'Pontalti'];
+        let fs = verticale ? W * 0.25 : Math.min(W * 0.155, H * 0.3);
+        tx.font = `800 ${fs}px Archivo, system-ui, sans-serif`;
+        tx.textAlign = 'center'; tx.textBaseline = 'middle';
+        const lh = fs * 0.86, y0 = H * (verticale ? 0.44 : 0.47) - lh / 2;
+        if ('letterSpacing' in tx) tx.letterSpacing = `${-fs * 0.055}px`;
+        tx.fillStyle = '#c9d3da';
+        tx.fillText(righe[0], W / 2, y0);
+        const w2 = tx.measureText(righe[1]).width;
+        tx.fillText(righe[1], W / 2 - fs * 0.1, y0 + lh);
+        tx.fillStyle = '#f97c3d';
+        tx.beginPath(); tx.arc(W / 2 - fs * 0.1 + w2 / 2 + fs * 0.12, y0 + lh + fs * 0.28, fs * 0.075, 0, 7); tx.fill();
+        tx.font = `600 ${Math.max(12, fs * 0.085)}px Archivo, system-ui, sans-serif`;
+        if ('letterSpacing' in tx) tx.letterSpacing = `${fs * 0.03}px`;
+        tx.fillStyle = '#77b8d7';
+        tx.fillText('SITI WEB  ·  AUTOMAZIONI AI  ·  SOCIAL', W / 2, y0 + lh * 1.82);
+        gl.bindTexture(gl.TEXTURE_2D, tex);
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, tc);
+      };
+      const misura = () => {
+        const dpr = Math.min(devicePixelRatio || 1, 1.5);
+        const q = innerWidth < 700 ? 0.8 : 0.75;
+        W = Math.round(cv.clientWidth * dpr * q); H = Math.round(cv.clientHeight * dpr * q);
+        cv.width = W; cv.height = H; gl.viewport(0, 0, W, H);
+        scala = H > W * 1.1 ? 0.44 : 0.6;
+        disegnaNome();
+      };
+      let mx = 0, my = 0, tmx = 0, tmy = 0;
+      addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); tmx = ((e.clientX - r.left) / r.width - .5) * 2; tmy = -((e.clientY - r.top) / r.height - .5) * 2; }, {passive:true});
+      let visibile = true;
+      new IntersectionObserver(es => { visibile = es[0].isIntersecting; if (visibile && !ridotto) requestAnimationFrame(giro); }).observe(cv);
+      const t0 = performance.now();
+      const disegna = (t) => {
+        mx += (tmx - mx) * .05; my += (tmy - my) * .05;
+        gl.uniform2f(uR, W, H); gl.uniform1f(uT, t); gl.uniform2f(uM, mx, my); gl.uniform1f(uS, scala);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
+      };
+      const giro = () => { if (!visibile) return; disegna((performance.now() - t0) / 1000); if (!ridotto) requestAnimationFrame(giro); };
+      const parti = () => { misura(); disegna(2.5); if (!ridotto) requestAnimationFrame(giro); };
+      (document.fonts && document.fonts.load ? document.fonts.load('800 100px Archivo') : Promise.resolve()).then(parti, parti);
+      let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { misura(); disegna((performance.now() - t0) / 1000); }, 150); });
+    } catch (err) { console.warn(err); document.documentElement.classList.add('no-gl'); }
+  }
+
+  /* ---------- la scritta che si batte ---------- */
+  const chi = document.getElementById('chi');
+  const parole = ['ristoranti', 'hotel', 'botteghe', 'saloni', 'cantine', 'aziende'];
+  if (!ridotto) {
+    let i = 0, k = parole[0].length, cancella = true;
+    const passo = () => {
+      const w = parole[i];
+      if (cancella) { k--; chi.textContent = w.slice(0, k); if (k === 0) { cancella = false; i = (i + 1) % parole.length; } setTimeout(passo, k === 0 ? 260 : 55); }
+      else { const w2 = parole[i]; k++; chi.textContent = w2.slice(0, k); if (k === w2.length) { cancella = true; setTimeout(passo, 2000); } else setTimeout(passo, 85); }
+    };
+    setTimeout(passo, 2400);
+  }
+
+  /* ---------- testata, barra di lettura ---------- */
+  const testata = document.getElementById('testata'), lett = document.getElementById('lettura');
+  const sc = () => { const y = scrollY, h = document.documentElement.scrollHeight - innerHeight; testata.classList.toggle('giu', y > 40); lett.style.transform = `scaleX(${h > 0 ? y / h : 0})`; };
+  addEventListener('scroll', sc, {passive:true}); sc();
+
+  /* ---------- rivela ---------- */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visto'); io.unobserve(e.target); } }), {rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('[data-rivela]').forEach(el => io.observe(el));
+
+  /* ---------- binari: lavori e passi ---------- */
+  const binario = (el, prec, succ, dopo) => {
+    const larg = () => el.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(el).columnGap || 0);
+    const agg = () => { const max = el.scrollWidth - el.clientWidth; prec.disabled = el.scrollLeft < 4; succ.disabled = el.scrollLeft > max - 4; if (dopo) dopo(max > 0 ? el.scrollLeft / max : 0); };
+    prec.addEventListener('click', () => el.scrollBy({left:-larg(), behavior:'smooth'}));
+    succ.addEventListener('click', () => el.scrollBy({left:larg(), behavior:'smooth'}));
+    el.addEventListener('scroll', agg, {passive:true}); addEventListener('resize', agg); agg();
+  };
+  const bin = document.getElementById('binario');
+  binario(bin, document.getElementById('lav-prec'), document.getElementById('lav-succ'));
+  /* trascinare col mouse i lavori */
+  let giu = false, x0 = 0, s0 = 0, mosso = false;
+  bin.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; giu = true; mosso = false; x0 = e.clientX; s0 = bin.scrollLeft; bin.classList.add('tira'); });
+  addEventListener('pointermove', e => { if (!giu) return; const d = e.clientX - x0; if (Math.abs(d) > 5) mosso = true; bin.scrollLeft = s0 - d; });
+  addEventListener('pointerup', () => { if (!giu) return; giu = false; bin.classList.remove('tira'); });
+  bin.addEventListener('click', e => { if (mosso) { e.preventDefault(); mosso = false; } }, true);
+
+  const passi = document.getElementById('passi'), riga = document.getElementById('riga'), riempi = document.getElementById('riempi'), quale = document.getElementById('quale');
+  const N = passi.children.length;
+  for (let k = 0; k < N; k++) { const b = document.createElement('button'); b.className = 'tacca'; b.type = 'button'; b.style.left = (k / (N - 1) * 100) + '%'; b.setAttribute('aria-label', 'Passo ' + (k + 1)); b.onclick = () => passi.scrollTo({left: k * passi.clientWidth, behavior:'smooth'}); riga.appendChild(b); }
+  binario(passi, document.getElementById('pas-prec'), document.getElementById('pas-succ'), f => {
+    const k = Math.round(f * (N - 1)); riempi.style.width = (f * 100) + '%'; quale.textContent = 'PASSO ' + (k + 1);
+    riga.querySelectorAll('.tacca').forEach((t, j) => t.classList.toggle('fatta', j <= k));
+  });
+})();
+</script>
+</body>
+</html>
